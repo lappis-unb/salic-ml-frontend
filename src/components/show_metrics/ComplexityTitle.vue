@@ -1,7 +1,7 @@
 <template>
-    <!-- TODO Colocar o cicle progress bar -->
+    <!-- TODO Colocar o cicle progress bar -->  
     <div class="ui clearing basic segment" id="Summary">
-        <div class="clearfix" style="margin-right: 30px;">
+        <div class="clearfix">
             <div id="indicatorContainer"></div>
         </div>
         <h1 class="ui header">
