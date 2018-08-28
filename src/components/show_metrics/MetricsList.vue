@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import MetricCard from "@/components/show_metrics/MetricCard.vue"
+import MetricCard from "@/components/show_metrics/MetricCard.vue";
 
 export default {
   name: "MetricsList",
@@ -15,7 +15,10 @@ export default {
     return {};
   },
   components: {
-      "metric-card": MetricCard
+    "metric-card": MetricCard
+  },
+  mounted: function() {
+    $(".ui.accordion").accordion({ exclusive: false });
   }
 };
 </script>

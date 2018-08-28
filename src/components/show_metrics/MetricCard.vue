@@ -60,22 +60,17 @@
 </template>
 
 <script>
-import $ from 'jquery'
-//import "@/../public/static/js/semantic.min.js"
 
 export default {
   name: "MetricCard",
   data: function() {
     return {};
   },
-  mounted: function () {
-      $(".ui.rating").rating({
-        initialRating: 0,
-        maxRating: 5
-      });
-      
-      $(".ui.accordion").accordion({ exclusive: false });
+  mounted: function() {
+    $(".ui.rating").rating({
+      initialRating: 0,
+      maxRating: 5
+    });
   }
 };
-
 </script>
