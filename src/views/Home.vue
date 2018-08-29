@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    Essa é a home
+    <router-link to="/show">show</router-link>
   </div>
 </template>
 
