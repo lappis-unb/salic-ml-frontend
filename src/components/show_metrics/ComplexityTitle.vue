@@ -1,8 +1,6 @@
 <template>
     <div class="ui clearing basic segment" id="Summary">
-        <div class="clearfix">
-            <div id="indicatorContainer"></div>
-        </div>
+        <div id="indicatorContainer"></div>
         <h1 class="ui header">
             Diagnóstico de complexidade da prestação de contas
         </h1>
@@ -21,7 +19,6 @@ export default {
     value: Number
   },
   mounted: function() {
-    var self = this;
     var radialObj = $("#indicatorContainer")
       .radialIndicator({
         radius: 70,
@@ -37,7 +34,7 @@ export default {
         percentage: true
       })
       .data("radialIndicator");
-    radialObj.value(self.value);
+    radialObj.animate(30);
   }
 };
 </script>

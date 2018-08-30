@@ -11,7 +11,6 @@
         
         <h1>{{ project.name }}</h1>
 
-        <!-- TODO -> v-if or v-show? -->
         <div :v-if="user.name!={}" class="ui basic segment" id="LoggedUser">
             Avaliando como:<br />
             {{user.name}}
@@ -40,7 +39,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 /*************************** 
  ******* Sticky Menu *******
  ***************************/
