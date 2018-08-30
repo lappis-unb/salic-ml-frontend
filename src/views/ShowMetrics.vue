@@ -1,10 +1,11 @@
 <template>
   <div class="show-metrics">
-    <header-show />
+    <header-show :user="user" :project="project" />
     <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
     <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" />
     <project-feedback
-      :project_name="project.name"
+      :user="user"
+      :project="project"
       :project_feedback_list="project_feedback_list"
     />
   </div>
@@ -28,8 +29,13 @@ export default {
   data: function() {
     return {
       indicators: [],
+      user: {
+        name: "Ferdinandinho",
+        email: 'fernandinho@gmail.com'
+      },
       project: {
-        name: "Nome do projeto"
+        name: "Nome do projeto",
+        pronac: "1234"
       },
       project_feedback_list: [
         "Muito simples",
