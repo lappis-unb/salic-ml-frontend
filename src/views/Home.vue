@@ -4,12 +4,21 @@
       <h1>Projetos com Diagnóstico de complexidade</h1>
     </div>
     <router-link to="/show">show</router-link>
+    <div class="ui container">
+      <vuetable></vuetable>
+    </div>
+
   </div>
 </template>
 
 <script>
+import accounting from 'accounting'
+import moment from 'moment'
+import Vuetable from '@/components/home_table/Table.vue'
+
 export default {
-  name: 'home',
-  components: {}
+  components: {
+    Vuetable,
+  },
 }
 </script>
