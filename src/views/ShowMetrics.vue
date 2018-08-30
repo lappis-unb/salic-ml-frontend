@@ -1,8 +1,8 @@
 <template>
   <div class="show-metrics">
     <header-show />
-    <complexity-title :value="indicator.value" />
-    <metrics-list />
+    <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
+    <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" />
     <project-feedback
       :project_name="project.name"
       :project_feedback_list="project_feedback_list"
@@ -15,6 +15,7 @@ import HeaderShow from "@/components/show_metrics/HeaderShow.vue";
 import ComplexityTitle from "@/components/show_metrics/ComplexityTitle.vue";
 import MetricsList from "@/components/show_metrics/MetricsList.vue";
 import ProjectFeedback from "@/components/show_metrics/feedback/ProjectFeedback.vue";
+import axios from "axios";
 
 export default {
   name: "show-metrics",
@@ -26,9 +27,7 @@ export default {
   },
   data: function() {
     return {
-      indicator: {
-        value: 77
-      },
+      indicators: [],
       project: {
         name: "Nome do projeto"
       },
@@ -40,6 +39,22 @@ export default {
         "Muito complexo"
       ]
     };
+  },
+  mounted: function() {
+    var self = this
+    axios
+      .get("http://localhost:3000/project_indicators")
+      .then(function(response) {
+        self.indicators = response.data;
+        // handle success
+      })
+      .catch(function(error) {
+        // handle error
+        // console.log(error);
+      })
+      .then(function() {
+        // always executed
+      });
   }
 };
 </script>
