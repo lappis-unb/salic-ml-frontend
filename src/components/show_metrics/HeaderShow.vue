@@ -21,21 +21,21 @@
 <script>
 export default {
   name: "HeaderShow",
-  data: function() {
-    return {
-      project: {
-        name: "Qualquer",
-        pronac: "12345"
-      },
-      user: {
-        name: "Ferdinando"
-      }
-    };
+  // data: function() {
+  //   return {
+  //     project: {
+  //       name: "Qualquer",
+  //       pronac: "12345"
+  //     },
+  //     user: {
+  //       name: "Ferdinando"
+  //     }
+  //   };
+  // },
+  props: {
+      project: Object,
+      user: Object
   }
-  // props: {
-  //     project: Object,
-  //     user: Object
-  // }
 };
 </script>
 
