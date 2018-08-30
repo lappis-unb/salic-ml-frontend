@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import $ from 'jquery'
 import axios from "axios";
 export default {
   name: "ProjectFeedback",
@@ -36,7 +37,13 @@ export default {
   },
   methods: {
     validatePost: function() {
-      this.user_project_feedback == 0 ? this.showMessage() : this.postData(this.project.pronac, this.user_project_feedback, this.user.email);
+      this.user_project_feedback == 0
+        ? this.showMessage()
+        : this.postData(
+            this.project.pronac,
+            this.user_project_feedback,
+            this.user.email
+          );
     },
     showMessage: function() {
       alert("Avalie o projeto!");

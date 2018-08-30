@@ -10,8 +10,8 @@
         </div>
         
         <h1>{{ project.name }}</h1>
-
-        <div :v-if="user.name!={}" class="ui basic segment" id="LoggedUser">
+    
+        <div v-if="Object.keys(user).length!=0" class="ui basic segment" id="LoggedUser">
             Avaliando como:<br />
             {{user.name}}
         </div>
@@ -21,17 +21,6 @@
 <script>
 export default {
   name: "HeaderShow",
-  // data: function() {
-  //   return {
-  //     project: {
-  //       name: "Qualquer",
-  //       pronac: "12345"
-  //     },
-  //     user: {
-  //       name: "Ferdinando"
-  //     }
-  //   };
-  // },
   props: {
       project: Object,
       user: Object
