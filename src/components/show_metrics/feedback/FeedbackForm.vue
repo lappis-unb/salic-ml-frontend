@@ -28,7 +28,7 @@ export default {
     getRating: function() {
       var rating_values_list = $(".ui.rating").rating("get rating");
       var element = document.getElementsByClassName("rating-star");
-      var classNameAdd = "borda-vermelha";
+      var classNameAdd = "red-border";
     
       for (var i = 0, size = rating_values_list.length; i < size; ++i) {
         !rating_values_list[i]
@@ -37,7 +37,7 @@ export default {
       }
     },
     rmRedBorder: function(element) {
-      element.classList.remove("borda-vermelha");
+      element.classList.remove("red-border");
     }
   }
 };
@@ -61,10 +61,11 @@ export default {
   padding-top: 6px;
   width: 90%;
 }
-.borda-vermelha {
+.red-border {
   border: solid 2px red !important;
   border-radius: 5px !important;
 }
+
 </style>
 
 

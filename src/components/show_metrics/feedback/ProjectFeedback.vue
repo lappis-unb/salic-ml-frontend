@@ -1,24 +1,22 @@
 <template>
   <div class="ui basic segment" id="FinalForm">
-        <form>
-          <div class="ui equal width form project-feedback-container">
-              <div class="header">
-                  Na sua opinião, como você avalia <em>"{{ project.name }}"</em>:
-              </div>
-              <div class="inline fields">
-                  <div class="field" v-for="(grade, index) in project_feedback_list" :key="grade+index">
-                      <div class="ui radio checkbox">
-                          <input type="radio" :required="true" :id="index" :value="index+1" v-model="user_project_feedback">
-                          <label>{{ grade }}</label>
-                      </div>
-                  </div>
-              </div>
+    <div class="ui equal width form project-feedback-container">
+      <div class="header">
+        Na sua opinião, como você avalia <em>"{{ project.name }}"</em>:
+      </div>
+      <div class="inline fields">
+        <div class="field" v-for="(grade, index) in project_feedback_list" :key="grade+index">
+          <div class="ui radio checkbox">
+            <input type="radio" :required="true" :id="index" :value="index+1" v-model="user_project_feedback">
+            <label>{{ grade }}</label>
           </div>
-          <button class="scroll ui huge primary button" type="submit" v-on:click="validatePost()">
-              Terminar Diagnóstico
-          </button>
-        </form>
+        </div>
+      </div>
     </div>
+    <button class="scroll ui huge primary button" type="submit" v-on:click="validatePost()">
+        Terminar Diagnóstico
+    </button>
+  </div>
 </template>
 
 <script>
