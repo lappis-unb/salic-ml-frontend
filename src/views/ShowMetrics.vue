@@ -31,7 +31,7 @@ export default {
     "complexity-title": ComplexityTitle,
     "metrics-list": MetricsList,
     "project-feedback": ProjectFeedback,
-    "user-login": UserLogin
+    "user-login": UserLogin,
   },
   data: function() {
     return {
@@ -47,7 +47,7 @@ export default {
         "Normal",
         "Complexo",
         "Muito complexo"
-      ]
+      ],
     };
   },
   mounted: function() {

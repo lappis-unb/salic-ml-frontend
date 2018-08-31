@@ -1,9 +1,9 @@
 <template>
     <div class="ui clearing basic segment" id="Summary">
-        <div id="indicatorContainer"></div>
-        <h1 class="ui header">
-            Diagnóstico de complexidade da prestação de contas
-        </h1>
+      <div id="indicatorContainer"></div>
+      <h1 class="ui header">
+          Diagnóstico de complexidade da prestação de contas
+      </h1>
     </div>
 </template>
 
@@ -13,7 +13,9 @@ import radialIndicator from "@/../public/assets/js/radialIndicator.js";
 export default {
   name: "ComplexityTitle",
   data: function() {
-    return {};
+    return {
+      indicator_value: Math.round(this.value)
+    };
   },
   props: {
     value: Number
@@ -25,16 +27,18 @@ export default {
         barColor: {
           0: "#1B5E20",
           30: "#F2B01C",
-          80: "#DB2828"
+          80: "#DB2828",
+          100: "#DB2828",
         },
         maxValue: 100,
         barWidth: 10,
         initValue: 0,
         roundCorner: true,
-        percentage: true
+        percentage: true,
       })
       .data("radialIndicator");
-    radialObj.animate(30);
+    
+    radialObj.animate(this.indicator_value);
   }
 };
 </script>
