@@ -13,6 +13,15 @@
         </div>
       </div>
     </div>
+     <div class="ui modal" id="erro-star">
+        <div class="header">Pendência de avaliações</div>
+        <div class="content">
+            <p>Por favor, avalie o projeto e todas as métricas através das estrelinhas.</p>
+        </div>
+        <div class="actions">
+            <button class="ui primary cancel button" id="confirmation-rating">Ok, avaliarei!</button>
+        </div>
+      </div>
     <button class="scroll ui huge primary button" type="submit" v-on:click="validatePost()">
         Terminar Diagnóstico
     </button>
@@ -20,7 +29,7 @@
 </template>
 
 <script>
-import $ from "jquery";
+//import $ from "jquery";
 import axios from "axios";
 export default {
   name: "ProjectFeedback",
@@ -37,7 +46,7 @@ export default {
   },
   methods: {
     validatePost: function() {
-      this.user_project_feedback == 0
+      (this.getRating() || this.user_project_feedback == 0)
         ? this.showMessage()
         : this.postData(
             this.project.pronac,
@@ -46,15 +55,36 @@ export default {
           );
     },
     showMessage: function() {
-      alert("Avalie o projeto!");
+      $('#erro-star').modal('show')
+    },
+    getRating: function() {
+      console.log("Marcando as estrelinhas");
+      var rating_values_list = $(".ui.rating").rating("get rating");
+      var element = document.getElementsByClassName("rating-star");
+      var classNameAdd = "red-border";
+
+      var found = false;
+      for (var i = 0, size = rating_values_list.length; i < size; ++i) {
+        if (!rating_values_list[i]) {
+          element[i].classList.add(classNameAdd)
+          found = true;
+        }
+        else this.rmRedBorder(element[i]);
+      }
+      console.log(found)
+      return found;
+    },
+    rmRedBorder: function(element) {
+      element.classList.remove("red-border");
     },
     postData: function(pronac, user_rating, user_email) {
       console.log(pronac, user_rating, user_email);
+      var self = this
       //   axios
       //     .post(this.url, {
       //       pronac: pronac,
       //       rating: user_rating,
-      //       user_email: user_email
+      //       user_email: self.user_email
       //     })
       //     .then(function(response) {
       //       console.log(response);

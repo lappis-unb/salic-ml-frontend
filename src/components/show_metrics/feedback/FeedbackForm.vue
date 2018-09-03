@@ -40,18 +40,14 @@ export default {
   },
   methods: {
     getRating: function() {
-      var rating_list = $('.ui.rating').rating('get rating');
-      this.rating = rating_list[this.index]
-
-      console.log(this.rating, "este é o rating");
       var rating_values_list = $(".ui.rating").rating("get rating");
       var element = document.getElementsByClassName("rating-star");
-      var classNameAdd = "red-border";
+
+      this.rating = rating_values_list[this.index]
+      console.log(this.rating, "este é o rating");
 
       for (var i = 0, size = rating_values_list.length; i < size; ++i) {
-        !rating_values_list[i]
-          ? element[i].classList.add(classNameAdd)
-          : this.rmRedBorder(element[i]);
+        !rating_values_list[i] ? "" : this.rmRedBorder(element[i]);
       }
     },
     rmRedBorder: function(element) {
