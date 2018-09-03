@@ -13,7 +13,7 @@
           <div class="content active" :class="metric.outlier_check">
               <metric-content :metric="metric" />
               <div class="ui divider"></div>
-              <feedback-form />
+              <feedback-form :user="user" :metric_id="15" :index="index" />
           </div>
       </div>
   </div>
@@ -30,7 +30,8 @@ export default {
     return {};
   },
   props: {
-    metrics: Array
+    metrics: Array,
+    user: Object
   },
   components: {
     "feedback-form": FeedbackForm,
