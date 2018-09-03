@@ -3,7 +3,7 @@
     <header-show :user="user" :project="project" />
     <span v-if="Object.keys(user).length!=0">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
-      <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" />
+      <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" :user="user" />
       <project-feedback
         :user="user"
         :project="project"

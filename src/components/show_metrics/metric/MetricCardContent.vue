@@ -1,5 +1,6 @@
 <template>
     <div>
+      <!--
 			<div class="ui pointing below label" id="MedianDisplay-Project">
 				Este projeto
 			</div>
@@ -8,7 +9,8 @@
 					<div class="progress"></div>
 				</div>
 			</div>
-			<p>{{metric.reason}}</p>
+      -->
+			<p>{{metric.reason}}-</p>
 	</div>
 </template>
 
@@ -28,7 +30,8 @@ export default {
     };
   },
   mounted: function() {
-		var self = this
+		/*
+    var self = this
     $("#bar").progress({
       label: "ratio",
       text: {
@@ -48,7 +51,7 @@ export default {
       // Project
       var value = "50";
       x.style.left = value - 3 + "%";
-    }
+    }*/
   }
   // props: {
   //   metric: Object
