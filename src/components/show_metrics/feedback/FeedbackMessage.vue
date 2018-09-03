@@ -1,11 +1,11 @@
 <template>
-    <div class="ui info message">
+    <div class="ui message" :class="message.type">
     <i class="close icon"></i>
     <div class="header">
-        Sucesso ao enviar o feedback
+        {{message.title}}
     </div>
     <ul class="list">
-        <li>Agradecemos pelo seu feedback!</li>
+        <li>{{message.text}}</li>
     </ul>
 </div>
 </template>
@@ -19,6 +19,9 @@ export default {
         .closest(".message")
         .transition("fade");
     });
+  },
+  props: {
+    message: Object
   }
 };
 </script>
