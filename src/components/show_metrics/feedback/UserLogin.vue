@@ -41,7 +41,7 @@ export default {
         name: "",
         email: ""
       },
-      url: "http://localhost:3000/user",
+      url: "http://192.168.1.102:8080/indicators/create_single_user",
       message: {
         show_message: false,
         title: "Erro",
@@ -72,7 +72,7 @@ export default {
           console.log(response);
         })
         .catch(function(error) {
-          console.log("Não deu bom");
+          console.log("Post user error");
           console.log(error);
           self.message.show_message = true;
         });

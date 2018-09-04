@@ -1,5 +1,7 @@
 <template>
     <div>
+      <span v-if="metric.type=='bar'">
+      oi
       <!--
 			<div class="ui pointing below label" id="MedianDisplay-Project">
 				Este projeto
@@ -10,6 +12,57 @@
 				</div>
 			</div>
       -->
+      </span>
+      <span v-else-if="metric.type=='list-items'">
+        <div class="ui grid">
+						<div class="eight wide column">
+							<div class="list header">Itens inesperados</div>
+							<div class="ui bulleted list">                          
+								<div class="item"><a href="#">Nome do Item 1</a></div>
+							</div>
+						</div>
+						<div class="eight wide column">
+							<div class="list header">Itens ausentes</div>
+							<div class="ui bulleted list">                          
+								<div class="item"><a href="#">Nome do Item 1</a></div>
+							</div>
+						</div>
+        </div>
+      </span>
+      <span v-else-if="metric.type=='list-proponents'">
+        <div class="ui bulleted list">
+          <div class="item"><a href="#">Nome do projeto 1</a></div>
+          <div class="item"><a href="#">Nome do projeto 2</a></div>
+          <div class="item"><a href="#">Nome do projeto 3</a></div>
+        </div>
+      </span>
+      <span v-else-if="metric.type=='list-fornecedores'">
+        <div class="accordion">
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Novo Fornecedor A
+            </div>
+            <div class="content">
+              <div class="ui bulleted list">                          
+                <div class="item"><a href="#">Nome do item 1</a></div>   
+                <div class="item"><a href="#">Nome do item 2</a></div>   
+                <div class="item"><a href="#">Nome do item 3</a></div>   
+              </div> 		
+            </div>
+            <div class="title">
+              <i class="dropdown icon"></i>
+              Novo Fornecedor B
+            </div>
+            <div class="content">
+              <div class="ui bulleted list">                          
+                <div class="item"><a href="#">Nome do item 1</a></div>   
+                <div class="item"><a href="#">Nome do item 2</a></div>   
+                <div class="item"><a href="#">Nome do item 3</a></div>   
+              </div> 		
+            </div>
+          </div>
+        </span>
+       
 			<p>{{metric.reason}}-</p>
 	</div>
 </template>
@@ -20,6 +73,7 @@ export default {
   data: function() {
     return {
       metric: {
+        type: 'list-proponents',
         interval_start: 30,
         interval_end: 70,
         bar: {
