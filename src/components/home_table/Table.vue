@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     pronacLabel(value) {
-      return '<span class="ui teal label">'+ 1234 +'</span>'
+      return '<router-link to="/show" class="ui teal label">'+ 1234 +'</router-link>'
     },
     onPaginationData (paginationData) {
       this.$refs.pagination.setPaginationData(paginationData)
@@ -102,6 +102,7 @@ export default {
     onCellClicked (data, field, event) {
       console.log('cellClicked: ', field.name)
       //this.$refs.vuetable.toggleDetailRow(data.id)
+      this.$router.push({ path: `/show` }) 
     },
     onFilterSet (filterText) {
       this.moreParams.filter = filterText

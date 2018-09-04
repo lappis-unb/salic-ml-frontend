@@ -1,6 +1,7 @@
 <template>
   <div class="show-metrics">
     <header-show :user="user" :project="project" />
+    {{user}}
     <span v-if="Object.keys(user).length!=0">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
       <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" :user="user" />
@@ -53,14 +54,15 @@ export default {
   mounted: function() {
     var self = this;
     axios
-      .get("http://localhost:3000/project_indicators")
+      .get("http://192.168.1.102:8080/indicators/project_info/153833")
       .then(function(response) {
-        self.indicators = response.data;
+        self.indicators = JSON.parse(response.request.response);
+        console.log("Deu bom", self.indicators)
         // handle success
       })
       .catch(function(error) {
         // handle error
-        // console.log(error);
+        console.log("Get error", error);
       })
       .then(function() {
         // always executed
