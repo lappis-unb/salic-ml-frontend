@@ -24,7 +24,7 @@ export default {
     return {
       rating: "",
       text: "",
-      url: "http://localhost:3000/user"
+      url: "http://192.168.1.102:8080/indicators/send_metric_feedback"
     }
   },
   props: {
@@ -55,12 +55,18 @@ export default {
     },
     setData: function() {
       var self = this
+      console.log({
+          user_email: self.user.email,
+          metric_id: self.metric_id,          
+          metric_feedback_rating: self.rating,
+          metric_feedback_text: self.text
+        })
       axios
         .post(this.url, {
-          user: self.user,
-          rating: self.rating,
-          text: self.text,
-          metric_id: self.metric_id          
+          user_email: self.user.email,
+          metric_id: self.metric_id,          
+          metric_feedback_rating: self.rating,
+          metric_feedback_text: self.text
         })
         .then(function(response) {
           console.log(response);

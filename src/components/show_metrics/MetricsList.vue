@@ -13,7 +13,7 @@
           <div class="content active" :class="metric.outlier_check">
               <metric-content :metric="metric" />
               <div class="ui divider"></div>
-              <feedback-form :user="user" :metric_id="15" :index="index" />
+              <feedback-form :user="user" :metric_id="metric.metric_id" :index="index" />
           </div>
       </div>
   </div>
@@ -67,20 +67,17 @@ export default {
 .ui.styled.accordion .accordion {
   box-shadow: none !important;
   margin-top: -1em !important;
-  border: solid 2px yellow !;
 }
 
 .ui.styled.accordion .accordion .title {
   border: none !important;
-  color: red !important;
+  color: black !important;
   padding-left: 0 !important;
   padding-bottom: 0 !important;
-  border: solid 2px yellow;
 }
 
 .ui.styled.accordion .accordion .content {
   padding-left: 1.6em !important;
-  border: solid 2px yellow;
 }
 
 /*************************** 
