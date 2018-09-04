@@ -15,7 +15,11 @@ export default new Router({
     {
       path: '/show',
       name: 'show',
-      component: ShowMetrics
+      component: ShowMetrics,
+      props: route => {
+        console.log("este é o route" ,route.params.pronac)
+        return { pronac: route.params.pronac};
+      }
     }
   ]
 })

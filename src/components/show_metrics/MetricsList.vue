@@ -1,21 +1,21 @@
 <template>
   <div class="ui basic segment" id="DiagnosticArea">
-      <div v-for="(metric,index) in metrics" :key="metric.name+index"
-          class="ui styled fluid accordion" id="DiagnosticMetrics">
-          <div class="title active" :class="metric.outlier_check">
-              <div class="ui ribbon label">
-                  <i class="icon"></i>
-              </div>
-              <span>{{metric.name_title}}: {{metric.value}}</span>
-              <helper-metric :helper_text="metric.helper_text"/>
-              <i class="dropdown icon"></i>
-          </div>
-          <div class="content active" :class="metric.outlier_check">
-              <metric-content :metric="metric" />
-              <div class="ui divider"></div>
-              <feedback-form :user="user" :metric_id="metric.metric_id" :index="index" />
-          </div>
+    <div v-for="(metric,index) in metrics" :key="metric.name+index"
+      class="ui styled fluid accordion" id="DiagnosticMetrics">
+      <div class="title active" :class="metric.outlier_check">
+        <div class="ui ribbon label">
+          <i class="icon"></i>
+        </div>
+        <span>{{metric.name_title}}: {{metric.value}}</span>
+        <helper-metric :helper_text="metric.helper_text"/>
+        <i class="dropdown icon"></i>
       </div>
+      <div class="content active" :class="metric.outlier_check">
+        <metric-content :metric="metric" />
+        <div class="ui divider"></div>
+        <feedback-form :user="user" :metric_id="metric.metric_id" :index="index" />
+      </div>
+    </div>
   </div>
 </template>
 

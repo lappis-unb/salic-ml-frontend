@@ -3,14 +3,14 @@
       <span v-if="metric.type=='bar'">
       barra
       <!--
-			<div class="ui pointing below label" id="MedianDisplay-Project">
-				Este projeto
-			</div>
-			<div class="ui progress" :data-value="metric.bar.interval" :data-total="metric.bar.max_value" id="bar">
-				<div class="bar" id="barra">
-					<div class="progress"></div>
-				</div>
-			</div>
+        <div class="ui pointing below label" id="MedianDisplay-Project">
+          Este projeto
+        </div>
+        <div class="ui progress" :data-value="metric.bar.interval" :data-total="metric.bar.max_value" id="bar">
+          <div class="bar" id="barra">
+            <div class="progress"></div>
+          </div>
+        </div>
       -->
       </span>
       <span v-else-if="metric.type=='items-list'">
@@ -97,7 +97,8 @@ export default {
       // Project
       var value = "50";
       x.style.left = value - 3 + "%";
-    }*/
+    }
+    */
   },
   props: {
     metric: Object

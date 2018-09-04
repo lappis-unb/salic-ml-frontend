@@ -1,5 +1,6 @@
 <template>
   <div class="show-metrics">
+  {{url}}
     <header-show :user="user" :project="project" />
     <span v-if="Object.keys(user).length!=0">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
@@ -45,8 +46,12 @@ export default {
         "Complexo",
         "Muito complexo"
       ],
-      url: "http://192.168.1.102:8080/indicators/project_info/153833"
+      url: "http://192.168.10.177:8080/indicators/project_info/" + this.pronac
+      //url: "http://localhost:3000/project_indicators"
     };
+  },
+  props: {
+    pronac: String
   },
   mounted: function() {
     var self = this;
@@ -56,7 +61,7 @@ export default {
         var res = JSON.parse(JSON.stringify(response.data));
         self.indicators = res.project_indicators;
         self.project = res.project
-        console.log("Deu bom", res.project)
+        // console.log("Deu bom", res.project)
         // handle success
       })
       .catch(function(error) {
