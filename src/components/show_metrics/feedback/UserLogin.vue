@@ -41,7 +41,8 @@ export default {
         name: "",
         email: ""
       },
-      url: "http://192.168.1.102:8080/indicators/create_single_user",
+      url: "http://192.168.10.177:8080/indicators/create_single_user",
+      //url: "http://localhost:3000/user",
       message: {
         show_message: false,
         title: "Erro",

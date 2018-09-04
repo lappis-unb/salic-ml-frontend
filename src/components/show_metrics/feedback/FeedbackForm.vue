@@ -2,13 +2,13 @@
     <div class="ui fedback form">
         <div class="header">Quanto essa informação é útil para você?</div>
         <div class="fields">
-            <div class="four wide field rating-star" @click="getRating(this)">
+            <div class="four wide field rating-star" @click="getRating(this)" v-on:click="setData()">
                 <div class="ui massive star rating" name="itens_orcamentarios_rating"></div>
             </div>
             <div class="inline field">
                 <input placeholder="Por quê?" size="50" type="text" name="itens_orcamentarios_text" v-model="text">
             </div>
-            <button class="ui primary button"  v-on:click="setData()">
+            <button class="ui primary button">
               Save
             </button>
         </div>
