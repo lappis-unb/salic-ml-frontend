@@ -72,8 +72,7 @@ export default {
           dataClass: 'center aligned',
         }
       ],
-      sortOrder: [
-      ],
+      sortOrder: [],
       moreParams: {
 
       }
@@ -107,7 +106,7 @@ export default {
     },
     onFilterSet (filterText) {
       this.moreParams.filter = filterText
-      // console.log('Entrou aqui', filterText)
+      console.log('Entrou aqui', filterText)
       Vue.nextTick( () => this.$refs.vuetable.refresh() )
     },
     onFilterReset () {
