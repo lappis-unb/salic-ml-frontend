@@ -4,7 +4,7 @@
 <!-- api-url="http://localhost:3000/projects" -->
     <filter-bar></filter-bar>
     <vuetable ref="vuetable"
-      api-url="https://vuetable.ratiw.net/api/users"
+      api-url="http://192.168.10.177:8080/indicators/projects/search/any/1"
       :fields="fields"
       pagination-path=""
       :per-page="20"
@@ -46,39 +46,37 @@ export default {
   },
   data () {
     return {
+      pronac: "",
       fields: [
         {
           name: 'pronac',
-          sortField: 'pronac',
+          // sortField: 'pronac',
           titleClass: 'center aligned',
           dataClass: 'center aligned',
           callback: 'pronacLabel'
         },
+        // {
+        //   name: 'complexity',
+        //   sortField: 'complexity',
+        //   titleClass: 'center aligned',
+        //   dataClass: 'center aligned',
+        // }, 
         {
-          name: 'complexity',
-          sortField: 'complexity',
-          titleClass: 'center aligned',
-          dataClass: 'center aligned',
-        }, 
-        {
-          name: 'name',
-          sortField: 'name'
+          name: 'project_name',
+          // sortField: 'project_name'
         },
         {
-          name: 'assignee',
-          sortField: 'assignee',
+          name: 'analist',
+          // sortField: 'analist',
           titleClass: 'center aligned',
           dataClass: 'center aligned',
         }
       ],
       sortOrder: [
-        {
-          field: 'name',
-          sortField: 'name',
-          direction: 'asc'
-        }
       ],
-      moreParams: {}
+      moreParams: {
+
+      }
     }
   },
   mounted () {
@@ -87,26 +85,29 @@ export default {
   },
   methods: {
     pronacLabel(value) {
-      return '<router-link to="/show" class="ui teal label">'+ 1234 +'</router-link>'
+      this.pronac = value
+      return '<p class="ui teal label">'+ value +'</p>'
     },
     onPaginationData (paginationData) {
       this.$refs.pagination.setPaginationData(paginationData)
       this.$refs.paginationInfo.setPaginationData(paginationData)
     },
     onChangePage (page) {
+      // console.log(page, "olha eu aqui")
       this.$refs.vuetable.changePage(page)
     },
     onAction (action, data, index) {
-      console.log('slot action: ' + action, data.name, index)
+      console.log('slot action: ' + action, data.project_name, index)
     },
     onCellClicked (data, field, event) {
-      console.log('cellClicked: ', field.name)
       //this.$refs.vuetable.toggleDetailRow(data.id)
-      this.$router.push({ path: `/show` }) 
+      console.log(this.pronac)
+      console.log("VERIFICAR ISSO",data , field, event)
+      this.$router.push({ name: 'show', params: { pronac: this.pronac }}) 
     },
     onFilterSet (filterText) {
       this.moreParams.filter = filterText
-      console.log('Entrou aqui')
+      // console.log('Entrou aqui', filterText)
       Vue.nextTick( () => this.$refs.vuetable.refresh() )
     },
     onFilterReset () {

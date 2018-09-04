@@ -5,7 +5,7 @@
         <label>Pesquisar por:</label>
         <input type="text" v-model="filterText" class="three wide column" @keyup.enter="doFilter" placeholder="nome, pronac">
         <button class="ui primary button" @click="doFilter">Go</button>
-        <button class="ui button" @click="resetFilter">Reset</button>
+        <!--<button class="ui button" @click="resetFilter">Reset</button>-->
       </div>
     </div>
   </div>
