@@ -1,7 +1,7 @@
 <template>
     <div>
       <span v-if="metric.type=='bar'">
-      oi
+      barra
       <!--
 			<div class="ui pointing below label" id="MedianDisplay-Project">
 				Este projeto
@@ -13,57 +13,49 @@
 			</div>
       -->
       </span>
-      <span v-else-if="metric.type=='list-items'">
+      <span v-else-if="metric.type=='items-list'">
         <div class="ui grid">
 						<div class="eight wide column">
 							<div class="list header">Itens inesperados</div>
 							<div class="ui bulleted list">                          
-								<div class="item"><a href="#">Nome do Item 1</a></div>
+								<div v-for="(item, index) in metric.uncommon_items" :key="item+index" class="item">
+                  <a :href="item.link">{{item.name}}</a>
+                </div>
 							</div>
 						</div>
 						<div class="eight wide column">
 							<div class="list header">Itens ausentes</div>
 							<div class="ui bulleted list">                          
-								<div class="item"><a href="#">Nome do Item 1</a></div>
+								<div v-for="(item, index) in metric.common_items_not_in_project" :key="item+index+index" class="item">
+                <a :href="item.link">{{item.name}}</a></div>
 							</div>
 						</div>
         </div>
       </span>
-      <span v-else-if="metric.type=='list-proponents'">
+      <span v-else-if="metric.type=='proponents-list'">
         <div class="ui bulleted list">
-          <div class="item"><a href="#">Nome do projeto 1</a></div>
-          <div class="item"><a href="#">Nome do projeto 2</a></div>
-          <div class="item"><a href="#">Nome do projeto 3</a></div>
+          <div v-for="(project, index) in metric.proponent_projects" :key="project+index" class="item">
+            <a href="proponent.link">{{project.pronac}} - {{project.name}} </a>
+          </div>
         </div>
       </span>
-      <span v-else-if="metric.type=='list-fornecedores'">
-        <div class="accordion">
+      <span v-else-if="metric.type=='providers-list'">
+        <div v-for="(provider, index) in metric.providers" :key="index+provider+index" class="accordion">
             <div class="title">
               <i class="dropdown icon"></i>
-              Novo Fornecedor A
+              {{provider.provider_name}}
             </div>
             <div class="content">
               <div class="ui bulleted list">                          
-                <div class="item"><a href="#">Nome do item 1</a></div>   
-                <div class="item"><a href="#">Nome do item 2</a></div>   
-                <div class="item"><a href="#">Nome do item 3</a></div>   
-              </div> 		
-            </div>
-            <div class="title">
-              <i class="dropdown icon"></i>
-              Novo Fornecedor B
-            </div>
-            <div class="content">
-              <div class="ui bulleted list">                          
-                <div class="item"><a href="#">Nome do item 1</a></div>   
-                <div class="item"><a href="#">Nome do item 2</a></div>   
-                <div class="item"><a href="#">Nome do item 3</a></div>   
+                <div v-for="(item, index) in provider.provider_items" :key="index+index+item" class="item">
+                  <a href="item.item_link">{{item.item_name}}</a>
+                </div>
               </div> 		
             </div>
           </div>
         </span>
        
-			<p>{{metric.reason}}-</p>
+			<p>{{metric.reason}}</p>
 	</div>
 </template>
 
@@ -72,15 +64,15 @@ export default {
   name: "MetricCardContent",
   data: function() {
     return {
-      metric: {
-        type: 'list-proponents',
-        interval_start: 30,
-        interval_end: 70,
-        bar: {
-          interval: 50,
-          max_value: 100
-        }
-      }
+      // metric: {
+      //   type: 'list-proponents',
+      //   interval_start: 30,
+      //   interval_end: 70,
+      //   bar: {
+      //     interval: 50,
+      //     max_value: 100
+      //   }
+      // }
     };
   },
   mounted: function() {
@@ -106,10 +98,10 @@ export default {
       var value = "50";
       x.style.left = value - 3 + "%";
     }*/
+  },
+  props: {
+    metric: Object
   }
-  // props: {
-  //   metric: Object
-  // }
 };
 </script>
 
