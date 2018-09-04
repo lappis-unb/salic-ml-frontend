@@ -14,7 +14,7 @@ export default {
   name: "ComplexityTitle",
   data: function() {
     return {
-      indicator_value: Math.round(this.value)
+      indicator_value: this.value
     };
   },
   props: {
@@ -37,7 +37,7 @@ export default {
         percentage: true,
       })
       .data("radialIndicator");
-    
+    console.log(this.indicator_value)
     radialObj.animate(this.indicator_value);
   }
 };

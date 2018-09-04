@@ -35,7 +35,7 @@ export default {
   name: "ProjectFeedback",
   data: function() {
     return {
-      url: "http://localhost:3000/projects",
+      url: "http://192.168.1.102:8080/indicators/send_project_feedback",
       user_project_feedback: 0
     };
   },
@@ -78,20 +78,25 @@ export default {
       element.classList.remove("red-border");
     },
     postData: function(pronac, user_rating, user_email) {
-      console.log(pronac, user_rating, user_email);
-      var self = this
-      //   axios
-      //     .post(this.url, {
-      //       pronac: pronac,
-      //       rating: user_rating,
-      //       user_email: self.user_email
-      //     })
-      //     .then(function(response) {
-      //       console.log(response);
-      //     })
-      //     .catch(function(error) {
-      //       console.log(error);
-      //     });
+      console.log(
+      {
+        pronac: pronac,
+        project_feedback_grade: user_rating,
+        user_email: user_email
+      }
+      );
+      axios
+        .post(this.url, {
+          pronac: pronac,
+          project_feedback_grade: user_rating,
+          user_email: user_email
+        })
+        .then(function(response) {
+          console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
     }
   }
 };

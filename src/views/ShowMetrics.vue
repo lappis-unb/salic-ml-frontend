@@ -1,7 +1,6 @@
 <template>
   <div class="show-metrics">
     <header-show :user="user" :project="project" />
-    {{user}}
     <span v-if="Object.keys(user).length!=0">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
       <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" :user="user" />
@@ -38,10 +37,7 @@ export default {
     return {
       indicators: [],
       user: {},
-      project: {
-        name: "Nome do projeto",
-        pronac: "1234"
-      },
+      project: {},
       project_feedback_list: [
         "Muito simples",
         "Simples",
@@ -49,15 +45,18 @@ export default {
         "Complexo",
         "Muito complexo"
       ],
+      url: "http://192.168.1.102:8080/indicators/project_info/153833"
     };
   },
   mounted: function() {
     var self = this;
     axios
-      .get("http://192.168.1.102:8080/indicators/project_info/153833")
+      .get(this.url)
       .then(function(response) {
-        self.indicators = JSON.parse(response.request.response);
-        console.log("Deu bom", self.indicators)
+        var res = JSON.parse(JSON.stringify(response.data));
+        self.indicators = res.project_indicators;
+        self.project = res.project
+        console.log("Deu bom", res.project)
         // handle success
       })
       .catch(function(error) {
