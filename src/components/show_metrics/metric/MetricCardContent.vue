@@ -1,7 +1,6 @@
 <template>
     <div>
-      <span v-if="metric.type=='bar'">
-      barra
+      <span v-if="metric.value!=0 && metric.type=='bar'">
       <!--
         <div class="ui pointing below label" id="MedianDisplay-Project">
           Este projeto
@@ -16,7 +15,7 @@
       <span v-else-if="metric.type=='items-list'">
         <div class="ui grid">
 						<div class="eight wide column">
-							<div class="list header">Itens inesperados</div>
+							<div class="list header" v-if="metric.uncommon_items.length != 0">Itens inesperados</div>
 							<div class="ui bulleted list">                          
 								<div v-for="(item, index) in metric.uncommon_items" :key="item+index" class="item">
                   <a :href="item.link">{{item.name}}</a>
@@ -24,7 +23,7 @@
 							</div>
 						</div>
 						<div class="eight wide column">
-							<div class="list header">Itens ausentes</div>
+							<div class="list header"v-if="metric.common_items_not_in_project.length != 0" >Itens ausentes</div>
 							<div class="ui bulleted list">                          
 								<div v-for="(item, index) in metric.common_items_not_in_project" :key="item+index+index" class="item">
                 <a :href="item.link">{{item.name}}</a></div>
@@ -32,7 +31,7 @@
 						</div>
         </div>
       </span>
-      <span v-else-if="metric.type=='proponents-list'">
+      <span v-else-if=" metric.type=='proponents-list'">
         <div class="ui bulleted list">
           <div v-for="(project, index) in metric.proponent_projects" :key="project+index" class="item">
             <a href="proponent.link">{{project.pronac}} - {{project.name}} </a>

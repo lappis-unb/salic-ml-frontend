@@ -44,6 +44,21 @@ export default {
     project: Object,
     project_feedback_list: Array
   },
+  mounted() {
+    var toTop = document.getElementById("confirmation-rating");
+    toTop.addEventListener("click", function () {
+        scrollToTop(2000);
+    });
+     function scrollToTop(scrollDuration) {
+        var scrollStep = -window.scrollY / (scrollDuration / 15),
+        scrollInterval = setInterval(function () {
+          if (window.scrollY != 0) {
+              window.scrollBy(0, scrollStep);
+          }
+          else clearInterval(scrollInterval);
+        }, 15);
+    }
+  },
   methods: {
     validatePost: function() {
       (this.getRating() || this.user_project_feedback == 0)
@@ -78,13 +93,12 @@ export default {
       element.classList.remove("red-border");
     },
     postData: function(pronac, user_rating, user_email) {
-      console.log(
-      {
-        pronac: pronac,
-        project_feedback_grade: user_rating,
-        user_email: user_email
-      }
-      );
+      // console.log(
+      // {
+      //   pronac: pronac,
+      //   project_feedback_grade: user_rating,
+      //   user_email: user_email}
+      // );
       axios
         .post(this.url, {
           pronac: pronac,
@@ -97,6 +111,7 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
+      this.$router.push({ name: 'home', params: { message: true }}) 
     }
   }
 };

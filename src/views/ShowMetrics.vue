@@ -1,6 +1,5 @@
 <template>
   <div class="show-metrics">
-  {{url}}
     <header-show :user="user" :project="project" />
     <span v-if="Object.keys(user).length!=0">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />

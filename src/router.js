@@ -10,10 +10,14 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: Home,
+      props: route => {
+        console.log("este é o route" ,route.params.message)
+        return { message: route.params.message};
+      }
     },
     {
-      path: '/show',
+      path: '/show/:pronac',
       name: 'show',
       component: ShowMetrics,
       props: route => {
