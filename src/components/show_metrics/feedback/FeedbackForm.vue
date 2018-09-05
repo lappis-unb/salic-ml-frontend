@@ -23,7 +23,7 @@ export default {
       rating: "",
       answer: "Teste",
       text: "",
-      url: "http://localhost:8081/indicators/send_metric_feedback"
+      url: "https://salicml-api.lappis.rocks/indicators/send_metric_feedback"
     };
   },
   props: {

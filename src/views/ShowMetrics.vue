@@ -45,7 +45,7 @@ export default {
         "Complexo",
         "Muito complexo"
       ],
-      url: "http://localhost:8081/indicators/project_info/" + this.pronac
+      url: "https://salicml-api.lappis.rocks/indicators/project_info/" + this.pronac
     };
   },
   props: {

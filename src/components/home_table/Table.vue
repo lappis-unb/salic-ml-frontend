@@ -4,7 +4,7 @@
 <!-- api-url="http://localhost:3000/projects" -->
     <filter-bar></filter-bar>
     <vuetable ref="vuetable"
-      api-url="http://localhost:8081/indicators/projects/search/any/1"
+      api-url="https://salicml-api.lappis.rocks/indicators/projects/search/any/1"
       :fields="fields"
       pagination-path=""
       :per-page="20"
