@@ -1,8 +1,7 @@
 <template>
     <div>
       <span v-if="metric.value!=0 && metric.type=='bar'">
-      <!--
-        <div class="ui pointing below label" id="MedianDisplay-Project">
+        <div class="ui pointing below label" :class="metric.outlier_check" id="MedianDisplay-Project">
           Este projeto
         </div>
         <div class="ui progress" :data-value="metric.bar.interval" :data-total="metric.bar.max_value" id="bar">
@@ -10,7 +9,6 @@
             <div class="progress"></div>
           </div>
         </div>
-      -->
       </span>
       <span v-else-if="metric.type=='items-list'">
         <div class="ui grid">
@@ -23,7 +21,7 @@
 							</div>
 						</div>
 						<div class="eight wide column">
-							<div class="list header"v-if="metric.common_items_not_in_project.length != 0" >Itens ausentes</div>
+							<div class="list header" v-if="metric.common_items_not_in_project.length != 0" >Itens ausentes</div>
 							<div class="ui bulleted list">                          
 								<div v-for="(item, index) in metric.common_items_not_in_project" :key="item+index+index" class="item">
                 <a :href="item.link">{{item.name}}</a></div>

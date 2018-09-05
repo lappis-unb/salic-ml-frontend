@@ -4,7 +4,7 @@
 <!-- api-url="http://localhost:3000/projects" -->
     <filter-bar></filter-bar>
     <vuetable ref="vuetable"
-      api-url="http://192.168.10.177:8080/indicators/projects/search/any/1"
+      api-url="http://localhost:8081/indicators/projects/search/any/1"
       :fields="fields"
       pagination-path=""
       :per-page="20"
@@ -100,8 +100,8 @@ export default {
     },
     onCellClicked (data, field, event) {
       //this.$refs.vuetable.toggleDetailRow(data.id)
-      console.log(this.pronac)
-      console.log("VERIFICAR ISSO",data , field, event)
+      //console.log(this.pronac)
+      //console.log("VERIFICAR ISSO",data , field, event)
       this.$router.push({ name: 'show', params: { pronac: this.pronac }}) 
     },
     onFilterSet (filterText) {
