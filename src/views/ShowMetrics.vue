@@ -45,8 +45,7 @@ export default {
         "Complexo",
         "Muito complexo"
       ],
-      url: "http://192.168.10.177:8080/indicators/project_info/" + this.pronac
-      //url: "http://localhost:3000/project_indicators"
+      url: "http://localhost:8081/indicators/project_info/" + this.pronac
     };
   },
   props: {
