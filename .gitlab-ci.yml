@@ -12,9 +12,8 @@ build:
     services:
         - docker:dind
     script:
-        - cd salic_ml_web/
         - docker login -u "gitlab-ci-token" -p "$CI_JOB_TOKEN" $CI_REGISTRY
-        - docker build -f ./Dockerfile -t $FRONTEND_IMAGE .
+        - docker build -f ./docker/dev/Dockerfile -t $FRONTEND_IMAGE .
         - docker tag $FRONTEND_IMAGE $CI_REGISTRY_IMAGE/frontend:latest
         - docker push $FRONTEND_IMAGE
         - docker push $CI_REGISTRY_IMAGE/frontend:latest
