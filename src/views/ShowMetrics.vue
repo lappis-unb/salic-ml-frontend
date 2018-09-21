@@ -1,7 +1,7 @@
 <template>
   <div class="show-metrics">
     <header-show :user="user" :project="project" />
-    <span v-if="Object.keys(user).length!=0">
+    <span v-if="has_user==true">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
       <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" :user="user" />
       <project-feedback
@@ -31,13 +31,22 @@ export default {
     "complexity-title": ComplexityTitle,
     "metrics-list": MetricsList,
     "project-feedback": ProjectFeedback,
-    "user-login": UserLogin,
+    "user-login": UserLogin
   },
   data: function() {
     return {
-      indicators: [],
+      indicators: [
+        {
+          value: 0,
+          metrics: []
+        }
+      ],
       user: {},
-      project: {},
+      has_user: false,
+      project: {
+        pronac: "-",
+        name: "Pronac não existente"
+      },
       project_feedback_list: [
         "Muito simples",
         "Simples",
@@ -45,7 +54,8 @@ export default {
         "Complexo",
         "Muito complexo"
       ],
-      url: "https://salicml-api.lappis.rocks/indicators/project_info/" + this.pronac
+      //url: "https://salicml-api.lappis.rocks/indicators/project_info/" + this.pronac,
+      url: "http://localhost:3000/projects/" + this.$route.params.pronac
     };
   },
   props: {
@@ -56,10 +66,9 @@ export default {
     axios
       .get(this.url)
       .then(function(response) {
-        var res = JSON.parse(JSON.stringify(response.data));
-        self.indicators = res.project_indicators;
-        self.project = res.project
-        // console.log("Deu bom", res.project)
+        var project = JSON.parse(JSON.stringify(response.data));
+        self.project = project;
+        self.indicators = project.indicators;
         // handle success
       })
       .catch(function(error) {
@@ -71,8 +80,10 @@ export default {
       });
   },
   methods: {
-    getUser: function(user){
-      this.user = user
+    getUser: function(user) {
+      this.user = user;
+      this.has_user = true;
+      // console.log("Este e o user ", this.has_user);
     }
   }
 };

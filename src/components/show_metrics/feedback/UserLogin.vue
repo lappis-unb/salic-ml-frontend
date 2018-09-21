@@ -41,8 +41,8 @@ export default {
         name: "",
         email: ""
       },
-      url: "https://salicml-api.lappis.rocks/indicators/create_single_user",
-      //url: "http://localhost:3000/user",
+      //url: "https://salicml-api.lappis.rocks/indicators/create_single_user",
+      url: "http://localhost:3000/user",
       message: {
         show_message: false,
         title: "Erro",

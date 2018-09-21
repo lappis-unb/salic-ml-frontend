@@ -12,7 +12,7 @@ export default new Router({
       name: 'home',
       component: Home,
       props: route => {
-        console.log("este é o route" ,route.params.message)
+        // console.log("este é o route" ,route.params.message)
         return { message: route.params.message};
       }
     },
@@ -21,7 +21,7 @@ export default new Router({
       name: 'show',
       component: ShowMetrics,
       props: route => {
-        console.log("este é o route" ,route.params.pronac)
+        // console.log("este é o route" ,route.params.pronac)
         return { pronac: route.params.pronac};
       }
     }
