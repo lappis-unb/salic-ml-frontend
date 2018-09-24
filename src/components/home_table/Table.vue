@@ -4,7 +4,7 @@
 <!-- api-url="http://localhost:3000/projects" -->
     <filter-bar></filter-bar>
     <vuetable ref="vuetable"
-      api-url="https://salicml-api.lappis.rocks/indicators/projects/search/any/1"
+      api-url="http://localhost:3000/table"
       :fields="fields"
       pagination-path=""
       :per-page="20"
@@ -62,7 +62,7 @@ export default {
         //   dataClass: 'center aligned',
         // }, 
         {
-          name: 'project_name',
+          name: 'name',
           // sortField: 'project_name'
         },
         {
@@ -101,8 +101,8 @@ export default {
     onCellClicked (data, field, event) {
       //this.$refs.vuetable.toggleDetailRow(data.id)
       //console.log(this.pronac)
-      //console.log("VERIFICAR ISSO",data , field, event)
-      this.$router.push({ name: 'show', params: { pronac: this.pronac }}) 
+      //console.log("VERIFICAR ISSO", data , field, event)
+      this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
     },
     onFilterSet (filterText) {
       this.moreParams.filter = filterText

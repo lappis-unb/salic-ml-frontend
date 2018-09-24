@@ -13,7 +13,7 @@
       <span v-else-if="metric.type=='items-list'">
         <div class="ui grid">
 						<div class="eight wide column">
-							<div class="list header" v-if="metric.uncommon_items.length != 0">Itens inesperados</div>
+							<div class="list header" v-if="metric.uncommon_items">Itens inesperados</div>
 							<div class="ui bulleted list">                          
 								<div v-for="(item, index) in metric.uncommon_items" :key="item+index" class="item">
                   <a :href="item.link">{{item.name}}</a>
@@ -21,7 +21,7 @@
 							</div>
 						</div>
 						<div class="eight wide column">
-							<div class="list header" v-if="metric.common_items_not_in_project.length != 0" >Itens ausentes</div>
+							<div class="list header" v-if="metric.common_items_not_in_project">Itens ausentes</div>
 							<div class="ui bulleted list">                          
 								<div v-for="(item, index) in metric.common_items_not_in_project" :key="item+index+index" class="item">
                 <a :href="item.link">{{item.name}}</a></div>
@@ -40,12 +40,12 @@
         <div v-for="(provider, index) in metric.providers" :key="index+provider+index" class="accordion">
             <div class="title">
               <i class="dropdown icon"></i>
-              {{provider.provider_name}}
+              {{provider.name}}
             </div>
             <div class="content">
               <div class="ui bulleted list">                          
-                <div v-for="(item, index) in provider.provider_items" :key="index+index+item" class="item">
-                  <a href="item.item_link">{{item.item_name}}</a>
+                <div v-for="(item, index) in provider.items" :key="index+index+item" class="item">
+                  <a href="item.link">{{item.name}}</a>
                 </div>
               </div> 		
             </div>
