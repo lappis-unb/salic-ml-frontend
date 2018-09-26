@@ -41,7 +41,6 @@ export default {
         name: "",
         email: ""
       },
-      //url: "https://salicml-api.lappis.rocks/indicators/create_single_user",
       url: "http://localhost:3000/user",
       message: {
         show_message: false,
@@ -57,7 +56,7 @@ export default {
   },
   methods: {
     validateUser: function() {
-      this.user.name && this.user.email ? this.updateUser() : console.log("");
+      if(this.user.name && this.user.email) this.updateUser();
     },
     updateUser: function() {
       this.$emit("setUser", this.user);
@@ -70,11 +69,11 @@ export default {
           email: self.user.email
         })
         .then(function(response) {
+          console.log("Esse é o response: ");
           console.log(response);
         })
         .catch(function(error) {
           console.log("Post user error");
-          console.log(error);
           self.message.show_message = true;
         });
     }

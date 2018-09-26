@@ -283,7 +283,7 @@ function getTable(){
 function generateData() {
   return {
     user: getUser(),
-    table: getTable()
+    table: getTable(),
     projects: getProject(),
   };
 }
