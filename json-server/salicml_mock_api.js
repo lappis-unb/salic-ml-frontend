@@ -68,7 +68,6 @@ function getItensOrcamentarios() {
     helper_text:
       "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento",
     value: getRandomPercentage(),
-    value_text: getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "bar",
@@ -88,8 +87,7 @@ function getItensOrcamentariosForaDoComum() {
             <strong>não estão entre os mais comuns</strong> do segmento.\
             Também lista os itens que aparecem frequentemente em projetos do segmento, \
             mas que <strong>não aparecem neste projeto</strong>.",
-    value: getRandomPercentage(),
-    value_text: getRandomPercentage() + "%",
+    value: getRandomPercentage() + "%",
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "items-list",
@@ -110,8 +108,7 @@ function getComprovantesDePagamento() {
     helper_text:
       "Compara a quantidade de comprovantes deste projeto com a \
            <strong>quantidade mais comum</strong> de comprovantes em projetos do mesmo segmento",
-    value: getRandomPercentage(),
-    value_text: getRandomPercentage() + "%",
+    value: getRandomPercentage() + "%",
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "bar",
@@ -128,8 +125,7 @@ function getPrecosAcimaDaMedia() {
     name_title: "Preços acima da média",
     helper_text:
       "<p>Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com a <strong>quantidade mais frequente</strong> de itens acima da mediana em projetos do mesmo segmento</p>",
-    value: getRandomPercentage(),
-    value_text: "R$ " + getRandomPercentage(),
+    value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "item-list",
@@ -148,8 +144,7 @@ function getValorComprovado() {
     name_title: "Valor comprovado",
     helper_text:
       "<p>Compara o valor comprovado neste projeto com o <strong>valor mais frequentemente</strong> comprovado em projetos do mesmo segmento</p>",
-    value: getRandomPercentage(),
-    value_text: "R$ " + getRandomPercentage(),
+    value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "bar",
@@ -166,8 +161,7 @@ function getValorCaptado() {
     name_title: "Valor captado",
     helper_text:
       "<p>Compara o valor captado neste projeto com o <strong>valor mais frequentemente</strong> captado em projetos do mesmo segmento</p>",
-    value: getRandomPercentage(),
-    value_text: "R$ " + getRandomPercentage(),
+    value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "bar",
@@ -185,7 +179,6 @@ function getProjetosDoMesmoProponente() {
     helper_text:
       "<p>Indica os projetos que o proponente já executou no passado.</p>",
     value: getRandomPercentage(),
-    value_text: getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "proponents-list",
@@ -200,11 +193,9 @@ function getNovosFornecedores() {
     name: "novos_fornecedores",
     name_title: "Novos fornecedores",
     value: getRandomPercentage(),
-    value_text: getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "providers-list",
-
     reason: faker.lorem.paragraph(),
 
     providers: getProvidersList(),
@@ -220,8 +211,7 @@ function getValorAprovado() {
     name_title: "Valor aprovado",
     helper_text:
       "<p>Indica a proporção de fornecedores que <strong>nunca participaram de projetos</strong> de incentivo antes em relação ao total de fornecedores envolvidos com o projeto.</p> <p>Também lista os itens orçamentários dos novos fornecedores.</p>",
-    value: getRandomPercentage(),
-    value_text: "R$ " + getRandomPercentage(),
+    value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
     outlier_check: getRandomOutlier(),
     type: "bar",
@@ -293,8 +283,8 @@ function getTable(){
 function generateData() {
   return {
     user: getUser(),
-    projects: getProject(),
     table: getTable()
+    projects: getProject(),
   };
 }
 
