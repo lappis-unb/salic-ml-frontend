@@ -1,12 +1,12 @@
 <template>
   <div class="ui basic segment" id="DiagnosticArea">
-    <div v-for="(metric,index) in metrics_list" :key="metric.type+index"
+    <div v-for="(metric, index) in metrics_list" :key="metric.type+index"
       class="ui styled fluid accordion" id="DiagnosticMetrics">
       <div class="title active" :class="metric.is_outlier">
         <div class="ui ribbon label">
           <i class="icon"></i>
         </div>
-        <span>{{metric.name_title}}: {{metric.value}}</span>
+        <span>{{metric.name_title}}: {{metric.value_text}}</span>
         <helper-metric :helper_text="metric.helper_text"/>
         <i class="dropdown icon"></i>
       </div>
@@ -33,9 +33,10 @@ export default {
         helper_text: "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento",
         type: "bar",
         value: this.metrics.budget_items.value,
+        value_text: this.metrics.budget_items.value,
         is_outlier: this.getIsOutlierStyle(this.metrics.budget_items.is_outlier),
         value_is_valid: this.metrics.budget_items.value_is_valid,
-        minimun_expected: this.metrics.budget_items.minimum_expected,
+        minimum_expected: this.metrics.budget_items.minimum_expected,
         maximum_expected: this.metrics.budget_items.maximum_expected,
 
         bar: {},
@@ -49,10 +50,11 @@ export default {
                 Também lista os itens que aparecem frequentemente em projetos do segmento, \
                 mas que <strong>não aparecem neste projeto</strong>.",
 
-        value: this.metrics.budget_items_unusual.value + "%",
+        value: this.metrics.budget_items_unusual.value,
+        value_text: this.metrics.budget_items_unusual.value + "%",
         value_is_valid: this.metrics.budget_items_unusual.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.budget_items_unusual.is_outlier),
-        minimun_expected: this.metrics.budget_items_unusual.minimun_expected,
+        minimum_expected: this.metrics.budget_items_unusual.minimum_expected,
         maximum_expected: this.metrics.budget_items_unusual.maximum_expected,
 
         reason: "",
@@ -65,10 +67,11 @@ export default {
         helper_text:
           "Compara a quantidade de comprovantes deste projeto com a \
                <strong>quantidade mais comum</strong> de comprovantes em projetos do mesmo segmento",
-        value: this.metrics.proof_payment.value + "%",
+        value: this.metrics.proof_payment.value,
+        value_text: this.metrics.proof_payment.value + "%",
         value_is_valid: this.metrics.proof_payment.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.proof_payment.is_outlier),
-        minimun_expected: this.metrics.proof_payment.minimun_expected,
+        minimum_expected: this.metrics.proof_payment.minimum_expected,
         maximum_expected: this.metrics.proof_payment.maximum_expected,
         type: "bar",
 
@@ -78,11 +81,12 @@ export default {
         name_title: "Preços acima da média",
         helper_text:
           "<p>Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com a <strong>quantidade mais frequente</strong> de itens acima da mediana em projetos do mesmo segmento</p>",
-        value: "R$ " + this.metrics.above_average_prices.value,
+        value: this.metrics.above_average_prices.value,
+        value_text: "R$ " + this.metrics.above_average_prices.value,
         value_is_valid: this.metrics.above_average_prices.value_is_value,
         is_outlier: this.getIsOutlierStyle(this.metrics.above_average_prices.is_outlier),
         type: "above-average-prices-list",
-        minimun_expected: this.metrics.above_average_prices.minimun_expected,
+        minimum_expected: this.metrics.above_average_prices.minimum_expected,
         maximum_expected: this.metrics.above_average_prices.maximum_expected,
 
         items: this.metrics.above_average_prices.items,
@@ -95,10 +99,11 @@ export default {
         name_title: "Valor comprovado",
         helper_text:
           "<p>Compara o valor comprovado neste projeto com o <strong>valor mais frequentemente</strong> comprovado em projetos do mesmo segmento</p>",
-        value: "R$ "+ this.metrics.proven_value.value,
+        value: this.metrics.proven_value.value,
+        value_text: "R$ "+ this.metrics.proven_value.value,
         value_is_valid: this.metrics.proven_value.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.proven_value.is_outlier),
-        minimun_expected: this.metrics.proven_value.minimun_expected,
+        minimum_expected: this.metrics.proven_value.minimum_expected,
         maximum_expected: this.metrics.proven_value.maximum_expected,
         type: "bar",
 
@@ -108,10 +113,11 @@ export default {
         name_title: "Valor captado",
         helper_text:
           "<p>Compara o valor captado neste projeto com o <strong>valor mais frequentemente</strong> captado em projetos do mesmo segmento</p>",
-        value: "R$ " + this.metrics.captured_value.value,
+        value: this.metrics.captured_value.value,
+        value_text: "R$ " + this.metrics.captured_value.value,
         value_is_valid: this.metrics.captured_value.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.captured_value.is_outlier),
-        minimun_expected: this.metrics.captured_value.minimun_expected,
+        minimum_expected: this.metrics.captured_value.minimum_expected,
         maximum_expected: this.metrics.captured_value.maximum_expected,
         type: "bar",
 
@@ -122,9 +128,10 @@ export default {
         helper_text:
           "<p>Indica os projetos que o proponente já executou no passado.</p>",
         value: this.metrics.projects_same_proponent.value,
+        value_text: this.metrics.projects_same_proponent.value,
         value_is_valid: this.metrics.projects_same_proponent.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.projects_same_proponent.is_outlier),
-        minimun_expected: this.metrics.projects_same_proponent.minimun_expected,
+        minimum_expected: this.metrics.projects_same_proponent.minimum_expected,
         maximum_expected: this.metrics.projects_same_proponent.maximum_expected,
         type: "proponents-list",
 
@@ -134,9 +141,10 @@ export default {
       new_providers: {
         name_title: "Novos fornecedores",
         value: this.metrics.new_providers.value,
+        value_text: this.metrics.new_providers.value,
         value_is_valid: this.metrics.new_providers.values_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.new_providers.is_outlier),
-        minimun_expected: this.metrics.new_providers.minimun_expected,
+        minimum_expected: this.metrics.new_providers.minimum_expected,
         maximum_expected: this.metrics.new_providers.maximum_expected,
         type: "providers-list",
         reason: "",
@@ -147,10 +155,11 @@ export default {
         name_title: "Valor aprovado",
         helper_text:
           "<p>Indica a proporção de fornecedores que <strong>nunca participaram de projetos</strong> de incentivo antes em relação ao total de fornecedores envolvidos com o projeto.</p> <p>Também lista os itens orçamentários dos novos fornecedores.</p>",
-        value: "R$ " + this.metrics.approved_value.value,
+        value: this.metrics.approved_value.value,
+        value_text: "R$ " + this.metrics.approved_value.value,
         value_is_valid: this.metrics.approved_value.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.approved_value.is_outlier),
-        minimun_expected: this.metrics.approved_value.minimun_expected,
+        minimum_expected: this.metrics.approved_value.minimum_expected,
         maximum_expected: this.metrics.approved_value.maximum_expected,
         type: "bar",
 

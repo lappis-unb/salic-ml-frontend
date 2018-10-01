@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "AboveAveragePriceCardContent",
+  name: "AboveAveragePricesCardContent",
   props: {
     metric: Object
   }

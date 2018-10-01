@@ -25,7 +25,7 @@ import ItemListCardContent from "@/components/show_metrics/metric/content/ItemLi
 import ProvidersListCardContent from "@/components/show_metrics/metric/content/ProvidersListCardContent.vue"
 import ProponentsListCardContent from "@/components/show_metrics/metric/content/ProponentsListCardContent.vue"
 import MetricBarContent from "@/components/show_metrics/metric/content/MetricBarContent.vue"
-import AboveAveragePriceCardContent from "@/components/show_metrics/metric/content/AboveAveragePriceCardContent.vue"
+import AboveAveragePricesCardContent from "@/components/show_metrics/metric/content/AboveAveragePricesCardContent.vue"
 
 export default {
   name: "MetricCardContent",
@@ -34,7 +34,7 @@ export default {
     "providers-list": ProvidersListCardContent,
     "proponents-list": ProponentsListCardContent,
     "metric-bar": MetricBarContent,
-    "above-average-list": AboveAveragePriceCardContent
+    "above-average-list": AboveAveragePricesCardContent
   },
   props: {
     metric: Object

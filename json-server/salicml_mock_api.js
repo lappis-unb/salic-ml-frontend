@@ -81,8 +81,8 @@ function getItensOrcamentarios() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: getRandomInt(500),
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     bar: getBarFormatValues(),
   };
@@ -94,8 +94,8 @@ function getItensOrcamentariosForaDoComum() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     common_items_not_in_project: getElementsList(),
     uncommon_items: getElementsList(),
@@ -111,8 +111,8 @@ function getComprovantesDePagamento() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     bar: getBarFormatValues(),
   };
@@ -124,8 +124,8 @@ function getPrecosAcimaDaMedia() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     items: getAboveAveragePricesList(),
     total_items: "DESCOBRIR",
@@ -139,8 +139,8 @@ function getValorComprovado() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     bar: getBarFormatValues(),
   };
@@ -152,8 +152,8 @@ function getValorCaptado() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     bar: getBarFormatValues(),
   };
@@ -165,8 +165,8 @@ function getProjetosDoMesmoProponente() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     proponent_projects: getProponentsList(),
   };
@@ -178,8 +178,8 @@ function getNovosFornecedores() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     providers: getProvidersList(),
     new_providers_percentage: "DESCOBRIR",
@@ -194,8 +194,8 @@ function getValorAprovado() {
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
-    minimun_expected: 0,
-    maximun_expected: getRandomInt(1000),
+    minimum_expected: 0,
+    maximum_expected: getRandomInt(1000),
 
     bar: getBarFormatValues(),
 
