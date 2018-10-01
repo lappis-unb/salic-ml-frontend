@@ -81,11 +81,11 @@ export default {
         value: "R$ " + this.metrics.above_average_prices.value,
         value_is_valid: this.metrics.above_average_prices.value_is_value,
         is_outlier: this.getIsOutlierStyle(this.metrics.above_average_prices.is_outlier),
-        type: "item-list",
+        type: "above-average-prices-list",
         minimun_expected: this.metrics.above_average_prices.minimun_expected,
         maximum_expected: this.metrics.above_average_prices.maximum_expected,
 
-        items: "DESCOBRIR",
+        items: this.metrics.above_average_prices.items,
         total_items: "DESCOBRIR",
         maximum_expected: "DESCOBRIR",
 

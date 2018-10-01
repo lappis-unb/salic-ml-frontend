@@ -50,6 +50,20 @@ function getProvidersList() {
   return element_list;
 }
 
+function getAboveAveragePricesList(){
+  var items_price = []
+  for(var item_id = 0; item_id < 20; item_id++){
+    items_price[item_id] = {
+      id: item_id,
+      name: faker.name.firstName(),
+      has_receipt: getRandomOutlier(),
+      link: faker.internet.url()
+    }
+  }
+  return items_price;
+}
+
+
 /////////////// Utils functions ///////////////////////////
 
 function getBarFormatValues() {
@@ -113,7 +127,7 @@ function getPrecosAcimaDaMedia() {
     minimun_expected: 0,
     maximun_expected: getRandomInt(1000),
 
-    items: "DESCOBRIR",
+    items: getAboveAveragePricesList(),
     total_items: "DESCOBRIR",
     maximum_expected: "DESCOBRIR",
   };
