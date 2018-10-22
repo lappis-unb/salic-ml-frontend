@@ -1,10 +1,9 @@
 
 <template>
   <div class="ui container">
-<!-- api-url="http://localhost:3000/projects" -->
     <filter-bar></filter-bar>
     <vuetable ref="vuetable"
-      api-url="http://localhost:3000/table"
+      api-url="https://salicml.lappis.rocks/projetos"
       :fields="fields"
       pagination-path=""
       :per-page="20"
