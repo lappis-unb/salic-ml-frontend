@@ -1,0 +1,64 @@
+/*
+Verificar
+.header{
+	font-weight: bold !important;
+} */
+
+
+/*************************** 
+ ****** Progress Bar *******
+ ***************************/
+/* .ui.pointing.below.label{
+	color: #FFF !important;
+	font-weight: normal !important;
+	max-width: 5em !important;
+	text-align: center !important;
+	background-color: #1B5E20 !important;
+}
+
+.Metric-bad .ui.pointing.below.label{
+	background-color: #db2828 !important;
+} */
+
+/*
+Não descomentar 
+.ui.progress{
+	margin: 0 auto;
+}  */
+/* 
+.ui.progress .bar{
+	left: 5%;
+	width: 50%;
+} */
+
+/* .ui.progress .bar > .progress{
+	color: #FFF;
+	left: 0;
+	right: 0;
+	text-align: center;
+} */
+
+/*************************** 
+ ********** Forms **********
+ ***************************/
+/*
+#FinalForm{
+	margin: 3em !important;
+	text-align: center !important;
+}
+
+#FinalForm .header{
+	font-size: 1.2em !important;
+}
+
+#FinalForm .button{
+	margin: 2em !important;
+}
+
+.project-feedback-container{
+	margin-bottom: 2em !important;
+}
+.borda-vermelha {
+	border: solid 2px red !important;
+	border-radius: 5px !important;
+} */
