@@ -5,6 +5,7 @@
         <label>Pesquisar por:</label>
         <input type="text" v-model="filterText" class="three wide column" @keyup.enter="doFilter" placeholder="pronac">
         <button class="ui primary button search-button" @click="doFilter">Procurar</button>
+        <button class="ui secondary button search-button" @click="resetFilter">Limbar busca</button>
       </div>
     </div>
   </div>

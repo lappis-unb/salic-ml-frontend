@@ -54,12 +54,13 @@ export default {
           dataClass: 'center aligned',
           callback: 'pronacLabel'
         },
-        // {
-        //   name: 'complexity',
-        //   sortField: 'complexity',
-        //   titleClass: 'center aligned',
-        //   dataClass: 'center aligned',
-        // }, 
+        {
+          name: 'complexity',
+          // sortField: 'complexity',
+          titleClass: 'center aligned',
+          callback: 'complexityLabel',
+          dataClass: 'center aligned'
+        }, 
         {
           name: 'name',
           // sortField: 'project_name'
@@ -86,12 +87,19 @@ export default {
       this.pronac = value
       return '<p class="ui teal label">'+ value +'</p>'
     },
+    complexityLabel(value) {
+      this.complexity = value
+      var color = "#DB2828";
+      if(value>=80) color = "#DB2828";
+      else (value>=30) ? color = "#F2B01C" : color = "#1B5E20";
+
+      return '<strong style="color: ' + color + '; font-size: 20px;">' + value + '%</strong>'
+    },
     onPaginationData (paginationData) {
       this.$refs.pagination.setPaginationData(paginationData)
       this.$refs.paginationInfo.setPaginationData(paginationData)
     },
     onChangePage (page) {
-      // console.log(page, "olha eu aqui")
       this.$refs.vuetable.changePage(page)
     },
     onAction (action, data, index) {
@@ -99,13 +107,11 @@ export default {
     },
     onCellClicked (data, field, event) {
       //this.$refs.vuetable.toggleDetailRow(data.id)
-      //console.log(this.pronac)
-      //console.log("VERIFICAR ISSO", data , field, event)
-      this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
+      //this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
     },
     onFilterSet (filterText) {
+      console.log(filterText)
       this.moreParams.filter = filterText
-      console.log('Entrou aqui', filterText)
       Vue.nextTick( () => this.$refs.vuetable.refresh() )
     },
     onFilterReset () {
