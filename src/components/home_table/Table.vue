@@ -55,18 +55,18 @@ export default {
           callback: 'pronacLabel'
         },
         {
-          name: 'complexity',
+          name: 'complexidade',
           // sortField: 'complexity',
           titleClass: 'center aligned',
           callback: 'complexityLabel',
           dataClass: 'center aligned'
         }, 
         {
-          name: 'name',
+          name: 'nome',
           // sortField: 'project_name'
         },
         {
-          name: 'analist',
+          name: 'responsavel',
           // sortField: 'analist',
           titleClass: 'center aligned',
           dataClass: 'center aligned',
