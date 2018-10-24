@@ -2,10 +2,10 @@
   <div class="filter-bar ui basic segment grid">
     <div class="ui form">
       <div class="inline field">
-        <label>Pesquisar por:</label>
-        <input type="text" v-model="filterText" class="three wide column" @keyup.enter="doFilter" placeholder="pronac">
-        <button class="ui primary button search-button" @click="doFilter">Procurar</button>
-        <button class="ui secondary button search-button" @click="resetFilter">Limbar busca</button>
+        <label>Pesquisar por PRONAC:</label>
+        <input type="text" v-model="filterText" class="three wide column" @keyup.enter="doFilter" placeholder="PRONAC">
+        <button class="ui primary button search-button" @click="doFilter">Filtrar</button>
+        <button class="ui button search-button" @click="resetFilter">Limpar</button>
       </div>
     </div>
   </div>
