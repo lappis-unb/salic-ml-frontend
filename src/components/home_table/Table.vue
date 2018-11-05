@@ -2,18 +2,20 @@
 <template>
   <div class="ui container">
     <filter-bar></filter-bar>
-    <vuetable ref="vuetable"
-      api-url="https://salicml.lappis.rocks/projetos"
-      :fields="fields"
-      pagination-path=""
-      :per-page="20"
-      :multi-sort="true"
-      :sort-order="sortOrder"
-      :append-params="moreParams"
-      @vuetable:cell-clicked="onCellClicked"
-      @vuetable:pagination-data="onPaginationData"
-    >
-    </vuetable>
+    <div style="cursor: pointer;">
+        <vuetable ref="vuetable"
+          api-url="https://salicml.lappis.rocks/projetos"
+          :fields="fields"
+          pagination-path=""
+          :per-page="20"
+          :multi-sort="true"
+          :sort-order="sortOrder"
+          :append-params="moreParams"
+          @vuetable:cell-clicked="onCellClicked"
+          @vuetable:pagination-data="onPaginationData"
+        >
+        </vuetable>
+    </div>
     <div class="vuetable-pagination ui basic segment grid">
       <vuetable-pagination-info ref="paginationInfo"
       ></vuetable-pagination-info>
@@ -106,7 +108,8 @@ export default {
       console.log('slot action: ' + action, data.project_name, index)
     },
     onCellClicked (data, field, event) {
-      //this.$refs.vuetable.toggleDetailRow(data.id)
+      window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
+      this.$refs.vuetable.toggleDetailRow(data.id)
       //this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
     },
     onFilterSet (filterText) {
