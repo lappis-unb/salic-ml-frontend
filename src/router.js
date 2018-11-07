@@ -17,7 +17,7 @@ export default new Router({
       }
     },
     {
-      path: '/show/:pronac',
+      path: '/projetos/:pronac',
       name: 'show',
       component: ShowMetrics,
       props: route => {

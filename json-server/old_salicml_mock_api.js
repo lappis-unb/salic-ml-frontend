@@ -63,9 +63,9 @@ function getBarFormatValues() {
 
 function getItensOrcamentarios() {
   return {
-    name: "itens_orcamentarios",
-    name_title: "Itens orçamentários",
-    helper_text:
+    //name: "itens_orcamentarios",
+    //name_title: "Itens orçamentários",
+    //help_text:
       "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento",
     value: getRandomPercentage(),
     value_is_valid: true,
@@ -80,9 +80,9 @@ function getItensOrcamentarios() {
 
 function getItensOrcamentariosForaDoComum() {
   return {
-    name: "itens_orcamentarios_fora_do_comum",
-    name_title: "Itens orçamentários inesperados",
-    helper_text:
+    //name: "itens_orcamentarios_fora_do_comum",
+    //name_title: "Itens orçamentários inesperados",
+    //help_text:
       "Indica os itens orçamentários deste projeto que \
             <strong>não estão entre os mais comuns</strong> do segmento.\
             Também lista os itens que aparecem frequentemente em projetos do segmento, \
@@ -103,9 +103,9 @@ function getItensOrcamentariosForaDoComum() {
 
 function getComprovantesDePagamento() {
   return {
-    name: "comprovantes_pagamento",
-    name_title: "Comprovantes de pagamento",
-    helper_text:
+    //name: "comprovantes_pagamento",
+    //name_title: "Comprovantes de pagamento",
+    //help_text:
       "Compara a quantidade de comprovantes deste projeto com a \
            <strong>quantidade mais comum</strong> de comprovantes em projetos do mesmo segmento",
     value: getRandomPercentage() + "%",
@@ -121,9 +121,9 @@ function getComprovantesDePagamento() {
 
 function getPrecosAcimaDaMedia() {
   return {
-    name: "precos_acima_media",
-    name_title: "Preços acima da média",
-    helper_text:
+    //name: "precos_acima_media",
+    //name_title: "Preços acima da média",
+    //help_text:
       "<p>Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com a <strong>quantidade mais frequente</strong> de itens acima da mediana em projetos do mesmo segmento</p>",
     value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
@@ -140,9 +140,9 @@ function getPrecosAcimaDaMedia() {
 
 function getValorComprovado() {
   return {
-    name: "valor_comprovado",
-    name_title: "Valor comprovado",
-    helper_text:
+    //name: "valor_comprovado",
+    //name_title: "Valor comprovado",
+    //help_text:
       "<p>Compara o valor comprovado neste projeto com o <strong>valor mais frequentemente</strong> comprovado em projetos do mesmo segmento</p>",
     value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
@@ -157,9 +157,9 @@ function getValorComprovado() {
 
 function getValorCaptado() {
   return {
-    name: "valor_captado",
-    name_title: "Valor captado",
-    helper_text:
+    //name: "valor_captado",
+    //name_title: "Valor captado",
+    //help_text:
       "<p>Compara o valor captado neste projeto com o <strong>valor mais frequentemente</strong> captado em projetos do mesmo segmento</p>",
     value: "R$ " + getRandomPercentage(),
     value_is_valid: true,
@@ -174,9 +174,9 @@ function getValorCaptado() {
 
 function getProjetosDoMesmoProponente() {
   return {
-    name: "projetos_mesmo_proponente",
-    name_title: "Projetos do mesmo proponente",
-    helper_text:
+    //name: "projetos_mesmo_proponente",
+    //name_title: "Projetos do mesmo proponente",
+    //help_text:
       "<p>Indica os projetos que o proponente já executou no passado.</p>",
     value: getRandomPercentage(),
     value_is_valid: true,
@@ -190,8 +190,8 @@ function getProjetosDoMesmoProponente() {
 
 function getNovosFornecedores() {
   return {
-    name: "novos_fornecedores",
-    name_title: "Novos fornecedores",
+    //name: "novos_fornecedores",
+    //name_title: "Novos fornecedores",
     value: getRandomPercentage(),
     value_is_valid: true,
     is_outlier: getRandomOutlier(),
@@ -207,9 +207,9 @@ function getNovosFornecedores() {
 
 function getValorAprovado() {
   return {
-    name: "valor_aprovado",
-    name_title: "Valor aprovado",
-    helper_text:
+    //name: "valor_aprovado",
+    //name_title: "Valor aprovado",
+    //help_text:
       "<p>Indica a proporção de fornecedores que <strong>nunca participaram de projetos</strong> de incentivo antes em relação ao total de fornecedores envolvidos com o projeto.</p> <p>Também lista os itens orçamentários dos novos fornecedores.</p>",
     value: "R$ " + getRandomPercentage(),
     value_is_valid: true,

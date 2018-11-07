@@ -3,12 +3,12 @@
     <header-show :user="user" :project="project" />
     <span v-if="has_user==true">
       <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
-      <metrics-list v-if="indicators[0].metrics" :metrics="indicators[0].metrics" :user="user" />
-      <project-feedback
+      <metrics-list v-if="indicators[0].metrics.length != 0" :metrics="indicators[0].metrics" :user="user" />
+      <!--<project-feedback
         :user="user"
         :project="project"
         :project_feedback_list="project_feedback_list"
-      />
+      />-->
     </span>
     <span v-else>
       <user-login @setUser="getUser"/>
@@ -42,7 +42,7 @@ export default {
         }
       ],
       user: {},
-      has_user: false,
+      has_user: true,
       project: {
         pronac: "-",
         name: "Pronac não existente"
@@ -55,7 +55,8 @@ export default {
         "Muito complexo"
       ],
       //url: "https://salicml-api.lappis.rocks/indicators/project_info/" + this.pronac,
-      url: "http://localhost:3000/projects/" + this.$route.params.pronac
+      //url: "http://localhost:3000/projects/" + this.$route.params.pronac
+      url: "http://localhost:8080/projetos/" + this.$route.params.pronac
     };
   },
   props: {

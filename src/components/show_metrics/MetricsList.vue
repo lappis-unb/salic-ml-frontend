@@ -2,7 +2,7 @@
   <div class="ui basic segment" id="DiagnosticArea">
     <div v-for="(metric, index) in metrics_list" :key="metric.type+index"
       class="ui styled fluid accordion" id="DiagnosticMetrics">
-      <div class="title active" :class="metric.is_outlier">
+      <div class="title" :class="[metric.value!=0 ? 'active' : '', metric.is_outlier]">
         <div class="ui ribbon label">
           <i class="icon"></i>
         </div>
@@ -10,10 +10,10 @@
         <helper-metric :helper_text="metric.helper_text"/>
         <i class="dropdown icon"></i>
       </div>
-      <div class="content active" :class="metric.is_outlier">
+      <div class="content" :class="[metric.value!=0 ? 'active' : '', metric.is_outlier]">
         <metric-content :metric="metric" />
-        <div class="ui divider"></div>
-        <feedback-form :user="user" :metric_id="metric.metric_id" :index="index" />
+        <!--<div class="ui divider"></div>
+        <feedback-form :user="user" :metric_id="metric.metric_id" :index="index" />-->
       </div>
     </div>
   </div>
@@ -38,6 +38,7 @@ export default {
         value_is_valid: this.metrics.budget_items.value_is_valid,
         minimum_expected: this.metrics.budget_items.minimum_expected,
         maximum_expected: this.metrics.budget_items.maximum_expected,
+        is_invalid_value: (this.metrics.budget_items.value) ? true : false,
 
         bar: {},
       },
@@ -82,7 +83,7 @@ export default {
         helper_text:
           "<p>Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com a <strong>quantidade mais frequente</strong> de itens acima da mediana em projetos do mesmo segmento</p>",
         value: this.metrics.above_average_prices.value,
-        value_text: "R$ " + this.metrics.above_average_prices.value,
+        value_text: "R$ " + this.setMoneyFormat(this.metrics.above_average_prices.value),
         value_is_valid: this.metrics.above_average_prices.value_is_value,
         is_outlier: this.getIsOutlierStyle(this.metrics.above_average_prices.is_outlier),
         type: "above-average-prices-list",
@@ -100,7 +101,7 @@ export default {
         helper_text:
           "<p>Compara o valor comprovado neste projeto com o <strong>valor mais frequentemente</strong> comprovado em projetos do mesmo segmento</p>",
         value: this.metrics.proven_value.value,
-        value_text: "R$ "+ this.metrics.proven_value.value,
+        value_text: "R$ "+ this.setMoneyFormat(this.metrics.proven_value.value),
         value_is_valid: this.metrics.proven_value.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.proven_value.is_outlier),
         minimum_expected: this.metrics.proven_value.minimum_expected,
@@ -114,7 +115,7 @@ export default {
         helper_text:
           "<p>Compara o valor captado neste projeto com o <strong>valor mais frequentemente</strong> captado em projetos do mesmo segmento</p>",
         value: this.metrics.captured_value.value,
-        value_text: "R$ " + this.metrics.captured_value.value,
+        value_text: "R$ " + this.setMoneyFormat(this.metrics.captured_value.value),
         value_is_valid: this.metrics.captured_value.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.captured_value.is_outlier),
         minimum_expected: this.metrics.captured_value.minimum_expected,
@@ -156,7 +157,7 @@ export default {
         helper_text:
           "<p>Indica a proporção de fornecedores que <strong>nunca participaram de projetos</strong> de incentivo antes em relação ao total de fornecedores envolvidos com o projeto.</p> <p>Também lista os itens orçamentários dos novos fornecedores.</p>",
         value: this.metrics.approved_value.value,
-        value_text: "R$ " + this.metrics.approved_value.value,
+        value_text: "R$ " + this.setMoneyFormat(this.metrics.approved_value.value),
         value_is_valid: this.metrics.approved_value.value_is_valid,
         is_outlier: this.getIsOutlierStyle(this.metrics.approved_value.is_outlier),
         minimum_expected: this.metrics.approved_value.minimum_expected,
@@ -187,6 +188,9 @@ export default {
     }
   },
   methods: {
+    setMoneyFormat(value){
+        return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
+    },
     getIsOutlierStyle(isOutlier){
       return (isOutlier) ? "Metric-good" : "Metric-bad";
     },
