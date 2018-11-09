@@ -2,8 +2,8 @@
   <div class="show-metrics">
     <header-show :user="user" :project="project" />
     <span v-if="has_user==true">
-      <complexity-title v-if="indicators[0].value" :value="indicators[0].value" />
-      <metrics-list v-if="indicators[0].metrics.length != 0" :metrics="indicators[0].metrics" :user="user" />
+      <complexity-title v-if="indicators[0].valor" :value="indicators[0].valor" />
+      <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" :user="user" />
       <!--<project-feedback
         :user="user"
         :project="project"
@@ -69,7 +69,7 @@ export default {
       .then(function(response) {
         var project = JSON.parse(JSON.stringify(response.data));
         self.project = project;
-        self.indicators = project.indicators;
+        self.indicators = project.indicadores;
         // handle success
       })
       .catch(function(error) {

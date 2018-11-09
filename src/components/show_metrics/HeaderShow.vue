@@ -9,7 +9,7 @@
             <div class="value">{{ project.pronac }}</div>
         </div>
         
-        <h1>{{ project.name }}</h1>
+        <h1>{{ project.nome }}</h1>
     
         <div v-if="Object.keys(user).length!=0" class="ui basic segment" id="LoggedUser">
             Avaliando como:<br />

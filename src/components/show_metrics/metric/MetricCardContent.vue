@@ -15,7 +15,10 @@
       <span v-else-if="metric.type=='above-average-prices-list'">
         <above-average-list :metric="metric" />  
       </span>
-       
+      <span v-else-if="!metric.is_valid_value">
+        <p>Esta informação não está disponível.</p>
+      </span>
+
 	  <p class="reason-text">{{metric.reason}}</p>
 	</div>
 </template>
