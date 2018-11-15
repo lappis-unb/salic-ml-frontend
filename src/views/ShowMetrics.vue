@@ -56,7 +56,7 @@ export default {
       ],
       //url: "https://salicml-api.lappis.rocks/indicators/project_info/" + this.pronac,
       //url: "http://localhost:3000/projects/" + this.$route.params.pronac
-      url: "http://localhost:8080/projetos/" + this.$route.params.pronac
+      url: "https://salicml.lappis.rocks/projetos/" + this.$route.params.pronac
     };
   },
   props: {
