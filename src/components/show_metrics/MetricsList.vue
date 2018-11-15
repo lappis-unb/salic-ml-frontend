@@ -10,7 +10,7 @@
         <helper-metric :helper_text="metric.helper_text"/>
         <i class="dropdown icon"></i>
       </div>
-      <div class="content" :class="[metric.value_is_valid ? 'active' : '', metric.is_outlier]">
+      <div class="content" :class="[metric.value_is_valid ? 'active' : '']">
         <metric-content :metric="metric" />
         <!--
             <div class="ui divider"></div>
@@ -168,7 +168,7 @@ export default {
         bar: {},
       },
       vouchers_by_operation_code: {
-        name_title: "Quantidade de comprovantes por código de operação",
+        name_title: "Comprovantes por código de operação",
         helper_text:
           "Explicação da métricas",
         value: 2,
@@ -179,7 +179,21 @@ export default {
         maximum_expected: this.metrics.valor_aprovado.maximo_esperado,
 
         type: "operation-code-list",
-        operation_list: [{nome: "TED", codigos_de_operacao:[{nome: "Codigo 1", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}],
+        operation_list: [{nome: "TED", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Boleto", codigos_de_operacao:[{nome: "Codigo 1", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Cheque", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}],
+      },
+      vouchers_above_50: {
+        name_title: "Comprovantes com preço acima de 50%",
+        helper_text:
+          "Explicação da métricas",
+        value: 2,
+        value_text: this.metrics.valor_aprovado.valor,
+        value_is_valid: true,
+        is_outlier: this.getIsOutlierStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
+        minimum_expected: this.metrics.valor_aprovado.minimo_esperado,
+        maximum_expected: this.metrics.valor_aprovado.maximo_esperado,
+
+        type: "vouchers-above-50",
+        vouchers_list: [{nome: "nome1", link: "#", porcentagem: "15"}, {nome: "nome1", link: "#", porcentagem: "15"}]
       }
     };
   },
@@ -200,6 +214,7 @@ export default {
         this.new_providers,
         this.approved_value,
         this.vouchers_by_operation_code,
+        this.vouchers_above_50,
       ];
     }
   },

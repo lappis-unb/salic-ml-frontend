@@ -1,27 +1,11 @@
 <template>
-  <div>
-    <div v-for="(provider, index) in metric.operation_list" :key="index+provider+index" class="accordion">
-      <div class="title">
-        <i class="dropdown icon"></i>
-        {{provider.nome}}
-      </div>
-      <div class="content">
-        <div class="ui bulleted list">                          
-          <div v-for="(code, index) in provider.codigos_de_operacao" :key="index+index+code" class="accordion">
-              <div class="title">
-                <i class="dropdown icon"></i>
-                {{code.nome}}
-              </div>
-              <div class="content">
-                <div class="ui bulleted list">                          
-                  <div v-for="(comprovante, index) in code.comprovantes" :key="index+index+comprovante" class="item">
-                    <a href="comprovante.link">{{comprovante.nome}}</a>
-                  </div>
-                </div> 		
-              </div>
-            </div>
-          </div>
-        </div> 		
+  <div class="ui grid">
+    <div v-for="operation in metric.operation_list" class="five wide column">
+      <div class="list header">{{operation.nome}}</div>
+      <div class="ui bulleted list">                          
+        <div v-for="(codigo, index) in operation.codigos_de_operacao" :key="codigo+index" class="item">
+          <a :href="codigo.link">{{codigo.nome}}</a>
+        </div>
       </div>
     </div>
   </div>

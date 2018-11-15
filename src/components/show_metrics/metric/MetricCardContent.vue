@@ -15,11 +15,15 @@
       <span v-else-if="metric.type==='providers-list'">
         <providers-list :metric="metric" />  
       </span>
-      <span v-else-if="metric.type==='above-average-prices-list'">
+          <span v-else-if="metric.type==='above-average-prices-list'">
         <above-average-list :metric="metric" />  
       </span>
       <span v-else-if="metric.type==='operation-code-list'">
         <operation-code-list :metric="metric" />  
+      </span>
+      </span>
+        <span v-else-if="metric.type==='vouchers-above-50'">
+        <voucher-above-50 :metric="metric" />  
       </span>
 	  <!--<p class="reason-text">{{metric.reason}}</p>-->
 	</div>
@@ -32,6 +36,7 @@ import ProponentsListCardContent from "@/components/show_metrics/metric/content/
 import MetricBarContent from "@/components/show_metrics/metric/content/MetricBarContent.vue"
 import AboveAveragePricesCardContent from "@/components/show_metrics/metric/content/AboveAveragePricesCardContent.vue"
 import OperationCodeCardContent from "@/components/show_metrics/metric/content/OperationCodeCardContent.vue"
+import VouchersAbove50CardContent from "@/components/show_metrics/metric/content/VouchersAbove50CardContent.vue"
 
 export default {
   name: "MetricCardContent",
@@ -41,7 +46,8 @@ export default {
     "proponents-list": ProponentsListCardContent,
     "metric-bar": MetricBarContent,
     "above-average-list": AboveAveragePricesCardContent,
-    "operation-code-list": OperationCodeCardContent
+    "operation-code-list": OperationCodeCardContent,
+    "voucher-above-50": VouchersAbove50CardContent 
   },
   props: {
     metric: Object

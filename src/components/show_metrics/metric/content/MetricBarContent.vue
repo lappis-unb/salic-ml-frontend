@@ -1,13 +1,16 @@
 <template>
   <div>
-    <div class="ui pointing below label" :class="metric.outlier_check" id="MedianDisplay-Project">
-      Este projeto
-    </div>
-    <div class="ui progress" :data-value="metric.bar.interval" :data-total="metric.bar.max_value" id="bar">
-      <div class="bar" id="barra">
-        <div class="progress"></div>
-      </div>
-    </div>
+    <p>{{metric.reason}} - mensagem aqui;</p>
+    <!--
+        <div class="ui pointing below label" :class="metric.outlier_check" id="MedianDisplay-Project">
+          Este projeto
+        </div>
+        <div class="ui progress" :data-value="metric.bar.interval" :data-total="metric.bar.max_value" id="bar">
+          <div class="bar" id="barra">
+            <div class="progress"></div>
+          </div>
+        </div>
+    -->
   </div>
 </template>
 
