@@ -39,7 +39,7 @@ export default {
         is_outlier: this.getIsOutlierStyle(this.metrics.itens_orcamentarios.outlier, this.metrics.itens_orcamentarios.valor_valido),
         value_is_valid: this.metrics.itens_orcamentarios.valor_valido,
         minimum_expected: this.metrics.itens_orcamentarios.minimo_esperado,
-        maximum_expected: this.metrics.itens_orcamentarios.maximo_esperado,
+        maximum_expected: parseInt(this.metrics.itens_orcamentarios.maximo_esperado),
         is_invalid_value: (this.metrics.itens_orcamentarios.valor) ? true : false,
 
         bar: {},
@@ -75,7 +75,7 @@ export default {
         value_is_valid: this.metrics.comprovantes_de_pagamento.valor_valido,
         is_outlier: this.getIsOutlierStyle(this.metrics.comprovantes_de_pagamento.outlier, this.metrics.comprovantes_de_pagamento.valor_valido),
         minimum_expected: this.metrics.comprovantes_de_pagamento.minimo_esperado,
-        maximum_expected: this.metrics.comprovantes_de_pagamento.maximo_esperado,
+        maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.comprovantes_de_pagamento.maximo_esperado),
         type: "bar",
 
         bar: {},
@@ -93,7 +93,6 @@ export default {
         maximum_expected: this.metrics.precos_acima_da_media.maximo_esperado,
 
         items: this.metrics.precos_acima_da_media.items,
-        total_items: "DESCOBRIR",
 
         reason: ""
       },
@@ -106,7 +105,7 @@ export default {
         value_is_valid: this.metrics.valor_comprovado.valor_valido,
         is_outlier: this.getIsOutlierStyle(this.metrics.valor_comprovado.outlier, this.metrics.valor_comprovado.valor_valido),
         minimum_expected: this.metrics.valor_comprovado.minimo_esperado,
-        maximum_expected: this.metrics.valor_comprovado.maximo_esperado,
+        maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_comprovado.maximo_esperado),
         type: "bar",
 
         bar: {}
@@ -120,7 +119,7 @@ export default {
         value_is_valid: this.metrics.valor_captado.valor_valido,
         is_outlier: this.getIsOutlierStyle(this.metrics.valor_captado.outlier, this.metrics.valor_captado.valor_valido),
         minimum_expected: this.metrics.valor_captado.minimo_esperado,
-        maximum_expected: this.metrics.valor_captado.maximo_esperado,
+        maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_captado.maximo_esperado),
         type: "bar",
 
         bar: {},
@@ -162,7 +161,7 @@ export default {
         value_is_valid: this.metrics.valor_aprovado.valor_valido,
         is_outlier: this.getIsOutlierStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
         minimum_expected: this.metrics.valor_aprovado.minimo_esperado,
-        maximum_expected: this.metrics.valor_aprovado.maximo_esperado,
+        maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_aprovado.maximo_esperado),
         type: "bar",
 
         bar: {},

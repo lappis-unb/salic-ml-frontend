@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{metric.reason}} - mensagem aqui;</p>
+    <p>O valor está acima do esperado, sendo este: {{metric.maximum_expected}}.</p>
     <!--
         <div class="ui pointing below label" :class="metric.outlier_check" id="MedianDisplay-Project">
           Este projeto
