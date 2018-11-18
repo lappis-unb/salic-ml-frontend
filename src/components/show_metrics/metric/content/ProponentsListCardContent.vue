@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table class="ui celled table">
+    <table v-if="metric.value!=0" class="ui celled table">
       <thead>
         <tr>
             <th>Pronac</th>
@@ -26,6 +26,7 @@
         </tr>
       </tbody>
     </table>
+    <div v-else>Não há projetos do mesmo proponente.</div>
   </div>
 </template>
 

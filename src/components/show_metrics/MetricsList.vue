@@ -62,8 +62,8 @@ export default {
 
         reason: "",
 
-        common_items_not_in_project: this.metrics.itens_orcamentarios_inesperados.common_items_not_in_project,
-        uncommon_items: this.metrics.itens_orcamentarios_inesperados.uncommon_items,
+        common_items_not_in_project: this.metrics.itens_orcamentarios_inesperados.items_comuns_que_o_projeto_nao_possui,
+        uncommon_items: this.metrics.itens_orcamentarios_inesperados.items_incomuns,
       },
       proof_payment: {
         name_title: "Comprovantes de pagamento",
@@ -143,14 +143,14 @@ export default {
         name_title: "Novos fornecedores",
         value: this.metrics.novos_fornecedores.valor,
         value_text: this.metrics.novos_fornecedores.valor,
-        value_is_valid: this.metrics.novos_fornecedores.values_is_valid,
+        value_is_valid: this.metrics.novos_fornecedores.valor_valido,
         is_outlier: this.getIsOutlierStyle(this.metrics.novos_fornecedores.outlier, this.metrics.novos_fornecedores.valor_valido),
         minimum_expected: this.metrics.novos_fornecedores.minimo_esperado,
         maximum_expected: this.metrics.novos_fornecedores.maximo_esperado,
         type: "providers-list",
         reason: "",
 
-        providers: this.metrics.novos_fornecedores.providers,
+        providers: this.metrics.novos_fornecedores.lista_de_novos_fornecedores,
       } ,
       approved_value: {
         name_title: "Valor aprovado",
@@ -184,16 +184,16 @@ export default {
         name_title: "Comprovantes com preço acima de 50%",
         helper_text:
           "Explicação da métricas",
-        value: 2,
-        value_text: this.metrics.valor_aprovado.valor,
-        value_is_valid: true,
-        is_outlier: this.getIsOutlierStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
-        minimum_expected: this.metrics.valor_aprovado.minimo_esperado,
-        maximum_expected: this.metrics.valor_aprovado.maximo_esperado,
+        value: this.metrics.comprovantes_acima_de_50.valor,
+        value_text: this.metrics.comprovantes_acima_de_50.valor,
+        value_is_valid: this.metrics.comprovantes_acima_de_50.valor_valido,
+        is_outlier: this.getIsOutlierStyle(this.metrics.comprovantes_acima_de_50.outlier, this.metrics.comprovantes_acima_de_50.valor_valido),
+        minimum_expected: this.metrics.comprovantes_acima_de_50.minimo_esperado,
+        maximum_expected: this.metrics.comprovantes_acima_de_50.maximo_esperado,
 
         type: "vouchers-above-50",
-        vouchers_list: [{nome: "nome1", link: "#", porcentagem: "15"}, {nome: "nome1", link: "#", porcentagem: "15"}]
-      }
+        vouchers_list: this.metrics.comprovantes_acima_de_50.lista_de_comprovantes
+      }   
     };
   },
   props: {

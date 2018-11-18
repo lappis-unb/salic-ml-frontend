@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(provider, index) in metric.providers" :key="index+provider+index" class="accordion">
+    <div v-if="metric.valor!=0" v-for="(provider, index) in metric.providers" :key="index+provider+index" class="accordion">
       <div class="title">
         <i class="dropdown icon"></i>
         {{provider.nome}}
@@ -13,6 +13,7 @@
         </div> 		
       </div>
     </div>
+    <div v-else>Não há novos fornecedores.</div>
   </div>
 </template>
 
