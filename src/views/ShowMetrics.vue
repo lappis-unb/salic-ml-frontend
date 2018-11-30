@@ -2,7 +2,7 @@
   <div class="show-metrics">
     <header-show :user="user" :project="project" />
     <span v-if="has_user==true">
-      <complexity-title v-if="indicators[0].valor" :value="indicators[0].valor" />
+      <complexity-title :value="10 - indicators[0].valor" />
       <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" :user="user" />
       <!--<project-feedback
         :user="user"
@@ -37,7 +37,7 @@ export default {
     return {
       indicators: [
         {
-          value: 0,
+          valor: 0,
           metrics: []
         }
       ],
@@ -56,7 +56,7 @@ export default {
       ],
       //url: "https://salicml-api.lappis.rocks/indicators/project_info/" + this.pronac,
       //url: "http://localhost:3000/projects/" + this.$route.params.pronac
-      url: "https://salicml.lappis.rocks/projetos/" + this.$route.params.pronac
+      url: "http://68.183.53.220/projetos/" + this.$route.params.pronac
     };
   },
   props: {

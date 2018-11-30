@@ -25,20 +25,20 @@ export default {
       .radialIndicator({
         radius: 70,
         barColor: {
-          0: "#1B5E20",
-          30: "#F2B01C",
-          80: "#DB2828",
-          100: "#DB2828",
+          0: "#DB2828",
+          3: "#DB2828",
+          8: "#F2B01C",
+          10: "#1B5E20",
         },
-        maxValue: 100,
+        maxValue: 10,
         barWidth: 10,
         initValue: 0,
         roundCorner: true,
-        percentage: true,
+        percentage: false,
       })
       .data("radialIndicator");
     console.log(this.indicator_value)
-    radialObj.animate(this.indicator_value);
+    radialObj.value(this.indicator_value);
   }
 };
 </script>

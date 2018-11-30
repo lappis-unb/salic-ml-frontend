@@ -2,7 +2,7 @@
   <div class="ui basic segment" id="DiagnosticArea">
     <div v-for="(metric, index) in metrics_list" :key="metric.type+index"
       class="ui styled fluid accordion" id="DiagnosticMetrics">
-      <div class="title" :class="[metric.value_is_valid!=0 ? 'active' : '', metric.is_outlier]">
+      <div class="title" :class="metric.is_outlier">
         <div class="ui ribbon label">
           <i class="icon"></i>
         </div>
@@ -10,7 +10,7 @@
         <helper-metric :helper_text="metric.helper_text"/>
         <i class="dropdown icon"></i>
       </div>
-      <div class="content" :class="[metric.value_is_valid ? 'active' : '']">
+      <div class="content">
         <metric-content :metric="metric" />
         <!--
             <div class="ui divider"></div>
@@ -36,7 +36,7 @@ export default {
         type: "bar",
         value: this.metrics.itens_orcamentarios.valor,
         value_text: this.metrics.itens_orcamentarios.valor,
-        is_outlier: this.getIsOutlierStyle(this.metrics.itens_orcamentarios.outlier, this.metrics.itens_orcamentarios.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.itens_orcamentarios.outlier, this.metrics.itens_orcamentarios.valor_valido),
         value_is_valid: this.metrics.itens_orcamentarios.valor_valido,
         minimum_expected: this.metrics.itens_orcamentarios.minimo_esperado,
         maximum_expected: parseInt(this.metrics.itens_orcamentarios.maximo_esperado),
@@ -56,7 +56,7 @@ export default {
         value: (this.metrics.itens_orcamentarios_inesperados.valor).toFixed(2),
         value_text: (this.metrics.itens_orcamentarios_inesperados.valor).toFixed(2) + "%",
         value_is_valid: this.metrics.itens_orcamentarios_inesperados.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.itens_orcamentarios_inesperados.outlier, this.metrics.itens_orcamentarios_inesperados.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.itens_orcamentarios_inesperados.outlier, this.metrics.itens_orcamentarios_inesperados.valor_valido),
         minimum_expected: this.metrics.itens_orcamentarios_inesperados.minimo_esperado,
         maximum_expected: this.metrics.itens_orcamentarios_inesperados.maximo_esperado,
 
@@ -73,7 +73,7 @@ export default {
         value: this.metrics.comprovantes_de_pagamento.valor,
         value_text: this.metrics.comprovantes_de_pagamento.valor + "%",
         value_is_valid: this.metrics.comprovantes_de_pagamento.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.comprovantes_de_pagamento.outlier, this.metrics.comprovantes_de_pagamento.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.comprovantes_de_pagamento.outlier, this.metrics.comprovantes_de_pagamento.valor_valido),
         minimum_expected: this.metrics.comprovantes_de_pagamento.minimo_esperado,
         maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.comprovantes_de_pagamento.maximo_esperado),
         type: "bar",
@@ -87,7 +87,7 @@ export default {
         value: this.metrics.precos_acima_da_media.valor,
         value_text: this.metrics.precos_acima_da_media.valor,
         value_is_valid: this.metrics.precos_acima_da_media.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.precos_acima_da_media.outlier, this.metrics.precos_acima_da_media.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.precos_acima_da_media.outlier, this.metrics.precos_acima_da_media.valor_valido),
         type: "above-average-prices-list",
         minimum_expected: this.metrics.precos_acima_da_media.minimo_esperado,
         maximum_expected: this.metrics.precos_acima_da_media.maximo_esperado,
@@ -103,7 +103,7 @@ export default {
         value: this.metrics.valor_comprovado.valor,
         value_text: "R$ "+ this.setMoneyFormat(this.metrics.valor_comprovado.valor),
         value_is_valid: this.metrics.valor_comprovado.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.valor_comprovado.outlier, this.metrics.valor_comprovado.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.valor_comprovado.outlier, this.metrics.valor_comprovado.valor_valido),
         minimum_expected: this.metrics.valor_comprovado.minimo_esperado,
         maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_comprovado.maximo_esperado),
         type: "bar",
@@ -117,7 +117,7 @@ export default {
         value: this.metrics.valor_captado.valor,
         value_text: "R$ " + this.setMoneyFormat(this.metrics.valor_captado.valor),
         value_is_valid: this.metrics.valor_captado.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.valor_captado.outlier, this.metrics.valor_captado.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.valor_captado.outlier, this.metrics.valor_captado.valor_valido),
         minimum_expected: this.metrics.valor_captado.minimo_esperado,
         maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_captado.maximo_esperado),
         type: "bar",
@@ -131,7 +131,7 @@ export default {
         value: this.metrics.projetos_do_mesmo_proponente.valor,
         value_text: this.metrics.projetos_do_mesmo_proponente.valor,
         value_is_valid: this.metrics.projetos_do_mesmo_proponente.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.projetos_do_mesmo_proponente.outlier, this.metrics.projetos_do_mesmo_proponente.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.projetos_do_mesmo_proponente.outlier, this.metrics.projetos_do_mesmo_proponente.valor_valido),
         minimum_expected: this.metrics.projetos_do_mesmo_proponente.minimo_esperado,
         maximum_expected: this.metrics.projetos_do_mesmo_proponente.maximo_esperado,
         type: "proponents-list",
@@ -144,7 +144,7 @@ export default {
         value: this.metrics.novos_fornecedores.valor,
         value_text: this.metrics.novos_fornecedores.valor,
         value_is_valid: this.metrics.novos_fornecedores.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.novos_fornecedores.outlier, this.metrics.novos_fornecedores.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.novos_fornecedores.outlier, this.metrics.novos_fornecedores.valor_valido),
         minimum_expected: this.metrics.novos_fornecedores.minimo_esperado,
         maximum_expected: this.metrics.novos_fornecedores.maximo_esperado,
         type: "providers-list",
@@ -159,7 +159,7 @@ export default {
         value: this.metrics.valor_aprovado.valor,
         value_text: "R$ " + this.setMoneyFormat(this.metrics.valor_aprovado.valor),
         value_is_valid: this.metrics.valor_aprovado.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
         minimum_expected: this.metrics.valor_aprovado.minimo_esperado,
         maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_aprovado.maximo_esperado),
         type: "bar",
@@ -173,7 +173,7 @@ export default {
         value: 2,
         value_text: this.setMoneyFormat(this.metrics.valor_aprovado.valor),
         value_is_valid: true,
-        is_outlier: this.getIsOutlierStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.valor_aprovado.outlier, this.metrics.valor_aprovado.valor_valido),
         minimum_expected: this.metrics.valor_aprovado.minimo_esperado,
         maximum_expected: this.metrics.valor_aprovado.maximo_esperado,
 
@@ -187,7 +187,7 @@ export default {
         value: this.metrics.comprovantes_acima_de_50.valor,
         value_text: this.metrics.comprovantes_acima_de_50.valor,
         value_is_valid: this.metrics.comprovantes_acima_de_50.valor_valido,
-        is_outlier: this.getIsOutlierStyle(this.metrics.comprovantes_acima_de_50.outlier, this.metrics.comprovantes_acima_de_50.valor_valido),
+        is_outlier: this.getColorStyle(this.metrics.comprovantes_acima_de_50.outlier, this.metrics.comprovantes_acima_de_50.valor_valido),
         minimum_expected: this.metrics.comprovantes_acima_de_50.minimo_esperado,
         maximum_expected: this.metrics.comprovantes_acima_de_50.maximo_esperado,
 
@@ -221,8 +221,12 @@ export default {
     setMoneyFormat(value){
         return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
     },
-    getIsOutlierStyle(isOutlier, valid){
-      return (isOutlier && valid) ? "Metric-bad" : "Metric-good";
+    getColorStyle(isOutlier, valid){
+      let color = "Metric-invalid";
+      if(valid) {
+        color = (isOutlier && valid) ? "Metric-bad" : "Metric-good";
+      }
+      return color;
     },
     getMetricBar(max, min, value){
       var max_value = Math.max(max, value) * 2;
@@ -316,14 +320,26 @@ export default {
 }
 
 .Metric-good {
-  color: #666 !important;
+  color: #1B5E20 !important;
 }
 .Metric-good .ui.ribbon.label {
+  color: white;
+  background-color: #1B5E20;
+  border-color: #1B5E20;
+}
+.Metric-good .icon:before {
+  content: "\f2cb"; /* Thermometer empty */
+}
+
+.Metric-invalid {
+  color: #666 !important;
+}
+.Metric-invalid .ui.ribbon.label {
   color: #666;
   background-color: #e7e7e7;
   border-color: #e7e7e7;
 }
-.Metric-good .icon:before {
+.Metric-invalid .icon:before {
   content: "\f2cb"; /* Thermometer empty */
 }
 </style>

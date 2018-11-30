@@ -7,7 +7,7 @@
             <th>Nome</th>
             <th>Valor Comprovado(R$)</th>
             <th>Valor Captado(R$)</th>
-            <th>Etapa</th>
+            <th>Complexidade</th>
             <th>Situação</th>
             <th>Data Início</th>
             <th>Data Fim</th>
@@ -19,7 +19,7 @@
           <td data-label="Nome">{{project.nome}}</td>
           <td data-label="Valor Comprovado">{{setMoneyFormat(project.valor_comprovado)}}</td>
           <td data-label="Valor Captado">{{setMoneyFormat(project.valor_captado)}}</td>
-          <td data-label="Etapa">{{project.etapa}}</td>
+          <td data-label="Complexidade">{{project.complexity}}</td>
           <td data-label="Situação">{{project.situacao}}</td>
           <td data-label="Data Início">{{project.data_inicio}}</td>
           <td data-label="Data Fim">{{project.data_fim}}</td>

@@ -4,7 +4,7 @@
     <filter-bar></filter-bar>
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
-          api-url="https://salicml.lappis.rocks/projetos"
+          api-url="http://68.183.53.220/projetos"
           :fields="fields"
           pagination-path=""
           :per-page="20"
