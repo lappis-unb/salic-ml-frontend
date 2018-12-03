@@ -110,6 +110,20 @@ export default {
 
         bar: {}
       },
+      valor_a_ser_comprovado: {
+        name_title: "Valor a ser comprovado",
+        helper_text:
+          "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento",
+        value: this.metrics.valor_a_ser_comprovado.valor,
+        value_text: "R$ "+ this.setMoneyFormat(this.metrics.valor_a_ser_comprovado.valor),
+        value_is_valid: this.metrics.valor_a_ser_comprovado.valor_valido,
+        is_outlier: this.getColorStyle(this.metrics.valor_a_ser_comprovado.outlier, this.metrics.valor_comprovado.valor_valido),
+        minimum_expected: this.metrics.valor_a_ser_comprovado.minimo_esperado,
+        maximum_expected: "R$ "+ this.setMoneyFormat(this.metrics.valor_a_ser_comprovado.maximo_esperado),
+        type: "bar",
+
+        bar: {}
+      },
       captured_value: {
         name_title: "Valor captado",
         helper_text:
@@ -207,13 +221,14 @@ export default {
         this.budget_items_unusual,
         this.proof_payment,
         this.above_average_prices,
-        this.proven_value,
-        this.captured_value,
+        //this.proven_value,
+        //this.captured_value,
         this.projects_same_proponent,
         this.new_providers,
         this.approved_value,
         this.vouchers_by_operation_code,
         this.vouchers_above_50,
+        this.valor_a_ser_comprovado,
       ];
     }
   },
