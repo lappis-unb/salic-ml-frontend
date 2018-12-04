@@ -6,7 +6,7 @@
         <div class="ui ribbon label">
           <i class="icon"></i>
         </div>
-        <span>{{metric.name_title}}: {{metric.value_text}}</span>
+        <span>{{metric.name_title}}: {{(metric.value_is_valid) ? metric.value_text : "não disp."}}</span>
         <helper-metric :helper_text="metric.helper_text"/>
         <i class="dropdown icon"></i>
       </div>
@@ -226,7 +226,7 @@ export default {
         this.projects_same_proponent,
         this.new_providers,
         this.approved_value,
-        this.vouchers_by_operation_code,
+        //this.vouchers_by_operation_code,
         this.vouchers_above_50,
         this.valor_a_ser_comprovado,
       ];

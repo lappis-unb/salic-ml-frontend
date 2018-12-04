@@ -2,7 +2,7 @@
   <div class="show-metrics">
     <header-show :user="user" :project="project" />
     <span v-if="has_user==true">
-      <complexity-title :value="10 - indicators[0].valor" />
+      <complexity-title :value="indicators[0].valor" />
       <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" :user="user" />
       <!--<project-feedback
         :user="user"

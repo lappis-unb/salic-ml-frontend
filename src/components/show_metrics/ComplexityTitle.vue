@@ -1,6 +1,10 @@
 <template>
     <div class="ui clearing basic segment" id="Summary">
-      <div id="indicatorContainer"></div>
+      <div hidden>{{value}}</div>
+      <div>
+        <div id="indicatorContainer"></div>
+        <p style="text-align: center;"><b>{{getSubtitle}}</b></p>
+      </div>
       <h1 class="ui header">
           Diagnóstico de complexidade da prestação de contas
       </h1>
@@ -14,14 +18,24 @@ export default {
   name: "ComplexityTitle",
   data: function() {
     return {
-      indicator_value: this.value
+      radialObj: ""
     };
   },
   props: {
     value: Number
   },
+  computed: {
+    getSubtitle: function(){
+        if(this.value>=7) return "Normal";
+        else if(this.value>=4) return "Complexo";
+        else return "Muito Complexo";
+    }
+  },
+  beforeUpdate() {
+    this.radialObj.value((this.value).toFixed(1));
+  },
   mounted: function() {
-    var radialObj = $("#indicatorContainer")
+    this.radialObj = $("#indicatorContainer")
       .radialIndicator({
         radius: 70,
         barColor: {
@@ -37,8 +51,6 @@ export default {
         percentage: false,
       })
       .data("radialIndicator");
-    console.log(this.indicator_value)
-    radialObj.value(this.indicator_value);
   }
 };
 </script>
