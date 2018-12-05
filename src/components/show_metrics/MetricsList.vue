@@ -195,7 +195,7 @@ export default {
         operation_list: [{nome: "TED", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Boleto", codigos_de_operacao:[{nome: "Codigo 1", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Cheque", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}],
       },
       vouchers_above_50: {
-        name_title: "Comprovantes com preço acima de 50%",
+        name_title: "Comprovantes com extrapolação acima de 50% do aprovado",
         helper_text:
           "Explicação da métricas",
         value: this.metrics.comprovantes_acima_de_50.valor,
@@ -217,18 +217,18 @@ export default {
   computed: {
     metrics_list: function () {
       return [
-        this.budget_items,
-        this.budget_items_unusual,
-        this.proof_payment,
-        this.above_average_prices,
-        //this.proven_value,
-        //this.captured_value,
+        this.valor_a_ser_comprovado,
+        this.vouchers_above_50,
         this.projects_same_proponent,
         this.new_providers,
-        this.approved_value,
+        this.budget_items,
+        this.proof_payment,
+        //this.approved_value,
         //this.vouchers_by_operation_code,
-        this.vouchers_above_50,
-        this.valor_a_ser_comprovado,
+        //this.budget_items_unusual,
+        //this.above_average_prices,
+        //this.proven_value,
+        //this.captured_value,
       ];
     }
   },
