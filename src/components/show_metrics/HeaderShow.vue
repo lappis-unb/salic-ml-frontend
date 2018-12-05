@@ -1,15 +1,15 @@
 <template>
-    <div class="ui fixed inverted menu" id="ProjectID">
+    <div class="ui fixed inverted menu" :class="getBackgroundClass" id="ProjectID">
         <router-link to="/" class="ui icon inverted button" id="btBack">
             <i class="left arrow icon"></i>
         </router-link>
         
-        <div class="ui tiny inverted statistic">
-            <div class="label">PRONAC</div>
-            <div class="value">{{ project.pronac }}</div>
+        <div class="ui small inverted statistic">
+            <div class="value">{{value|rounded}}</div>
+            <div class="label">{{getSubtitle}}</div>
         </div>
         
-        <h1>{{ project.nome }}</h1>
+        <p>{{ project.nome }} ({{ project.pronac }})</p>
     
         <div v-if="Object.keys(user).length!=0" class="ui basic segment" id="LoggedUser">
             Avaliando como:<br />
@@ -23,8 +23,45 @@ export default {
   name: "HeaderShow",
   props: {
       project: Object,
-      user: Object
-  }
+      user: Object,
+  		value: Number
+  },
+  computed: {
+    getSubtitle: function(){
+        if(this.value>=7) return "Normal";
+        else if(this.value>=4) return "Complexo";
+        else return "Muito Complexo";
+    },
+		getBackgroundClass: function(){
+			if(this.value>=7) return "";
+        else if(this.value>=4) return "complex";
+        else return "verycomplex";
+		}
+  },
+	filters: {
+		rounded: function (value) {
+			if (!value) return 0
+			return value = Number((value).toFixed(1))
+		}
+	},
+	methods: {
+			handleScroll: function (event) {
+				if($(window).scrollTop()>150){
+					$("#ProjectID").fadeIn(300);
+				}else{
+					$("#ProjectID").fadeOut(300);
+				}
+			}
+	},
+	beforeUpdate(){
+		$("#ProjectID").hide();
+	},
+	created: function () {
+			window.addEventListener('scroll', this.handleScroll);
+	},
+	destroyed: function () {
+			window.removeEventListener('scroll', this.handleScroll);
+	}
 };
 </script>
 
@@ -32,7 +69,6 @@ export default {
 /*************************** 
  ******* Sticky Menu *******
  ***************************/
-
 .ui.fixed.inverted.menu {
   align-items: center;
   background-color: #1b5e20;
@@ -41,6 +77,14 @@ export default {
   justify-content: center;
 }
 
+.ui.fixed.inverted.menu.complex{
+	  background-color: #F2B01C;
+}
+	
+.ui.fixed.inverted.menu.verycomplex{
+	  background-color: #DB2828;
+}
+	
 .ui.fixed.inverted.menu .ui.inverted.button {
   font-size: 1.2em;
   left: 1em;
@@ -49,14 +93,14 @@ export default {
 }
 
 .ui.fixed.inverted.menu .ui.statistic {
-  margin: 0 2em;
+  margin: 0 3em;
 }
 
-.ui.fixed.inverted.menu h1 {
-  font-size: 1.2em;
-  height: auto;
-  margin: auto 0;
-  width: auto;
+
+.ui.fixed.inverted.menu p {
+  font-size: 1.5em;
+	font-style: italic;
+	line-height: 1.2em;
   max-width: 40%;
 }
 
