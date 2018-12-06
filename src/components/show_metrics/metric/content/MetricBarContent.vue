@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>O valor está acima do esperado, sendo este: {{metric.maximum_expected}}.</p>
+    <p>O valor está <b v-if="(metric.is_outlier)=='Metric-bad'">acima</b><b v-else>abaixo</b> do esperado, sendo este: {{metric.maximum_expected}}.</p>
     <!--
         <div class="ui pointing below label" :class="metric.outlier_check" id="MedianDisplay-Project">
           Este projeto

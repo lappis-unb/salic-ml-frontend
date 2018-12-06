@@ -36,3 +36,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.home {
+    margin-top: 55px;
+}
+
+</style>
