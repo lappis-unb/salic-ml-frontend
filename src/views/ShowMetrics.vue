@@ -1,7 +1,10 @@
 <template>
   <div class="show-metrics">
+      <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
+        <div class="ui large text loader">Carregando...</div>
+      </div>
     <header-show :value="indicators[0].valor" :user="user" :project="project" />
-    <span v-if="has_user==true">
+    <span>
       <complexity-title :value="indicators[0].valor" :project="project" />
       <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" :user="user" />
       <!--<project-feedback
@@ -10,9 +13,7 @@
         :project_feedback_list="project_feedback_list"
       />-->
     </span>
-    <span v-else>
-      <user-login @setUser="getUser"/>
-    </span>
+    <!--<span v-else><user-login @setUser="getUser"/></span>-->
   </div>
 </template>
 
@@ -35,6 +36,7 @@ export default {
   },
   data: function() {
     return {
+      loading: true,
       indicators: [
         {
           valor: 0,
@@ -77,6 +79,8 @@ export default {
         console.log("Get error", error);
       })
       .then(function() {
+        console.log("Entrou aqui amaigui")
+        self.loading = false;
         // always executed
       });
   },
@@ -89,3 +93,10 @@ export default {
   }
 };
 </script>
+
+<style>
+#load_background {
+    background: #FFF;
+}
+</style>
+
