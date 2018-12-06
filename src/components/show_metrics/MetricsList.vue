@@ -6,7 +6,7 @@
         <div class="ui ribbon label">
           <i class="icon"></i>
         </div>
-        <span>{{metric.name_title}}: {{(metric.value_is_valid) ? metric.value_text : "não disp."}}</span>
+        <span><span v-html="metric.name_title">{{metric.name_title}}</span>: {{(metric.value_is_valid) ? metric.value_text : "não disp."}}</span>
         <helper-metric :helper_text="metric.helper_text"/>
         <i class="dropdown icon"></i>
       </div>
@@ -195,9 +195,8 @@ export default {
         operation_list: [{nome: "TED", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Boleto", codigos_de_operacao:[{nome: "Codigo 1", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Cheque", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}],
       },
       vouchers_above_50: {
-        name_title: "Comprovantes com extrapolação acima de 50% do aprovado",
-        helper_text:
-          "Explicação da métricas",
+        name_title: "Comprovantes com extrapolação<br><span style='margin-left:85px;'>acima de 50% do aprovado</span>",
+        helper_text: "Explicação da métricas",
         value: this.metrics.comprovantes_acima_de_50.valor,
         value_text: this.metrics.comprovantes_acima_de_50.valor,
         value_is_valid: this.metrics.comprovantes_acima_de_50.valor_valido,
