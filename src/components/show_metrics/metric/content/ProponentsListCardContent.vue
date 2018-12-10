@@ -13,12 +13,12 @@
       </thead>
       <tbody>
         <tr v-for="(project, index) in metric.proponent_projects" :key="project+index">
-          <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade).toFixed(2) }}</td>
+          <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade) }}</td>
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
           <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
           <td data-label="Valor Comprovado" id="value-cell">{{setMoneyFormat(project.valor_comprovado)}}</td>
           <td data-label="Situação">{{project.situacao}}</td>
-          <td data-label="Período de execução">{{formateDate(project.data_inicio, project.data_fim)}}</td>
+          <td data-label="Período de execução" id="period-cell">{{formateDate(project.data_inicio, project.data_fim)}}</td>
         </tr>
       </tbody>
     </table>
@@ -37,9 +37,11 @@ export default {
         return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
     },
     formateDate(begin, end){
-        var start =  begin.slice(5,7) + '/' + begin.slice(0,4);
-        var final =  end.slice(5,7) + '/' + end.slice(0,4);
-        return start + " à " + final;
+        let start =  begin.slice(5,7) + '/' + begin.slice(0,4);
+        let final =  end.slice(5,7) + '/' + end.slice(0,4);
+        let date = start + " à " + final
+         
+        return (date==="/ à /") ? "-" : date;
     }
   },
 };
@@ -47,6 +49,10 @@ export default {
 
 <style>
 #complexity-cell {
+    text-align: center;
+}
+
+#period-cell {
     text-align: center;
 }
 

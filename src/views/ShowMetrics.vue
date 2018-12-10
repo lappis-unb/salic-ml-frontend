@@ -79,7 +79,6 @@ export default {
         console.log("Get error", error);
       })
       .then(function() {
-        console.log("Entrou aqui amaigui")
         self.loading = false;
         // always executed
       });

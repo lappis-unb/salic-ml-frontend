@@ -4,7 +4,7 @@
     <filter-bar></filter-bar>
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
-          api-url="http://68.183.53.220/projetos"
+          api-url="http://salicml.lappis.rocks/projetos"
           :fields="fields"
           pagination-path=""
           :per-page="20"
@@ -95,7 +95,7 @@ export default {
       if(value>=80) color = "#DB2828";
       else (value>=30) ? color = "#F2B01C" : color = "#1B5E20";
 
-      return '<strong style="color: ' + color + '; font-size: 20px;">' + value + '%</strong>'
+      return '<strong style="color: ' + color + '; font-size: 20px;">' + (value/10) + '</strong>'
     },
     onPaginationData (paginationData) {
       this.$refs.pagination.setPaginationData(paginationData)
@@ -108,9 +108,9 @@ export default {
       console.log('slot action: ' + action, data.project_name, index)
     },
     onCellClicked (data, field, event) {
-      window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
+      //window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
       this.$refs.vuetable.toggleDetailRow(data.id)
-      //this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
+      this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
     },
     onFilterSet (filterText) {
       console.log(filterText)
