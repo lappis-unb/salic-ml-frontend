@@ -28,7 +28,7 @@ export default {
     };
   },
   props: {
-		project: Object,
+	project: Object,
     value: Number
   },
   computed: {
@@ -39,7 +39,7 @@ export default {
     }
   },
   beforeUpdate() {
-    this.radialObj.value((this.value).toFixed(1));
+    this.radialObj.value(this.value);
   },
   mounted: function() {
     this.radialObj = $("#indicatorContainer")
@@ -66,23 +66,23 @@ export default {
 /*************************** 
  ********* Summary *********
  ***************************/
-		#btBack{
-				position: absolute;
-				top:1em;
-				left:1em;
-		}
-		#Summary{
-				padding: 2em 0;
-		}
-		
-		#Summary H1{
-			font-size: 3.2em;
-			font-style: italic;
-			margin: 0.2em 0 0;
-		}
-		
-		#Summary H3{
-			margin: 0;
-		}
+#btBack{
+    position: absolute;
+    top:1em;
+    left:1em;
+}
+#Summary{
+    padding: 2em 0;
+}
+
+#Summary H1{
+    font-size: 3.2em;
+    font-style: italic;
+    margin: 0.2em 0 0;
+}
+
+#Summary H3{
+    margin: 0;
+}
 		
 </style>

@@ -95,7 +95,7 @@ export default {
       if(value>=80) color = "#DB2828";
       else (value>=30) ? color = "#F2B01C" : color = "#1B5E20";
 
-      return '<strong style="color: ' + color + '; font-size: 20px;">' + (value/10) + '</strong>'
+      return '<strong style="color: ' + color + '; font-size: 20px;">' + (value) + '</strong>'
     },
     onPaginationData (paginationData) {
       this.$refs.pagination.setPaginationData(paginationData)

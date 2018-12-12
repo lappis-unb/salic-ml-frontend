@@ -3,9 +3,9 @@
       <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
         <div class="ui large text loader">Carregando...</div>
       </div>
-    <header-show :value="indicators[0].valor" :user="user" :project="project" />
+    <header-show :value="parseInt(indicators[0].valor)" :user="user" :project="project" />
     <span>
-      <complexity-title :value="indicators[0].valor" :project="project" />
+      <complexity-title :value="parseInt(indicators[0].valor)" :project="project" />
       <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" :user="user" />
       <!--<project-feedback
         :user="user"

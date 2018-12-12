@@ -3,18 +3,15 @@
         <router-link to="/" class="ui icon inverted button" id="btBack">
             <i class="left arrow icon"></i>
         </router-link>
-        
         <div class="ui small inverted statistic">
             <div class="value">{{value|rounded}}</div>
             <div class="label">{{getSubtitle}}</div>
         </div>
-        
         <p>{{ project.nome }} ({{ project.pronac }})</p>
-    
-        <div v-if="Object.keys(user).length!=0" class="ui basic segment" id="LoggedUser">
+        <!--<div v-if="Object.keys(user).length!=0" class="ui basic segment" id="LoggedUser">
             Avaliando como:<br />
             {{user.name}}
-        </div>
+        </div>-->
     </div>
 </template>
 
@@ -24,7 +21,7 @@ export default {
   props: {
       project: Object,
       user: Object,
-  		value: Number
+  	  value: Number
   },
   computed: {
     getSubtitle: function(){
@@ -34,14 +31,14 @@ export default {
     },
 		getBackgroundClass: function(){
 			if(this.value>=7) return "";
-        else if(this.value>=4) return "complex";
-        else return "verycomplex";
+            else if(this.value>=4) return "complex";
+            else return "verycomplex";
 		}
   },
 	filters: {
 		rounded: function (value) {
 			if (!value) return 0
-			return value = Number((value).toFixed(1))
+			return value = Number(value)
 		}
 	},
 	methods: {
