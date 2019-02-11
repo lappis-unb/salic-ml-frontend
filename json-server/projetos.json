@@ -1,0 +1,2719 @@
+{
+  "projetos_lista": {
+    "total": 29900,
+    "per_page": 15,
+    "current_page": 1,
+    "last_page": 1,
+    "next_page_url": null,
+    "prev_page_url": null,
+    "begin_page": 1,
+    "end_page": 1,
+    "data": [
+      {
+        "pronac": "090105",
+        "complexidade": 10,
+        "nome": "NEW YORK, NEW YORK - O MUSICAL",
+        "analista": " "
+      },
+      {
+        "pronac": "130028",
+        "complexidade": 10,
+        "nome": "TRADI\u00c7\u00c3O PELA RAIZ - Segunda Edi\u00e7\u00e3o",
+        "analista": " "
+      },
+      {
+        "pronac": "137818",
+        "complexidade": 10,
+        "nome": "Shows de Lan\u00e7amento e Grava\u00e7\u00e3o de Dvd do \u00c1lbum Quintal",
+        "analista": " "
+      },
+      {
+        "pronac": "164816",
+        "complexidade": 10,
+        "nome": "DOLCE VITA",
+        "analista": " "
+      }
+    ]
+  },
+  "projetos": [
+    {
+      "id": "090105",
+      "nome": "NEW YORK, NEW YORK - O MUSICAL",
+      "pronac": "090105",
+      "indicadores": [
+        {
+          "nome": "complexidade_financeira",
+          "valor": 10,
+          "metricas": {
+            "itens_orcamentarios": {
+              "valor": 61,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 115.37466432685918,
+              "metric_id": 1
+            },
+            "itens_orcamentarios_inesperados": {
+              "outlier": false,
+              "valor": 18.51851851851852,
+              "valor_valido": true,
+              "items_incomuns": [
+                { "id": 12, "nome": "Tradutor e adaptador", "link": "#" },
+                {
+                  "id": 24,
+                  "nome": "Diretor art\u00edstico e musical",
+                  "link": "#"
+                },
+                {
+                  "id": 49,
+                  "nome": "Loca\u00e7\u00e3o de mesa e refletor",
+                  "link": "#"
+                },
+                { "id": 63, "nome": "Figurantes", "link": "#" },
+                {
+                  "id": 67,
+                  "nome": "Assistente de cenot\u00e9cnico",
+                  "link": "#"
+                },
+                { "id": 72, "nome": "T\u00e9cnico de Palco", "link": "#" },
+                {
+                  "id": 206,
+                  "nome": "Elabora\u00e7\u00e3o e Agenciamento",
+                  "link": "#"
+                },
+                { "id": 1120, "nome": "Di\u00e1rias", "link": "#" },
+                { "id": 2605, "nome": "Bailarinos", "link": "#" },
+                {
+                  "id": 2667,
+                  "nome": "Loca\u00e7\u00e3o de equipamento de legendagem eletr\u00f4nica",
+                  "link": "#"
+                }
+              ],
+              "items_comuns_que_o_projeto_nao_possui": [
+                {
+                  "id": 13,
+                  "nome": "Projeto de ilumina\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 17, "nome": "Figurino", "link": "#" },
+                { "id": 20, "nome": "Produtor", "link": "#" },
+                { "id": 41, "nome": "Pesquisa", "link": "#" },
+                { "id": 43, "nome": "Projeto Gr\u00e1fico", "link": "#" },
+                { "id": 70, "nome": "Sonoplasta", "link": "#" },
+                { "id": 77, "nome": "Operador de som", "link": "#" },
+                { "id": 78, "nome": "Operador de luz", "link": "#" },
+                { "id": 86, "nome": "Carregador", "link": "#" },
+                { "id": 88, "nome": "Montagem e desmontagem", "link": "#" },
+                { "id": 114, "nome": "Impress\u00e3o", "link": "#" },
+                {
+                  "id": 129,
+                  "nome": "Hospedagem com alimenta\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 130,
+                  "nome": "Hospedagem sem alimenta\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 131,
+                  "nome": "Passagens A\u00e9reas (Descrever os trechos na tela de deslocamentos)",
+                  "link": "#"
+                },
+                {
+                  "id": 160,
+                  "nome": "Confec\u00e7\u00e3o de Convites",
+                  "link": "#"
+                },
+                { "id": 175, "nome": "Outdoors", "link": "#" },
+                { "id": 180, "nome": "M\u00eddia Televisiva", "link": "#" },
+                { "id": 200, "nome": "INSS", "link": "#" },
+                {
+                  "id": 1006,
+                  "nome": "C\u00f3pias e reprodu\u00e7\u00f5es",
+                  "link": "#"
+                },
+                { "id": 1008, "nome": "Correios", "link": "#" },
+                { "id": 1019, "nome": "Combust\u00edvel", "link": "#" },
+                {
+                  "id": 1043,
+                  "nome": "Diretor de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1044,
+                  "nome": "Coordenador de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 1051, "nome": "Assistente de cenografia", "link": "#" },
+                { "id": 1057, "nome": "Aderecista", "link": "#" },
+                { "id": 1060, "nome": "Assistente de figurino", "link": "#" },
+                {
+                  "id": 1116,
+                  "nome": "Loca\u00e7\u00e3o equipamento de som",
+                  "link": "#"
+                },
+                { "id": 1119, "nome": "Refei\u00e7\u00e3o", "link": "#" },
+                { "id": 1123, "nome": "Aluguel de vans", "link": "#" },
+                { "id": 1125, "nome": "Aluguel de \u00f4nibus", "link": "#" },
+                {
+                  "id": 1133,
+                  "nome": "Material de escrit\u00f3rio",
+                  "link": "#"
+                },
+                {
+                  "id": 1180,
+                  "nome": "Est\u00fadios de grava\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 2436, "nome": "Telefone", "link": "#" },
+                { "id": 2440, "nome": "Seguran\u00e7a", "link": "#" },
+                { "id": 2502, "nome": "Ensaios", "link": "#" },
+                {
+                  "id": 2590,
+                  "nome": "ECAD (caso de o evento ser aberto e gratuito)",
+                  "link": "#"
+                },
+                { "id": 2599, "nome": "T\u00e9cnico de Luz", "link": "#" },
+                {
+                  "id": 2600,
+                  "nome": "S\u00edtio de Internet - Design e cria\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 2607, "nome": "Dramaturgista", "link": "#" },
+                { "id": 2626, "nome": "Camisetas", "link": "#" },
+                {
+                  "id": 2628,
+                  "nome": "Registro videogr\u00e1fico",
+                  "link": "#"
+                },
+                { "id": 2697, "nome": "Motoboy", "link": "#" },
+                {
+                  "id": 2707,
+                  "nome": "Loca\u00e7\u00e3o de Gerador de Energia",
+                  "link": "#"
+                },
+                { "id": 2711, "nome": "Folheto", "link": "#" },
+                { "id": 2719, "nome": "Material de consumo", "link": "#" },
+                {
+                  "id": 2732,
+                  "nome": "An\u00fancio de 1/2 de  p\u00e1gina\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2734,
+                  "nome": "An\u00fancio de 1/4 de p\u00e1gina\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2743,
+                  "nome": "Banner/faixa adesiva/faixa de lona/saia de palco/testeira/p\u00f3rtico\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2767,
+                  "nome": "Folder formato at\u00e9 A4(21x29,7cm)\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2768,
+                  "nome": "Folder formato at\u00e9 A5(15,5x21cm)\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2784,
+                  "nome": "S\u00edtio de internet\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2787,
+                  "nome": "Spot de at\u00e9 30\"\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 3124,
+                  "nome": "Registro e documenta\u00e7\u00e3o fotogr\u00e1fica",
+                  "link": "#"
+                },
+                {
+                  "id": 3235,
+                  "nome": "Assistente administrativo",
+                  "link": "#"
+                },
+                { "id": 3293, "nome": "Designer gr\u00e1fico", "link": "#" },
+                { "id": 3504, "nome": "Transporte de material", "link": "#" },
+                {
+                  "id": 3531,
+                  "nome": "Materiais e equipamentos para montagem",
+                  "link": "#"
+                },
+                { "id": 3538, "nome": "Clipping", "link": "#" },
+                {
+                  "id": 3544,
+                  "nome": "Programa\u00e7\u00e3o visual",
+                  "link": "#"
+                },
+                { "id": 3546, "nome": "V\u00eddeo", "link": "#" },
+                { "id": 3552, "nome": "Maquiagem", "link": "#" },
+                { "id": 3557, "nome": "Elenco Principal", "link": "#" },
+                {
+                  "id": 3561,
+                  "nome": "Loca\u00e7\u00e3o equipamento de ilumina\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 3566, "nome": "Trilha sonora original", "link": "#" },
+                { "id": 3584, "nome": "Busdoor", "link": "#" },
+                { "id": 3588, "nome": "Diretor musical", "link": "#" },
+                { "id": 3589, "nome": "Ator/Atriz", "link": "#" },
+                { "id": 3590, "nome": "Ator/atriz coadjuvante", "link": "#" },
+                { "id": 3594, "nome": "Filipeta", "link": "#" },
+                { "id": 3597, "nome": "Visagista", "link": "#" },
+                {
+                  "id": 3598,
+                  "nome": "Loca\u00e7\u00e3o de equipamentos de luz (torres, mesas, racks, cabos, refletores, m\u00e1quinas de fuma\u00e7a, monitor)",
+                  "link": "#"
+                },
+                {
+                  "id": 3606,
+                  "nome": "Coordenador Administrativo",
+                  "link": "#"
+                },
+                { "id": 3617, "nome": "Diretor geral", "link": "#" },
+                { "id": 3631, "nome": "Assistentes", "link": "#" },
+                { "id": 3638, "nome": "Cen\u00e1rio", "link": "#" },
+                { "id": 3647, "nome": "Distribuidor de impresso", "link": "#" },
+                {
+                  "id": 3677,
+                  "nome": "Coordena\u00e7\u00e3o geral",
+                  "link": "#"
+                },
+                {
+                  "id": 3684,
+                  "nome": "Loca\u00e7\u00e3o de equipamentos",
+                  "link": "#"
+                },
+                {
+                  "id": 3732,
+                  "nome": "Coordena\u00e7\u00e3o Administrativo- Financeiro",
+                  "link": "#"
+                },
+                { "id": 3839, "nome": "Advogado", "link": "#" },
+                {
+                  "id": 3859,
+                  "nome": "Dire\u00e7\u00e3o C\u00eanica ",
+                  "link": "#"
+                },
+                { "id": 3871, "nome": "M\u00eddia internet", "link": "#" },
+                {
+                  "id": 3899,
+                  "nome": "Dire\u00e7\u00e3o Art\u00edstica",
+                  "link": "#"
+                },
+                {
+                  "id": 3900,
+                  "nome": "Dire\u00e7\u00e3o musical",
+                  "link": "#"
+                },
+                { "id": 3928, "nome": "Grupo teatral", "link": "#" },
+                {
+                  "id": 3953,
+                  "nome": "Cenografia/material/confec\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 4001, "nome": "Material para maquiagem", "link": "#" },
+                { "id": 4548, "nome": "Produtor local", "link": "#" },
+                {
+                  "id": 4556,
+                  "nome": "Int\u00e9rprete de libras",
+                  "link": "#"
+                },
+                {
+                  "id": 5249,
+                  "nome": "Remunera\u00e7\u00e3o para capta\u00e7\u00e3o de recursos",
+                  "link": "#"
+                },
+                {
+                  "id": 5250,
+                  "nome": "Elabora\u00e7\u00e3o de presta\u00e7\u00e3o de contas",
+                  "link": "#"
+                }
+              ],
+              "metric_id": 2
+            },
+            "precos_acima_da_media": {
+              "valor": 8,
+              "outlier": true,
+              "items": [
+                { "id": 74, "nome": "Iluminador", "link": "#" },
+                {
+                  "id": 67,
+                  "nome": "Assistente de cenot\u00e9cnico",
+                  "link": "#"
+                },
+                { "id": 73, "nome": "Figurinista", "link": "#" },
+                { "id": 178, "nome": "M\u00eddia impressa", "link": "#" },
+                { "id": 12, "nome": "Tradutor e adaptador", "link": "#" },
+                {
+                  "id": 201,
+                  "nome": "Seguro (pessoas, obras e equipamentos - especificar)",
+                  "link": "#"
+                },
+                { "id": 1050, "nome": "Cen\u00f3grafo", "link": "#" },
+                { "id": 66, "nome": "Cenot\u00e9cnico", "link": "#" }
+              ],
+              "total_items": 61,
+              "maximo_esperado": 6,
+              "valor_valido": true,
+              "metric_id": 3
+            },
+            "comprovantes_de_pagamento": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 4
+            },
+            "valor_captado": {
+              "valor": 4590000,
+              "outlier": true,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 1949182,
+              "metric_id": 5
+            },
+            "valor_comprovado": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 6
+            },
+            "projetos_do_mesmo_proponente": {
+              "cnpj_cpf": "01268090000169",
+              "valor": 27,
+              "projetos_submetidos": [
+                {
+                  "pronac": "002911",
+                  "nome": "Flauta M\u00e1gica(A)",
+                  "situacao": "L02 - Presta\u00e7\u00e3o de contas aprovada sem certifica\u00e7\u00e3o de qualidade-gest\u00e3o",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 150000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "012846",
+                  "nome": "Mem\u00f3ria da \u00d3pera Brasileira - Joanna de Flandres",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "2001-11-01 00:00:00",
+                  "data_fim": "2002-04-30 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "031962",
+                  "nome": "Joanna de Flandres - Apresenta\u00e7\u00f5es em Porto Alegre",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "031969",
+                  "nome": "Joanna Flandres - Apresenta\u00e7\u00e3o em Ribeir\u00e3o Preto ",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "031971",
+                  "nome": "Joanna Flandres - Apresenta\u00e7\u00e3io em Curitiba",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "031972",
+                  "nome": "Joanna Flandres - Apresenta\u00e7\u00e3o em Belo Horizonte",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "031973",
+                  "nome": "Joanna de Flandres - Apresenta\u00e7\u00e3o em Bras\u00edlia",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "032623",
+                  "nome": "Joanna de Flandres - Apresenta\u00e7\u00e3o em Campinas ",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "035156",
+                  "nome": "Mem\u00f3ria da \u00d3pera Brasileira - Joanna de Flandres - Produ\u00e7\u00e3o",
+                  "situacao": "E19 - Presta\u00e7\u00e3o de Contas Aprovada",
+                  "data_inicio": "2008-08-08 00:00:00",
+                  "data_fim": "2008-08-12 00:00:00",
+                  "link": "#",
+                  "valor_captado": 750100.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "037123",
+                  "nome": "Joanna de Flandres- Apresenta\u00e7\u00e3o em Bel\u00e9m",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "037124",
+                  "nome": "Joanna de Flandres- Apresenta\u00e7\u00e3o em Recife",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "042134",
+                  "nome": "Joanna de Flandres - Apresenta\u00e7\u00e3o",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "0710682",
+                  "nome": "Mem\u00f3rias da \u00d3pera Brasileira: Joanna de Flandres - Apresenta\u00e7\u00e3o em S\u00e3o Paulo",
+                  "situacao": "E36 - Arquivado por ter 24 meses aprova\u00e7\u00e3o sem capta\u00e7\u00e3o de recursos",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "080771",
+                  "nome": "Mem\u00f3ria da \u00d3pera Brasileira: Joanna de Flandres - Apresenta\u00e7\u00e3o em Belo Horizonte",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "973521",
+                  "nome": "Programa Maestro",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "080814",
+                  "nome": "Mem\u00f3ria da \u00d3pera Brasileira: Joanna de Flandres - Apresenta\u00e7\u00e3o no Rio de Janeiro",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "081085",
+                  "nome": "Imagine - Musical Ecologicamente Correto (Um)",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "090105",
+                  "nome": "NEW YORK, NEW YORK - O MUSICAL",
+                  "situacao": "E68 - Aguarda an\u00e1lise financeira",
+                  "data_inicio": "2009-05-11 00:00:00",
+                  "data_fim": "2013-03-21 00:00:00",
+                  "link": "#",
+                  "valor_captado": 4590000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "1111765",
+                  "nome": "NEW YORK, NEW YORK - In Concert",
+                  "situacao": "E24 - Apresentou presta\u00e7\u00e3o de contas",
+                  "data_inicio": "2015-01-10 09:55:47",
+                  "data_fim": "2015-06-30 00:00:00",
+                  "link": "#",
+                  "valor_captado": 2749539.5700000008,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 9.1
+                },
+                {
+                  "pronac": "121614",
+                  "nome": "\u00d3PERA JOANNA DE FLANDRES DE CARLOS GOMES - 150 ANOS",
+                  "situacao": "E65 - Projeto arquivado - solicita\u00e7\u00e3o de arquivamento, de projeto de incentivo fiscal, feito pelo proponente",
+                  "data_inicio": "2014-01-07 10:09:08",
+                  "data_fim": "2014-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "133552",
+                  "nome": "MASTER CLASS",
+                  "situacao": "E24 - Apresentou presta\u00e7\u00e3o de contas",
+                  "data_inicio": "2013-10-08 00:00:00",
+                  "data_fim": "2016-09-30 00:00:00",
+                  "link": "#",
+                  "valor_captado": 2390000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "134224",
+                  "nome": "Zuzubal\u00e2ndia &#x2013; O Musical",
+                  "situacao": "E65 - Projeto arquivado - solicita\u00e7\u00e3o de arquivamento, de projeto de incentivo fiscal, feito pelo proponente",
+                  "data_inicio": "2015-01-10 09:55:46",
+                  "data_fim": "2015-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "144866",
+                  "nome": "O BEM AMADO",
+                  "situacao": "E65 - Projeto arquivado - solicita\u00e7\u00e3o de arquivamento, de projeto de incentivo fiscal, feito pelo proponente",
+                  "data_inicio": "2014-07-16 16:37:40",
+                  "data_fim": "2016-07-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 9.1
+                },
+                {
+                  "pronac": "154258",
+                  "nome": "\u201cPATATI & PATAT\u00c1 \u2013 Uma Aventura no Pa\u00eds das Cores\u201d",
+                  "situacao": "E63 - Projeto arquivado - por excesso de prazo sem capta\u00e7\u00e3o",
+                  "data_inicio": "2015-09-24 16:38:18",
+                  "data_fim": "2017-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 9.1
+                },
+                {
+                  "pronac": "163578",
+                  "nome": "Master Class \u2013 CIRCULA\u00c7\u00c3O",
+                  "situacao": "E24 - Apresentou presta\u00e7\u00e3o de contas",
+                  "data_inicio": "2016-12-26 16:11:34",
+                  "data_fim": "2018-06-20 00:00:00",
+                  "link": "#",
+                  "valor_captado": 2400000.0,
+                  "valor_comprovado": 994205.0000000001,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 5.5
+                },
+                {
+                  "pronac": "163719",
+                  "nome": "O Bem-Amado \u2013 O Musical",
+                  "situacao": "E12 - Autorizada a capta\u00e7\u00e3o residual dos recursos",
+                  "data_inicio": "2016-12-26 16:11:34",
+                  "data_fim": "2018-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 20000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de execu\u00e7\u00e3o do projeto e comprova\u00e7\u00e3o dos gastos efetuados",
+                  "complexidade": 9.1
+                },
+                {
+                  "pronac": "164335",
+                  "nome": "\u201cUMA NOITE EM HOLLYWOOD\u201d",
+                  "situacao": "A13 - Arquivado - solicita\u00e7\u00e3o de desist\u00eancia do proponente",
+                  "data_inicio": "2017-03-01 17:56:56",
+                  "data_fim": "2018-12-31 17:56:56",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                }
+              ],
+              "projetos_analisados": [
+                {
+                  "pronac": "163578",
+                  "name": "Master Class \u2013 CIRCULA\u00c7\u00c3O",
+                  "link": "#"
+                }
+              ],
+              "outlier": false,
+              "valor_valido": true,
+              "metric_id": 7
+            },
+            "novos_fornecedores": {
+              "valor": 0,
+              "outlier": false,
+              "lista_de_novos_fornecedores": [],
+              "valor_valido": false,
+              "metric_id": 8
+            },
+            "valor_aprovado": {
+              "valor": 5089380,
+              "outlier": true,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 3439306,
+              "metric_id": 9
+            },
+            "comprovantes_acima_de_50": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 10
+            },
+            "valor_a_ser_comprovado": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 11
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "130028",
+      "nome": "TRADI\u00c7\u00c3O PELA RAIZ - Segunda Edi\u00e7\u00e3o",
+      "pronac": "130028",
+      "indicadores": [
+        {
+          "nome": "complexidade_financeira",
+          "valor": 5.5,
+          "metricas": {
+            "itens_orcamentarios": {
+              "valor": 19,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 80.97016317301822,
+              "metric_id": 23
+            },
+            "itens_orcamentarios_inesperados": {
+              "outlier": false,
+              "valor": 36.8421052631579,
+              "valor_valido": true,
+              "items_incomuns": [
+                { "id": 176, "nome": "Faixas", "link": "#" },
+                {
+                  "id": 2620,
+                  "nome": "Loca\u00e7\u00e3o de sala para ensaios",
+                  "link": "#"
+                },
+                { "id": 2657, "nome": "Carro de som", "link": "#" },
+                {
+                  "id": 2732,
+                  "nome": "An\u00fancio de 1/2 de  p\u00e1gina\r\n",
+                  "link": "#"
+                },
+                { "id": 3940, "nome": "Grupos Folcl\u00f3ricos", "link": "#" },
+                {
+                  "id": 4381,
+                  "nome": "Contribui\u00e7\u00e3o Patronal",
+                  "link": "#"
+                },
+                {
+                  "id": 4809,
+                  "nome": "M\u00e1quina fotogr\u00e1fica - Aquisi\u00e7\u00e3o",
+                  "link": "#"
+                }
+              ],
+              "items_comuns_que_o_projeto_nao_possui": [
+                { "id": 17, "nome": "Figurino", "link": "#" },
+                { "id": 20, "nome": "Produtor", "link": "#" },
+                { "id": 40, "nome": "Direitos autorais", "link": "#" },
+                { "id": 43, "nome": "Projeto Gr\u00e1fico", "link": "#" },
+                { "id": 44, "nome": "Monitores", "link": "#" },
+                { "id": 53, "nome": "Produtor executivo", "link": "#" },
+                { "id": 114, "nome": "Impress\u00e3o", "link": "#" },
+                {
+                  "id": 129,
+                  "nome": "Hospedagem com alimenta\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 130,
+                  "nome": "Hospedagem sem alimenta\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 131,
+                  "nome": "Passagens A\u00e9reas (Descrever os trechos na tela de deslocamentos)",
+                  "link": "#"
+                },
+                { "id": 142, "nome": "Assessor de imprensa", "link": "#" },
+                {
+                  "id": 143,
+                  "nome": "Fotografia art\u00edstica (fot\u00f3grafo, tratamento, revela\u00e7\u00e3o, etc.)",
+                  "link": "#"
+                },
+                { "id": 178, "nome": "M\u00eddia impressa", "link": "#" },
+                {
+                  "id": 179,
+                  "nome": "M\u00eddia radiof\u00f4nica",
+                  "link": "#"
+                },
+                {
+                  "id": 189,
+                  "nome": "Assessoria Jur\u00eddica (Contratos Inclusive)",
+                  "link": "#"
+                },
+                { "id": 191, "nome": "Contador", "link": "#" },
+                { "id": 192, "nome": "Secret\u00e1ria", "link": "#" },
+                { "id": 200, "nome": "INSS", "link": "#" },
+                { "id": 1005, "nome": "Consultores", "link": "#" },
+                { "id": 1008, "nome": "Correios", "link": "#" },
+                {
+                  "id": 1037,
+                  "nome": "Assistente de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1044,
+                  "nome": "Coordenador de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1116,
+                  "nome": "Loca\u00e7\u00e3o equipamento de som",
+                  "link": "#"
+                },
+                { "id": 1119, "nome": "Refei\u00e7\u00e3o", "link": "#" },
+                { "id": 1125, "nome": "Aluguel de \u00f4nibus", "link": "#" },
+                {
+                  "id": 1131,
+                  "nome": "Aluguel de sede de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1133,
+                  "nome": "Material de escrit\u00f3rio",
+                  "link": "#"
+                },
+                { "id": 2436, "nome": "Telefone", "link": "#" },
+                { "id": 2440, "nome": "Seguran\u00e7a", "link": "#" },
+                {
+                  "id": 2600,
+                  "nome": "S\u00edtio de Internet - Design e cria\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 2603,
+                  "nome": "S\u00edtio de Internet - Manuten\u00e7\u00e3o/Atualiza\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 2606, "nome": "Professor", "link": "#" },
+                { "id": 2621, "nome": "Palestrante", "link": "#" },
+                {
+                  "id": 2628,
+                  "nome": "Registro videogr\u00e1fico",
+                  "link": "#"
+                },
+                { "id": 2692, "nome": "Coordenador do projeto", "link": "#" },
+                { "id": 2699, "nome": "\u00c1gua", "link": "#" },
+                {
+                  "id": 2713,
+                  "nome": "Material de apoio pedag\u00f3gico",
+                  "link": "#"
+                },
+                { "id": 2719, "nome": "Material de consumo", "link": "#" },
+                { "id": 2726, "nome": "Uniforme", "link": "#" },
+                {
+                  "id": 2767,
+                  "nome": "Folder formato at\u00e9 A4(21x29,7cm)\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 3124,
+                  "nome": "Registro e documenta\u00e7\u00e3o fotogr\u00e1fica",
+                  "link": "#"
+                },
+                {
+                  "id": 3235,
+                  "nome": "Assistente administrativo",
+                  "link": "#"
+                },
+                { "id": 3293, "nome": "Designer gr\u00e1fico", "link": "#" },
+                {
+                  "id": 3531,
+                  "nome": "Materiais e equipamentos para montagem",
+                  "link": "#"
+                },
+                {
+                  "id": 3598,
+                  "nome": "Loca\u00e7\u00e3o de equipamentos de luz (torres, mesas, racks, cabos, refletores, m\u00e1quinas de fuma\u00e7a, monitor)",
+                  "link": "#"
+                },
+                { "id": 3617, "nome": "Diretor geral", "link": "#" },
+                {
+                  "id": 3627,
+                  "nome": "Coordena\u00e7\u00e3o pedag\u00f3gica",
+                  "link": "#"
+                },
+                {
+                  "id": 3677,
+                  "nome": "Coordena\u00e7\u00e3o geral",
+                  "link": "#"
+                },
+                {
+                  "id": 3684,
+                  "nome": "Loca\u00e7\u00e3o de equipamentos",
+                  "link": "#"
+                },
+                {
+                  "id": 3724,
+                  "nome": "Auxiliar de servi\u00e7os gerais",
+                  "link": "#"
+                },
+                {
+                  "id": 3739,
+                  "nome": "Coordena\u00e7\u00e3o de oficinas",
+                  "link": "#"
+                },
+                { "id": 3745, "nome": "Energia El\u00e9trica", "link": "#" },
+                { "id": 3749, "nome": "Material de limpeza", "link": "#" },
+                { "id": 3839, "nome": "Advogado", "link": "#" },
+                {
+                  "id": 3855,
+                  "nome": "Coordena\u00e7\u00e3o art\u00edstica ",
+                  "link": "#"
+                },
+                { "id": 3871, "nome": "M\u00eddia internet", "link": "#" },
+                { "id": 3929, "nome": "Arte educador", "link": "#" },
+                {
+                  "id": 3953,
+                  "nome": "Cenografia/material/confec\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 4813,
+                  "nome": "Assessoria de Comunica\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 5250,
+                  "nome": "Elabora\u00e7\u00e3o de presta\u00e7\u00e3o de contas",
+                  "link": "#"
+                }
+              ],
+              "metric_id": 24
+            },
+            "precos_acima_da_media": {
+              "valor": 0,
+              "outlier": false,
+              "items": [],
+              "total_items": 19,
+              "maximo_esperado": 1,
+              "valor_valido": true,
+              "metric_id": 25
+            },
+            "comprovantes_de_pagamento": {
+              "valor": 47,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 317,
+              "metric_id": 26
+            },
+            "valor_captado": {
+              "valor": 27100,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 853062,
+              "metric_id": 27
+            },
+            "valor_comprovado": {
+              "valor": 27099,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 613397,
+              "metric_id": 28
+            },
+            "projetos_do_mesmo_proponente": {
+              "cnpj_cpf": "71861890087",
+              "valor": 15,
+              "projetos_submetidos": [
+                {
+                  "pronac": "054651",
+                  "nome": "Festa das Tradi\u00e7\u00f5es Ga\u00fachas ( 1\u00aa )",
+                  "situacao": "K00 - Projeto Arquivado",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "070400",
+                  "nome": "Tradi\u00e7\u00e3o pela Raiz",
+                  "situacao": "G17 - Solicita\u00e7\u00e3o de arquivamento feito pelo proponente",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "071922",
+                  "nome": "Feira do Livro de Cachoeirinha/RS",
+                  "situacao": "L02 - Presta\u00e7\u00e3o de contas aprovada sem certifica\u00e7\u00e3o de qualidade-gest\u00e3o",
+                  "data_inicio": "2011-05-06 00:00:00",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 80219.9,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "071994",
+                  "nome": "Mostra Popular de Teatro de Cachoeirinha-RS",
+                  "situacao": "E19 - Presta\u00e7\u00e3o de Contas Aprovada",
+                  "data_inicio": "",
+                  "data_fim": "",
+                  "link": "#",
+                  "valor_captado": 25000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "100819",
+                  "nome": "Semana de Aniverss\u00e1rio do Munic\u00edpio de Pinhal Grande - RS",
+                  "situacao": "G17 - Solicita\u00e7\u00e3o de arquivamento feito pelo proponente",
+                  "data_inicio": "2010-04-12 00:00:00",
+                  "data_fim": "2010-04-21 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "101082",
+                  "nome": "NATAL ENCANTADO 2010 JULIO DE CASTILHOS/RS",
+                  "situacao": "A17 - Indeferido - n\u00e3o atendimento \u00e0 dilig\u00eancia",
+                  "data_inicio": "2010-12-17 00:00:00",
+                  "data_fim": "2010-12-19 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "101531",
+                  "nome": "Semana Comemorativa ao 133\u00ba  Aniversario do municipio de Julio de Castilhos-RS",
+                  "situacao": "E36 - Arquivado por ter 24 meses aprova\u00e7\u00e3o sem capta\u00e7\u00e3o de recursos",
+                  "data_inicio": "2010-07-19 00:00:00",
+                  "data_fim": "2010-07-25 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "110282",
+                  "nome": "Semana Cultural no munic\u00edpio de Pinhal Grande/RS",
+                  "situacao": "E65 - Projeto arquivado - solicita\u00e7\u00e3o de arquivamento, de projeto de incentivo fiscal, feito pelo proponente",
+                  "data_inicio": "2012-04-09 00:00:00",
+                  "data_fim": "2012-04-15 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "110830",
+                  "nome": "TRADI\u00c7\u00c3O PELA RAIZ",
+                  "situacao": "E68 - Aguarda an\u00e1lise financeira",
+                  "data_inicio": "2011-06-01 00:00:00",
+                  "data_fim": "2012-07-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 50000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "110858",
+                  "nome": "Semana da Diversidade Cultural no munic\u00edpio de Julio de Castilhos-RS",
+                  "situacao": "E65 - Projeto arquivado - solicita\u00e7\u00e3o de arquivamento, de projeto de incentivo fiscal, feito pelo proponente",
+                  "data_inicio": "2011-07-07 00:00:00",
+                  "data_fim": "2011-07-13 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "110899",
+                  "nome": "Feira do Livro do munic\u00edpio de Pinhal Grande - RS",
+                  "situacao": "E65 - Projeto arquivado - solicita\u00e7\u00e3o de arquivamento, de projeto de incentivo fiscal, feito pelo proponente",
+                  "data_inicio": "2011-10-03 00:00:00",
+                  "data_fim": "2013-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "130028",
+                  "nome": "TRADI\u00c7\u00c3O PELA RAIZ - Segunda Edi\u00e7\u00e3o",
+                  "situacao": "E24 - Apresentou presta\u00e7\u00e3o de contas",
+                  "data_inicio": "2013-04-03 00:00:00",
+                  "data_fim": "2015-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 27100.0,
+                  "valor_comprovado": 27099.800000000003,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 5.5
+                },
+                {
+                  "pronac": "159434",
+                  "nome": "GRAVA\u00c7\u00c3O DO DVD ao Vivo de Juliano Trindade - O BONITINHO",
+                  "situacao": "E10 - Autorizada a capta\u00e7\u00e3o total dos recursos",
+                  "data_inicio": "2016-05-18 16:22:20",
+                  "data_fim": "2018-09-30 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de execu\u00e7\u00e3o do projeto e comprova\u00e7\u00e3o dos gastos efetuados",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "160834",
+                  "nome": "Rodeio Arti\u00edstico e Cultural das Tradi\u00e7\u00f5es Ga\u00fachas - Preservando nossas dan\u00e7as",
+                  "situacao": "E24 - Apresentou presta\u00e7\u00e3o de contas",
+                  "data_inicio": "2017-02-10 00:00:00",
+                  "data_fim": "2017-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 145000.0,
+                  "valor_comprovado": 144992.2,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 5.5
+                },
+                {
+                  "pronac": "177846",
+                  "nome": "2\u00ba Rodeio Art\u00edstico e Cultural das Tradi\u00e7\u00f5es Ga\u00fachas - Preservando nossas dan\u00e7as",
+                  "situacao": "D50 - Projeto apreciado pela Comiss\u00e3o Nacional de Incentivo \u00e0 Cultura - CNIC",
+                  "data_inicio": "2018-09-14 12:57:18",
+                  "data_fim": "2018-09-23 12:57:18",
+                  "link": "#",
+                  "valor_captado": 35000.0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de avalia\u00e7\u00e3o t\u00e9cnica do projeto cultural",
+                  "complexidade": 10
+                }
+              ],
+              "projetos_analisados": [
+                {
+                  "pronac": "130028",
+                  "name": "TRADI\u00c7\u00c3O PELA RAIZ - Segunda Edi\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "pronac": "160834",
+                  "name": "Rodeio Arti\u00edstico e Cultural das Tradi\u00e7\u00f5es Ga\u00fachas - Preservando nossas dan\u00e7as",
+                  "link": "#"
+                }
+              ],
+              "outlier": false,
+              "valor_valido": true,
+              "metric_id": 29
+            },
+            "novos_fornecedores": {
+              "valor": 7,
+              "outlier": false,
+              "lista_de_novos_fornecedores": [
+                {
+                  "cnpj_cpf": 99714833000,
+                  "nome": "Alexsandro da Silva Maciel",
+                  "items": [
+                    { "id": 842881, "nome": "Instrutor", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 551928077,
+                  "nome": "JENILSON RIBAS MICHEL",
+                  "items": [
+                    { "id": 842881, "nome": "Instrutor", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 2499152001,
+                  "nome": "CAMILA MICHEL TRINDADE",
+                  "items": [
+                    { "id": 842882, "nome": "Assistentes", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 1429044063,
+                  "nome": "DANIELA MICHEL TRINDADE",
+                  "items": [
+                    { "id": 842882, "nome": "Assistentes", "link": "#" }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 2459422032,
+                  "nome": "VANESSA DA SILVA FUCHS",
+                  "items": [
+                    { "id": 842882, "nome": "Assistentes", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 87672044000146,
+                  "nome": "Transcal Sul Transportes Coletivos Ltda",
+                  "items": [
+                    {
+                      "id": 842884,
+                      "nome": "Transporte Local / Loca\u00e7\u00e3o de Autom\u00f3vel / Combust\u00edvel",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 12192813000100,
+                  "nome": "VIVIAN BARBOSA DE MELLO ME",
+                  "items": [{ "id": 842894, "nome": "Camisetas", "link": "#" }]
+                }
+              ],
+              "valor_valido": true,
+              "metric_id": 30
+            },
+            "valor_aprovado": {
+              "valor": 135476,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 1859989,
+              "metric_id": 31
+            },
+            "comprovantes_acima_de_50": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 32
+            },
+            "valor_a_ser_comprovado": {
+              "valor": 1,
+              "outlier": true,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 0,
+              "metric_id": 33
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "137818",
+      "nome": "Shows de Lan\u00e7amento e Grava\u00e7\u00e3o de Dvd do \u00c1lbum Quintal",
+      "pronac": "137818",
+      "indicadores": [
+        {
+          "nome": "complexidade_financeira",
+          "valor": 5.5,
+          "metricas": {
+            "itens_orcamentarios": {
+              "valor": 105,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 117.76091898802085,
+              "metric_id": 34
+            },
+            "itens_orcamentarios_inesperados": {
+              "outlier": false,
+              "valor": 30.303030303030297,
+              "valor_valido": true,
+              "items_incomuns": [
+                { "id": 73, "nome": "Figurinista", "link": "#" },
+                { "id": 82, "nome": "Cabeleireiro", "link": "#" },
+                {
+                  "id": 160,
+                  "nome": "Confec\u00e7\u00e3o de Convites",
+                  "link": "#"
+                },
+                {
+                  "id": 1065,
+                  "nome": "Diretor de fotografia",
+                  "link": "#"
+                },
+                { "id": 2634, "nome": "Programa", "link": "#" },
+                {
+                  "id": 2787,
+                  "nome": "Spot de at\u00e9 30\"\r\n",
+                  "link": "#"
+                },
+                { "id": 3593, "nome": "Cart\u00e3o postal", "link": "#" },
+                { "id": 3603, "nome": "Panfleto", "link": "#" },
+                {
+                  "id": 3643,
+                  "nome": "Diretor de Cria\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 3748,
+                  "nome": "Spot de r\u00e1dio 30 segundos",
+                  "link": "#"
+                }
+              ],
+              "items_comuns_que_o_projeto_nao_possui": [
+                { "id": 17, "nome": "Figurino", "link": "#" },
+                { "id": 20, "nome": "Produtor", "link": "#" },
+                {
+                  "id": 22,
+                  "nome": "Diretor de palco ou de cena",
+                  "link": "#"
+                },
+                { "id": 23, "nome": "Diretor art\u00edstico", "link": "#" },
+                {
+                  "id": 24,
+                  "nome": "Diretor art\u00edstico e musical",
+                  "link": "#"
+                },
+                {
+                  "id": 27,
+                  "nome": "M\u00fasicos / Int\u00e9rpretes",
+                  "link": "#"
+                },
+                { "id": 35, "nome": "Arranjador", "link": "#" },
+                { "id": 40, "nome": "Direitos autorais", "link": "#" },
+                { "id": 43, "nome": "Projeto Gr\u00e1fico", "link": "#" },
+                {
+                  "id": 48,
+                  "nome": "Loca\u00e7\u00e3o de est\u00fadio de grava\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 76, "nome": "Eletricista", "link": "#" },
+                { "id": 77, "nome": "Operador de som", "link": "#" },
+                { "id": 86, "nome": "Carregador", "link": "#" },
+                { "id": 88, "nome": "Montagem e desmontagem", "link": "#" },
+                { "id": 103, "nome": "Designer", "link": "#" },
+                { "id": 104, "nome": "Sonoriza\u00e7\u00e3o", "link": "#" },
+                { "id": 126, "nome": "Tel\u00e3o", "link": "#" },
+                {
+                  "id": 129,
+                  "nome": "Hospedagem com alimenta\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 134,
+                  "nome": "Transporte Local / Loca\u00e7\u00e3o de Autom\u00f3vel / Combust\u00edvel",
+                  "link": "#"
+                },
+                {
+                  "id": 143,
+                  "nome": "Fotografia art\u00edstica (fot\u00f3grafo, tratamento, revela\u00e7\u00e3o, etc.)",
+                  "link": "#"
+                },
+                {
+                  "id": 144,
+                  "nome": "Confec\u00e7\u00e3o de ingressos",
+                  "link": "#"
+                },
+                { "id": 150, "nome": "Folders", "link": "#" },
+                { "id": 175, "nome": "Outdoors", "link": "#" },
+                { "id": 178, "nome": "M\u00eddia impressa", "link": "#" },
+                {
+                  "id": 179,
+                  "nome": "M\u00eddia radiof\u00f4nica",
+                  "link": "#"
+                },
+                { "id": 180, "nome": "M\u00eddia Televisiva", "link": "#" },
+                { "id": 185, "nome": "Recepcionista", "link": "#" },
+                {
+                  "id": 189,
+                  "nome": "Assessoria Jur\u00eddica (Contratos Inclusive)",
+                  "link": "#"
+                },
+                { "id": 191, "nome": "Contador", "link": "#" },
+                { "id": 192, "nome": "Secret\u00e1ria", "link": "#" },
+                { "id": 200, "nome": "INSS", "link": "#" },
+                {
+                  "id": 201,
+                  "nome": "Seguro (pessoas, obras e equipamentos - especificar)",
+                  "link": "#"
+                },
+                { "id": 1008, "nome": "Correios", "link": "#" },
+                {
+                  "id": 1037,
+                  "nome": "Assistente de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1043,
+                  "nome": "Diretor de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1044,
+                  "nome": "Coordenador de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1095,
+                  "nome": "Loca\u00e7\u00e3o de est\u00fadio",
+                  "link": "#"
+                },
+                {
+                  "id": 1116,
+                  "nome": "Loca\u00e7\u00e3o equipamento de som",
+                  "link": "#"
+                },
+                { "id": 1120, "nome": "Di\u00e1rias", "link": "#" },
+                {
+                  "id": 1125,
+                  "nome": "Aluguel de \u00f4nibus",
+                  "link": "#"
+                },
+                {
+                  "id": 1133,
+                  "nome": "Material de escrit\u00f3rio",
+                  "link": "#"
+                },
+                { "id": 1171, "nome": "Produtor musical", "link": "#" },
+                { "id": 1219, "nome": "Cartaz", "link": "#" },
+                { "id": 2436, "nome": "Telefone", "link": "#" },
+                { "id": 2440, "nome": "Seguran\u00e7a", "link": "#" },
+                { "id": 2502, "nome": "Ensaios", "link": "#" },
+                {
+                  "id": 2590,
+                  "nome": "ECAD (caso de o evento ser aberto e gratuito)",
+                  "link": "#"
+                },
+                {
+                  "id": 2597,
+                  "nome": "M\u00fasico Base - Cach\u00ea de ensaio",
+                  "link": "#"
+                },
+                { "id": 2599, "nome": "T\u00e9cnico de Luz", "link": "#" },
+                {
+                  "id": 2600,
+                  "nome": "S\u00edtio de Internet - Design e cria\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 2603,
+                  "nome": "S\u00edtio de Internet - Manuten\u00e7\u00e3o/Atualiza\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 2611,
+                  "nome": "Loca\u00e7\u00e3o de mesa de som/ equipamentos",
+                  "link": "#"
+                },
+                { "id": 2626, "nome": "Camisetas", "link": "#" },
+                {
+                  "id": 2628,
+                  "nome": "Registro videogr\u00e1fico",
+                  "link": "#"
+                },
+                {
+                  "id": 2632,
+                  "nome": "Loca\u00e7\u00e3o de Equipamento de proje\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 2633,
+                  "nome": "Loca\u00e7\u00e3o de teatro",
+                  "link": "#"
+                },
+                {
+                  "id": 2692,
+                  "nome": "Coordenador do projeto",
+                  "link": "#"
+                },
+                { "id": 2697, "nome": "Motoboy", "link": "#" },
+                {
+                  "id": 2703,
+                  "nome": "Loca\u00e7\u00e3o de palco c/ cobertura",
+                  "link": "#"
+                },
+                {
+                  "id": 2707,
+                  "nome": "Loca\u00e7\u00e3o de Gerador de Energia",
+                  "link": "#"
+                },
+                {
+                  "id": 2717,
+                  "nome": "Banheiro qu\u00edmico",
+                  "link": "#"
+                },
+                {
+                  "id": 2718,
+                  "nome": "Loca\u00e7\u00e3o de r\u00e1dio de comunica\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 2719, "nome": "Material de consumo", "link": "#" },
+                {
+                  "id": 2734,
+                  "nome": "An\u00fancio de 1/4 de p\u00e1gina\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 3124,
+                  "nome": "Registro e documenta\u00e7\u00e3o fotogr\u00e1fica",
+                  "link": "#"
+                },
+                {
+                  "id": 3235,
+                  "nome": "Assistente administrativo",
+                  "link": "#"
+                },
+                {
+                  "id": 3504,
+                  "nome": "Transporte de material",
+                  "link": "#"
+                },
+                { "id": 3529, "nome": "Banda/Grupo nacional", "link": "#" },
+                { "id": 3535, "nome": "Ambul\u00e2ncia", "link": "#" },
+                { "id": 3536, "nome": "Bombeiro", "link": "#" },
+                { "id": 3538, "nome": "Clipping", "link": "#" },
+                {
+                  "id": 3561,
+                  "nome": "Loca\u00e7\u00e3o equipamento de ilumina\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 3584, "nome": "Busdoor", "link": "#" },
+                { "id": 3617, "nome": "Diretor geral", "link": "#" },
+                { "id": 3631, "nome": "Assistentes", "link": "#" },
+                { "id": 3638, "nome": "Cen\u00e1rio", "link": "#" },
+                {
+                  "id": 3647,
+                  "nome": "Distribuidor de impresso",
+                  "link": "#"
+                },
+                { "id": 3658, "nome": "Banda/Grupo local", "link": "#" },
+                { "id": 3659, "nome": "M\u00fasico nacional", "link": "#" },
+                {
+                  "id": 3677,
+                  "nome": "Coordena\u00e7\u00e3o geral",
+                  "link": "#"
+                },
+                {
+                  "id": 3684,
+                  "nome": "Loca\u00e7\u00e3o de equipamentos",
+                  "link": "#"
+                },
+                {
+                  "id": 3732,
+                  "nome": "Coordena\u00e7\u00e3o Administrativo- Financeiro",
+                  "link": "#"
+                },
+                { "id": 3839, "nome": "Advogado", "link": "#" },
+                {
+                  "id": 3964,
+                  "nome": "Grupo musical / banda",
+                  "link": "#"
+                },
+                { "id": 4014, "nome": "Limpeza", "link": "#" },
+                { "id": 4548, "nome": "Produtor local", "link": "#" },
+                {
+                  "id": 5207,
+                  "nome": "Loca\u00e7\u00e3o de espa\u00e7o para evento",
+                  "link": "#"
+                },
+                {
+                  "id": 5249,
+                  "nome": "Remunera\u00e7\u00e3o para capta\u00e7\u00e3o de recursos",
+                  "link": "#"
+                },
+                {
+                  "id": 5250,
+                  "nome": "Elabora\u00e7\u00e3o de presta\u00e7\u00e3o de contas",
+                  "link": "#"
+                },
+                { "id": 5514, "nome": "Fot\u00f3grafo", "link": "#" }
+              ],
+              "metric_id": 35
+            },
+            "precos_acima_da_media": {
+              "valor": 0,
+              "outlier": false,
+              "items": [],
+              "total_items": 105,
+              "maximo_esperado": 10,
+              "valor_valido": true,
+              "metric_id": 36
+            },
+            "comprovantes_de_pagamento": {
+              "valor": 87,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 182,
+              "metric_id": 37
+            },
+            "valor_captado": {
+              "valor": 177218,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 1485474,
+              "metric_id": 38
+            },
+            "valor_comprovado": {
+              "valor": 177625,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 1175123,
+              "metric_id": 39
+            },
+            "projetos_do_mesmo_proponente": {
+              "cnpj_cpf": "10035459719",
+              "valor": 1,
+              "projetos_submetidos": [
+                {
+                  "pronac": "137818",
+                  "nome": "Shows de Lan\u00e7amento e Grava\u00e7\u00e3o de Dvd do \u00c1lbum Quintal",
+                  "situacao": "E80 - Inadimplente - Proponente notificado a apresentar presta\u00e7\u00e3o de contas",
+                  "data_inicio": "2013-10-15 16:41:37",
+                  "data_fim": "2014-07-15 00:00:00",
+                  "link": "#",
+                  "valor_captado": 177218.91,
+                  "valor_comprovado": 177625.24000000002,
+                  "etapa": "Fase de avalia\u00e7\u00e3o dos resultados da a\u00e7\u00e3o cultural",
+                  "complexidade": 5.5
+                }
+              ],
+              "projetos_analisados": [
+                {
+                  "pronac": "137818",
+                  "name": "Shows de Lan\u00e7amento e Grava\u00e7\u00e3o de Dvd do \u00c1lbum Quintal",
+                  "link": "#"
+                }
+              ],
+              "outlier": false,
+              "valor_valido": true,
+              "metric_id": 40
+            },
+            "novos_fornecedores": {
+              "valor": 31,
+              "outlier": true,
+              "lista_de_novos_fornecedores": [
+                {
+                  "cnpj_cpf": 9079326000120,
+                  "nome": "NAYMAR LOCAES DE EQUIPAMENTOS",
+                  "items": [
+                    {
+                      "id": 1014518,
+                      "nome": "Loca\u00e7\u00e3o de equipamentos de luz (torres, mesas, racks, cabos, refletores, m\u00e1quinas de fuma\u00e7a, monitor)",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 16686733000161,
+                  "nome": "TOCA L EM CASA",
+                  "items": [
+                    {
+                      "id": 1014519,
+                      "nome": "T\u00e9cnico de som",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 2644879582,
+                  "nome": "LIZZIE MARCHI CAMPOS",
+                  "items": [
+                    {
+                      "id": 1014520,
+                      "nome": "Edi\u00e7\u00e3o de imagem",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014542,
+                      "nome": "Produtor executivo",
+                      "link": "#"
+                    },
+                    { "id": 1014544, "nome": "Figurinista", "link": "#" },
+                    {
+                      "id": 1014568,
+                      "nome": "Produtor executivo",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014593,
+                      "nome": "Produtor executivo",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014613,
+                      "nome": "Produtor executivo",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 12182749000186,
+                  "nome": "ethos marketing cultural",
+                  "items": [{ "id": 1014521, "nome": "Mixagem", "link": "#" }]
+                },
+                {
+                  "cnpj_cpf": 81008449504,
+                  "nome": "MARCELO MOTA DOS SANTOS SOUZA",
+                  "items": [
+                    {
+                      "id": 1014524,
+                      "nome": "Aluguel de vans",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 16505353000183,
+                  "nome": "CERIMONIAL VALDETE CHAGAS",
+                  "items": [{ "id": 1014525, "nome": "Camarim", "link": "#" }]
+                },
+                {
+                  "cnpj_cpf": 7966162000128,
+                  "nome": "HOSTEL POUSADA PAIS TROPICAL",
+                  "items": [
+                    {
+                      "id": 1014528,
+                      "nome": "Hospedagem sem alimenta\u00e7\u00e3o",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 39346861005988,
+                  "nome": "CENCOSULD BRASIL COMERCIAL",
+                  "items": [
+                    {
+                      "id": 1014530,
+                      "nome": "Refei\u00e7\u00e3o",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 18292799000100,
+                  "nome": "KAUANNA SOARES DE ARAUJO - ME",
+                  "items": [
+                    {
+                      "id": 1014537,
+                      "nome": "Assessor de imprensa",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 10035459719,
+                  "nome": "Karla da Silva Melo",
+                  "items": [
+                    {
+                      "id": 1014539,
+                      "nome": "Cantor / Solista",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014565,
+                      "nome": "Cantor / Solista",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014590,
+                      "nome": "Cantor / Solista",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014612,
+                      "nome": "Cantor / Solista",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 10444143750,
+                  "nome": "PAULO NEY MUNIZ DA CRUZ",
+                  "items": [
+                    {
+                      "id": 1014540,
+                      "nome": "M\u00fasico de Base",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 9857314783,
+                  "nome": "ALINE DA SILVA MARIA",
+                  "items": [
+                    {
+                      "id": 1014543,
+                      "nome": "Cen\u00f3grafo",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014569,
+                      "nome": "Cen\u00f3grafo",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014594,
+                      "nome": "Cen\u00f3grafo",
+                      "link": "#"
+                    },
+                    { "id": 1014614, "nome": "Cen\u00f3grafo", "link": "#" }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 5813177779,
+                  "nome": "ROMULO RAFAEL DA SILVA MELO",
+                  "items": [
+                    {
+                      "id": 1014545,
+                      "nome": "Diretor musical",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014570,
+                      "nome": "Diretor musical",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014595,
+                      "nome": "Diretor musical",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014615,
+                      "nome": "Diretor musical",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 8230394717,
+                  "nome": "Marina Gante da Silva Garcia",
+                  "items": [
+                    {
+                      "id": 1014546,
+                      "nome": "Diretor de fotografia",
+                      "link": "#"
+                    },
+                    { "id": 1014550, "nome": "Cabeleireiro", "link": "#" },
+                    {
+                      "id": 1014616,
+                      "nome": "Diretor de Cria\u00e7\u00e3o",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 5877689754,
+                  "nome": "CARINA NASCIMENTO D AVILA",
+                  "items": [
+                    { "id": 1014547, "nome": "Iluminador", "link": "#" },
+                    {
+                      "id": 1014621,
+                      "nome": "Designer gr\u00e1fico",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 12087293732,
+                  "nome": "ALEX ANDERSON MIRANDA DA SILVA",
+                  "items": [
+                    {
+                      "id": 1014548,
+                      "nome": "T\u00e9cnico de som",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014573,
+                      "nome": "T\u00e9cnico de som",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014598,
+                      "nome": "T\u00e9cnico de som",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014618,
+                      "nome": "T\u00e9cnico de som",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 43980163768,
+                  "nome": "RICARDO JORGE TEIXEIRA DE MELO",
+                  "items": [
+                    { "id": 1014549, "nome": "Roadie", "link": "#" },
+                    {
+                      "id": 1014596,
+                      "nome": "Diretor de fotografia",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 97554195000153,
+                  "nome": "JFB EXPRESS",
+                  "items": [
+                    {
+                      "id": 1014551,
+                      "nome": "Aluguel de vans",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 12890111000108,
+                  "nome": "MESTRE DOS SALGADOS",
+                  "items": [{ "id": 1014552, "nome": "Camarim", "link": "#" }]
+                },
+                {
+                  "cnpj_cpf": 8182102000187,
+                  "nome": "TUBARO 2000",
+                  "items": [
+                    {
+                      "id": 1014561,
+                      "nome": "Spot de at\u00e9 30\"\r\n",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 36778611871,
+                  "nome": "ANA CAROLINA PEREIRA MARQUES",
+                  "items": [
+                    {
+                      "id": 1014563,
+                      "nome": "Assessor de imprensa",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 5425059752,
+                  "nome": "RODRIGO SOUZA FERREIRA",
+                  "items": [
+                    {
+                      "id": 1014564,
+                      "nome": "M\u00fasico de Base",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014589,
+                      "nome": "M\u00fasico de Base",
+                      "link": "#"
+                    },
+                    {
+                      "id": 1014611,
+                      "nome": "M\u00fasico de Base",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 31574620835,
+                  "nome": "Ligia Taverna Chaim",
+                  "items": [
+                    { "id": 1014572, "nome": "Iluminador", "link": "#" },
+                    { "id": 1014597, "nome": "Iluminador", "link": "#" },
+                    { "id": 1014617, "nome": "Iluminador", "link": "#" }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 12689692732,
+                  "nome": "HENRYQUE ROCCA BRETAS",
+                  "items": [
+                    { "id": 1014574, "nome": "Roadie", "link": "#" },
+                    { "id": 1014599, "nome": "Roadie", "link": "#" },
+                    { "id": 1014619, "nome": "Roadie", "link": "#" }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 78229669791,
+                  "nome": "IVONETE DA SILVA MELO",
+                  "items": [
+                    { "id": 1014575, "nome": "Cabeleireiro", "link": "#" },
+                    { "id": 1014600, "nome": "Cabeleireiro", "link": "#" },
+                    { "id": 1014620, "nome": "Cabeleireiro", "link": "#" }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 2134162000229,
+                  "nome": "ASSESSORIA AEROPORTURIA  REPRESENTAES",
+                  "items": [
+                    {
+                      "id": 1014576,
+                      "nome": "Aluguel de vans",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 7233291000107,
+                  "nome": "SENHOR DOS PES",
+                  "items": [{ "id": 1014577, "nome": "Camarim", "link": "#" }]
+                },
+                {
+                  "cnpj_cpf": 3313565000117,
+                  "nome": "ARIANE ROCHE LOURES WHEISHOF  EIRELI",
+                  "items": [
+                    {
+                      "id": 1014580,
+                      "nome": "Hospedagem sem alimenta\u00e7\u00e3o",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 4558476000101,
+                  "nome": "Comunique-se Comunica\u00e7\u00e3o Corporativa Ltda",
+                  "items": [
+                    {
+                      "id": 1014588,
+                      "nome": "Assessor de imprensa",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 10933321000100,
+                  "nome": "CSC LOCADORA DE VEICULOS LTDA",
+                  "items": [
+                    {
+                      "id": 1014601,
+                      "nome": "Aluguel de vans",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 27881408001229,
+                  "nome": "VIANENSE SUPERMECADOS",
+                  "items": [{ "id": 1014602, "nome": "Camarim", "link": "#" }]
+                }
+              ],
+              "valor_valido": true,
+              "metric_id": 41
+            },
+            "valor_aprovado": {
+              "valor": 177218,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 3123968,
+              "metric_id": 42
+            },
+            "comprovantes_acima_de_50": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 43
+            },
+            "valor_a_ser_comprovado": {
+              "valor": -406,
+              "outlier": true,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 0,
+              "metric_id": 44
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "164816",
+      "nome": "DOLCE VITA",
+      "pronac": "164816",
+      "indicadores": [
+        {
+          "nome": "complexidade_financeira",
+          "valor": 10,
+          "metricas": {
+            "itens_orcamentarios": {
+              "valor": 38,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 91.12268795683191,
+              "metric_id": 12
+            },
+            "itens_orcamentarios_inesperados": {
+              "outlier": false,
+              "valor": 23.68421052631578,
+              "valor_valido": true,
+              "items_incomuns": [
+                {
+                  "id": 95,
+                  "nome": "Tradu\u00e7\u00e3o simult\u00e2nea",
+                  "link": "#"
+                },
+                {
+                  "id": 2488,
+                  "nome": "Comunica\u00e7\u00e3o Visual",
+                  "link": "#"
+                },
+                { "id": 2502, "nome": "Ensaios", "link": "#" },
+                {
+                  "id": 2601,
+                  "nome": "S\u00edtio de Internet - Hospedagem",
+                  "link": "#"
+                },
+                {
+                  "id": 2793,
+                  "nome": "VT varejo at\u00e9 30\"/Vinheta at\u00e9 30\"\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 3660,
+                  "nome": "M\u00fasico Internacional",
+                  "link": "#"
+                },
+                { "id": 3973, "nome": "Violoncelo", "link": "#" },
+                {
+                  "id": 4813,
+                  "nome": "Assessoria de Comunica\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 8111,
+                  "nome": "Loca\u00e7\u00e3o de sala para espet\u00e1culos",
+                  "link": "#"
+                }
+              ],
+              "items_comuns_que_o_projeto_nao_possui": [
+                { "id": 10, "nome": "Curador", "link": "#" },
+                { "id": 17, "nome": "Figurino", "link": "#" },
+                { "id": 20, "nome": "Produtor", "link": "#" },
+                {
+                  "id": 22,
+                  "nome": "Diretor de palco ou de cena",
+                  "link": "#"
+                },
+                {
+                  "id": 23,
+                  "nome": "Diretor art\u00edstico",
+                  "link": "#"
+                },
+                {
+                  "id": 24,
+                  "nome": "Diretor art\u00edstico e musical",
+                  "link": "#"
+                },
+                {
+                  "id": 27,
+                  "nome": "M\u00fasicos / Int\u00e9rpretes",
+                  "link": "#"
+                },
+                {
+                  "id": 28,
+                  "nome": "M\u00fasico de Base",
+                  "link": "#"
+                },
+                { "id": 40, "nome": "Direitos autorais", "link": "#" },
+                {
+                  "id": 43,
+                  "nome": "Projeto Gr\u00e1fico",
+                  "link": "#"
+                },
+                { "id": 44, "nome": "Monitores", "link": "#" },
+                {
+                  "id": 48,
+                  "nome": "Loca\u00e7\u00e3o de est\u00fadio de grava\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 74, "nome": "Iluminador", "link": "#" },
+                {
+                  "id": 75,
+                  "nome": "T\u00e9cnico de som",
+                  "link": "#"
+                },
+                { "id": 76, "nome": "Eletricista", "link": "#" },
+                { "id": 86, "nome": "Carregador", "link": "#" },
+                {
+                  "id": 88,
+                  "nome": "Montagem e desmontagem",
+                  "link": "#"
+                },
+                { "id": 103, "nome": "Designer", "link": "#" },
+                {
+                  "id": 104,
+                  "nome": "Sonoriza\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 116, "nome": "Prensagem", "link": "#" },
+                { "id": 126, "nome": "Tel\u00e3o", "link": "#" },
+                {
+                  "id": 130,
+                  "nome": "Hospedagem sem alimenta\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 144,
+                  "nome": "Confec\u00e7\u00e3o de ingressos",
+                  "link": "#"
+                },
+                { "id": 150, "nome": "Folders", "link": "#" },
+                {
+                  "id": 157,
+                  "nome": "Estandartes / Banners",
+                  "link": "#"
+                },
+                {
+                  "id": 160,
+                  "nome": "Confec\u00e7\u00e3o de Convites",
+                  "link": "#"
+                },
+                {
+                  "id": 178,
+                  "nome": "M\u00eddia impressa",
+                  "link": "#"
+                },
+                {
+                  "id": 179,
+                  "nome": "M\u00eddia radiof\u00f4nica",
+                  "link": "#"
+                },
+                {
+                  "id": 180,
+                  "nome": "M\u00eddia Televisiva",
+                  "link": "#"
+                },
+                { "id": 185, "nome": "Recepcionista", "link": "#" },
+                { "id": 192, "nome": "Secret\u00e1ria", "link": "#" },
+                {
+                  "id": 193,
+                  "nome": "Auxiliar Administrativo",
+                  "link": "#"
+                },
+                { "id": 200, "nome": "INSS", "link": "#" },
+                {
+                  "id": 201,
+                  "nome": "Seguro (pessoas, obras e equipamentos - especificar)",
+                  "link": "#"
+                },
+                {
+                  "id": 1006,
+                  "nome": "C\u00f3pias e reprodu\u00e7\u00f5es",
+                  "link": "#"
+                },
+                { "id": 1019, "nome": "Combust\u00edvel", "link": "#" },
+                {
+                  "id": 1037,
+                  "nome": "Assistente de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1043,
+                  "nome": "Diretor de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 1044,
+                  "nome": "Coordenador de produ\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 1050, "nome": "Cen\u00f3grafo", "link": "#" },
+                {
+                  "id": 1119,
+                  "nome": "Refei\u00e7\u00e3o",
+                  "link": "#"
+                },
+                { "id": 1120, "nome": "Di\u00e1rias", "link": "#" },
+                { "id": 1123, "nome": "Aluguel de vans", "link": "#" },
+                {
+                  "id": 1125,
+                  "nome": "Aluguel de \u00f4nibus",
+                  "link": "#"
+                },
+                {
+                  "id": 1133,
+                  "nome": "Material de escrit\u00f3rio",
+                  "link": "#"
+                },
+                { "id": 1138, "nome": "Licen\u00e7as", "link": "#" },
+                { "id": 1171, "nome": "Produtor musical", "link": "#" },
+                { "id": 1219, "nome": "Cartaz", "link": "#" },
+                {
+                  "id": 1222,
+                  "nome": "Spot de r\u00e1dio",
+                  "link": "#"
+                },
+                { "id": 2264, "nome": "Grades", "link": "#" },
+                { "id": 2440, "nome": "Seguran\u00e7a", "link": "#" },
+                {
+                  "id": 2599,
+                  "nome": "T\u00e9cnico de Luz",
+                  "link": "#"
+                },
+                { "id": 2606, "nome": "Professor", "link": "#" },
+                {
+                  "id": 2611,
+                  "nome": "Loca\u00e7\u00e3o de mesa de som/ equipamentos",
+                  "link": "#"
+                },
+                {
+                  "id": 2618,
+                  "nome": "Apresentador/maitre",
+                  "link": "#"
+                },
+                { "id": 2621, "nome": "Palestrante", "link": "#" },
+                { "id": 2626, "nome": "Camisetas", "link": "#" },
+                {
+                  "id": 2630,
+                  "nome": "Servi\u00e7o de limpeza",
+                  "link": "#"
+                },
+                {
+                  "id": 2632,
+                  "nome": "Loca\u00e7\u00e3o de Equipamento de proje\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 2633,
+                  "nome": "Loca\u00e7\u00e3o de teatro",
+                  "link": "#"
+                },
+                {
+                  "id": 2692,
+                  "nome": "Coordenador do projeto",
+                  "link": "#"
+                },
+                { "id": 2697, "nome": "Motoboy", "link": "#" },
+                { "id": 2699, "nome": "\u00c1gua", "link": "#" },
+                {
+                  "id": 2703,
+                  "nome": "Loca\u00e7\u00e3o de palco c/ cobertura",
+                  "link": "#"
+                },
+                {
+                  "id": 2707,
+                  "nome": "Loca\u00e7\u00e3o de Gerador de Energia",
+                  "link": "#"
+                },
+                {
+                  "id": 2713,
+                  "nome": "Material de apoio pedag\u00f3gico",
+                  "link": "#"
+                },
+                {
+                  "id": 2714,
+                  "nome": "Loca\u00e7\u00e3o de cadeiras",
+                  "link": "#"
+                },
+                { "id": 2715, "nome": "Camarim", "link": "#" },
+                { "id": 2716, "nome": "Tendas", "link": "#" },
+                {
+                  "id": 2717,
+                  "nome": "Banheiro qu\u00edmico",
+                  "link": "#"
+                },
+                {
+                  "id": 2718,
+                  "nome": "Loca\u00e7\u00e3o de r\u00e1dio de comunica\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 2719,
+                  "nome": "Material de consumo",
+                  "link": "#"
+                },
+                { "id": 2726, "nome": "Uniforme", "link": "#" },
+                {
+                  "id": 2732,
+                  "nome": "An\u00fancio de 1/2 de  p\u00e1gina\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2734,
+                  "nome": "An\u00fancio de 1/4 de p\u00e1gina\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2743,
+                  "nome": "Banner/faixa adesiva/faixa de lona/saia de palco/testeira/p\u00f3rtico\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 2787,
+                  "nome": "Spot de at\u00e9 30\"\r\n",
+                  "link": "#"
+                },
+                {
+                  "id": 3124,
+                  "nome": "Registro e documenta\u00e7\u00e3o fotogr\u00e1fica",
+                  "link": "#"
+                },
+                {
+                  "id": 3235,
+                  "nome": "Assistente administrativo",
+                  "link": "#"
+                },
+                {
+                  "id": 3293,
+                  "nome": "Designer gr\u00e1fico",
+                  "link": "#"
+                },
+                {
+                  "id": 3504,
+                  "nome": "Transporte de material",
+                  "link": "#"
+                },
+                {
+                  "id": 3529,
+                  "nome": "Banda/Grupo nacional",
+                  "link": "#"
+                },
+                { "id": 3535, "nome": "Ambul\u00e2ncia", "link": "#" },
+                { "id": 3536, "nome": "Bombeiro", "link": "#" },
+                { "id": 3538, "nome": "Clipping", "link": "#" },
+                {
+                  "id": 3598,
+                  "nome": "Loca\u00e7\u00e3o de equipamentos de luz (torres, mesas, racks, cabos, refletores, m\u00e1quinas de fuma\u00e7a, monitor)",
+                  "link": "#"
+                },
+                {
+                  "id": 3606,
+                  "nome": "Coordenador Administrativo",
+                  "link": "#"
+                },
+                { "id": 3617, "nome": "Diretor geral", "link": "#" },
+                {
+                  "id": 3627,
+                  "nome": "Coordena\u00e7\u00e3o pedag\u00f3gica",
+                  "link": "#"
+                },
+                { "id": 3631, "nome": "Assistentes", "link": "#" },
+                {
+                  "id": 3647,
+                  "nome": "Distribuidor de impresso",
+                  "link": "#"
+                },
+                {
+                  "id": 3658,
+                  "nome": "Banda/Grupo local",
+                  "link": "#"
+                },
+                {
+                  "id": 3659,
+                  "nome": "M\u00fasico nacional",
+                  "link": "#"
+                },
+                {
+                  "id": 3677,
+                  "nome": "Coordena\u00e7\u00e3o geral",
+                  "link": "#"
+                },
+                {
+                  "id": 3732,
+                  "nome": "Coordena\u00e7\u00e3o Administrativo- Financeiro",
+                  "link": "#"
+                },
+                { "id": 3839, "nome": "Advogado", "link": "#" },
+                {
+                  "id": 3853,
+                  "nome": "Aluguel de instrumentos",
+                  "link": "#"
+                },
+                {
+                  "id": 3871,
+                  "nome": "M\u00eddia internet",
+                  "link": "#"
+                },
+                {
+                  "id": 3953,
+                  "nome": "Cenografia/material/confec\u00e7\u00e3o",
+                  "link": "#"
+                },
+                {
+                  "id": 3964,
+                  "nome": "Grupo musical / banda",
+                  "link": "#"
+                },
+                { "id": 4014, "nome": "Limpeza", "link": "#" },
+                { "id": 4598, "nome": "Roadie", "link": "#" },
+                {
+                  "id": 5207,
+                  "nome": "Loca\u00e7\u00e3o de espa\u00e7o para evento",
+                  "link": "#"
+                },
+                {
+                  "id": 5337,
+                  "nome": "Apresentador/locutor",
+                  "link": "#"
+                },
+                { "id": 5514, "nome": "Fot\u00f3grafo", "link": "#" }
+              ],
+              "metric_id": 13
+            },
+            "precos_acima_da_media": {
+              "valor": 0,
+              "outlier": false,
+              "items": [],
+              "total_items": 38,
+              "maximo_esperado": 3,
+              "valor_valido": true,
+              "metric_id": 14
+            },
+            "comprovantes_de_pagamento": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 15
+            },
+            "valor_captado": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 16
+            },
+            "valor_comprovado": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 17
+            },
+            "projetos_do_mesmo_proponente": {
+              "cnpj_cpf": "25424943000172",
+              "valor": 5,
+              "projetos_submetidos": [
+                {
+                  "pronac": "164802",
+                  "nome": "PEDRO E O LOBO",
+                  "situacao": "E16 - Projeto encerrado por excesso de prazo sem capta\u00e7\u00e3o ",
+                  "data_inicio": "2017-05-01 17:02:45",
+                  "data_fim": "2017-09-01 17:02:45",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "164815",
+                  "nome": "ENSEMBLE CAMER\u00cdSTICO I BRICCONCELLO",
+                  "situacao": "E10 - Autorizada a capta\u00e7\u00e3o total dos recursos",
+                  "data_inicio": "2017-03-17 13:50:39",
+                  "data_fim": "2018-12-31 00:00:00",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de execu\u00e7\u00e3o do projeto e comprova\u00e7\u00e3o dos gastos efetuados",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "164816",
+                  "nome": "DOLCE VITA",
+                  "situacao": "E16 - Projeto encerrado por excesso de prazo sem capta\u00e7\u00e3o ",
+                  "data_inicio": "2017-03-01 16:41:49",
+                  "data_fim": "2017-09-01 16:41:49",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "165029",
+                  "nome": "TANGO FOREVER",
+                  "situacao": "E16 - Projeto encerrado por excesso de prazo sem capta\u00e7\u00e3o ",
+                  "data_inicio": "2017-03-15 15:05:24",
+                  "data_fim": "2017-09-15 15:05:24",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                },
+                {
+                  "pronac": "170098",
+                  "nome": "BALLANZ\u00c9 \u2013 Uma fascinante viagem atrav\u00e9s da mem\u00f3ria da m\u00fasica italiana",
+                  "situacao": "E16 - Projeto encerrado por excesso de prazo sem capta\u00e7\u00e3o ",
+                  "data_inicio": "2017-07-01 11:06:15",
+                  "data_fim": "2017-12-01 11:06:15",
+                  "link": "#",
+                  "valor_captado": 0,
+                  "valor_comprovado": 0,
+                  "etapa": "Fase de encerramento do projeto cultural",
+                  "complexidade": 10
+                }
+              ],
+              "projetos_analisados": [],
+              "outlier": false,
+              "valor_valido": true,
+              "metric_id": 18
+            },
+            "novos_fornecedores": {
+              "valor": 0,
+              "outlier": false,
+              "lista_de_novos_fornecedores": [],
+              "valor_valido": false,
+              "metric_id": 19
+            },
+            "valor_aprovado": {
+              "valor": 1006401,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": true,
+              "maximo_esperado": 2549128,
+              "metric_id": 20
+            },
+            "comprovantes_acima_de_50": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 21
+            },
+            "valor_a_ser_comprovado": {
+              "valor": 0,
+              "outlier": false,
+              "minimo_esperado": 0,
+              "valor_valido": false,
+              "maximo_esperado": 0,
+              "metric_id": 22
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
