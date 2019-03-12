@@ -4,7 +4,7 @@
     <filter-bar></filter-bar>
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
-          api-url="https://salicml.lappis.rocks/projetos"
+          :api-url="api_path"
           :fields="fields"
           pagination-path=""
           :per-page="20"
@@ -35,6 +35,8 @@ import Vuetable from 'vuetable-2/src/components/Vuetable'
 import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 import FilterBar from './FilterBar'
+import {API_PATH_PROJECT_LIST} from '@/utils/variables.js'
+
 
 Vue.use(VueEvents)
 Vue.component('filter-bar', FilterBar)
@@ -47,6 +49,7 @@ export default {
   },
   data () {
     return {
+      api_path: API_PATH_PROJECT_LIST,
       pronac: "",
       fields: [
         {
