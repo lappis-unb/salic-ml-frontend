@@ -13,9 +13,9 @@
         <proponents-list :metric="metric" />
       </span>
       <span v-else-if="metric.type==='providers-list'">
-        <providers-list :metric="metric" />  
+        <dropdown-list :metric="metric" text_exception="Não há novos fornecedores." />  
       </span>
-          <span v-else-if="metric.type==='above-average-prices-list'">
+      <span v-else-if="metric.type==='above-average-prices-list'">
         <above-average-list :metric="metric" />  
       </span>
       <span v-else-if="metric.type==='operation-code-list'">
@@ -31,23 +31,23 @@
 
 <script>
 import ItemListCardContent from "@/components/show_metrics/metric/content/ItemListCardContent.vue"
-import ProvidersListCardContent from "@/components/show_metrics/metric/content/ProvidersListCardContent.vue"
 import ProponentsListCardContent from "@/components/show_metrics/metric/content/ProponentsListCardContent.vue"
 import MetricBarContent from "@/components/show_metrics/metric/content/MetricBarContent.vue"
 import AboveAveragePricesCardContent from "@/components/show_metrics/metric/content/AboveAveragePricesCardContent.vue"
 import OperationCodeCardContent from "@/components/show_metrics/metric/content/OperationCodeCardContent.vue"
 import VouchersAbove50CardContent from "@/components/show_metrics/metric/content/VouchersAbove50CardContent.vue"
+import DropdownListCardContent from "@/components/show_metrics/metric/content/DropdownListCardContent"
 
 export default {
   name: "MetricCardContent",
   components: {
     "item-list": ItemListCardContent,
-    "providers-list": ProvidersListCardContent,
     "proponents-list": ProponentsListCardContent,
     "metric-bar": MetricBarContent,
     "above-average-list": AboveAveragePricesCardContent,
     "operation-code-list": OperationCodeCardContent,
-    "voucher-above-50": VouchersAbove50CardContent 
+    "voucher-above-50": VouchersAbove50CardContent,
+    "dropdown-list": DropdownListCardContent
   },
   props: {
     metric: Object

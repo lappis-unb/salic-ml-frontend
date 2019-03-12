@@ -164,7 +164,7 @@ export default {
         type: "providers-list",
         reason: "",
 
-        providers: this.metrics.novos_fornecedores.lista_de_novos_fornecedores,
+        list: this.metrics.novos_fornecedores.lista_de_novos_fornecedores,
       } ,
       approved_value: {
         name_title: "Valor aprovado",
