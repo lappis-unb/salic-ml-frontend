@@ -65,7 +65,7 @@ export default {
           titleClass: 'center aligned',
           callback: 'complexityLabel',
           dataClass: 'center aligned'
-        }, 
+        },
         {
           name: 'nome',
           // sortField: 'project_name'
@@ -78,9 +78,7 @@ export default {
         }
       ],
       sortOrder: [],
-      moreParams: {
-
-      }
+      moreParams: {}
     }
   },
   mounted () {
@@ -113,7 +111,7 @@ export default {
     onCellClicked (data, field, event) {
       //window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
       this.$refs.vuetable.toggleDetailRow(data.id)
-      this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }}) 
+      this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }})
     },
     onFilterSet (filterText) {
       console.log(filterText)
