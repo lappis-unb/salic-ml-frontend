@@ -1,20 +1,20 @@
 <template>
-<span>
-	<router-link to="/" class="ui basic icon button" id="btBack">
-		<i class="left arrow icon"></i>
-	</router-link>
-	<div class="ui sticky grid" id="Summary">
-		<div hidden>{{value}}</div>
-		<div class="four wide center aligned column" id="score">
-			<div id="indicatorContainer"></div>
-			<h3>{{getSubtitle}}</h3>
-		</div>
-		<div class="twelve wide column">
-			<h3>Complexidade da análise de resultado para:</h3>
-			<h1>{{ project.nome }} ({{ project.pronac }})</h1>
-		</div>
-	</div>
-		</span>
+  <span>
+	  <router-link to="/" class="ui basic icon button" id="btBack">
+		  <i class="left arrow icon"></i>
+  	</router-link>
+	  <div class="ui sticky grid" id="Summary">
+		  <div hidden>{{value}}</div>
+  		<div class="four wide center aligned column" id="score">
+	  		<div id="indicatorContainer"></div>
+		    <h3>{{getSubtitle}}</h3>
+    	</div>
+		  <div class="twelve wide column">
+  			<h3>Complexidade da análise de resultado para:</h3>
+	  		<h1>{{ project.nome }} ({{ project.pronac }})</h1>
+		  </div>
+	  </div>
+	</span>
 </template>
 
 <script>
@@ -28,14 +28,14 @@ export default {
     };
   },
   props: {
-	project: Object,
+	  project: Object,
     value: Number
   },
   computed: {
     getSubtitle: function(){
-        if(this.value>=7) return "Normal";
-        else if(this.value>=4) return "Complexo";
-        else return "Muito Complexo";
+      if(this.value>=7) return "Normal";
+      else if(this.value>=4) return "Complexo";
+      else return "Muito Complexo";
     }
   },
   beforeUpdate() {
@@ -63,7 +63,7 @@ export default {
 </script>
 
 <style>
-/*************************** 
+/***************************
  ********* Summary *********
  ***************************/
 #btBack{
@@ -71,6 +71,7 @@ export default {
     top:1em;
     left:1em;
 }
+
 #Summary{
     padding: 2em 0;
 }
@@ -84,5 +85,4 @@ export default {
 #Summary H3{
     margin: 0;
 }
-		
 </style>

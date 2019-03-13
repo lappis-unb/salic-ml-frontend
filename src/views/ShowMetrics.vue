@@ -1,11 +1,11 @@
 <template>
   <div class="show-metrics">
-      <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
-        <div class="ui large text loader">Carregando...</div>
-      </div>
+    <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
+      <div class="ui large text loader">Carregando...</div>
+    </div>
     <header-show :value="parseInt(indicators[0].valor)" :project="project" />
     <span>
-      <complexity-title :value="parseInt(indicators[0].valor)" :project="project" />
+      <complexity-title :value="indicators[0].valor" :project="project" />
       <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" />
     </span>
   </div>
@@ -35,8 +35,8 @@ export default {
         }
       ],
       project: {
-        pronac: "-",
-        name: "Pronac não existente"
+        pronac: "Pronac não existente",
+        name: "Projeto não existente"
       },
       url: API_PATH_PROJECT + this.$route.params.pronac
     };
