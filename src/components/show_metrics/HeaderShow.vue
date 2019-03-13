@@ -1,14 +1,14 @@
 <template>
-    <div class="ui fixed inverted menu" :class="getBackgroundClass" id="ProjectID">
-        <router-link to="/" class="ui icon inverted button" id="btBack">
-            <i class="left arrow icon"></i>
-        </router-link>
-        <div class="ui small inverted statistic">
-            <div class="value">{{value|rounded}}</div>
-            <div class="label">{{getSubtitle}}</div>
-        </div>
-        <p>{{ project.nome }} ({{ project.pronac }})</p>
+  <div class="ui fixed inverted menu" :class="getBackgroundClass" id="ProjectID">
+    <router-link to="/" class="ui icon inverted button" id="btBack">
+      <i class="left arrow icon"></i>
+    </router-link>
+    <div class="ui small inverted statistic">
+      <div class="value">{{value|rounded}}</div>
+      <div class="label">{{getSubtitle}}</div>
     </div>
+    <p>{{ project.nome }} ({{ project.pronac }})</p>
+  </div>
 </template>
 
 <script>
@@ -20,32 +20,27 @@ export default {
   },
   computed: {
     getSubtitle: function(){
-        if(this.value>=7) return "Normal";
-        else if(this.value>=4) return "Complexo";
-        else return "Muito Complexo";
+      if(this.value>=7) return "Normal";
+      else if(this.value>=4) return "Complexo";
+      else return "Muito Complexo";
     },
 		getBackgroundClass: function(){
 			if(this.value>=7) return "";
-            else if(this.value>=4) return "complex";
-            else return "verycomplex";
+      else if(this.value>=4) return "complex";
+      else return "verycomplex";
 		}
   },
 	filters: {
 		rounded: function (value) {
-			if (!value) return 0
-			return value = Number(value)
+			return (!value) ? 0 : Number(value)
 		}
 	},
 	methods: {
-			handleScroll: function (event) {
-				if($(window).scrollTop()>150){
-					$("#ProjectID").fadeIn(300);
-				}else{
-					$("#ProjectID").fadeOut(300);
-				}
-			}
+    handleScroll: function (event) {
+      ($(window).scrollTop()>150) ? $("#ProjectID").fadeIn(300) : $("#ProjectID").fadeOut(300);
+    }
 	},
-	beforeUpdate(){
+  mounted(){
 		$("#ProjectID").hide();
 	},
 	created: function () {
@@ -58,7 +53,7 @@ export default {
 </script>
 
 <style>
-/*************************** 
+/***************************
  ******* Sticky Menu *******
  ***************************/
 .ui.fixed.inverted.menu {
@@ -72,11 +67,11 @@ export default {
 .ui.fixed.inverted.menu.complex{
 	  background-color: #F2B01C;
 }
-	
+
 .ui.fixed.inverted.menu.verycomplex{
 	  background-color: #DB2828;
 }
-	
+
 .ui.fixed.inverted.menu .ui.inverted.button {
   font-size: 1.2em;
   left: 1em;
@@ -87,7 +82,6 @@ export default {
 .ui.fixed.inverted.menu .ui.statistic {
   margin: 0 3em;
 }
-
 
 .ui.fixed.inverted.menu p {
   font-size: 1.5em;
