@@ -8,10 +8,6 @@
             <div class="label">{{getSubtitle}}</div>
         </div>
         <p>{{ project.nome }} ({{ project.pronac }})</p>
-        <!--<div v-if="Object.keys(user).length!=0" class="ui basic segment" id="LoggedUser">
-            Avaliando como:<br />
-            {{user.name}}
-        </div>-->
     </div>
 </template>
 
@@ -20,7 +16,6 @@ export default {
   name: "HeaderShow",
   props: {
       project: Object,
-      user: Object,
   	  value: Number
   },
   computed: {
