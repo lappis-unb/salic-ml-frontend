@@ -1,24 +1,24 @@
 <template>
-    <div class="helper">
-        <i class="question circle outline icon"></i>
-        <div class="ui floating message">
-            <p>{{helper_text}}</p>
-        </div>
+  <div class="helper">
+    <i class="question circle outline icon"></i>
+    <div class="ui floating message">
+        <p>{{helper_text}}</p>
     </div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: "HelperMetric",
-    props: {
-        helper_text: String
-    }
+  name: "HelperMetric",
+  props: {
+    helper_text: String
+  }
 }
 </script>
 
 <style>
 
-/*************************** 
+/***************************
  ****** Help Message *******
  ***************************/
 .helper{
@@ -34,7 +34,7 @@ export default {
 .helper:hover .question.icon{
 	color: #2185d0;
 }
- 
+
 .helper .ui.message{
 	background-color: #dff0ff;
 	border-color: #2185d0;
@@ -58,5 +58,3 @@ export default {
 }
 
 </style>
-
-

@@ -1,7 +1,7 @@
 <template>
     <div>
-        <div v-if="metric.value!=0" class="ui bulleted list">
-          <ul  v-for="(item, index) in metric.vouchers_list" :key="item+index" class="item">
+        <div v-if="metrica.value!=0" class="ui bulleted list">
+          <ul  v-for="(item, index) in metrica.vouchers_list" :key="item+index" class="item">
             <li><a target="_blank" :href="item.link">{{item.nome}} - {{item.porcentagem}}%</a></li>
           </ul>
         </div>
@@ -13,7 +13,7 @@
 export default {
   name: "VouchersAbove50",
   props: {
-    metric: Object
+    metrica: Object
   }
 };
 </script>

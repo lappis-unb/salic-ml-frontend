@@ -1,31 +1,31 @@
 <template>
     <div>
-      <span v-if="!metric.value_is_valid">
+      <span v-if="!metrica.valor_indisponivel">
         <p>Esta informação não está disponível.</p>
       </span>
-      <span v-else-if="metric.value!=0 && metric.type==='bar'">
-        <metric-bar :metric="metric"/>
+      <span v-else-if="metrica.valor!=0 && metrica.tipo==='simples'">
+        <metric-bar :metrica="metrica"/>
       </span>
-      <span v-else-if="metric.type==='items-list'">
-        <item-list :metric="metric" />
+      <span v-else-if="metrica.type==='items-list'">
+        <item-list :metrica="metrica" />
       </span>
-      <span v-else-if=" metric.type==='proponents-list'">
-        <proponents-list :metric="metric" />
+      <span v-else-if=" metrica.type==='proponents-list'">
+        <proponents-list :metrica="metrica" />
       </span>
-      <span v-else-if="metric.type==='providers-list'">
-        <dropdown-list :metric="metric" text_exception="Não há novos fornecedores." />  
+      <span v-else-if="metrica.type==='providers-list'">
+        <dropdown-list :metrica="metrica" text_exception="Não há novos fornecedores." />  
       </span>
-      <span v-else-if="metric.type==='above-average-prices-list'">
-        <above-average-list :metric="metric" />  
+      <span v-else-if="metrica.type==='above-average-prices-list'">
+        <above-average-list :metrica="metrica" />  
       </span>
-      <span v-else-if="metric.type==='operation-code-list'">
-        <operation-code-list :metric="metric" />  
+      <span v-else-if="metrica.type==='operation-code-list'">
+        <operation-code-list :metrica="metrica" />  
       </span>
       </span>
-        <span v-else-if="metric.type==='vouchers-above-50'">
-        <voucher-above-50 :metric="metric" />  
+        <span v-else-if="metrica.type==='lista-simples'">
+        <voucher-above-50 :metrica="metrica" />  
       </span>
-	  <!--<p class="reason-text">{{metric.reason}}</p>-->
+	  <!--<p class="reason-text">{{metrica.reason}}</p>-->
 	</div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
     "dropdown-list": DropdownListCardContent
   },
   props: {
-    metric: Object
+    metrica: Object
   }
 };
 </script>
