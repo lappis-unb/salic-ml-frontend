@@ -12,17 +12,12 @@
       </div>
       <div class="content">
         <metric-content :metric="metric" />
-        <!--
-            <div class="ui divider"></div>
-            <feedback-form :user="user" :metric_id="metric.metric_id" :index="index" />
-        -->
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import FeedbackForm from "./feedback/FeedbackForm.vue";
 import HelperMetric from "./metric/HelperMetric.vue";
 import MetricCardContent from "./metric/MetricCardContent.vue";
 
@@ -211,7 +206,6 @@ export default {
   },
   props: {
     metrics: Object,
-    user: Object
   },
   computed: {
     metrics_list: function () {
@@ -248,7 +242,6 @@ export default {
     },
   },
   components: {
-    "feedback-form": FeedbackForm,
     "helper-metric": HelperMetric,
     "metric-content": MetricCardContent
   },
