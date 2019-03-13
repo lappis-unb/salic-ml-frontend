@@ -5,6 +5,8 @@ export function getFinancialMetrics(metricas){
     itens_orcamentarios: getItensOrcamentarios(metricas),
     comprovantes_de_pagamento: getComprovantesDePagamento(metricas),
     comprovantes_com_extrapolacao_de_50: getComprovantesComExtrapolacaoDe50(metricas),
+    projetos_do_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
+    novos_fornecedores: getNovosFornecedores(metricas)
   }
 }
 
@@ -47,7 +49,7 @@ function getComprovantesComExtrapolacaoDe50(metricas){
     explicacao: "Explicação da métricas",
     tipo: "lista-simples",
     valor: metricas.comprovantes_acima_de_50.valor,
-    valor_fomatado: metricas.comprovantes_acima_de_50.valor,
+    valor_formatado: metricas.comprovantes_acima_de_50.valor,
     valor_valido: metricas.comprovantes_acima_de_50.valor_valido,
     is_outlier: getColorStyle(metricas.comprovantes_acima_de_50.outlier, metricas.comprovantes_acima_de_50.valor_valido),
     minimo_esperado: metricas.comprovantes_acima_de_50.minimo_esperado,
@@ -73,6 +75,40 @@ function getComprovantesDePagamento(metricas){
     minimo_esperado: metricas.comprovantes_de_pagamento.minimo_esperado,
     maximo_esperado: "R$ "+ setMoneyFormat(metricas.comprovantes_de_pagamento.maximo_esperado),
     valor_indisponivel: (metricas.comprovantes_de_pagamento.valor) ? true : false,
+  }
+}
+
+function getProjetosDoMesmoProponente(metricas){
+  return {
+    nome: "Projetos do mesmo proponente",
+    explicacao: "Indica os projetos que o proponente já executou no passado.",
+    tipo: "tabela-simples",
+    valor: metricas.projetos_do_mesmo_proponente.valor,
+    valor_formatado: metricas.projetos_do_mesmo_proponente.valor,
+    valor_valido: metricas.projetos_do_mesmo_proponente.valor_valido,
+    is_outlier: getColorStyle(metricas.projetos_do_mesmo_proponente.outlier, metricas.projetos_do_mesmo_proponente.valor_valido),
+    minimo_esperado: metricas.projetos_do_mesmo_proponente.minimo_esperado,
+    maximo_esperado: metricas.projetos_do_mesmo_proponente.maximo_esperado,
+    valor_indisponivel: (metricas.projetos_do_mesmo_proponente.valor) ? true : false,
+
+    proponent_projects: metricas.projetos_do_mesmo_proponente.projetos_submetidos,
+  }
+}
+
+function getNovosFornecedores(metricas){
+  return {
+    nome: "Novos fornecedores",
+    explicacao: "Colocar explicação da métrica aqui",
+    tipo: "lista-com-dropdown",
+    valor: metricas.novos_fornecedores.valor,
+    valor_formatado: metricas.novos_fornecedores.valor,
+    valor_valido: metricas.novos_fornecedores.valor_valido,
+    is_outlier: getColorStyle(metricas.novos_fornecedores.outlier, metricas.novos_fornecedores.valor_valido),
+    minimo_esperado: metricas.novos_fornecedores.minimo_esperado,
+    maximo_esperado: metricas.novos_fornecedores.maximo_esperado,
+    valor_indisponivel: (metricas.novos_fornecedores.valor) ? true : false,
+
+    list: metricas.novos_fornecedores.lista_de_novos_fornecedores,
   }
 }
 
@@ -105,7 +141,7 @@ export function createMetrics(metrics){
                 mas que não aparecem neste projeto.",
 
         value: (metrics.itens_orcamentarios_inesperados.valor).toFixed(2),
-        valor_fomatado: (metrics.itens_orcamentarios_inesperados.valor).toFixed(2) + "%",
+        valor_formatado: (metrics.itens_orcamentarios_inesperados.valor).toFixed(2) + "%",
         valor_valido: metrics.itens_orcamentarios_inesperados.valor_valido,
         is_outlier: getColorStyle(metrics.itens_orcamentarios_inesperados.outlier, metrics.itens_orcamentarios_inesperados.valor_valido),
         minimo_esperado: metrics.itens_orcamentarios_inesperados.minimo_esperado,
@@ -121,7 +157,7 @@ export function createMetrics(metrics){
         explicacao:
           "Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com a quantidade mais frequente de itens acima da mediana em projetos do mesmo segmento",
         value: metrics.precos_acima_da_media.valor,
-        valor_fomatado: metrics.precos_acima_da_media.valor,
+        valor_formatado: metrics.precos_acima_da_media.valor,
         valor_valido: metrics.precos_acima_da_media.valor_valido,
         is_outlier: getColorStyle(metrics.precos_acima_da_media.outlier, metrics.precos_acima_da_media.valor_valido),
         tipo: "above-average-prices-list",
@@ -137,7 +173,7 @@ export function createMetrics(metrics){
         explicacao:
           "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento",
         value: metrics.valor_comprovado.valor,
-        valor_fomatado: "R$ "+ setMoneyFormat(metrics.valor_comprovado.valor),
+        valor_formatado: "R$ "+ setMoneyFormat(metrics.valor_comprovado.valor),
         valor_valido: metrics.valor_comprovado.valor_valido,
         is_outlier: getColorStyle(metrics.valor_comprovado.outlier, metrics.valor_comprovado.valor_valido),
         minimo_esperado: metrics.valor_comprovado.minimo_esperado,
@@ -151,7 +187,7 @@ export function createMetrics(metrics){
         explicacao:
           "Compara o valor captado neste projeto com o valor mais frequentemente captado em projetos do mesmo segmento",
         value: metrics.valor_captado.valor,
-        valor_fomatado: "R$ " + setMoneyFormat(metrics.valor_captado.valor),
+        valor_formatado: "R$ " + setMoneyFormat(metrics.valor_captado.valor),
         valor_valido: metrics.valor_captado.valor_valido,
         is_outlier: getColorStyle(metrics.valor_captado.outlier, metrics.valor_captado.valor_valido),
         minimo_esperado: metrics.valor_captado.minimo_esperado,
@@ -160,40 +196,12 @@ export function createMetrics(metrics){
 
         bar: {},
       },
-      projects_same_proponent: {
-        nome: "Projetos do mesmo proponente",
-        explicacao:
-          "Indica os projetos que o proponente já executou no passado.",
-        value: metrics.projetos_do_mesmo_proponente.valor,
-        valor_fomatado: metrics.projetos_do_mesmo_proponente.valor,
-        valor_valido: metrics.projetos_do_mesmo_proponente.valor_valido,
-        is_outlier: getColorStyle(metrics.projetos_do_mesmo_proponente.outlier, metrics.projetos_do_mesmo_proponente.valor_valido),
-        minimo_esperado: metrics.projetos_do_mesmo_proponente.minimo_esperado,
-        maximo_esperado: metrics.projetos_do_mesmo_proponente.maximo_esperado,
-        tipo: "proponents-list",
-
-        proponent_projects: metrics.projetos_do_mesmo_proponente.projetos_submetidos,
-        reason: ""
-      },
-      new_providers: {
-        nome: "Novos fornecedores",
-        value: metrics.novos_fornecedores.valor,
-        valor_fomatado: metrics.novos_fornecedores.valor,
-        valor_valido: metrics.novos_fornecedores.valor_valido,
-        is_outlier: getColorStyle(metrics.novos_fornecedores.outlier, metrics.novos_fornecedores.valor_valido),
-        minimo_esperado: metrics.novos_fornecedores.minimo_esperado,
-        maximo_esperado: metrics.novos_fornecedores.maximo_esperado,
-        tipo: "providers-list",
-        reason: "",
-
-        list: metrics.novos_fornecedores.lista_de_novos_fornecedores,
-      } ,
       approved_value: {
         nome: "Valor aprovado",
         explicacao:
           "Indica a proporção de fornecedores que nunca participaram de projetos de incentivo antes em relação ao total de fornecedores envolvidos com o projeto. Também lista os itens orçamentários dos novos fornecedores.",
         value: metrics.valor_aprovado.valor,
-        valor_fomatado: "R$ " + setMoneyFormat(metrics.valor_aprovado.valor),
+        valor_formatado: "R$ " + setMoneyFormat(metrics.valor_aprovado.valor),
         valor_valido: metrics.valor_aprovado.valor_valido,
         is_outlier: getColorStyle(metrics.valor_aprovado.outlier, metrics.valor_aprovado.valor_valido),
         minimo_esperado: metrics.valor_aprovado.minimo_esperado,
@@ -207,7 +215,7 @@ export function createMetrics(metrics){
         explicacao:
           "Explicação da métricas",
         value: 2,
-        valor_fomatado: setMoneyFormat(metrics.valor_aprovado.valor),
+        valor_formatado: setMoneyFormat(metrics.valor_aprovado.valor),
         valor_valido: true,
         is_outlier: getColorStyle(metrics.valor_aprovado.outlier, metrics.valor_aprovado.valor_valido),
         minimo_esperado: metrics.valor_aprovado.minimo_esperado,

@@ -27,8 +27,6 @@
 </template>
 
 <script>
-import accounting from 'accounting'
-import moment from 'moment'
 import Vue from 'vue'
 import VueEvents from 'vue-events'
 import Vuetable from 'vuetable-2/src/components/Vuetable'
@@ -83,7 +81,7 @@ export default {
   },
   mounted () {
     this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
-    this.$events.$on('filter-reset', e => this.onFilterReset())
+        // this.$events.$on('filter-reset', e => this.onFilterReset())
   },
   methods: {
     pronacLabel(value) {
@@ -105,16 +103,16 @@ export default {
     onChangePage (page) {
       this.$refs.vuetable.changePage(page)
     },
-    onAction (action, data, index) {
-      console.log('slot action: ' + action, data.project_name, index)
-    },
-    onCellClicked (data, field, event) {
-      //window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
+    // onAction (action, data, index) {
+      // console.log('slot action: ' + action, data.project_name, index)
+    // },
+    onCellClicked (data) {
+      // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
       this.$refs.vuetable.toggleDetailRow(data.id)
       this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }})
     },
     onFilterSet (filterText) {
-      console.log(filterText)
+      // console.log(filterText)
       this.moreParams.filter = filterText
       Vue.nextTick( () => this.$refs.vuetable.refresh() )
     },

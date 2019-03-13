@@ -6,26 +6,28 @@
       <span v-else-if="metrica.valor!=0 && metrica.tipo==='simples'">
         <metric-bar :metrica="metrica"/>
       </span>
-      <span v-else-if="metrica.type==='items-list'">
-        <item-list :metrica="metrica" />
-      </span>
-      <span v-else-if=" metrica.type==='proponents-list'">
+      <span v-else-if=" metrica.tipo==='tabela-simples'">
         <proponents-list :metrica="metrica" />
       </span>
-      <span v-else-if="metrica.type==='providers-list'">
-        <dropdown-list :metrica="metrica" text_exception="Não há novos fornecedores." />  
       </span>
-      <span v-else-if="metrica.type==='above-average-prices-list'">
-        <above-average-list :metrica="metrica" />  
+        <span v-else-if="metrica.tipo==='lista-simples'">
+        <voucher-above-50 :metrica="metrica" />
       </span>
-      <span v-else-if="metrica.type==='operation-code-list'">
-        <operation-code-list :metrica="metrica" />  
+      <span v-else-if="metrica.tipo==='lista-com-dropdown'">
+        <dropdown-list :metrica="metrica" text_exception="Não há novos fornecedores." />
       </span>
+
+      <!--As metricas abaixo não serão utilizadas na complexidade financeira-->
+
+      <span v-else-if="metrica.tipo==='above-average-prices-list'">
+        <above-average-list :metrica="metrica" />
       </span>
-        <span v-else-if="metrica.type==='lista-simples'">
-        <voucher-above-50 :metrica="metrica" />  
+      <span v-else-if="metrica.tipo==='operation-code-list'">
+        <operation-code-list :metrica="metrica" />
       </span>
-	  <!--<p class="reason-text">{{metrica.reason}}</p>-->
+      <span v-else-if="metrica.tipo==='items-list'">
+        <item-list :metrica="metrica" />
+      </span>
 	</div>
 </template>
 

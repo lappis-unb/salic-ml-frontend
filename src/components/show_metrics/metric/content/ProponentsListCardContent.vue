@@ -1,6 +1,6 @@
 <template>
   <div>
-    <table v-if="metric.value!=0" class="ui celled table striped ">
+    <table v-if="metrica.valor!=0" class="ui celled table striped ">
       <thead>
         <tr>
             <th id="complexity-cell">Comp.</th>
@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(project, index) in metric.proponent_projects" :key="project+index">
+        <tr v-for="(project, index) in metrica.proponent_projects" :key="project+index">
           <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade) }}</td>
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
           <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
@@ -30,7 +30,7 @@
 export default {
   name: "ProponentsListCardContent",
   props: {
-    metric: Object
+    metrica: Object
   },
   data(){
     return {
@@ -46,7 +46,7 @@ export default {
         let start =  begin.slice(5,7) + '/' + begin.slice(0,4);
         let final =  end.slice(5,7) + '/' + end.slice(0,4);
         let date = start + " à " + final
-         
+
         return (date==="/ à /") ? "-" : date;
     },
     getStatus(status){

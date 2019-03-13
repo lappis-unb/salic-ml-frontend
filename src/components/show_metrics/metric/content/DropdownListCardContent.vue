@@ -1,16 +1,16 @@
 <template>
   <div>
-    <div v-if="metric.valor!=0" v-for="(object, index) in metric.list" :key="index+object+index" class="accordion">
+    <div v-if="metrica.valor_indisponivel" v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
       <div class="title">
         <i class="dropdown icon"></i>
         {{object.nome}}
       </div>
       <div class="content">
-        <div class="ui bulleted list">                          
+        <div class="ui bulleted list">
           <div v-for="(item, index) in object.items" :key="index+index+item" class="item">
             <a href="item.link">{{item.nome}}</a>
           </div>
-        </div> 		
+        </div>
       </div>
     </div>
     <div v-else>{{text_exception}}</div>
@@ -21,7 +21,7 @@
 export default {
   name: "DropdownListCardContent",
   props: {
-    metric: Object,
+    metrica: Object,
     text_exception: String
   }
 };
