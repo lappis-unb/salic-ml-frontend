@@ -17,6 +17,7 @@
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
           <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
           <td data-label="Valor Comprovado" id="value-cell">{{setMoneyFormat(project.valor_comprovado)}}</td>
+          <!-- FIX CONSOLE BUG -->
           <td data-label="Sit." id="situation-cell" :data-tooltip="text">{{getStatus(project.situacao)}}</td>
           <td data-label="Período de execução" id="period-cell">{{formateDate(project.data_inicio, project.data_fim)}}</td>
         </tr>

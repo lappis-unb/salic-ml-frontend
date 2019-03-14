@@ -31,14 +31,14 @@
 </template>
 
 <script>
-import SimpleTextContent from "@/components/show_metrics/metric/content/SimpleTextContent.vue"
-import SimpleListContent from "@/components/show_metrics/metric/content/SimpleListContent.vue"
-import SimpleTableContent from "@/components/show_metrics/metric/content/SimpleTableContent.vue"
-import DropdownListCardContent from "@/components/show_metrics/metric/content/DropdownListCardContent"
+import SimpleTextContent from "@/components/show_metrics/metrics/content/SimpleTextContent.vue"
+import SimpleListContent from "@/components/show_metrics/metrics/content/SimpleListContent.vue"
+import SimpleTableContent from "@/components/show_metrics/metrics/content/SimpleTableContent.vue"
+import DropdownListCardContent from "@/components/show_metrics/metrics/content/DropdownListCardContent"
 
-import ItemListCardContent from "@/components/show_metrics/metric/content/ItemListCardContent.vue"
-import OperationCodeCardContent from "@/components/show_metrics/metric/content/OperationCodeCardContent.vue"
-import AboveAveragePricesCardContent from "@/components/show_metrics/metric/content/AboveAveragePricesCardContent.vue"
+import ItemListCardContent from "@/components/show_metrics/metrics/content/ItemListCardContent.vue"
+import OperationCodeCardContent from "@/components/show_metrics/metrics/content/OperationCodeCardContent.vue"
+import AboveAveragePricesCardContent from "@/components/show_metrics/metrics/content/AboveAveragePricesCardContent.vue"
 
 export default {
   name: "MetricCardContent",
