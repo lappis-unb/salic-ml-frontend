@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import HelperMetric from "./metric/HelperMetric.vue";
-import MetricCardContent from "./metric/MetricCardContent.vue";
+import HelperMetric from "./metrics/HelperMetric.vue";
+import MetricCardContent from "./metrics/MetricCardContent.vue";
 import {getFinancialMetrics} from "@/utils/metrics.js"
 
 export default {
