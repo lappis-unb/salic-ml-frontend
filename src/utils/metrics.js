@@ -1,4 +1,3 @@
-
 export function getFinancialMetrics(metricas){
   return {
     valor_a_ser_comprovado: getValorASerComprovado(metricas),
@@ -9,6 +8,21 @@ export function getFinancialMetrics(metricas){
     novos_fornecedores: getNovosFornecedores(metricas)
   }
 }
+
+function setMoneyFormat(value){
+  return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+,)/g, '$&.');
+}
+
+function getColorStyle(isOutlier, valid){
+  let color = "Metric-invalid";
+
+  if(valid) {
+    color = (isOutlier && valid) ? "Metric-bad" : "Metric-good";
+  }
+
+  return color;
+}
+
 
 function getItensOrcamentarios(metricas){
   return {
@@ -79,6 +93,7 @@ function getComprovantesDePagamento(metricas){
 }
 
 function getProjetosDoMesmoProponente(metricas){
+
   return {
     nome: "Projetos do mesmo proponente",
     explicacao: "Indica os projetos que o proponente já executou no passado.",
@@ -96,6 +111,7 @@ function getProjetosDoMesmoProponente(metricas){
 }
 
 function getNovosFornecedores(metricas){
+
   return {
     nome: "Novos fornecedores",
     explicacao: "Colocar explicação da métrica aqui",
@@ -112,133 +128,114 @@ function getNovosFornecedores(metricas){
   }
 }
 
+// As métricas abaixo não estão sendo utilizadas para a analise de complexidade financeira
 
+/*
+function precosAcimaDaMedia(metricas){
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-export function createMetrics(metrics){
   return {
-      budget_items_unusual: {
-        nome: "Itens orçamentários inesperados",
-        tipo: "items-list",
-        explicacao:
-          "Indica os itens orçamentários deste projeto que \
-                não estão entre os mais comuns do segmento.\
-                Também lista os itens que aparecem frequentemente em projetos do segmento, \
-                mas que não aparecem neste projeto.",
+    nome: "Preços acima da média",
+    explicacao: "Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com \
+      a quantidade mais frequente de itens acima da mediana em projetos do mesmo segmento",
+    valor: metricas.precos_acima_da_media.valor,
+    valor_formatado: metricas.precos_acima_da_media.valor,
+    valor_valido: metricas.precos_acima_da_media.valor_valido,
+    is_outlier: getColorStyle(metricas.precos_acima_da_media.outlier, metricas.precos_acima_da_media.valor_valido),
+    tipo: "above-average-prices-list",
+    minimo_esperado: metricas.precos_acima_da_media.minimo_esperado,
+    maximo_esperado: metricas.precos_acima_da_media.maximo_esperado,
+    valor_indisponivel: (metricas.precos_acima_da_media.valor) ? true : false,
 
-        value: (metrics.itens_orcamentarios_inesperados.valor).toFixed(2),
-        valor_formatado: (metrics.itens_orcamentarios_inesperados.valor).toFixed(2) + "%",
-        valor_valido: metrics.itens_orcamentarios_inesperados.valor_valido,
-        is_outlier: getColorStyle(metrics.itens_orcamentarios_inesperados.outlier, metrics.itens_orcamentarios_inesperados.valor_valido),
-        minimo_esperado: metrics.itens_orcamentarios_inesperados.minimo_esperado,
-        maximo_esperado: metrics.itens_orcamentarios_inesperados.maximo_esperado,
-
-        reason: "",
-
-        common_items_not_in_project: metrics.itens_orcamentarios_inesperados.items_comuns_que_o_projeto_nao_possui,
-        uncommon_items: metrics.itens_orcamentarios_inesperados.items_incomuns,
-      },
-      above_average_prices: {
-        nome: "Preços acima da média",
-        explicacao:
-          "Verifica a quantidade de itens com valor acima da mediana histórica neste projeto e compara com a quantidade mais frequente de itens acima da mediana em projetos do mesmo segmento",
-        value: metrics.precos_acima_da_media.valor,
-        valor_formatado: metrics.precos_acima_da_media.valor,
-        valor_valido: metrics.precos_acima_da_media.valor_valido,
-        is_outlier: getColorStyle(metrics.precos_acima_da_media.outlier, metrics.precos_acima_da_media.valor_valido),
-        tipo: "above-average-prices-list",
-        minimo_esperado: metrics.precos_acima_da_media.minimo_esperado,
-        maximo_esperado: metrics.precos_acima_da_media.maximo_esperado,
-
-        items: metrics.precos_acima_da_media.items,
-
-        reason: ""
-      },
-      proven_value: {
-        nome: "Valor comprovado",
-        explicacao:
-          "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento",
-        value: metrics.valor_comprovado.valor,
-        valor_formatado: "R$ "+ setMoneyFormat(metrics.valor_comprovado.valor),
-        valor_valido: metrics.valor_comprovado.valor_valido,
-        is_outlier: getColorStyle(metrics.valor_comprovado.outlier, metrics.valor_comprovado.valor_valido),
-        minimo_esperado: metrics.valor_comprovado.minimo_esperado,
-        maximo_esperado: "R$ "+ setMoneyFormat(metrics.valor_comprovado.maximo_esperado),
-        tipo: "bar",
-
-        bar: {}
-      },
-      captured_value: {
-        nome: "Valor captado",
-        explicacao:
-          "Compara o valor captado neste projeto com o valor mais frequentemente captado em projetos do mesmo segmento",
-        value: metrics.valor_captado.valor,
-        valor_formatado: "R$ " + setMoneyFormat(metrics.valor_captado.valor),
-        valor_valido: metrics.valor_captado.valor_valido,
-        is_outlier: getColorStyle(metrics.valor_captado.outlier, metrics.valor_captado.valor_valido),
-        minimo_esperado: metrics.valor_captado.minimo_esperado,
-        maximo_esperado: "R$ "+ setMoneyFormat(metrics.valor_captado.maximo_esperado),
-        tipo: "bar",
-
-        bar: {},
-      },
-      approved_value: {
-        nome: "Valor aprovado",
-        explicacao:
-          "Indica a proporção de fornecedores que nunca participaram de projetos de incentivo antes em relação ao total de fornecedores envolvidos com o projeto. Também lista os itens orçamentários dos novos fornecedores.",
-        value: metrics.valor_aprovado.valor,
-        valor_formatado: "R$ " + setMoneyFormat(metrics.valor_aprovado.valor),
-        valor_valido: metrics.valor_aprovado.valor_valido,
-        is_outlier: getColorStyle(metrics.valor_aprovado.outlier, metrics.valor_aprovado.valor_valido),
-        minimo_esperado: metrics.valor_aprovado.minimo_esperado,
-        maximo_esperado: "R$ "+ setMoneyFormat(metrics.valor_aprovado.maximo_esperado),
-        tipo: "bar",
-
-        bar: {},
-      },
-      vouchers_by_operation_code: {
-        nome: "Comprovantes por código de operação",
-        explicacao:
-          "Explicação da métricas",
-        value: 2,
-        valor_formatado: setMoneyFormat(metrics.valor_aprovado.valor),
-        valor_valido: true,
-        is_outlier: getColorStyle(metrics.valor_aprovado.outlier, metrics.valor_aprovado.valor_valido),
-        minimo_esperado: metrics.valor_aprovado.minimo_esperado,
-        maximo_esperado: metrics.valor_aprovado.maximo_esperado,
-
-        tipo: "operation-code-list",
-        operation_list: [{nome: "TED", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Boleto", codigos_de_operacao:[{nome: "Codigo 1", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}, {nome: "Cheque", codigos_de_operacao:[{nome: "Codigo 1 fdas fdsa fdsa fdsa fdsa fdsa fdsafdsafdsa fdas fds afd sa", comprovantes: [{nome: "comprovante", link: "#" }, {nome: "comprovante", link: "#"}]}]}],
-      },
+    items: metricas.precos_acima_da_media.items,
   }
 }
 
+function getItensOrcamentariosInesperados(metricas){
 
+  return {
+    nome: "Itens orçamentários inesperados",
+    explicacao:
+      "Indica os itens orçamentários deste projeto que \
+        não estão entre os mais comuns do segmento.\
+        Também lista os itens que aparecem frequentemente em projetos do segmento, \
+        mas que não aparecem neste projeto.",
+    tipo: "items-list",
+    valor: (metricas.itens_orcamentarios_inesperados.valor).toFixed(2),
+    valor_formatado: (metricas.itens_orcamentarios_inesperados.valor).toFixed(2) + "%",
+    valor_valido: metricas.itens_orcamentarios_inesperados.valor_valido,
+    is_outlier: getColorStyle(metricas.itens_orcamentarios_inesperados.outlier, metricas.itens_orcamentarios_inesperados.valor_valido),
+    minimo_esperado: metricas.itens_orcamentarios_inesperados.minimo_esperado,
+    maximo_esperado: metricas.itens_orcamentarios_inesperados.maximo_esperado,
+    valor_indisponivel: (metricas.itens_orcamentarios_inesperados.valor) ? true : false,
 
-function setMoneyFormat(value){
-    return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
-}
-
-function getColorStyle(isOutlier, valid){
-  let color = "Metric-invalid";
-
-  if(valid) {
-    color = (isOutlier && valid) ? "Metric-bad" : "Metric-good";
+    common_items_not_in_project: metricas.itens_orcamentarios_inesperados.items_comuns_que_o_projeto_nao_possui,
+    uncommon_items: metricas.itens_orcamentarios_inesperados.items_incomuns,
   }
-
-  return color;
 }
+
+function getComprovantesDeTransferencia(metricas){
+
+  return {
+    nome: "Comprovantes de transferência",
+    explicacao: "Explicação da métricas",
+    tipo: "operation-code-list",
+    valor: metricas.comprovantes_de_transferencia.valor,
+    valor_formatado: setMoneyFormat(metricas.comprovantes_de_transferencia.valor),
+    valor_valido: metricas.comprovantes_de_transferencia.valor_valido,
+    is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.outlier, metricas.comprovantes_de_transferencia.valor_valido),
+    minimo_esperado: metricas.comprovantes_de_transferencia.minimo_esperado,
+    maximo_esperado: metricas.comprovantes_de_transferencia.maximo_esperado,
+    valor_indisponivel: (metricas.comprovantes_de_transferencia.valor) ? true : false,
+  }
+}
+
+// Deprecated Metrics
+function oldMetrics(metrica){
+
+  return {
+    proven_value: {
+      nome: "Valor comprovado",
+      explicacao:
+        "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento",
+      value: metricas.valor_comprovado.valor,
+      valor_formatado: "R$ "+ setMoneyFormat(metricas.valor_comprovado.valor),
+      valor_valido: metricas.valor_comprovado.valor_valido,
+      is_outlier: getColorStyle(metricas.valor_comprovado.outlier, metricas.valor_comprovado.valor_valido),
+      minimo_esperado: metricas.valor_comprovado.minimo_esperado,
+      maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_comprovado.maximo_esperado),
+      tipo: "bar",
+
+      bar: {}
+    },
+    captured_value: {
+      nome: "Valor captado",
+      explicacao:
+        "Compara o valor captado neste projeto com o valor mais frequentemente captado em projetos do mesmo segmento",
+      value: metricas.valor_captado.valor,
+      valor_formatado: "R$ " + setMoneyFormat(metricas.valor_captado.valor),
+      valor_valido: metricas.valor_captado.valor_valido,
+      is_outlier: getColorStyle(metricas.valor_captado.outlier, metricas.valor_captado.valor_valido),
+      minimo_esperado: metricas.valor_captado.minimo_esperado,
+      maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_captado.maximo_esperado),
+      tipo: "bar",
+
+      bar: {},
+    },
+    approved_value: {
+      nome: "Valor aprovado",
+      explicacao:
+        "Indica a proporção de fornecedores que nunca participaram de projetos de incentivo antes em relação ao total de fornecedores envolvidos com o projeto. Também lista os itens orçamentários dos novos fornecedores.",
+      value: metricas.valor_aprovado.valor,
+      valor_formatado: "R$ " + setMoneyFormat(metricas.valor_aprovado.valor),
+      valor_valido: metricas.valor_aprovado.valor_valido,
+      is_outlier: getColorStyle(metricas.valor_aprovado.outlier, metricas.valor_aprovado.valor_valido),
+      minimo_esperado: metricas.valor_aprovado.minimo_esperado,
+      maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_aprovado.maximo_esperado),
+      tipo: "bar",
+
+      bar: {},
+    }
+  }
+}
+
+*/

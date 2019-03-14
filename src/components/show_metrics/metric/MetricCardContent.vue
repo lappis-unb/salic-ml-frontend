@@ -4,14 +4,13 @@
         <p>Esta informação não está disponível.</p>
       </span>
       <span v-else-if="metrica.valor!=0 && metrica.tipo==='simples'">
-        <metric-bar :metrica="metrica"/>
+        <simple-text-content :metrica="metrica"/>
       </span>
       <span v-else-if=" metrica.tipo==='tabela-simples'">
-        <proponents-list :metrica="metrica" />
+        <simple-table :metrica="metrica" />
       </span>
-      </span>
-        <span v-else-if="metrica.tipo==='lista-simples'">
-        <voucher-above-50 :metrica="metrica" />
+      <span v-else-if="metrica.tipo==='lista-simples'">
+        <simple-list :metrica="metrica" />
       </span>
       <span v-else-if="metrica.tipo==='lista-com-dropdown'">
         <dropdown-list :metrica="metrica" text_exception="Não há novos fornecedores." />
@@ -32,24 +31,26 @@
 </template>
 
 <script>
-import ItemListCardContent from "@/components/show_metrics/metric/content/ItemListCardContent.vue"
-import ProponentsListCardContent from "@/components/show_metrics/metric/content/ProponentsListCardContent.vue"
-import MetricBarContent from "@/components/show_metrics/metric/content/MetricBarContent.vue"
-import AboveAveragePricesCardContent from "@/components/show_metrics/metric/content/AboveAveragePricesCardContent.vue"
-import OperationCodeCardContent from "@/components/show_metrics/metric/content/OperationCodeCardContent.vue"
-import VouchersAbove50CardContent from "@/components/show_metrics/metric/content/VouchersAbove50CardContent.vue"
+import SimpleTextContent from "@/components/show_metrics/metric/content/SimpleTextContent.vue"
+import SimpleListContent from "@/components/show_metrics/metric/content/SimpleListContent.vue"
+import SimpleTableContent from "@/components/show_metrics/metric/content/SimpleTableContent.vue"
 import DropdownListCardContent from "@/components/show_metrics/metric/content/DropdownListCardContent"
+
+import ItemListCardContent from "@/components/show_metrics/metric/content/ItemListCardContent.vue"
+import OperationCodeCardContent from "@/components/show_metrics/metric/content/OperationCodeCardContent.vue"
+import AboveAveragePricesCardContent from "@/components/show_metrics/metric/content/AboveAveragePricesCardContent.vue"
 
 export default {
   name: "MetricCardContent",
   components: {
+    "simple-list": SimpleListContent,
+    "simple-table": SimpleTableContent,
+    "simple-text-content": SimpleTextContent,
+    "dropdown-list": DropdownListCardContent,
+
     "item-list": ItemListCardContent,
-    "proponents-list": ProponentsListCardContent,
-    "metric-bar": MetricBarContent,
     "above-average-list": AboveAveragePricesCardContent,
     "operation-code-list": OperationCodeCardContent,
-    "voucher-above-50": VouchersAbove50CardContent,
-    "dropdown-list": DropdownListCardContent
   },
   props: {
     metrica: Object

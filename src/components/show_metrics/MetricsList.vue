@@ -65,6 +65,7 @@ export default {
 </script>
 
 <style>
+
 /***************************
  ** Diagnostic Accordion ***
  ***************************/
@@ -162,4 +163,5 @@ export default {
 .Metric-invalid .icon:before {
   content: "\f2cb"; /* Thermometer empty */
 }
+
 </style>
