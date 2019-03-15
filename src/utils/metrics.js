@@ -75,7 +75,7 @@ function getComprovantesComExtrapolacaoDe50(metricas){
     maximo_esperado: metricas.comprovantes_acima_de_50.maximo_esperado,
     valor_indisponivel: (metricas.comprovantes_acima_de_50.valor) ? true : false,
 
-    vouchers_list: metricas.comprovantes_acima_de_50.lista_de_comprovantes
+    vouchers_list: metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
   }
 }
 
@@ -111,7 +111,7 @@ function getProjetosDoMesmoProponente(metricas){
     maximo_esperado: metricas.projetos_do_mesmo_proponente.maximo_esperado,
     valor_indisponivel: (metricas.projetos_do_mesmo_proponente.valor) ? true : false,
 
-    proponent_projects: metricas.projetos_do_mesmo_proponente.projetos_submetidos,
+    proponent_projects: metricas.projetos_do_mesmo_proponente.data.projetos_submetidos,
   }
 }
 
@@ -129,7 +129,7 @@ function getNovosFornecedores(metricas){
     maximo_esperado: metricas.novos_fornecedores.maximo_esperado,
     valor_indisponivel: (metricas.novos_fornecedores.valor) ? true : false,
 
-    list: metricas.novos_fornecedores.lista_de_novos_fornecedores,
+    list: metricas.novos_fornecedores.data.lista_de_novos_fornecedores,
   }
 }
 
@@ -151,7 +151,7 @@ function precosAcimaDaMedia(metricas){
     maximo_esperado: metricas.precos_acima_da_media.maximo_esperado,
     valor_indisponivel: (metricas.precos_acima_da_media.valor) ? true : false,
 
-    items: metricas.precos_acima_da_media.items,
+    items: metricas.precos_acima_da_media.data.items,
   }
 }
 
@@ -173,8 +173,8 @@ function getItensOrcamentariosInesperados(metricas){
     maximo_esperado: metricas.itens_orcamentarios_inesperados.maximo_esperado,
     valor_indisponivel: (metricas.itens_orcamentarios_inesperados.valor) ? true : false,
 
-    common_items_not_in_project: metricas.itens_orcamentarios_inesperados.items_comuns_que_o_projeto_nao_possui,
-    uncommon_items: metricas.itens_orcamentarios_inesperados.items_incomuns,
+    common_items_not_in_project: metricas.itens_orcamentarios_inesperados.data.items_comuns_que_o_projeto_nao_possui,
+    uncommon_items: metricas.itens_orcamentarios_inesperados.data.items_incomuns,
   }
 }
 
