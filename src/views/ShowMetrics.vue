@@ -38,7 +38,7 @@ export default {
         pronac: "Pronac não existente",
         name: "Projeto não existente"
       },
-      url: API_PATH_PROJECT + this.$route.params.pronac
+      url: API_PATH_PROJECT + this.$route.params.pronac + '/details/'
     };
   },
   props: {
