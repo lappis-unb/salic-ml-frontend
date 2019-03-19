@@ -60,6 +60,7 @@ export default {
   },
   mounted: function() {
     $(".ui.accordion").accordion({ exclusive: false });
+    console.log(this.metrics)
   }
 };
 </script>
