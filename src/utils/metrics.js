@@ -2,9 +2,9 @@ export function getFinancialMetrics(metricas){
   return {
     valor_a_ser_comprovado: getValorASerComprovado(metricas),
     itens_orcamentarios: getItensOrcamentarios(metricas),
-    comprovantes_de_pagamento: getComprovantesDePagamento(metricas),
+    comprovantes_pagamento: getComprovantesDePagamento(metricas),
     comprovantes_com_extrapolacao_de_50: getComprovantesComExtrapolacaoDe50(metricas),
-    projetos_do_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
+    projetos_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
     novos_fornecedores: getNovosFornecedores(metricas)
   }
 }
@@ -52,12 +52,12 @@ function getValorASerComprovado(metricas){
     valor: metricas.valor_a_ser_comprovado.valor,
     valor_formatado: "R$ "+ sinais + setMoneyFormat(metricas.valor_a_ser_comprovado.valor),
     valor_valido: metricas.valor_a_ser_comprovado.valor_valido,
-    is_outlier: getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_comprovado.valor_valido),
+    is_outlier: getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_a_ser_comprovado.valor_valido),
     minimo_esperado: metricas.valor_a_ser_comprovado.minimo_esperado,
     maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado),
     valor_indisponivel: (metricas.valor_a_ser_comprovado.valor) ? true : false,
 
-    proponent_projects: metricas.projetos_do_mesmo_proponente.projetos_submetidos,
+    proponent_projects: metricas.projetos_mesmo_proponente.projetos_submetidos,
   }
 }
 
@@ -87,13 +87,13 @@ function getComprovantesDePagamento(metricas){
     nome: "Comprovantes de pagamento",
     explicacao: texto_de_ajuda,
     tipo: "simples",
-    valor: metricas.comprovantes_de_pagamento.valor,
-    valor_formatado: metricas.comprovantes_de_pagamento.valor + "%",
-    valor_valido: metricas.comprovantes_de_pagamento.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_de_pagamento.outlier, metricas.comprovantes_de_pagamento.valor_valido),
-    minimo_esperado: metricas.comprovantes_de_pagamento.minimo_esperado,
-    maximo_esperado: "R$ "+ setMoneyFormat(metricas.comprovantes_de_pagamento.maximo_esperado),
-    valor_indisponivel: (metricas.comprovantes_de_pagamento.valor) ? true : false,
+    valor: metricas.comprovantes_pagamento.valor,
+    valor_formatado: metricas.comprovantes_pagamento.valor + "%",
+    valor_valido: metricas.comprovantes_pagamento.valor_valido,
+    is_outlier: getColorStyle(metricas.comprovantes_pagamento.outlier, metricas.comprovantes_pagamento.valor_valido),
+    minimo_esperado: metricas.comprovantes_pagamento.minimo_esperado,
+    maximo_esperado: "R$ "+ setMoneyFormat(metricas.comprovantes_pagamento.maximo_esperado),
+    valor_indisponivel: (metricas.comprovantes_pagamento.valor) ? true : false,
   }
 }
 
@@ -103,15 +103,15 @@ function getProjetosDoMesmoProponente(metricas){
     nome: "Projetos do mesmo proponente",
     explicacao: "Indica os projetos que o proponente já executou no passado.",
     tipo: "tabela-simples",
-    valor: metricas.projetos_do_mesmo_proponente.valor,
-    valor_formatado: metricas.projetos_do_mesmo_proponente.valor,
-    valor_valido: metricas.projetos_do_mesmo_proponente.valor_valido,
-    is_outlier: getColorStyle(metricas.projetos_do_mesmo_proponente.outlier, metricas.projetos_do_mesmo_proponente.valor_valido),
-    minimo_esperado: metricas.projetos_do_mesmo_proponente.minimo_esperado,
-    maximo_esperado: metricas.projetos_do_mesmo_proponente.maximo_esperado,
-    valor_indisponivel: (metricas.projetos_do_mesmo_proponente.valor) ? true : false,
+    valor: metricas.projetos_mesmo_proponente.valor,
+    valor_formatado: metricas.projetos_mesmo_proponente.valor,
+    valor_valido: metricas.projetos_mesmo_proponente.valor_valido,
+    is_outlier: getColorStyle(metricas.projetos_mesmo_proponente.outlier, metricas.projetos_mesmo_proponente.valor_valido),
+    minimo_esperado: metricas.projetos_mesmo_proponente.minimo_esperado,
+    maximo_esperado: metricas.projetos_mesmo_proponente.maximo_esperado,
+    valor_indisponivel: (metricas.projetos_mesmo_proponente.valor) ? true : false,
 
-    proponent_projects: metricas.projetos_do_mesmo_proponente.data.projetos_submetidos,
+    proponent_projects: metricas.projetos_mesmo_proponente.data.projetos_submetidos,
   }
 }
 

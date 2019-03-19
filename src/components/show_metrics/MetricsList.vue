@@ -1,6 +1,6 @@
 <template>
   <div class="ui basic segment" id="DiagnosticArea">
-    <div v-for="(metrica, index) in metrics_list" :key="metrica.tipo+index"
+    <div v-for="(metrica, index) in metrics_list" v-if="metrica" :key="metrica.tipo+index"
       class="ui styled fluid accordion" id="DiagnosticMetrics">
       <div class="title" :class="metrica.is_outlier">
         <div class="ui ribbon label">
@@ -37,7 +37,7 @@ export default {
       return [
         this.new_metrics.valor_a_ser_comprovado,
         this.new_metrics.comprovantes_com_extrapolacao_de_50,
-        this.new_metrics.projetos_do_mesmo_proponente,
+        this.new_metrics.projetos_mesmo_proponente,
         this.new_metrics.novos_fornecedores,
         this.new_metrics.itens_orcamentarios,
         this.new_metrics.comprovantes_de_pagamento,
@@ -60,13 +60,11 @@ export default {
   },
   mounted: function() {
     $(".ui.accordion").accordion({ exclusive: false });
-    console.log(this.metrics)
   }
 };
 </script>
 
 <style>
-
 /***************************
  ** Diagnostic Accordion ***
  ***************************/
