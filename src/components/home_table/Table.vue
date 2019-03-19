@@ -5,13 +5,13 @@
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
           :fields="fields"
-          pagination-path=""
-    	  :api-mode="false"
-    	  :data="projects_list"
-          :per-page="20"
+      	  :api-mode="false"
+      	  :data="projects_list"
+          :per-page="15"
           :multi-sort="true"
           :sort-order="sortOrder"
           :append-params="moreParams"
+          pagination-path=""
           @vuetable:cell-clicked="onCellClicked"
           @vuetable:pagination-data="onPaginationData"
         >
@@ -51,7 +51,7 @@ export default {
     return {
       api_path: API_PATH_PROJECT_LIST,
       pronac: "",
-	  projects: [],
+	    projects: [],
       fields: [
         {
           name: 'pronac',
@@ -110,19 +110,20 @@ export default {
 
 				if(data.next!=undefined){
 						let per_page_number = 15;
-						let current_page = parseInt(parseInt((data.next).split('offset=')[1]) / per_page_number); 
+						let current_page = parseInt(parseInt((data.next).split('offset=')[1]) / per_page_number);
 						console.log(current_page)
-						transformed.pagination = {
+						transformed = {
 							total: parseInt(data.count),
 							per_page: per_page_number,
 							current_page: parseInt(current_page),
 							last_page: parseInt(data.count / per_page_number),
 							next_page_url: data.next,
 							prev_page_url: data.previous,
+              from: current_page,
+              to: current_page + 1,
+              data: data.results,
 						}
-						transformed.data = data.results;
 				}
-        console.log(transformed);
 
         return transformed;
     }
