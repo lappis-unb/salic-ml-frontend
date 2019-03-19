@@ -3,10 +3,11 @@
     <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
       <div class="ui large text loader">Carregando...</div>
     </div>
-    <header-show :value="parseInt(indicators[0].valor)" :project="project" />
+    {{ indicadores.FinancialIndicator }}
+    <header-show :value="indicadores.FinancialIndicator.valor" :project="project" />
     <span>
-      <complexity-title :value="indicators[0].valor" :project="project" />
-      <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" />
+      <!--<complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />-->
+      <!--<metrics-list v-if="indicadores.FinancialIndicator.metricas && indicadores.FinancialIndicator.metricas.length != 0" :metrics="indicadores.FinancialIndicator.metricas" />-->
     </span>
   </div>
 </template>
@@ -28,10 +29,10 @@ export default {
   data: function() {
     return {
       loading: true,
-      indicators: [
+      indicadores: [
         {
           valor: 0,
-          metrics: []
+          metricas: []
         }
       ],
       project: {
@@ -44,7 +45,10 @@ export default {
   props: {
     pronac: String
   },
-  mounted: function() {
+  computed: {
+    
+  },
+  created: function() {
     var self = this;
     axios
       .get(this.url)
@@ -52,7 +56,7 @@ export default {
         // handle success
         var project = JSON.parse(JSON.stringify(response.data));
         self.project = project;
-        self.indicators = project.indicadores;
+        self.indicadores = project.indicadores;
       })
       .catch(function(error) {
         // handle error

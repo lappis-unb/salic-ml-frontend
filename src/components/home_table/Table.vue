@@ -4,9 +4,10 @@
     <filter-bar></filter-bar>
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
-          :api-url="api_path"
           :fields="fields"
           pagination-path=""
+    	  :api-mode="false"
+    	  :data="projects_list"
           :per-page="20"
           :multi-sort="true"
           :sort-order="sortOrder"
@@ -34,6 +35,7 @@ import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 import FilterBar from './FilterBar'
 import {API_PATH_PROJECT_LIST} from '@/utils/variables.js'
+import axios from "axios";
 
 
 Vue.use(VueEvents)
@@ -49,6 +51,7 @@ export default {
     return {
       api_path: API_PATH_PROJECT_LIST,
       pronac: "",
+	  projects: [],
       fields: [
         {
           name: 'pronac',
@@ -80,8 +83,49 @@ export default {
     }
   },
   mounted () {
+    var self = this;
+    axios
+      .get(API_PATH_PROJECT_LIST)
+      .then(function(response) {
+        // handle success
+        var projects = JSON.parse(JSON.stringify(response.data));
+        self.projects = projects;
+      })
+      .catch(function(error) {
+        // handle error
+        // console.log("Get error", error);
+      })
+      .then(function() {
+        self.loading = false;
+        // always executed
+      });
+
     this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
         // this.$events.$on('filter-reset', e => this.onFilterReset())
+  },
+  computed:{
+    projects_list: function(){
+        let data = this.projects;
+				var transformed = {}
+
+				if(data.next!=undefined){
+						let per_page_number = 15;
+						let current_page = parseInt(parseInt((data.next).split('offset=')[1]) / per_page_number); 
+						console.log(current_page)
+						transformed.pagination = {
+							total: parseInt(data.count),
+							per_page: per_page_number,
+							current_page: parseInt(current_page),
+							last_page: parseInt(data.count / per_page_number),
+							next_page_url: data.next,
+							prev_page_url: data.previous,
+						}
+						transformed.data = data.results;
+				}
+        console.log(transformed);
+
+        return transformed;
+    }
   },
   methods: {
     pronacLabel(value) {
