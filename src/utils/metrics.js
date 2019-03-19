@@ -40,19 +40,24 @@ function getItensOrcamentarios(metricas){
 }
 
 function getValorASerComprovado(metricas){
-  let texto_de_ajuda = "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento";
+    let texto_de_ajuda = "Exibe valores dos items que não estão de acordo com o valor aprovado.";
+    let sinais = '';
+    ((metricas.valor_a_ser_comprovado.valor>0) ? sinais='+' : sinais='')
+
 
   return {
-    nome: "Valor a ser comprovado",
+    nome: "Valores indevidos",
     explicacao: texto_de_ajuda,
-    tipo: "simples",
+    tipo: "tabela-de-items",
     valor: metricas.valor_a_ser_comprovado.valor,
-    valor_formatado: "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.valor),
+    valor_formatado: "R$ "+ sinais + setMoneyFormat(metricas.valor_a_ser_comprovado.valor),
     valor_valido: metricas.valor_a_ser_comprovado.valor_valido,
     is_outlier: getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_comprovado.valor_valido),
     minimo_esperado: metricas.valor_a_ser_comprovado.minimo_esperado,
     maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado),
     valor_indisponivel: (metricas.valor_a_ser_comprovado.valor) ? true : false,
+
+    proponent_projects: metricas.projetos_do_mesmo_proponente.projetos_submetidos,
   }
 }
 

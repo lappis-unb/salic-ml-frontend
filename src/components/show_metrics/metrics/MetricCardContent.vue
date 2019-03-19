@@ -9,6 +9,9 @@
       <span v-else-if=" metrica.tipo==='tabela-simples'">
         <simple-table :metrica="metrica" />
       </span>
+      <span v-else-if=" metrica.tipo==='tabela-de-items'">
+        <items-table :metrica="metrica" />
+      </span>
       <span v-else-if="metrica.tipo==='lista-simples'">
         <simple-list :metrica="metrica" />
       </span>
@@ -34,6 +37,7 @@
 import SimpleTextContent from "@/components/show_metrics/metrics/content/SimpleTextContent.vue"
 import SimpleListContent from "@/components/show_metrics/metrics/content/SimpleListContent.vue"
 import SimpleTableContent from "@/components/show_metrics/metrics/content/SimpleTableContent.vue"
+import ItemsTableContent from "@/components/show_metrics/metrics/content/ItemsTableContent.vue"
 import DropdownListCardContent from "@/components/show_metrics/metrics/content/DropdownListCardContent"
 
 import ItemListCardContent from "@/components/show_metrics/metrics/content/ItemListCardContent.vue"
@@ -45,6 +49,7 @@ export default {
   components: {
     "simple-list": SimpleListContent,
     "simple-table": SimpleTableContent,
+    "items-table": ItemsTableContent,
     "simple-text-content": SimpleTextContent,
     "dropdown-list": DropdownListCardContent,
 
