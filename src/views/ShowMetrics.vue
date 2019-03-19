@@ -1,13 +1,12 @@
 <template>
-  <div class="show-metrics">
+  <div class="show-metrics" v-if="indicadores.FinancialIndicator">
     <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
       <div class="ui large text loader">Carregando...</div>
     </div>
-    {{ indicadores.FinancialIndicator }}
     <header-show :value="indicadores.FinancialIndicator.valor" :project="project" />
     <span>
-      <!--<complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />-->
-      <!--<metrics-list v-if="indicadores.FinancialIndicator.metricas && indicadores.FinancialIndicator.metricas.length != 0" :metrics="indicadores.FinancialIndicator.metricas" />-->
+      <complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />
+      <metrics-list v-if="indicadores.FinancialIndicator.metrics && indicadores.FinancialIndicator.metrics.length != 0" :metrics="indicadores.FinancialIndicator.metrics" />
     </span>
   </div>
 </template>
@@ -44,9 +43,6 @@ export default {
   },
   props: {
     pronac: String
-  },
-  computed: {
-    
   },
   created: function() {
     var self = this;
