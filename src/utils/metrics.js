@@ -5,7 +5,8 @@ export function getFinancialMetrics(metricas){
     comprovantes_pagamento: getComprovantesDePagamento(metricas),
     comprovantes_com_extrapolacao_de_50: getComprovantesComExtrapolacaoDe50(metricas),
     projetos_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
-    novos_fornecedores: getNovosFornecedores(metricas)
+    novos_fornecedores: getNovosFornecedores(metricas),
+    comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
   }
 }
 
@@ -133,6 +134,101 @@ function getNovosFornecedores(metricas){
   }
 }
 
+function getComprovantesDeTransferencia(metrics){
+  // Deletar isso depois
+  let metricas = {comprovantes_de_transferencia: {valor: 123, valor_valido: true, outlier: false, maximo_esperado: 0, minimo_esperado: 0}}
+
+  return {
+    nome: "Comprovantes de transferência",
+    explicacao: "Explicação da métricas",
+    tipo: "lista-com-dropdown",
+    valor: metricas.comprovantes_de_transferencia.valor,
+    valor_formatado: setMoneyFormat(metricas.comprovantes_de_transferencia.valor),
+    valor_valido: metricas.comprovantes_de_transferencia.valor_valido,
+    is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.outlier, metricas.comprovantes_de_transferencia.valor_valido),
+    minimo_esperado: metricas.comprovantes_de_transferencia.minimo_esperado,
+    maximo_esperado: metricas.comprovantes_de_transferencia.maximo_esperado,
+    valor_indisponivel: (metricas.comprovantes_de_transferencia.valor) ? true : false,
+
+    list: [
+                {
+                  "cnpj_cpf": 99714833000,
+                  "nome": "Alexsandro da Silva Maciel",
+                  "items": [
+                    { "id": 842881, "nome": "Instrutor", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 551928077,
+                  "nome": "JENILSON RIBAS MICHEL",
+                  "items": [
+                    { "id": 842881, "nome": "Instrutor", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 2499152001,
+                  "nome": "CAMILA MICHEL TRINDADE",
+                  "items": [
+                    { "id": 842882, "nome": "Assistentes", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 1429044063,
+                  "nome": "DANIELA MICHEL TRINDADE",
+                  "items": [
+                    { "id": 842882, "nome": "Assistentes", "link": "#" }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 2459422032,
+                  "nome": "VANESSA DA SILVA FUCHS",
+                  "items": [
+                    { "id": 842882, "nome": "Assistentes", "link": "#" },
+                    {
+                      "id": 842896,
+                      "nome": "Contribui\u00e7\u00e3o Patronal",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 87672044000146,
+                  "nome": "Transcal Sul Transportes Coletivos Ltda",
+                  "items": [
+                    {
+                      "id": 842884,
+                      "nome": "Transporte Local / Loca\u00e7\u00e3o de Autom\u00f3vel / Combust\u00edvel",
+                      "link": "#"
+                    }
+                  ]
+                },
+                {
+                  "cnpj_cpf": 12192813000100,
+                  "nome": "VIVIAN BARBOSA DE MELLO ME",
+                  "items": [{ "id": 842894, "nome": "Camisetas", "link": "#" }]
+                }
+              ],
+              "valor_valido": true,
+              "metric_id": 30
+  }
+}
+
+
 // As métricas abaixo não estão sendo utilizadas para a analise de complexidade financeira
 
 /*
@@ -175,22 +271,6 @@ function getItensOrcamentariosInesperados(metricas){
 
     common_items_not_in_project: metricas.itens_orcamentarios_inesperados.data.items_comuns_que_o_projeto_nao_possui,
     uncommon_items: metricas.itens_orcamentarios_inesperados.data.items_incomuns,
-  }
-}
-
-function getComprovantesDeTransferencia(metricas){
-
-  return {
-    nome: "Comprovantes de transferência",
-    explicacao: "Explicação da métricas",
-    tipo: "operation-code-list",
-    valor: metricas.comprovantes_de_transferencia.valor,
-    valor_formatado: setMoneyFormat(metricas.comprovantes_de_transferencia.valor),
-    valor_valido: metricas.comprovantes_de_transferencia.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.outlier, metricas.comprovantes_de_transferencia.valor_valido),
-    minimo_esperado: metricas.comprovantes_de_transferencia.minimo_esperado,
-    maximo_esperado: metricas.comprovantes_de_transferencia.maximo_esperado,
-    valor_indisponivel: (metricas.comprovantes_de_transferencia.valor) ? true : false,
   }
 }
 
