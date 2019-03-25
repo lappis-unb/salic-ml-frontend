@@ -40,7 +40,7 @@ export default {
         this.new_metrics.projetos_mesmo_proponente,
         this.new_metrics.novos_fornecedores,
         this.new_metrics.itens_orcamentarios,
-        this.new_metrics.comprovantes_de_pagamento,
+        this.new_metrics.comprovantes_de_transferencia,
 
         // Nao mostrar apartir daqui
         //this.new_metrics.approved_value,
@@ -49,6 +49,7 @@ export default {
         //this.new_metrics.above_average_prices,
         //this.new_metrics.proven_value,
         //this.new_metrics.captured_value,
+        //this.new_metrics.comprovantes_de_pagamento,
       ];
     }
   },
