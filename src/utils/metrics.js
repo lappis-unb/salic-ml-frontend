@@ -42,23 +42,35 @@ function getItensOrcamentarios(metricas){
 function getValorASerComprovado(metricas){
     let texto_de_ajuda = "Exibe valores dos items que não estão de acordo com o valor aprovado.";
     let sinais = '';
-    ((metricas.valor_a_ser_comprovado.valor>0) ? sinais='+' : sinais='')
 
+    let template_base = {
+        nome: "Valores indevidos",
+        explicacao: texto_de_ajuda,
+        tipo: "tabela-de-items",
+        valor: 0,
+        valor_formatado: "R$ "+ 0,
+        valor_valido: true,
+        is_outlier: "Metric-invalid",
+        minimo_esperado: 0,
+        maximo_esperado: 0,
+        valor_indisponivel: true,
 
-  return {
-    nome: "Valores indevidos",
-    explicacao: texto_de_ajuda,
-    tipo: "tabela-de-items",
-    valor: metricas.valor_a_ser_comprovado.valor,
-    valor_formatado: "R$ "+ sinais + setMoneyFormat(metricas.valor_a_ser_comprovado.valor),
-    valor_valido: metricas.valor_a_ser_comprovado.valor_valido,
-    is_outlier: getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_a_ser_comprovado.valor_valido),
-    minimo_esperado: metricas.valor_a_ser_comprovado.minimo_esperado,
-    maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado),
-    valor_indisponivel: (metricas.valor_a_ser_comprovado.valor) ? true : false,
+        proponent_projects: [],
+    }
+    
+    if(metricas.valor_a_comprovado!=undefined){
+        template_base.valor = metricas.valor_a_ser_comprovado.valor;
+        template_base.valor_formatado = "R$ "+ sinais + setMoneyFormat(metricas.valor_a_ser_comprovado.valor);
+        template_base.valor_valido = metricas.valor_a_ser_comprovado.valor_valido;
+        template_base.is_outlier = getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_a_ser_comprovado.valor_valido);
+        template_base.minimo_esperado = metricas.valor_a_ser_comprovado.minimo_esperado;
+        template_base.maximo_esperado = "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
+        template_base.valor_indisponivel = (metricas.valor_a_ser_comprovado.valor) ? true : false;
 
-    proponent_projects: metricas.projetos_mesmo_proponente.projetos_submetidos,
-  }
+        template_base.proponent_projects = metricas.projetos_mesmo_proponente.projetos_submetidos;
+    }
+
+    return template_base;
 }
 
 function getComprovantesComExtrapolacaoDe50(metricas){

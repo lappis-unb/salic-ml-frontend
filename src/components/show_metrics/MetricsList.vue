@@ -26,11 +26,11 @@ export default {
   name: "MetricsList",
   data: function() {
     return {
-      new_metrics: getFinancialMetrics(this.metrics)
+      new_metrics: getFinancialMetrics(this.metricas)
     };
   },
   props: {
-    metrics: Object,
+    metricas: Object,
   },
   computed: {
     metrics_list: function () {
