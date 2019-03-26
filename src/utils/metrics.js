@@ -50,7 +50,7 @@ function getValorASerComprovado(metricas){
         tipo: "tabela-de-items",
         valor: 0,
         valor_formatado: "R$ "+ 0,
-        valor_valido: true,
+        valor_valido: false,
         is_outlier: "Metric-invalid",
         minimo_esperado: 0,
         maximo_esperado: 0,
@@ -59,17 +59,16 @@ function getValorASerComprovado(metricas){
         proponent_projects: [],
     }
     
-    if(metricas.valor_a_comprovado!=undefined){
         template_base.valor = metricas.valor_a_ser_comprovado.valor;
-        template_base.valor_formatado = "R$ "+ sinais + setMoneyFormat(metricas.valor_a_ser_comprovado.valor);
+        //console.log(setMoneyFormat(metricas.valor_a_ser_comprovado.valor));
+        template_base.valor_formatado = "R$ "+ sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+,)/g, '$&.');
         template_base.valor_valido = metricas.valor_a_ser_comprovado.valor_valido;
         template_base.is_outlier = getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_a_ser_comprovado.valor_valido);
         template_base.minimo_esperado = metricas.valor_a_ser_comprovado.minimo_esperado;
         template_base.maximo_esperado = "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
         template_base.valor_indisponivel = (metricas.valor_a_ser_comprovado.valor) ? true : false;
 
-        template_base.proponent_projects = metricas.projetos_mesmo_proponente.projetos_submetidos;
-    }
+        //template_base.proponent_projects = metricas.projetos_mesmo_proponente.projetos_submetidos;
 
     return template_base;
 }
@@ -155,7 +154,7 @@ function getComprovantesDeTransferencia(metrics){
     explicacao: "Explicação da métricas",
     tipo: "lista-com-dropdown",
     valor: metricas.comprovantes_de_transferencia.valor,
-    valor_formatado: setMoneyFormat(metricas.comprovantes_de_transferencia.valor),
+    valor_formatado: metricas.comprovantes_de_transferencia.valor,
     valor_valido: metricas.comprovantes_de_transferencia.valor_valido,
     is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.outlier, metricas.comprovantes_de_transferencia.valor_valido),
     minimo_esperado: metricas.comprovantes_de_transferencia.minimo_esperado,
@@ -235,7 +234,6 @@ function getComprovantesDeTransferencia(metrics){
                   "items": [{ "id": 842894, "nome": "Camisetas", "link": "#" }]
                 }
               ],
-              "valor_valido": true,
               "metric_id": 30
   }
 }

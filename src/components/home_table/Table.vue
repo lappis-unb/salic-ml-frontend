@@ -5,10 +5,8 @@
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
           :fields="fields"
-      	  :api-mode="false"
-      	  :data="projects_list"
+      	  :api-url="api_path"
           :per-page="15"
-          :multi-sort="true"
           :sort-order="sortOrder"
           :append-params="moreParams"
           pagination-path=""
@@ -51,7 +49,7 @@ export default {
     return {
       api_path: API_PATH_PROJECT_LIST,
       pronac: "",
-	    projects: [],
+	  projects: [],
       fields: [
         {
           name: 'pronac',
@@ -100,34 +98,17 @@ export default {
         // always executed
       });
 
-    this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
-        // this.$events.$on('filter-reset', e => this.onFilterReset())
+    // this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
+    // this.$events.$on('filter-reset', e => this.onFilterReset())
   },
-  computed:{
-    projects_list: function(){
-        let data = this.projects;
-				var transformed = {}
-
-				if(data.next!=undefined){
-						let per_page_number = 15;
-						let current_page = parseInt(parseInt((data.next).split('offset=')[1]) / per_page_number);
-						console.log(current_page)
-						transformed = {
-							total: parseInt(data.count),
-							per_page: per_page_number,
-							current_page: parseInt(current_page),
-							last_page: parseInt(data.count / per_page_number),
-							next_page_url: data.next,
-							prev_page_url: data.previous,
-              from: current_page,
-              to: current_page + 1,
-              data: data.results,
-						}
-				}
-
-        return transformed;
-    }
-  },
+  // computed:{
+  //   projects_list: function(){
+  //       let data = this.projects;
+  //       var transformed = {}
+  //       console.log("Projects_list: ", data);
+  //       return data;
+  //   }
+  // },
   methods: {
     pronacLabel(value) {
       this.pronac = value
@@ -142,14 +123,16 @@ export default {
       return '<strong style="color: ' + color + '; font-size: 20px;">' + (value) + '</strong>'
     },
     onPaginationData (paginationData) {
+      console.log("Pagination:", paginationData);
       this.$refs.pagination.setPaginationData(paginationData)
       this.$refs.paginationInfo.setPaginationData(paginationData)
     },
     onChangePage (page) {
+      console.log("Trocando de pag:", page);
       this.$refs.vuetable.changePage(page)
     },
     // onAction (action, data, index) {
-      // console.log('slot action: ' + action, data.project_name, index)
+    //  console.log('slot action: ' + action, data.project_name, index)
     // },
     onCellClicked (data) {
       // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
