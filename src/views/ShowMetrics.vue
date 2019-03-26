@@ -6,7 +6,7 @@
     <header-show :value="indicadores.FinancialIndicator.valor" :project="project" />
     <span>
       <complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />
-      <metrics-list v-if="indicadores.FinancialIndicator.metrics!=undefined" :metricas="indicadores.FinancialIndicator.metrics" />
+      <metrics-list v-if="indicadores.FinancialIndicator.metricas!=undefined" :metricas="indicadores.FinancialIndicator.metricas" />
     </span>
   </div>
 </template>
