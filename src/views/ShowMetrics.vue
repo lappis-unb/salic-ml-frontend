@@ -7,6 +7,7 @@
     <span>
       <complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />
       <metrics-list v-if="indicadores.FinancialIndicator.metricas!=undefined" :metricas="indicadores.FinancialIndicator.metricas" />
+      <h1 v-else style="text-align: center;">Error a acessar as métricas. {{indicadores.FinancialIndicator.metricas==undefined}}</h1>
     </span>
   </div>
 </template>
