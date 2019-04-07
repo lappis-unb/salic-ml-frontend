@@ -41,19 +41,27 @@ export default {
   },
   methods: {
     setMoneyFormat(value){
-        return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
+        if(value)
+            return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
+        else return "";
     },
     formateDate(begin, end){
-        let start =  begin.slice(5,7) + '/' + begin.slice(0,4);
-        let final =  end.slice(5,7) + '/' + end.slice(0,4);
-        let date = start + " à " + final
+        if(begin && end){
+            let start =  begin.slice(5,7) + '/' + begin.slice(0,4);
+            let final =  end.slice(5,7) + '/' + end.slice(0,4);
+            let date = start + " à " + final
 
-        return (date==="/ à /") ? "-" : date;
+            return (date==="/ à /") ? "-" : date;
+        }
+        else return "";
     },
     getStatus(status){
-        this.code = status.split(" ",1);
-        this.text = status.replace(this.code+" - ", "");
-        return this.code[0];
+        if(status){
+            this.code = status.split(" ",1);
+            this.text = status.replace(this.code+" - ", "");
+            return this.code[0];
+        }
+        else return "";
     }
   },
 };
