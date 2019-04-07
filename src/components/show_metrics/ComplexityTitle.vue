@@ -39,7 +39,7 @@ export default {
     }
   },
   beforeUpdate() {
-    this.radialObj.value(this.value);
+    //this.radialObj.value(this.value);
   },
   mounted: function() {
     this.radialObj = $("#indicatorContainer")
@@ -58,6 +58,7 @@ export default {
         percentage: false,
       })
       .data("radialIndicator");
+    this.radialObj.value(this.value);
   }
 };
 </script>

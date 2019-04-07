@@ -6,7 +6,7 @@ export function getFinancialMetrics(metricas){
     comprovantes_com_extrapolacao_de_50: getComprovantesComExtrapolacaoDe50(metricas),
     projetos_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
     novos_fornecedores: getNovosFornecedores(metricas),
-    comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
+    //comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
   }
 }
 
@@ -41,11 +41,11 @@ function getItensOrcamentarios(metricas){
 }
 
 function getValorASerComprovado(metricas){
-    let texto_de_ajuda = "Exibe valores dos items que não estão de acordo com o valor aprovado.";
+    let texto_de_ajuda = "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento";
     let sinais = '';
 
     let template_base = {
-        nome: "Valores indevidos",
+        nome: "Valor a ser comprovado",
         explicacao: texto_de_ajuda,
         tipo: "tabela-de-items",
         valor: 0,
@@ -131,7 +131,7 @@ function getNovosFornecedores(metricas){
 
   return {
     nome: "Novos fornecedores",
-    explicacao: "Colocar explicação da métrica aqui",
+    explicacao: "Informa uma lista dos novos fornecedores",
     tipo: "lista-com-dropdown",
     valor: metricas.novos_fornecedores.valor,
     valor_formatado: metricas.novos_fornecedores.valor,
