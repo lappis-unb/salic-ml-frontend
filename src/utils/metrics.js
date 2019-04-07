@@ -33,7 +33,7 @@ function getItensOrcamentarios(metricas){
       valor: metricas.itens_orcamentarios.valor,
       valor_formatado: metricas.itens_orcamentarios.valor,
       valor_valido: metricas.itens_orcamentarios.valor_valido,
-      is_outlier: getColorStyle(metricas.itens_orcamentarios.outlier, metricas.itens_orcamentarios.valor_valido),
+      is_outlier: getColorStyle(metricas.itens_orcamentarios.is_outlier, metricas.itens_orcamentarios.valor_valido),
       minimo_esperado: metricas.itens_orcamentarios.minimo_esperado,
       maximo_esperado: parseInt(metricas.itens_orcamentarios.maximo_esperado),
       valor_indisponivel: (metricas.itens_orcamentarios.valor) ? true : false,
@@ -63,7 +63,7 @@ function getValorASerComprovado(metricas){
         //console.log(setMoneyFormat(metricas.valor_a_ser_comprovado.valor));
         template_base.valor_formatado = "R$ "+ sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+,)/g, '$&.');
         template_base.valor_valido = metricas.valor_a_ser_comprovado.valor_valido;
-        template_base.is_outlier = getColorStyle(metricas.valor_a_ser_comprovado.outlier, metricas.valor_a_ser_comprovado.valor_valido);
+        template_base.is_outlier = getColorStyle(metricas.valor_a_ser_comprovado.is_outlier, metricas.valor_a_ser_comprovado.valor_valido);
         template_base.minimo_esperado = metricas.valor_a_ser_comprovado.minimo_esperado;
         template_base.maximo_esperado = "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
         template_base.valor_indisponivel = (metricas.valor_a_ser_comprovado.valor) ? true : false;
@@ -82,12 +82,12 @@ function getComprovantesComExtrapolacaoDe50(metricas){
     valor: metricas.comprovantes_acima_de_50.valor,
     valor_formatado: metricas.comprovantes_acima_de_50.valor,
     valor_valido: metricas.comprovantes_acima_de_50.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_acima_de_50.outlier, metricas.comprovantes_acima_de_50.valor_valido),
+    is_outlier: getColorStyle(metricas.comprovantes_acima_de_50.is_outlier, metricas.comprovantes_acima_de_50.valor_valido),
     minimo_esperado: metricas.comprovantes_acima_de_50.minimo_esperado,
     maximo_esperado: metricas.comprovantes_acima_de_50.maximo_esperado,
     valor_indisponivel: (metricas.comprovantes_acima_de_50.valor) ? true : false,
 
-    vouchers_list: metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
+    lista_de_comprovantes: metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
   }
 }
 
@@ -102,7 +102,7 @@ function getComprovantesDePagamento(metricas){
     valor: metricas.comprovantes_pagamento.valor,
     valor_formatado: metricas.comprovantes_pagamento.valor + "%",
     valor_valido: metricas.comprovantes_pagamento.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_pagamento.outlier, metricas.comprovantes_pagamento.valor_valido),
+    is_outlier: getColorStyle(metricas.comprovantes_pagamento.is_outlier, metricas.comprovantes_pagamento.valor_valido),
     minimo_esperado: metricas.comprovantes_pagamento.minimo_esperado,
     maximo_esperado: "R$ "+ setMoneyFormat(metricas.comprovantes_pagamento.maximo_esperado),
     valor_indisponivel: (metricas.comprovantes_pagamento.valor) ? true : false,
@@ -118,7 +118,7 @@ function getProjetosDoMesmoProponente(metricas){
     valor: metricas.projetos_mesmo_proponente.valor,
     valor_formatado: metricas.projetos_mesmo_proponente.valor,
     valor_valido: metricas.projetos_mesmo_proponente.valor_valido,
-    is_outlier: getColorStyle(metricas.projetos_mesmo_proponente.outlier, metricas.projetos_mesmo_proponente.valor_valido),
+    is_outlier: getColorStyle(metricas.projetos_mesmo_proponente.is_outlier, metricas.projetos_mesmo_proponente.valor_valido),
     minimo_esperado: metricas.projetos_mesmo_proponente.minimo_esperado,
     maximo_esperado: metricas.projetos_mesmo_proponente.maximo_esperado,
     valor_indisponivel: (metricas.projetos_mesmo_proponente.valor) ? true : false,
@@ -136,7 +136,7 @@ function getNovosFornecedores(metricas){
     valor: metricas.novos_fornecedores.valor,
     valor_formatado: metricas.novos_fornecedores.valor,
     valor_valido: metricas.novos_fornecedores.valor_valido,
-    is_outlier: getColorStyle(metricas.novos_fornecedores.outlier, metricas.novos_fornecedores.valor_valido),
+    is_outlier: getColorStyle(metricas.novos_fornecedores.is_outlier, metricas.novos_fornecedores.valor_valido),
     minimo_esperado: metricas.novos_fornecedores.minimo_esperado,
     maximo_esperado: metricas.novos_fornecedores.maximo_esperado,
     valor_indisponivel: (metricas.novos_fornecedores.valor) ? true : false,
@@ -147,7 +147,7 @@ function getNovosFornecedores(metricas){
 
 function getComprovantesDeTransferencia(metrics){
   // Deletar isso depois
-  let metricas = {comprovantes_de_transferencia: {valor: 123, valor_valido: true, outlier: false, maximo_esperado: 0, minimo_esperado: 0}}
+  let metricas = {comprovantes_de_transferencia: {valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0}}
 
   return {
     nome: "Comprovantes de transferência",
@@ -156,7 +156,7 @@ function getComprovantesDeTransferencia(metrics){
     valor: metricas.comprovantes_de_transferencia.valor,
     valor_formatado: metricas.comprovantes_de_transferencia.valor,
     valor_valido: metricas.comprovantes_de_transferencia.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.outlier, metricas.comprovantes_de_transferencia.valor_valido),
+    is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.is_outlier, metricas.comprovantes_de_transferencia.valor_valido),
     minimo_esperado: metricas.comprovantes_de_transferencia.minimo_esperado,
     maximo_esperado: metricas.comprovantes_de_transferencia.maximo_esperado,
     valor_indisponivel: (metricas.comprovantes_de_transferencia.valor) ? true : false,
@@ -251,7 +251,7 @@ function precosAcimaDaMedia(metricas){
     valor: metricas.precos_acima_da_media.valor,
     valor_formatado: metricas.precos_acima_da_media.valor,
     valor_valido: metricas.precos_acima_da_media.valor_valido,
-    is_outlier: getColorStyle(metricas.precos_acima_da_media.outlier, metricas.precos_acima_da_media.valor_valido),
+    is_outlier: getColorStyle(metricas.precos_acima_da_media.is_outlier, metricas.precos_acima_da_media.valor_valido),
     tipo: "above-average-prices-list",
     minimo_esperado: metricas.precos_acima_da_media.minimo_esperado,
     maximo_esperado: metricas.precos_acima_da_media.maximo_esperado,
@@ -274,7 +274,7 @@ function getItensOrcamentariosInesperados(metricas){
     valor: (metricas.itens_orcamentarios_inesperados.valor).toFixed(2),
     valor_formatado: (metricas.itens_orcamentarios_inesperados.valor).toFixed(2) + "%",
     valor_valido: metricas.itens_orcamentarios_inesperados.valor_valido,
-    is_outlier: getColorStyle(metricas.itens_orcamentarios_inesperados.outlier, metricas.itens_orcamentarios_inesperados.valor_valido),
+    is_outlier: getColorStyle(metricas.itens_orcamentarios_inesperados.is_outlier, metricas.itens_orcamentarios_inesperados.valor_valido),
     minimo_esperado: metricas.itens_orcamentarios_inesperados.minimo_esperado,
     maximo_esperado: metricas.itens_orcamentarios_inesperados.maximo_esperado,
     valor_indisponivel: (metricas.itens_orcamentarios_inesperados.valor) ? true : false,
@@ -295,7 +295,7 @@ function oldMetrics(metrica){
       value: metricas.valor_comprovado.valor,
       valor_formatado: "R$ "+ setMoneyFormat(metricas.valor_comprovado.valor),
       valor_valido: metricas.valor_comprovado.valor_valido,
-      is_outlier: getColorStyle(metricas.valor_comprovado.outlier, metricas.valor_comprovado.valor_valido),
+      is_outlier: getColorStyle(metricas.valor_comprovado.is_outlier, metricas.valor_comprovado.valor_valido),
       minimo_esperado: metricas.valor_comprovado.minimo_esperado,
       maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_comprovado.maximo_esperado),
       tipo: "bar",
@@ -309,7 +309,7 @@ function oldMetrics(metrica){
       value: metricas.valor_captado.valor,
       valor_formatado: "R$ " + setMoneyFormat(metricas.valor_captado.valor),
       valor_valido: metricas.valor_captado.valor_valido,
-      is_outlier: getColorStyle(metricas.valor_captado.outlier, metricas.valor_captado.valor_valido),
+      is_outlier: getColorStyle(metricas.valor_captado.is_outlier, metricas.valor_captado.valor_valido),
       minimo_esperado: metricas.valor_captado.minimo_esperado,
       maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_captado.maximo_esperado),
       tipo: "bar",
@@ -323,7 +323,7 @@ function oldMetrics(metrica){
       value: metricas.valor_aprovado.valor,
       valor_formatado: "R$ " + setMoneyFormat(metricas.valor_aprovado.valor),
       valor_valido: metricas.valor_aprovado.valor_valido,
-      is_outlier: getColorStyle(metricas.valor_aprovado.outlier, metricas.valor_aprovado.valor_valido),
+      is_outlier: getColorStyle(metricas.valor_aprovado.is_outlier, metricas.valor_aprovado.valor_valido),
       minimo_esperado: metricas.valor_aprovado.minimo_esperado,
       maximo_esperado: "R$ "+ setMoneyFormat(metricas.valor_aprovado.maximo_esperado),
       tipo: "bar",

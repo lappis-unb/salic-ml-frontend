@@ -3,12 +3,12 @@
     <div v-if="metrica.valor_indisponivel" v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
       <div class="title">
         <i class="dropdown icon"></i>
-        {{object.nome}}
+        {{object.name}}
       </div>
       <div class="content">
         <div class="ui bulleted list">
           <div v-for="(item, index) in object.items" :key="index+index+item" class="item">
-            <a href="item.link">{{item.nome}}</a>
+            <a href="item.salic_url">{{item.name}}</a>
           </div>
         </div>
       </div>
