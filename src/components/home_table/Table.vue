@@ -116,9 +116,9 @@ export default {
     },
     complexityLabel(value) {
       this.complexity = value
-      var color = "#DB2828";
-      if(value>=80) color = "#DB2828";
-      else (value>=30) ? color = "#F2B01C" : color = "#1B5E20";
+      var color = "#1B5E20";
+      if(value>=8) color = "#DB2828";
+      else (value>=3) ? color = "#F2B01C" : color = "#1B5E20";
 
       return '<strong style="color: ' + color + '; font-size: 20px;">' + (value) + '</strong>'
     },
