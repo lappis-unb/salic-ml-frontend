@@ -132,7 +132,7 @@ export default {
 }
 .Metric-bad .ui.ribbon.label {
   background-color: #db2828;
-  border-color: #b21e1e;
+  border-color: #841818;
 }
 .Metric-bad .icon:before {
   content: "\f2c7"; /* Thermometer full */
@@ -155,7 +155,7 @@ export default {
 .Metric-good .ui.ribbon.label {
   color: white;
   background-color: #1b5e20;
-  border-color: #1b5e20;
+  border-color: #0d2e10;
 }
 .Metric-good .icon:before {
   content: "\f2cb"; /* Thermometer empty */
@@ -167,7 +167,7 @@ export default {
 .Metric-invalid .ui.ribbon.label {
   color: #666;
   background-color: #e7e7e7;
-  border-color: #e7e7e7;
+  border-color: #b9b9b9;
 }
 .Metric-invalid .icon:before {
   content: "\f2cb"; /* Thermometer empty */
