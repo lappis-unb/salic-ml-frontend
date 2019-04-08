@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import accounting from 'accounting'
-import moment from 'moment'
+//import accounting from 'accounting'
+//import moment from 'moment'
 import Vuetable from '@/components/home_table/Table.vue'
 
 export default {

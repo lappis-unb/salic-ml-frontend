@@ -48,7 +48,9 @@ export default {
         this.new_metrics.projetos_mesmo_proponente,
         this.new_metrics.novos_fornecedores,
         this.new_metrics.itens_orcamentarios,
-        this.new_metrics.comprovantes_de_transferencia
+        this.new_metrics.comprovantes_de_transferencia,
+        this.new_metrics.comprovantes_de_saque,
+        this.new_metrics.comprovantes_de_cheque
 
         // Nao mostrar apartir daqui
         //this.new_metrics.approved_value,

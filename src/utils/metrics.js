@@ -1,4 +1,4 @@
-export function getFinancialMetrics(metricas){
+export function getFinancialMetrics(metricas) {
   return {
     valor_a_ser_comprovado: getValorASerComprovado(metricas),
     itens_orcamentarios: getItensOrcamentarios(metricas),
@@ -6,6 +6,8 @@ export function getFinancialMetrics(metricas){
     projetos_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
     novos_fornecedores: getNovosFornecedores(metricas),
     comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
+    comprovantes_de_saque: getComprovantesDeSaque(metricas),
+    comprovantes_de_cheque: getComprovantesDeCheque(metricas),
     //comprovantes_pagamento: getComprovantesDePagamento(metricas),
   }
 }
@@ -21,21 +23,21 @@ function getMetricTemplate() {
   }
 };
 
-function setMoneyFormat(value){
-  return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+,)/g, '$&.');
+function setMoneyFormat(value) {
+  return (value).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
 }
 
-function getColorStyle(isOutlier, valid){
+function getColorStyle(isOutlier, valid) {
   let color = "Metric-invalid";
 
-  if(valid) {
+  if (valid) {
     color = (isOutlier && valid) ? "Metric-bad" : "Metric-good";
   }
 
   return color;
 }
 
-function getItensOrcamentarios(metricas){
+function getItensOrcamentarios(metricas) {
 
   let itens_orcamentarios = {};
 
@@ -58,7 +60,7 @@ function getItensOrcamentarios(metricas){
   return itens_orcamentarios;
 }
 
-function getValorASerComprovado(metricas){
+function getValorASerComprovado(metricas) {
   let texto_de_ajuda = "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento";
   let sinais = '';
 
@@ -66,13 +68,13 @@ function getValorASerComprovado(metricas){
 
   try {
     template_base.valor = metricas.valor_a_ser_comprovado.valor;
-    template_base.valor_formatado = "R$ "+ sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+,)/g, '$&.');
+    template_base.valor_formatado = "R$ " + sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
     template_base.valor_valido = metricas.valor_a_ser_comprovado.valor_valido;
     template_base.is_outlier = getColorStyle(metricas.valor_a_ser_comprovado.is_outlier, metricas.valor_a_ser_comprovado.valor_valido);
     template_base.minimo_esperado = metricas.valor_a_ser_comprovado.minimo_esperado;
-    template_base.maximo_esperado = "R$ "+ setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
+    template_base.maximo_esperado = "R$ " + setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
     template_base.valor_indisponivel = (metricas.valor_a_ser_comprovado.valor) ? true : false;
-    template_base.list = [{nome: "Item", pronac: 1234, valor_captado: 30}]
+    template_base.list = [{ nome: "Item", pronac: 1234, valor_captado: 30 }]
   }
   catch {
     template_base = getMetricTemplate();
@@ -86,20 +88,20 @@ function getValorASerComprovado(metricas){
   return template_base;
 }
 
-function getComprovantesComExtrapolacaoDe50(metricas){
+function getComprovantesComExtrapolacaoDe50(metricas) {
 
   let template_base = {}
 
   try {
     template_base.valor = metricas.comprovantes_acima_de_50.valor;
     template_base.valor_formatado = metricas.comprovantes_acima_de_50.valor;
-    template_base.valor_valido= metricas.comprovantes_acima_de_50.valor_valido;
-    template_base.is_outlier= getColorStyle(metricas.comprovantes_acima_de_50.is_outlier, metricas.comprovantes_acima_de_50.valor_valido);
-    template_base.minimo_esperado= metricas.comprovantes_acima_de_50.minimo_esperado;
-    template_base.maximo_esperado= metricas.comprovantes_acima_de_50.maximo_esperado;
-    template_base.valor_indisponivel= (metricas.comprovantes_acima_de_50.valor) ? true : false;
+    template_base.valor_valido = metricas.comprovantes_acima_de_50.valor_valido;
+    template_base.is_outlier = getColorStyle(metricas.comprovantes_acima_de_50.is_outlier, metricas.comprovantes_acima_de_50.valor_valido);
+    template_base.minimo_esperado = metricas.comprovantes_acima_de_50.minimo_esperado;
+    template_base.maximo_esperado = metricas.comprovantes_acima_de_50.maximo_esperado;
+    template_base.valor_indisponivel = (metricas.comprovantes_acima_de_50.valor) ? true : false;
 
-    template_base.lista_de_comprovantes= metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
+    template_base.lista_de_comprovantes = metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
   }
   catch {
     template_base = getMetricTemplate();
@@ -112,7 +114,7 @@ function getComprovantesComExtrapolacaoDe50(metricas){
   return template_base;
 }
 
-function getComprovantesDePagamento(metricas){
+function getComprovantesDePagamento(metricas) {
   let texto_de_ajuda = "Compara a quantidade de comprovantes deste projeto com a \
   quantidade mais comum de comprovantes em projetos do mesmo segmento";
 
@@ -125,12 +127,12 @@ function getComprovantesDePagamento(metricas){
     valor_valido: metricas.comprovantes_pagamento.valor_valido,
     is_outlier: getColorStyle(metricas.comprovantes_pagamento.is_outlier, metricas.comprovantes_pagamento.valor_valido),
     minimo_esperado: metricas.comprovantes_pagamento.minimo_esperado,
-    maximo_esperado: "R$ "+ setMoneyFormat(metricas.comprovantes_pagamento.maximo_esperado),
+    maximo_esperado: "R$ " + setMoneyFormat(metricas.comprovantes_pagamento.maximo_esperado),
     valor_indisponivel: (metricas.comprovantes_pagamento.valor) ? true : false,
   }
 }
 
-function getProjetosDoMesmoProponente(metricas){
+function getProjetosDoMesmoProponente(metricas) {
   let template_base = {};
 
   try {
@@ -157,7 +159,7 @@ function getProjetosDoMesmoProponente(metricas){
   return template_base;
 }
 
-function getNovosFornecedores(metricas){
+function getNovosFornecedores(metricas) {
 
   let template_base = {};
 
@@ -183,38 +185,124 @@ function getNovosFornecedores(metricas){
   return template_base;
 }
 
-function getComprovantesDeTransferencia(metrics){
+function getComprovantesDeTransferencia(metrics) {
   // Deletar isso depois
-  let metricas = {comprovantes_de_transferencia: {valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0}}
+  let metricas = { comprovantes_de_transferencia: { valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0 } }
+  let template_base = {};
+  try {
 
-  return {
-    nome: "Comprovantes de transferência*",
-    explicacao: "Explicação da métricas",
-    tipo: "lista-com-dropdown",
-    valor: metricas.comprovantes_de_transferencia.valor,
-    valor_formatado: metricas.comprovantes_de_transferencia.valor,
-    valor_valido: metricas.comprovantes_de_transferencia.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_de_transferencia.is_outlier, metricas.comprovantes_de_transferencia.valor_valido),
-    minimo_esperado: metricas.comprovantes_de_transferencia.minimo_esperado,
-    maximo_esperado: metricas.comprovantes_de_transferencia.maximo_esperado,
-    valor_indisponivel: (metricas.comprovantes_de_transferencia.valor) ? true : false,
+    template_base.valor = metricas.comprovantes_de_transferencia.valor;
+    template_base.valor_formatado = metricas.comprovantes_de_transferencia.valor;
+    template_base.valor_valido = metricas.comprovantes_de_transferencia.valor_valido;
+    template_base.is_outlier = getColorStyle(metricas.comprovantes_de_transferencia.is_outlier, metricas.comprovantes_de_transferencia.valor_valido);
+    template_base.minimo_esperado = metricas.comprovantes_de_transferencia.minimo_esperado;
+    template_base.maximo_esperado = metricas.comprovantes_de_transferencia.maximo_esperado;
+    template_base.valor_indisponivel = (metricas.comprovantes_de_transferencia.valor) ? true : false;
 
-    list: [
+    template_base.list = [
       {
         "cnpj_cpf": 99714833000,
-        "name": "Alexsandro da Silva Maciel",
-        "items": [
-          { "id": 842881, "name": "Instrutor", "link": "#" },
+        "nome": "Alexsandro da Silva Maciel",
+        "itens": [
+          { "id": 842881, "nome": "Instrutor", "link": "#" },
           {
             "id": 842896,
-            "name": "Contribui\u00e7\u00e3o Patronal",
+            "nome": "Contribui\u00e7\u00e3o Patronal",
             "link": "#"
           }
         ]
       },
-    ],
-    "metric_id": 30
+    ];
   }
+  catch{
+    template_base = getMetricTemplate();
+  }
+
+  template_base.nome = "Comprovantes de transferência*";
+  template_base.explicacao = "Explicação da métricas";
+  template_base.tipo = "lista-com-dropdown";
+
+  return template_base;
+}
+
+function getComprovantesDeSaque(metrics) {
+  // Deletar isso depois
+  let metricas = { comprovantes_de_saque: { valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0 } }
+  let template_base = {};
+  try {
+
+    template_base.valor = metricas.comprovantes_de_saque.valor;
+    template_base.valor_formatado = metricas.comprovantes_de_saque.valor;
+    template_base.valor_valido = metricas.comprovantes_de_saque.valor_valido;
+    template_base.is_outlier = getColorStyle(metricas.comprovantes_de_saque.is_outlier, metricas.comprovantes_de_saque.valor_valido);
+    template_base.minimo_esperado = metricas.comprovantes_de_saque.minimo_esperado;
+    template_base.maximo_esperado = metricas.comprovantes_de_saque.maximo_esperado;
+    template_base.valor_indisponivel = (metricas.comprovantes_de_saque.valor) ? true : false;
+
+    template_base.list = [
+      {
+        "cnpj_cpf": 99714833000,
+        "nome": "Alexsandro da Silva Maciel",
+        "itens": [
+          { "id": 842881, "nome": "Instrutor", "link": "#" },
+          {
+            "id": 842896,
+            "nome": "Contribui\u00e7\u00e3o Patronal",
+            "link": "#"
+          }
+        ]
+      },
+    ];
+  }
+  catch{
+    template_base = getMetricTemplate();
+  }
+
+  template_base.nome = "Comprovantes de saque*";
+  template_base.explicacao = "Explicação da métricas";
+  template_base.tipo = "lista-com-dropdown";
+
+  return template_base;
+}
+
+function getComprovantesDeCheque(metrics) {
+  // Deletar isso depois
+  let metricas = { comprovantes_de_cheque: { valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0 } }
+  let template_base = {};
+  try {
+
+    template_base.valor = metricas.comprovantes_de_cheque.valor;
+    template_base.valor_formatado = metricas.comprovantes_de_cheque.valor;
+    template_base.valor_valido = metricas.comprovantes_de_cheque.valor_valido;
+    template_base.is_outlier = getColorStyle(metricas.comprovantes_de_cheque.is_outlier, metricas.comprovantes_de_cheque.valor_valido);
+    template_base.minimo_esperado = metricas.comprovantes_de_cheque.minimo_esperado;
+    template_base.maximo_esperado = metricas.comprovantes_de_cheque.maximo_esperado;
+    template_base.valor_indisponivel = (metricas.comprovantes_de_cheque.valor) ? true : false;
+
+    template_base.list = [
+      {
+        "cnpj_cpf": 99714833000,
+        "nome": "Alexsandro da Silva Maciel",
+        "itens": [
+          { "id": 842881, "nome": "Instrutor", "link": "#" },
+          {
+            "id": 842896,
+            "nome": "Contribui\u00e7\u00e3o Patronal",
+            "link": "#"
+          }
+        ]
+      },
+    ];
+  }
+  catch{
+    template_base = getMetricTemplate();
+  }
+
+  template_base.nome = "Comprovantes de cheque*";
+  template_base.explicacao = "Explicação da métricas";
+  template_base.tipo = "lista-com-dropdown";
+
+  return template_base;
 }
 
 

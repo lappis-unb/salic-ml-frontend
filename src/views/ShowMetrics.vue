@@ -55,7 +55,7 @@ export default {
         self.project = project;
         self.indicadores = project.indicadores;
       })
-      .catch(function(error) {
+      .catch(function(/*error*/) {
         // handle error
         // console.log("Get error", error);
       })
