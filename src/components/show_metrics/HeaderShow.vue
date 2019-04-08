@@ -20,14 +20,14 @@ export default {
   },
   computed: {
     getSubtitle: function(){
-      if(this.value>=7) return "Normal";
+      if(this.value>=7) return "Muito Complexo";
       else if(this.value>=4) return "Complexo";
-      else return "Muito Complexo";
+      else return "Normal";
     },
 		getBackgroundClass: function(){
-			if(this.value>=7) return "";
+			if(this.value>=7) return "verycomplex";
       else if(this.value>=4) return "complex";
-      else return "verycomplex";
+      else return "";
 		}
   },
 	filters: {
