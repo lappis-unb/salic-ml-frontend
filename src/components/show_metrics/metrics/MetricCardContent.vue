@@ -1,6 +1,6 @@
 <template>
     <div>
-      <span v-if="!metrica.valor_indisponivel">
+      <span v-if="!metrica.valor_valido">
         <p>Esta informação não está disponível.</p>
       </span>
       <span v-else-if="metrica.valor!=0 && metrica.tipo==='simples'">

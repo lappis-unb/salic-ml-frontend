@@ -4,13 +4,13 @@
       <thead>
         <tr>
             <th>Itens a serem comprovados</th>
-            <th id="value-cell">Valor indevido(R$)</th>
+            <th id="value-cell">Valor a ser comprovado(R$)</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(project, index) in metrica.proponent_projects" :key="project+index">
+        <tr v-for="(project, index) in metrica.list" :key="project+index">
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
-          <td data-label="Valor indevido" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
+          <td data-label="Valor a ser comprovado(R$)" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
         </tr>
       </tbody>
     </table>

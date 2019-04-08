@@ -1,6 +1,6 @@
 <template>
   <div class="ui basic segment" id="DiagnosticArea">
-    <div v-for="(metrica, index) in metrics_list" :key="metrica.tipo+index"
+    <div v-for="(metrica, index) in metrics_list" v-if="metrica" :key="metrica.tipo+index"
       class="ui styled fluid accordion" id="DiagnosticMetrics">
       <div class="title" :class="metrica.is_outlier">
         <div class="ui ribbon label">
@@ -26,21 +26,21 @@ export default {
   name: "MetricsList",
   data: function() {
     return {
-      new_metrics: getFinancialMetrics(this.metrics)
+      new_metrics: getFinancialMetrics(this.metricas)
     };
   },
   props: {
-    metrics: Object,
+    metricas: Object,
   },
   computed: {
     metrics_list: function () {
       return [
         this.new_metrics.valor_a_ser_comprovado,
         this.new_metrics.comprovantes_com_extrapolacao_de_50,
-        this.new_metrics.projetos_do_mesmo_proponente,
+        this.new_metrics.projetos_mesmo_proponente,
         this.new_metrics.novos_fornecedores,
         this.new_metrics.itens_orcamentarios,
-        this.new_metrics.comprovantes_de_pagamento,
+        this.new_metrics.comprovantes_de_transferencia,
 
         // Nao mostrar apartir daqui
         //this.new_metrics.approved_value,
@@ -49,6 +49,7 @@ export default {
         //this.new_metrics.above_average_prices,
         //this.new_metrics.proven_value,
         //this.new_metrics.captured_value,
+        //this.new_metrics.comprovantes_de_pagamento,
       ];
     }
   },
@@ -65,7 +66,6 @@ export default {
 </script>
 
 <style>
-
 /***************************
  ** Diagnostic Accordion ***
  ***************************/

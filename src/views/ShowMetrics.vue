@@ -1,12 +1,13 @@
 <template>
-  <div class="show-metrics">
+  <div class="show-metrics" v-if="indicadores.FinancialIndicator">
     <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
       <div class="ui large text loader">Carregando...</div>
     </div>
-    <header-show :value="parseInt(indicators[0].valor)" :project="project" />
+    <header-show :value="indicadores.FinancialIndicator.valor" :project="project" />
     <span>
-      <complexity-title :value="indicators[0].valor" :project="project" />
-      <metrics-list v-if="indicators[0].metricas && indicators[0].metricas.length != 0" :metrics="indicators[0].metricas" />
+      <complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />
+      <metrics-list v-if="indicadores.FinancialIndicator.metricas!=undefined" :metricas="indicadores.FinancialIndicator.metricas" />
+      <h1 v-else style="text-align: center;">Error a acessar as métricas. {{indicadores.FinancialIndicator.metricas==undefined}}</h1>
     </span>
   </div>
 </template>
@@ -28,23 +29,23 @@ export default {
   data: function() {
     return {
       loading: true,
-      indicators: [
+      indicadores: [
         {
           valor: 0,
-          metrics: []
+          metricas: []
         }
       ],
       project: {
         pronac: "Pronac não existente",
         name: "Projeto não existente"
       },
-      url: API_PATH_PROJECT + this.$route.params.pronac
+      url: API_PATH_PROJECT + this.$route.params.pronac + '/details/'
     };
   },
   props: {
     pronac: String
   },
-  mounted: function() {
+  created: function() {
     var self = this;
     axios
       .get(this.url)
@@ -52,7 +53,7 @@ export default {
         // handle success
         var project = JSON.parse(JSON.stringify(response.data));
         self.project = project;
-        self.indicators = project.indicadores;
+        self.indicadores = project.indicadores;
       })
       .catch(function(error) {
         // handle error

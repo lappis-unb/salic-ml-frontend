@@ -4,13 +4,12 @@
     <filter-bar></filter-bar>
     <div style="cursor: pointer;">
         <vuetable ref="vuetable"
-          :api-url="api_path"
           :fields="fields"
-          pagination-path=""
-          :per-page="20"
-          :multi-sort="true"
+      	  :api-url="api_path"
+          :per-page="15"
           :sort-order="sortOrder"
           :append-params="moreParams"
+          pagination-path=""
           @vuetable:cell-clicked="onCellClicked"
           @vuetable:pagination-data="onPaginationData"
         >
@@ -34,6 +33,7 @@ import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
 import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
 import FilterBar from './FilterBar'
 import {API_PATH_PROJECT_LIST} from '@/utils/variables.js'
+import axios from "axios";
 
 
 Vue.use(VueEvents)
@@ -49,6 +49,7 @@ export default {
     return {
       api_path: API_PATH_PROJECT_LIST,
       pronac: "",
+	  projects: [],
       fields: [
         {
           name: 'pronac',
@@ -80,9 +81,34 @@ export default {
     }
   },
   mounted () {
-    this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
-        // this.$events.$on('filter-reset', e => this.onFilterReset())
+    var self = this;
+    axios
+      .get(API_PATH_PROJECT_LIST)
+      .then(function(response) {
+        // handle success
+        var projects = JSON.parse(JSON.stringify(response.data));
+        self.projects = projects;
+      })
+      .catch(function(error) {
+        // handle error
+        // console.log("Get error", error);
+      })
+      .then(function() {
+        self.loading = false;
+        // always executed
+      });
+
+    // this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
+    // this.$events.$on('filter-reset', e => this.onFilterReset())
   },
+  // computed:{
+  //   projects_list: function(){
+  //       let data = this.projects;
+  //       var transformed = {}
+  //       console.log("Projects_list: ", data);
+  //       return data;
+  //   }
+  // },
   methods: {
     pronacLabel(value) {
       this.pronac = value
@@ -90,21 +116,23 @@ export default {
     },
     complexityLabel(value) {
       this.complexity = value
-      var color = "#DB2828";
-      if(value>=80) color = "#DB2828";
-      else (value>=30) ? color = "#F2B01C" : color = "#1B5E20";
+      var color = "#1B5E20";
+      if(value>=8) color = "#DB2828";
+      else (value>=3) ? color = "#F2B01C" : color = "#1B5E20";
 
       return '<strong style="color: ' + color + '; font-size: 20px;">' + (value) + '</strong>'
     },
     onPaginationData (paginationData) {
+      console.log("Pagination:", paginationData);
       this.$refs.pagination.setPaginationData(paginationData)
       this.$refs.paginationInfo.setPaginationData(paginationData)
     },
     onChangePage (page) {
+      console.log("Trocando de pag:", page);
       this.$refs.vuetable.changePage(page)
     },
     // onAction (action, data, index) {
-      // console.log('slot action: ' + action, data.project_name, index)
+    //  console.log('slot action: ' + action, data.project_name, index)
     // },
     onCellClicked (data) {
       // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()

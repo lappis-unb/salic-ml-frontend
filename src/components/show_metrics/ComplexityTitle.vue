@@ -28,28 +28,28 @@ export default {
     };
   },
   props: {
-	  project: Object,
+	project: Object,
     value: Number
   },
   computed: {
     getSubtitle: function(){
-      if(this.value>=7) return "Normal";
+      if(this.value>=7) return "Muito Complexo";
       else if(this.value>=4) return "Complexo";
-      else return "Muito Complexo";
+      else return "Normal";
     }
   },
   beforeUpdate() {
-    this.radialObj.value(this.value);
+    //this.radialObj.value(this.value);
   },
   mounted: function() {
     this.radialObj = $("#indicatorContainer")
       .radialIndicator({
         radius: 70,
         barColor: {
-          0: "#DB2828",
-          3: "#DB2828",
-          8: "#F2B01C",
-          10: "#1B5E20",
+          0: "#1B5E20",
+          3: "#F2B01C",
+          8: "#DB2828",
+          10: "#DB2828",
         },
         maxValue: 10,
         barWidth: 10,
@@ -58,6 +58,7 @@ export default {
         percentage: false,
       })
       .data("radialIndicator");
+    this.radialObj.value(this.value);
   }
 };
 </script>
