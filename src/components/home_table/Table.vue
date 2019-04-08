@@ -3,41 +3,37 @@
   <div class="ui container">
     <filter-bar></filter-bar>
     <div style="cursor: pointer;">
-        <vuetable ref="vuetable"
-          :fields="fields"
-      	  :api-url="api_path"
-          :per-page="15"
-          :sort-order="sortOrder"
-          :append-params="moreParams"
-          pagination-path=""
-          @vuetable:cell-clicked="onCellClicked"
-          @vuetable:pagination-data="onPaginationData"
-        >
-        </vuetable>
+      <vuetable
+        ref="vuetable"
+        :fields="fields"
+        :api-url="api_path"
+        :per-page="15"
+        :sort-order="sortOrder"
+        :append-params="moreParams"
+        pagination-path
+        @vuetable:cell-clicked="onCellClicked"
+        @vuetable:pagination-data="onPaginationData"
+      ></vuetable>
     </div>
     <div class="vuetable-pagination ui basic segment grid">
-      <vuetable-pagination-info ref="paginationInfo"
-      ></vuetable-pagination-info>
-      <vuetable-pagination ref="pagination"
-        @vuetable-pagination:change-page="onChangePage"
-      ></vuetable-pagination>
+      <vuetable-pagination-info ref="paginationInfo"></vuetable-pagination-info>
+      <vuetable-pagination ref="pagination" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
     </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-import VueEvents from 'vue-events'
-import Vuetable from 'vuetable-2/src/components/Vuetable'
-import VuetablePagination from 'vuetable-2/src/components/VuetablePagination'
-import VuetablePaginationInfo from 'vuetable-2/src/components/VuetablePaginationInfo'
-import FilterBar from './FilterBar'
-import {API_PATH_PROJECT_LIST} from '@/utils/variables.js'
+import Vue from "vue";
+import VueEvents from "vue-events";
+import Vuetable from "vuetable-2/src/components/Vuetable";
+import VuetablePagination from "vuetable-2/src/components/VuetablePagination";
+import VuetablePaginationInfo from "vuetable-2/src/components/VuetablePaginationInfo";
+import FilterBar from "./FilterBar";
+import { API_PATH_PROJECT_LIST } from "@/utils/variables.js";
 import axios from "axios";
 
-
-Vue.use(VueEvents)
-Vue.component('filter-bar', FilterBar)
+Vue.use(VueEvents);
+Vue.component("filter-bar", FilterBar);
 
 export default {
   components: {
@@ -45,42 +41,42 @@ export default {
     VuetablePagination,
     VuetablePaginationInfo
   },
-  data () {
+  data() {
     return {
       api_path: API_PATH_PROJECT_LIST,
       pronac: "",
-	  projects: [],
+      projects: [],
       fields: [
         {
-          name: 'pronac',
+          name: "pronac",
           // sortField: 'pronac',
-          titleClass: 'center aligned',
-          dataClass: 'center aligned',
-          callback: 'pronacLabel'
+          titleClass: "center aligned",
+          dataClass: "center aligned",
+          callback: "pronacLabel"
         },
         {
-          name: 'complexidade',
+          name: "complexidade",
           // sortField: 'complexity',
-          titleClass: 'center aligned',
-          callback: 'complexityLabel',
-          dataClass: 'center aligned'
+          titleClass: "center aligned",
+          callback: "complexityLabel",
+          dataClass: "center aligned"
         },
         {
-          name: 'nome',
+          name: "nome"
           // sortField: 'project_name'
         },
         {
-          name: 'responsavel',
+          name: "responsavel",
           // sortField: 'analist',
-          titleClass: 'center aligned',
-          dataClass: 'center aligned',
+          titleClass: "center aligned",
+          dataClass: "center aligned"
         }
       ],
       sortOrder: [],
       moreParams: {}
-    }
+    };
   },
-  mounted () {
+  mounted() {
     var self = this;
     axios
       .get(API_PATH_PROJECT_LIST)
@@ -89,7 +85,7 @@ export default {
         var projects = JSON.parse(JSON.stringify(response.data));
         self.projects = projects;
       })
-      .catch(function(error) {
+      .catch(function(/*error*/) {
         // handle error
         // console.log("Get error", error);
       })
@@ -111,43 +107,52 @@ export default {
   // },
   methods: {
     pronacLabel(value) {
-      this.pronac = value
-      return '<p class="ui teal label">'+ value +'</p>'
+      this.pronac = value;
+      return '<p class="ui teal label">' + value + "</p>";
     },
     complexityLabel(value) {
-      this.complexity = value
+      this.complexity = value;
       var color = "#1B5E20";
-      if(value>=7) color = "#DB2828";
-      else (value>=4) ? color = "#F2B01C" : color = "#1B5E20";
+      if (value >= 7) color = "#DB2828";
+      else value >= 4 ? (color = "#F2B01C") : (color = "#1B5E20");
 
-      return '<strong style="color: ' + color + '; font-size: 20px;">' + (value) + '</strong>'
+      return (
+        '<strong style="color: ' +
+        color +
+        '; font-size: 20px;">' +
+        value +
+        "</strong>"
+      );
     },
-    onPaginationData (paginationData) {
-      console.log("Pagination:", paginationData);
-      this.$refs.pagination.setPaginationData(paginationData)
-      this.$refs.paginationInfo.setPaginationData(paginationData)
+    onPaginationData(paginationData) {
+      //console.log("Pagination:", paginationData);
+      this.$refs.pagination.setPaginationData(paginationData);
+      this.$refs.paginationInfo.setPaginationData(paginationData);
     },
-    onChangePage (page) {
-      console.log("Trocando de pag:", page);
-      this.$refs.vuetable.changePage(page)
+    onChangePage(page) {
+      //console.log("Trocando de pag:", page);
+      this.$refs.vuetable.changePage(page);
     },
     // onAction (action, data, index) {
     //  console.log('slot action: ' + action, data.project_name, index)
     // },
-    onCellClicked (data) {
+    onCellClicked(data) {
       // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
-      this.$refs.vuetable.toggleDetailRow(data.id)
-      this.$router.push({ name: 'show', params: { pronac: (data.pronac).toString() }})
+      this.$refs.vuetable.toggleDetailRow(data.id);
+      this.$router.push({
+        name: "show",
+        params: { pronac: data.pronac.toString() }
+      });
     },
-    onFilterSet (filterText) {
+    onFilterSet(filterText) {
       // console.log(filterText)
-      this.moreParams.filter = filterText
-      Vue.nextTick( () => this.$refs.vuetable.refresh() )
+      this.moreParams.filter = filterText;
+      Vue.nextTick(() => this.$refs.vuetable.refresh());
     },
-    onFilterReset () {
-      delete this.moreParams.filter
-      Vue.nextTick( () => this.$refs.vuetable.refresh() )
+    onFilterReset() {
+      delete this.moreParams.filter;
+      Vue.nextTick(() => this.$refs.vuetable.refresh());
     }
   }
-}
+};
 </script>

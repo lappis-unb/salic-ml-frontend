@@ -1,17 +1,25 @@
 <template>
   <div class="ui basic segment" id="DiagnosticArea">
-    <div v-for="(metrica, index) in metrics_list" v-if="metrica" :key="metrica.tipo+index"
-      class="ui styled fluid accordion" id="DiagnosticMetrics">
+    <div
+      v-for="(metrica, index) in metrics_list"
+      :v-if="metrica"
+      :key="metrica.tipo+index"
+      class="ui styled fluid accordion"
+      id="DiagnosticMetrics"
+    >
       <div class="title" :class="metrica.is_outlier">
         <div class="ui ribbon label">
           <i class="icon"></i>
         </div>
-        <span><span v-html="metrica.nome">{{metrica.nome}}</span>: {{(metrica.valor_valido) ? metrica.valor_formatado : "não disp."}}</span>
+        <span>
+          <span v-html="metrica.nome">{{metrica.nome}}</span>
+          : {{(metrica.valor_valido) ? metrica.valor_formatado : "não disp."}}
+        </span>
         <helper-metric :helper_text="metrica.explicacao"/>
         <i class="dropdown icon"></i>
       </div>
       <div class="content">
-        <metric-content :metrica="metrica" />
+        <metric-content :metrica="metrica"/>
       </div>
     </div>
   </div>
@@ -20,7 +28,7 @@
 <script>
 import HelperMetric from "./metrics/HelperMetric.vue";
 import MetricCardContent from "./metrics/MetricCardContent.vue";
-import {getFinancialMetrics} from "@/utils/metrics.js"
+import { getFinancialMetrics } from "@/utils/metrics.js";
 
 export default {
   name: "MetricsList",
@@ -30,17 +38,17 @@ export default {
     };
   },
   props: {
-    metricas: Object,
+    metricas: Object
   },
   computed: {
-    metrics_list: function () {
+    metrics_list: function() {
       return [
         this.new_metrics.valor_a_ser_comprovado,
         this.new_metrics.comprovantes_com_extrapolacao_de_50,
         this.new_metrics.projetos_mesmo_proponente,
         this.new_metrics.novos_fornecedores,
         this.new_metrics.itens_orcamentarios,
-        this.new_metrics.comprovantes_de_transferencia,
+        this.new_metrics.comprovantes_de_transferencia
 
         // Nao mostrar apartir daqui
         //this.new_metrics.approved_value,
@@ -53,8 +61,7 @@ export default {
       ];
     }
   },
-  methods: {
-  },
+  methods: {},
   components: {
     "helper-metric": HelperMetric,
     "metric-content": MetricCardContent
@@ -141,12 +148,12 @@ export default {
 }
 
 .Metric-good {
-  color: #1B5E20 !important;
+  color: #1b5e20 !important;
 }
 .Metric-good .ui.ribbon.label {
   color: white;
-  background-color: #1B5E20;
-  border-color: #1B5E20;
+  background-color: #1b5e20;
+  border-color: #1b5e20;
 }
 .Metric-good .icon:before {
   content: "\f2cb"; /* Thermometer empty */
@@ -163,5 +170,4 @@ export default {
 .Metric-invalid .icon:before {
   content: "\f2cb"; /* Thermometer empty */
 }
-
 </style>

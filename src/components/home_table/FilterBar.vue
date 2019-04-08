@@ -3,7 +3,13 @@
     <div class="ui form">
       <div class="inline field">
         <label>Pesquisar por PRONAC:</label>
-        <input type="text" v-model="filterText" class="three wide column" @keyup.enter="doFilter" placeholder="PRONAC">
+        <input
+          type="text"
+          v-model="filterText"
+          class="three wide column"
+          @keyup.enter="doFilter"
+          placeholder="PRONAC"
+        >
         <button class="ui primary button search-button" @click="doFilter">Filtrar</button>
         <button class="ui button search-button" @click="resetFilter">Limpar</button>
       </div>
@@ -13,23 +19,23 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      filterText: ''
-    }
+      filterText: ""
+    };
   },
   methods: {
-    doFilter () {
-      this.$events.fire('filter-set', this.filterText)
-      console.log(this.filterText)
+    doFilter() {
+      this.$events.fire("filter-set", this.filterText);
+      //console.log(this.filterText);
     },
-    resetFilter () {
-      this.filterText = ''
-      this.$events.fire('filter-reset')
-      console.log(this.filterText)
+    resetFilter() {
+      this.filterText = "";
+      this.$events.fire("filter-reset");
+      //console.log(this.filterText);
     }
   }
-}
+};
 </script>
 
 <style>

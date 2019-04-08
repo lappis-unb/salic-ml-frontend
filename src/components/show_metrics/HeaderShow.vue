@@ -15,40 +15,42 @@
 export default {
   name: "HeaderShow",
   props: {
-      project: Object,
-  	  value: Number
+    project: Object,
+    value: Number
   },
   computed: {
-    getSubtitle: function(){
-      if(this.value>=7) return "Muito Complexo";
-      else if(this.value>=4) return "Complexo";
+    getSubtitle: function() {
+      if (this.value >= 7) return "Muito Complexo";
+      else if (this.value >= 4) return "Complexo";
       else return "Normal";
     },
-		getBackgroundClass: function(){
-			if(this.value>=7) return "verycomplex";
-      else if(this.value>=4) return "complex";
+    getBackgroundClass: function() {
+      if (this.value >= 7) return "verycomplex";
+      else if (this.value >= 4) return "complex";
       else return "";
-		}
-  },
-	filters: {
-		rounded: function (value) {
-			return (!value) ? 0 : Number(value)
-		}
-	},
-	methods: {
-    handleScroll: function (event) {
-      ($(window).scrollTop()>150) ? $("#ProjectID").fadeIn(300) : $("#ProjectID").fadeOut(300);
     }
-	},
-  mounted(){
-		$("#ProjectID").hide();
-	},
-	created: function () {
-			window.addEventListener('scroll', this.handleScroll);
-	},
-	destroyed: function () {
-			window.removeEventListener('scroll', this.handleScroll);
-	}
+  },
+  filters: {
+    rounded: function(value) {
+      return !value ? 0 : Number(value);
+    }
+  },
+  methods: {
+    handleScroll: function() {
+      $(window).scrollTop() > 150
+        ? $("#ProjectID").fadeIn(300)
+        : $("#ProjectID").fadeOut(300);
+    }
+  },
+  mounted() {
+    $("#ProjectID").hide();
+  },
+  created: function() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  destroyed: function() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
 };
 </script>
 
@@ -64,12 +66,12 @@ export default {
   justify-content: center;
 }
 
-.ui.fixed.inverted.menu.complex{
-	  background-color: #F2B01C;
+.ui.fixed.inverted.menu.complex {
+  background-color: #f2b01c;
 }
 
-.ui.fixed.inverted.menu.verycomplex{
-	  background-color: #DB2828;
+.ui.fixed.inverted.menu.verycomplex {
+  background-color: #db2828;
 }
 
 .ui.fixed.inverted.menu .ui.inverted.button {
@@ -85,8 +87,8 @@ export default {
 
 .ui.fixed.inverted.menu p {
   font-size: 1.5em;
-	font-style: italic;
-	line-height: 1.2em;
+  font-style: italic;
+  line-height: 1.2em;
   max-width: 40%;
 }
 
