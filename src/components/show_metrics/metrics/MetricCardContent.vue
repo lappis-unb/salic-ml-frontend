@@ -9,7 +9,7 @@
     <span v-else-if=" metrica.tipo==='tabela-simples'">
       <simple-table :metrica="metrica"/>
     </span>
-    <span v-else-if=" metrica.tipo==='tabela-de-items'">
+    <span v-else-if=" metrica.tipo==='tabela-de-itens'">
       <items-table :metrica="metrica"/>
     </span>
     <span v-else-if="metrica.tipo==='lista-simples'">
