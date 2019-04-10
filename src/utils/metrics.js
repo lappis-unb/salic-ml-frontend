@@ -8,8 +8,29 @@ export function getFinancialMetrics(metricas) {
     comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
     comprovantes_de_saque: getComprovantesDeSaque(metricas),
     comprovantes_de_cheque: getComprovantesDeCheque(metricas),
-    //comprovantes_pagamento: getComprovantesDePagamento(metricas),
   }
+}
+
+function createBaseMetric(metric_name, name, helper, type){
+  let metric = {};
+
+  try {
+    metric.valor = metric_name.valor;
+    metric.valor_formatado = metric_name.valor;
+    metric.valor_valido = metric_name.valor_valido;
+    metric.is_outlier = getColorStyle(metric_name.is_outlier, metric_name.valor_valido);
+    metric.minimo_esperado = metric_name.minimo_esperado;
+    metric.maximo_esperado = parseInt(metric_name.maximo_esperado);
+  }
+  catch {
+    metric = getMetricTemplate();
+  }
+
+  metric.nome = name;
+  metric.explicacao = helper;
+  metric.tipo = type;
+
+  return metric;
 }
 
 function getMetricTemplate() {
@@ -21,7 +42,7 @@ function getMetricTemplate() {
     minimo_esperado: 0,
     maximo_esperado: 0,
   }
-};
+}
 
 function setMoneyFormat(value) {
   return (value).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
@@ -30,279 +51,143 @@ function setMoneyFormat(value) {
 function getColorStyle(isOutlier, valid) {
   let color = "Metric-invalid";
 
-  if (valid) {
-    color = (isOutlier && valid) ? "Metric-bad" : "Metric-good";
-  }
+  if (valid) color = (isOutlier && valid) ? "Metric-bad" : "Metric-good";
 
   return color;
 }
 
 function getItensOrcamentarios(metricas) {
+  let name = "Itens orçamentários";
+  let helper = "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento";
+  let type = "simples";
 
-  let itens_orcamentarios = {};
-
-  try {
-    itens_orcamentarios.valor = metricas.itens_orcamentarios.valor;
-    itens_orcamentarios.valor_formatado = metricas.itens_orcamentarios.valor;
-    itens_orcamentarios.valor_valido = metricas.itens_orcamentarios.valor_valido;
-    itens_orcamentarios.is_outlier = getColorStyle(metricas.itens_orcamentarios.is_outlier, metricas.itens_orcamentarios.valor_valido);
-    itens_orcamentarios.minimo_esperado = metricas.itens_orcamentarios.minimo_esperado;
-    itens_orcamentarios.maximo_esperado = parseInt(metricas.itens_orcamentarios.maximo_esperado);
-  }
-  catch {
-    itens_orcamentarios = getMetricTemplate();
-  }
-
-  itens_orcamentarios.nome = "Itens orçamentários";
-  itens_orcamentarios.explicacao = "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento";
-  itens_orcamentarios.tipo = "simples";
-
-  return itens_orcamentarios;
-}
-
-function getValorASerComprovado(metricas) {
-  let texto_de_ajuda = "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento";
-  let sinais = '';
-
-  let template_base = {};
-
-  try {
-    template_base.valor = metricas.valor_a_ser_comprovado.valor;
-    template_base.valor_formatado = "R$ " + sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
-    template_base.valor_valido = metricas.valor_a_ser_comprovado.valor_valido;
-    template_base.is_outlier = getColorStyle(metricas.valor_a_ser_comprovado.is_outlier, metricas.valor_a_ser_comprovado.valor_valido);
-    template_base.minimo_esperado = metricas.valor_a_ser_comprovado.minimo_esperado;
-    template_base.maximo_esperado = "R$ " + setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
-    template_base.valor_indisponivel = (metricas.valor_a_ser_comprovado.valor) ? true : false;
-    template_base.list = [{ nome: "Item", pronac: 1234, valor_captado: 30 }]
-  }
-  catch {
-    template_base = getMetricTemplate();
-    template_base.list = []
-  }
-
-  template_base.nome = "Valor a ser comprovado*";
-  template_base.explicacao = texto_de_ajuda;
-  template_base.tipo = "tabela-de-items";
-
-  return template_base;
+  return createBaseMetric(metricas["itens_orcamentarios"],name,helper,type);
 }
 
 function getComprovantesComExtrapolacaoDe50(metricas) {
+  let name = "Comprovantes com extrapolação<br><span style='margin-left:85px;'>acima de 50% do aprovado</span>";
+  let helper = "Explicação da métrica";
+  let type = "lista-simples";
 
-  let template_base = {}
+  let metric = createBaseMetric(metricas["comprovantes_acima_de_50"],name,helper,type);
 
-  try {
-    template_base.valor = metricas.comprovantes_acima_de_50.valor;
-    template_base.valor_formatado = metricas.comprovantes_acima_de_50.valor;
-    template_base.valor_valido = metricas.comprovantes_acima_de_50.valor_valido;
-    template_base.is_outlier = getColorStyle(metricas.comprovantes_acima_de_50.is_outlier, metricas.comprovantes_acima_de_50.valor_valido);
-    template_base.minimo_esperado = metricas.comprovantes_acima_de_50.minimo_esperado;
-    template_base.maximo_esperado = metricas.comprovantes_acima_de_50.maximo_esperado;
-    template_base.valor_indisponivel = (metricas.comprovantes_acima_de_50.valor) ? true : false;
+  metric.lista_de_comprovantes = metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
 
-    template_base.lista_de_comprovantes = metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
-  }
-  catch {
-    template_base = getMetricTemplate();
-  }
-
-  template_base.nome = "Comprovantes com extrapolação<br><span style='margin-left:85px;'>acima de 50% do aprovado</span>";
-  template_base.explicacao = "Explicação da métricas";
-  template_base.tipo = "lista-simples";
-
-  return template_base;
-}
-
-function getComprovantesDePagamento(metricas) {
-  let texto_de_ajuda = "Compara a quantidade de comprovantes deste projeto com a \
-  quantidade mais comum de comprovantes em projetos do mesmo segmento";
-
-  return {
-    nome: "Comprovantes de pagamento",
-    explicacao: texto_de_ajuda,
-    tipo: "simples",
-    valor: metricas.comprovantes_pagamento.valor,
-    valor_formatado: metricas.comprovantes_pagamento.valor + "%",
-    valor_valido: metricas.comprovantes_pagamento.valor_valido,
-    is_outlier: getColorStyle(metricas.comprovantes_pagamento.is_outlier, metricas.comprovantes_pagamento.valor_valido),
-    minimo_esperado: metricas.comprovantes_pagamento.minimo_esperado,
-    maximo_esperado: "R$ " + setMoneyFormat(metricas.comprovantes_pagamento.maximo_esperado),
-    valor_indisponivel: (metricas.comprovantes_pagamento.valor) ? true : false,
-  }
+  return metric;
 }
 
 function getProjetosDoMesmoProponente(metricas) {
-  let template_base = {};
+  let name = "Projetos do mesmo proponente";
+  let helper = "Indica os projetos que o proponente já executou no passado.";
+  let type = "tabela-simples";
 
-  try {
-    template_base = {
-      valor: metricas.projetos_mesmo_proponente.valor,
-      valor_formatado: metricas.projetos_mesmo_proponente.valor,
-      valor_valido: metricas.projetos_mesmo_proponente.valor_valido,
-      is_outlier: getColorStyle(metricas.projetos_mesmo_proponente.is_outlier, metricas.projetos_mesmo_proponente.valor_valido),
-      minimo_esperado: metricas.projetos_mesmo_proponente.minimo_esperado,
-      maximo_esperado: metricas.projetos_mesmo_proponente.maximo_esperado,
-      valor_indisponivel: (metricas.projetos_mesmo_proponente.valor) ? true : false,
+  let metric = createBaseMetric(metricas["projetos_mesmo_proponente"], name, helper, type);
 
-      proponent_projects: metricas.projetos_mesmo_proponente.data.projetos_submetidos,
-    }
-  }
-  catch {
-    template_base = getMetricTemplate();
-  }
+  metric.proponent_projects = metricas.projetos_mesmo_proponente.data.projetos_submetidos;
 
-  template_base.nome = "Projetos do mesmo proponente";
-  template_base.explicacao = "Indica os projetos que o proponente já executou no passado.";
-  template_base.tipo = "tabela-simples";
+  return metric;
+}
 
-  return template_base;
+function getValorASerComprovado(metricas) {
+  let name = "Valor a ser comprovado*";
+  let helper = "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento";
+  let type = "tabela-de-itens";
+  let sinais = '';
+
+  let metric = createBaseMetric(metricas["valor_a_ser_comprovado"], name, helper, type);
+  metric.valor_formatado = "R$ " + sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
+  metric.maximo_esperado = "R$ " + setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
+
+  metric.list = [{ nome: "Item", pronac: 1234, valor_captado: 30 }]
+
+  return metric;
 }
 
 function getNovosFornecedores(metricas) {
+  let name = "Novos fornecedores";
+  let helper = "Informa uma lista dos novos fornecedores";
+  let type = "lista-com-dropdown";
 
-  let template_base = {};
+  let metric = createBaseMetric(metricas["novos_fornecedores"], name, helper, type);
 
-  try {
-    template_base.valor = metricas.novos_fornecedores.valor;
-    template_base.valor_formatado = metricas.novos_fornecedores.valor;
-    template_base.valor_valido = metricas.novos_fornecedores.valor_valido;
-    template_base.is_outlier = getColorStyle(metricas.novos_fornecedores.is_outlier, metricas.novos_fornecedores.valor_valido);
-    template_base.minimo_esperado = metricas.novos_fornecedores.minimo_esperado;
-    template_base.maximo_esperado = metricas.novos_fornecedores.maximo_esperado;
-    template_base.valor_indisponivel = (metricas.novos_fornecedores.valor) ? true : false;
+  metric.list = metricas.novos_fornecedores.data.lista_de_novos_fornecedores;
 
-    template_base.list = metricas.novos_fornecedores.data.lista_de_novos_fornecedores;
-  }
-  catch {
-    template_base = getMetricTemplate();
-  }
-
-  template_base.nome = "Novos fornecedores";
-  template_base.explicacao = "Informa uma lista dos novos fornecedores";
-  template_base.tipo = "lista-com-dropdown";
-
-  return template_base;
+  return metric;
 }
 
-function getComprovantesDeTransferencia(metrics) {
-  // Deletar isso depois
-  let metricas = { comprovantes_de_transferencia: { valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0 } }
-  let template_base = {};
-  try {
+function getComprovantesDeTransferencia(metricas) {
+  let name = "Comprovantes de transferência*";
+  let helper = "Explicação da métrica";
+  let type = "lista-com-dropdown";
 
-    template_base.valor = metricas.comprovantes_de_transferencia.valor;
-    template_base.valor_formatado = metricas.comprovantes_de_transferencia.valor;
-    template_base.valor_valido = metricas.comprovantes_de_transferencia.valor_valido;
-    template_base.is_outlier = getColorStyle(metricas.comprovantes_de_transferencia.is_outlier, metricas.comprovantes_de_transferencia.valor_valido);
-    template_base.minimo_esperado = metricas.comprovantes_de_transferencia.minimo_esperado;
-    template_base.maximo_esperado = metricas.comprovantes_de_transferencia.maximo_esperado;
-    template_base.valor_indisponivel = (metricas.comprovantes_de_transferencia.valor) ? true : false;
+  let metric = createBaseMetric(metricas["comprovantes_de_transferencia"], name, helper, type);
 
-    template_base.list = [
-      {
-        "cnpj_cpf": 99714833000,
-        "nome": "Alexsandro da Silva Maciel",
-        "itens": [
-          { "id": 842881, "nome": "Instrutor", "link": "#" },
-          {
-            "id": 842896,
-            "nome": "Contribui\u00e7\u00e3o Patronal",
-            "link": "#"
-          }
-        ]
-      },
-    ];
-  }
-  catch{
-    template_base = getMetricTemplate();
-  }
+  metric.list = [
+    {
+      "cnpj_cpf": 99714833000,
+      "nome": "Alexsandro da Silva Maciel",
+      "itens": [
+        { "id": 842881, "nome": "Instrutor", "link": "#" },
+        {
+          "id": 842896,
+          "nome": "Contribui\u00e7\u00e3o Patronal",
+          "link": "#"
+        }
+      ]
+    },
+  ];
 
-  template_base.nome = "Comprovantes de transferência*";
-  template_base.explicacao = "Explicação da métricas";
-  template_base.tipo = "lista-com-dropdown";
-
-  return template_base;
+  return metric;
 }
 
-function getComprovantesDeSaque(metrics) {
-  // Deletar isso depois
-  let metricas = { comprovantes_de_saque: { valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0 } }
-  let template_base = {};
-  try {
+function getComprovantesDeSaque(metricas) {
+  let name = "Comprovantes de saque*";
+  let helper = "Explicação da métrica";
+  let type = "lista-com-dropdown";
 
-    template_base.valor = metricas.comprovantes_de_saque.valor;
-    template_base.valor_formatado = metricas.comprovantes_de_saque.valor;
-    template_base.valor_valido = metricas.comprovantes_de_saque.valor_valido;
-    template_base.is_outlier = getColorStyle(metricas.comprovantes_de_saque.is_outlier, metricas.comprovantes_de_saque.valor_valido);
-    template_base.minimo_esperado = metricas.comprovantes_de_saque.minimo_esperado;
-    template_base.maximo_esperado = metricas.comprovantes_de_saque.maximo_esperado;
-    template_base.valor_indisponivel = (metricas.comprovantes_de_saque.valor) ? true : false;
+  let metric = createBaseMetric(metricas["comprovantes_de_saque"], name, helper, type);
 
-    template_base.list = [
-      {
-        "cnpj_cpf": 99714833000,
-        "nome": "Alexsandro da Silva Maciel",
-        "itens": [
-          { "id": 842881, "nome": "Instrutor", "link": "#" },
-          {
-            "id": 842896,
-            "nome": "Contribui\u00e7\u00e3o Patronal",
-            "link": "#"
-          }
-        ]
-      },
-    ];
-  }
-  catch{
-    template_base = getMetricTemplate();
-  }
+  metric.list = [
+    {
+      "cnpj_cpf": 99714833000,
+      "nome": "Alexsandro da Silva Maciel",
+      "itens": [
+        { "id": 842881, "nome": "Instrutor", "link": "#" },
+        {
+          "id": 842896,
+          "nome": "Contribui\u00e7\u00e3o Patronal",
+          "link": "#"
+        }
+      ]
+    },
+  ];
 
-  template_base.nome = "Comprovantes de saque*";
-  template_base.explicacao = "Explicação da métricas";
-  template_base.tipo = "lista-com-dropdown";
-
-  return template_base;
+  return metric;
 }
 
-function getComprovantesDeCheque(metrics) {
-  // Deletar isso depois
-  let metricas = { comprovantes_de_cheque: { valor: 123, valor_valido: true, is_outlier: false, maximo_esperado: 0, minimo_esperado: 0 } }
-  let template_base = {};
-  try {
+function getComprovantesDeCheque(metricas) {
+  let name = "Comprovantes de cheque*";
+  let helper = "Explicação da métrica";
+  let type = "lista-com-dropdown";
 
-    template_base.valor = metricas.comprovantes_de_cheque.valor;
-    template_base.valor_formatado = metricas.comprovantes_de_cheque.valor;
-    template_base.valor_valido = metricas.comprovantes_de_cheque.valor_valido;
-    template_base.is_outlier = getColorStyle(metricas.comprovantes_de_cheque.is_outlier, metricas.comprovantes_de_cheque.valor_valido);
-    template_base.minimo_esperado = metricas.comprovantes_de_cheque.minimo_esperado;
-    template_base.maximo_esperado = metricas.comprovantes_de_cheque.maximo_esperado;
-    template_base.valor_indisponivel = (metricas.comprovantes_de_cheque.valor) ? true : false;
+  let metric = createBaseMetric(metricas["comprovantes_de_cheque"], name, helper, type);
 
-    template_base.list = [
-      {
-        "cnpj_cpf": 99714833000,
-        "nome": "Alexsandro da Silva Maciel",
-        "itens": [
-          { "id": 842881, "nome": "Instrutor", "link": "#" },
-          {
-            "id": 842896,
-            "nome": "Contribui\u00e7\u00e3o Patronal",
-            "link": "#"
-          }
-        ]
-      },
-    ];
-  }
-  catch{
-    template_base = getMetricTemplate();
-  }
+  metric.list = [
+    {
+      "cnpj_cpf": 99714833000,
+      "nome": "Alexsandro da Silva Maciel",
+      "itens": [
+        { "id": 842881, "nome": "Instrutor", "link": "#" },
+        {
+          "id": 842896,
+          "nome": "Contribui\u00e7\u00e3o Patronal",
+          "link": "#"
+        }
+      ]
+    },
+  ];
 
-  template_base.nome = "Comprovantes de cheque*";
-  template_base.explicacao = "Explicação da métricas";
-  template_base.tipo = "lista-com-dropdown";
-
-  return template_base;
+  return metric;
 }
 
 
