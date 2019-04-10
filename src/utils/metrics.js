@@ -71,7 +71,12 @@ function getComprovantesComExtrapolacaoDe50(metricas) {
 
   let metric = createBaseMetric(metricas["comprovantes_acima_de_50"],name,helper,type);
 
-  metric.lista_de_comprovantes = metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
+  try {
+    metric.lista_de_comprovantes = metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
+  }
+  catch {
+    metric.lista_de_comprovantes = []
+  }
 
   return metric;
 }
@@ -83,8 +88,12 @@ function getProjetosDoMesmoProponente(metricas) {
 
   let metric = createBaseMetric(metricas["projetos_mesmo_proponente"], name, helper, type);
 
-  metric.proponent_projects = metricas.projetos_mesmo_proponente.data.projetos_submetidos;
-
+  try {
+    metric.proponent_projects = metricas.projetos_mesmo_proponente.data.projetos_submetidos;
+  }
+  catch {
+    metric.proponent_projects = []
+  }
   return metric;
 }
 
@@ -95,11 +104,14 @@ function getValorASerComprovado(metricas) {
   let sinais = '';
 
   let metric = createBaseMetric(metricas["valor_a_ser_comprovado"], name, helper, type);
-  metric.valor_formatado = "R$ " + sinais + parseFloat(metricas.valor_a_ser_comprovado.valor).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
-  metric.maximo_esperado = "R$ " + setMoneyFormat(metricas.valor_a_ser_comprovado.maximo_esperado);
+  metric.valor_formatado = "R$ " + sinais + parseFloat(metric.valor).toFixed(2).replace('.', ',').replace(/\d(?=(\d{3})+,)/g, '$&.');
+  metric.maximo_esperado = "R$ " + setMoneyFormat(metric.maximo_esperado);
 
-  metric.list = [{ nome: "Item", pronac: 1234, valor_captado: 30 }]
-
+  try {
+    metric.list = [{ nome: "Item", pronac: 1234, valor_captado: 30 }];
+  } catch {
+    metric.list = [];
+  }
   return metric;
 }
 
@@ -110,7 +122,11 @@ function getNovosFornecedores(metricas) {
 
   let metric = createBaseMetric(metricas["novos_fornecedores"], name, helper, type);
 
-  metric.list = metricas.novos_fornecedores.data.lista_de_novos_fornecedores;
+  try {
+    metric.list = metricas.novos_fornecedores.data.lista_de_novos_fornecedores;
+  } catch {
+    metric.list = [];
+  }
 
   return metric;
 }
