@@ -96,7 +96,7 @@ export default {
 
 .ui.styled.accordion .accordion {
   box-shadow: none !important;
-  margin-top: -1em !important;
+  margin: 0 0 0.5em 0 !important;
 }
 
 .ui.styled.accordion .accordion .title {
@@ -107,6 +107,7 @@ export default {
 }
 
 .ui.styled.accordion .accordion .content {
+  margin: 0 !important;
   padding-left: 1.6em !important;
 }
 
