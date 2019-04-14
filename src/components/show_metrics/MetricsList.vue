@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import HelperMetric from "./metrics/HelperMetric.vue";
-import MetricCardContent from "./metrics/MetricCardContent.vue";
+import HelperMetric from "./HelperMetric.vue";
+import MetricCardContent from "./MetricCardContent.vue";
 
 export default {
   name: "MetricsList",
