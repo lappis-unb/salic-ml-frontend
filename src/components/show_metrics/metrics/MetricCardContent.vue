@@ -24,9 +24,6 @@
     <span v-else-if="metrica.tipo==='above-average-prices-list'">
       <above-average-list :metrica="metrica"/>
     </span>
-    <span v-else-if="metrica.tipo==='operation-code-list'">
-      <operation-code-list :metrica="metrica"/>
-    </span>
     <span v-else-if="metrica.tipo==='items-list'">
       <item-list :metrica="metrica"/>
     </span>
@@ -41,7 +38,6 @@ import ItemsTableContent from "@/components/show_metrics/metrics/content/ItemsTa
 import DropdownListCardContent from "@/components/show_metrics/metrics/content/DropdownListCardContent";
 
 import ItemListCardContent from "@/components/show_metrics/metrics/content/ItemListCardContent.vue";
-import OperationCodeCardContent from "@/components/show_metrics/metrics/content/OperationCodeCardContent.vue";
 import AboveAveragePricesCardContent from "@/components/show_metrics/metrics/content/AboveAveragePricesCardContent.vue";
 
 export default {
@@ -55,7 +51,6 @@ export default {
 
     "item-list": ItemListCardContent,
     "above-average-list": AboveAveragePricesCardContent,
-    "operation-code-list": OperationCodeCardContent
   },
   props: {
     metrica: Object
