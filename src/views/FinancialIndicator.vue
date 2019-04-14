@@ -21,7 +21,7 @@ import {API_PATH_PROJECT} from '@/utils/variables.js';
 import { getFinancialMetrics } from "@/utils/metrics.js";
 
 export default {
-  name: "show-metrics",
+  name: "FinancialIndicator",
   components: {
     "header-show": HeaderShow,
     "complexity-title": ComplexityTitle,

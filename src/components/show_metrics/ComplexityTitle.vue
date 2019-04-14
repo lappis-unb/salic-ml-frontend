@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import radialIndicator from "@/../public/assets/js/radialIndicator.js";
+let radialIndicator = require("@/../public/assets/js/radialIndicator.js");
 
 export default {
   name: "ComplexityTitle",
@@ -38,10 +38,8 @@ export default {
       else return "Normal";
     }
   },
-  beforeUpdate() {
-    //this.radialObj.value(this.value);
-  },
   mounted: function() {
+    radialIndicator
     this.radialObj = $("#indicatorContainer")
       .radialIndicator({
         radius: 70,
