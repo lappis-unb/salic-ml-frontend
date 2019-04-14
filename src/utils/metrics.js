@@ -1,14 +1,14 @@
 export function getFinancialMetrics(metricas) {
-  return {
-    valor_a_ser_comprovado: getValorASerComprovado(metricas),
-    itens_orcamentarios: getItensOrcamentarios(metricas),
-    comprovantes_com_extrapolacao_de_50: getComprovantesComExtrapolacaoDe50(metricas),
-    projetos_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
-    novos_fornecedores: getNovosFornecedores(metricas),
-    comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
-    comprovantes_de_saque: getComprovantesDeSaque(metricas),
-    comprovantes_de_cheque: getComprovantesDeCheque(metricas),
-  }
+  return [
+    getValorASerComprovado(metricas),
+    getItensOrcamentarios(metricas),
+    getComprovantesComExtrapolacaoDe50(metricas),
+    getProjetosDoMesmoProponente(metricas),
+    getNovosFornecedores(metricas),
+    getComprovantesDeTransferencia(metricas),
+    getComprovantesDeSaque(metricas),
+    getComprovantesDeCheque(metricas),
+  ]
 }
 
 function createBaseMetric(metric_name, name, helper, type){

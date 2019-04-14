@@ -2,7 +2,7 @@
   <div>
     <div v-if="metrica.length!=0">
       <div v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
-        <div class="title">
+        <div class="title" id="title">
           <i class="dropdown icon"></i>
           {{object.nome}} <a href="metrica.link">(Link dos itens)</a>
         </div>
@@ -32,8 +32,8 @@ export default {
 };
 </script>
 
-<style>
-.title {
+<style scoped>
+#title {
   text-transform: capitalize;
 }
 </style>

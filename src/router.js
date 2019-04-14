@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-import ShowMetrics from './views/ShowMetrics.vue'
+import FinancialMetrics from './views/FinancialMetrics.vue'
 
 Vue.use(Router)
 
@@ -14,9 +14,9 @@ export default new Router({
       component: Home,
     },
     {
-      path: '/projetos/:pronac',
-      name: 'show',
-      component: ShowMetrics,
+      path: '/projetos/indicador_financeiro/:pronac',
+      name: 'indicador_financeiro',
+      component: FinancialMetrics,
       props: route => {
         return { pronac: route.params.pronac};
       }

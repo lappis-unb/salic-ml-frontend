@@ -140,7 +140,7 @@ export default {
       // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
       this.$refs.vuetable.toggleDetailRow(data.id);
       this.$router.push({
-        name: "show",
+        name: "indicador_financeiro",
         params: { pronac: data.pronac.toString() }
       });
     },
