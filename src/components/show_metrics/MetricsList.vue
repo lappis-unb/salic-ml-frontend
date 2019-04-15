@@ -51,11 +51,14 @@ export default {
 
 .ui.styled.accordion > .title {
   font-size: 2em !important;
+	line-height: 1;
+	display: flex;
+	align-items: center;
 }
 
 .ui.styled.accordion > .title .dropdown.icon {
   color: #000;
-  float: right;
+	margin-left: auto;
 }
 
 .ui.styled.accordion .content {
