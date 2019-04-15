@@ -1,16 +1,3 @@
-export function getFinancialMetrics(metricas) {
-  return {
-    valor_a_ser_comprovado: getValorASerComprovado(metricas),
-    itens_orcamentarios: getItensOrcamentarios(metricas),
-    comprovantes_com_extrapolacao_de_50: getComprovantesComExtrapolacaoDe50(metricas),
-    projetos_mesmo_proponente: getProjetosDoMesmoProponente(metricas),
-    novos_fornecedores: getNovosFornecedores(metricas),
-    comprovantes_de_transferencia: getComprovantesDeTransferencia(metricas),
-    comprovantes_de_saque: getComprovantesDeSaque(metricas),
-    comprovantes_de_cheque: getComprovantesDeCheque(metricas),
-  }
-}
-
 function createBaseMetric(metric_name, name, helper, type){
   let metric = {};
 
@@ -56,7 +43,7 @@ function getColorStyle(isOutlier, valid) {
   return color;
 }
 
-function getItensOrcamentarios(metricas) {
+export function getItensOrcamentarios(metricas) {
   let name = "Itens orçamentários";
   let helper = "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento";
   let type = "simples";
@@ -64,7 +51,7 @@ function getItensOrcamentarios(metricas) {
   return createBaseMetric(metricas["itens_orcamentarios"],name,helper,type);
 }
 
-function getComprovantesComExtrapolacaoDe50(metricas) {
+export function getComprovantesComExtrapolacaoDe50(metricas) {
   let name = "Comprovantes com extrapolação<br><span style='margin-left:85px;'>acima de 50% do aprovado</span>";
   let helper = "Explicação da métrica";
   let type = "lista-simples";
@@ -81,7 +68,7 @@ function getComprovantesComExtrapolacaoDe50(metricas) {
   return metric;
 }
 
-function getProjetosDoMesmoProponente(metricas) {
+export function getProjetosDoMesmoProponente(metricas) {
   let name = "Projetos do mesmo proponente";
   let helper = "Indica os projetos que o proponente já executou no passado.";
   let type = "tabela-simples";
@@ -97,7 +84,7 @@ function getProjetosDoMesmoProponente(metricas) {
   return metric;
 }
 
-function getValorASerComprovado(metricas) {
+export function getValorASerComprovado(metricas) {
   let name = "Valor a ser comprovado*";
   let helper = "Compara o valor comprovado neste projeto com o valor mais frequentemente comprovado em projetos do mesmo segmento";
   let type = "tabela-de-itens";
@@ -115,7 +102,7 @@ function getValorASerComprovado(metricas) {
   return metric;
 }
 
-function getNovosFornecedores(metricas) {
+export function getNovosFornecedores(metricas) {
   let name = "Novos fornecedores";
   let helper = "Informa uma lista dos novos fornecedores";
   let type = "lista-com-dropdown";
@@ -131,7 +118,7 @@ function getNovosFornecedores(metricas) {
   return metric;
 }
 
-function getComprovantesDeTransferencia(metricas) {
+export function getComprovantesDeTransferencia(metricas) {
   let name = "Comprovantes de transferência*";
   let helper = "Explicação da métrica";
   let type = "lista-com-dropdown";
@@ -156,7 +143,7 @@ function getComprovantesDeTransferencia(metricas) {
   return metric;
 }
 
-function getComprovantesDeSaque(metricas) {
+export function getComprovantesDeSaque(metricas) {
   let name = "Comprovantes de saque*";
   let helper = "Explicação da métrica";
   let type = "lista-com-dropdown";
@@ -181,7 +168,7 @@ function getComprovantesDeSaque(metricas) {
   return metric;
 }
 
-function getComprovantesDeCheque(metricas) {
+export function getComprovantesDeCheque(metricas) {
   let name = "Comprovantes de cheque*";
   let helper = "Explicação da métrica";
   let type = "lista-com-dropdown";

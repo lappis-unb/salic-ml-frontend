@@ -1,8 +1,8 @@
 <template>
   <div class="ui basic segment" id="DiagnosticArea">
     <div
-      v-for="(metrica, index) in metrics_list"
-      :v-if="metrica"
+      v-for="(metrica, index) in metricas"
+      v-if="metrica!=undefined"
       :key="metrica.tipo+index"
       class="ui styled fluid accordion"
       id="DiagnosticMetrics"
@@ -26,44 +26,14 @@
 </template>
 
 <script>
-import HelperMetric from "./metrics/HelperMetric.vue";
-import MetricCardContent from "./metrics/MetricCardContent.vue";
-import { getFinancialMetrics } from "@/utils/metrics.js";
+import HelperMetric from "./HelperMetric.vue";
+import MetricCardContent from "./MetricCardContent.vue";
 
 export default {
   name: "MetricsList",
-  data: function() {
-    return {
-      new_metrics: getFinancialMetrics(this.metricas)
-    };
-  },
   props: {
-    metricas: Object
+    metricas: Array,
   },
-  computed: {
-    metrics_list: function() {
-      return [
-        this.new_metrics.valor_a_ser_comprovado,
-        this.new_metrics.comprovantes_com_extrapolacao_de_50,
-        this.new_metrics.projetos_mesmo_proponente,
-        this.new_metrics.novos_fornecedores,
-        this.new_metrics.itens_orcamentarios,
-        this.new_metrics.comprovantes_de_transferencia,
-        this.new_metrics.comprovantes_de_saque,
-        this.new_metrics.comprovantes_de_cheque
-
-        // Nao mostrar apartir daqui
-        //this.new_metrics.approved_value,
-        //this.new_metrics.vouchers_by_operation_code,
-        //this.new_metrics.budget_items_unusual,
-        //this.new_metrics.above_average_prices,
-        //this.new_metrics.proven_value,
-        //this.new_metrics.captured_value,
-        //this.new_metrics.comprovantes_de_pagamento,
-      ];
-    }
-  },
-  methods: {},
   components: {
     "helper-metric": HelperMetric,
     "metric-content": MetricCardContent
@@ -96,7 +66,7 @@ export default {
 
 .ui.styled.accordion .accordion {
   box-shadow: none !important;
-  margin-top: -1em !important;
+  margin: 0 0 0.5em 0 !important;
 }
 
 .ui.styled.accordion .accordion .title {
@@ -107,6 +77,7 @@ export default {
 }
 
 .ui.styled.accordion .accordion .content {
+  margin: 0 !important;
   padding-left: 1.6em !important;
 }
 
