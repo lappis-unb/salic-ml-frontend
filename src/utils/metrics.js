@@ -1,4 +1,4 @@
-function createBaseMetric(metric_name, name, helper, type){
+function createBaseMetric(metric_name, name, helper, type) {
   let metric = {};
 
   try {
@@ -48,7 +48,7 @@ export function getItensOrcamentarios(metricas) {
   let helper = "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento";
   let type = "simples";
 
-  return createBaseMetric(metricas["itens_orcamentarios"],name,helper,type);
+  return createBaseMetric(metricas["itens_orcamentarios"], name, helper, type);
 }
 
 export function getComprovantesComExtrapolacaoDe50(metricas) {
@@ -56,7 +56,7 @@ export function getComprovantesComExtrapolacaoDe50(metricas) {
   let helper = "Quantidade de comprovantes com valor maior que o limite de extrapolação previsto na Lei (valor aprovado + extrapolação de 50%)";
   let type = "lista-simples";
 
-  let metric = createBaseMetric(metricas["comprovantes_acima_de_50"],name,helper,type);
+  let metric = createBaseMetric(metricas["comprovantes_acima_de_50"], name, helper, type);
 
   try {
     metric.lista_de_comprovantes = metricas.comprovantes_acima_de_50.data.lista_de_comprovantes
@@ -162,33 +162,70 @@ export function getComprovantesDeSaque(metricas) {
           "link": "#"
         }
       ]
-    },
+    }
   ];
 
   return metric;
 }
 
-export function getComprovantesDeCheque(metricas) {
+//Trocar isso
+export function getComprovantesDeCheque(metrics) {
   let name = "Cheque com vários comprovantes*";
   let helper = "Quantidade de cheques que comprovam o pagamento de dois ou mais itens orçamentários";
   let type = "lista-com-dropdown";
 
+  let metricas = {};
+  metricas.comprovantes_de_cheque = {
+      valor: 0,
+      valor_formatado: 0,
+      valor_valido: true,
+      is_outlier: true,
+      minimo_esperado: 0,
+      maximo_esperado: 0,
+  }
+
   let metric = createBaseMetric(metricas["comprovantes_de_cheque"], name, helper, type);
 
-  metric.list = [
-    {
-      "cnpj_cpf": 99714833000,
-      "nome": "Alexsandro da Silva Maciel",
-      "itens": [
-        { "id": 842881, "nome": "Instrutor", "link": "#" },
+  try {
+    metric.comprovantes = metricas.comprovantes_de_cheque.data.comprovantes;
+  } catch {
+    metric.comprovantes =
+      [
         {
-          "id": 842896,
-          "nome": "Contribui\u00e7\u00e3o Patronal",
-          "link": "#"
+          'id_comprovante': 5413,
+          'itens': [
+            {
+              'nome': 'Coordenação editorial',
+              'nome_fornecedor': 'QUEM DIRIA EDIÇÃO DE LIVROS LTDA',
+              'cpf_cnpj_fornecedor': 'xxxxxxxx',
+              'valor_comprovado': '3000.00'
+            },
+          ]
+        },
+        {
+          'id_comprovante': 5413,
+          'itens': [
+            {
+              'nome': 'Coordenação editorial',
+              'nome_fornecedor': 'QUEM DIRIA EDIÇÃO DE LIVROS LTDA',
+              'cpf_cnpj_fornecedor': 'xxxxxxxx',
+              'valor_comprovado': '3000.00'
+            },
+          ]
+        },
+        {
+          'id_comprovante': 5413,
+          'itens': [
+            {
+              'nome': 'Coordenação editorial',
+              'nome_fornecedor': 'QUEM DIRIA EDIÇÃO DE LIVROS LTDA',
+              'cpf_cnpj_fornecedor': 'xxxxxxxx',
+              'valor_comprovado': '3000.00'
+            },
+          ]
         }
-      ]
-    },
-  ];
+      ];
+  }
 
   return metric;
 }
@@ -289,3 +326,5 @@ function oldMetrics(metrica){
 }
 
 */
+
+
