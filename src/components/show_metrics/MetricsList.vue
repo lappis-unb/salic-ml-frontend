@@ -50,7 +50,7 @@ export default {
  ***************************/
 
 .ui.styled.accordion > .title {
-  font-size: 2em !important;
+  font-size: 1.5em !important;
 	line-height: 1;
 	display: flex;
 	align-items: center;
@@ -91,11 +91,12 @@ export default {
 .ui.ribbon.label {
   color: #fff;
   margin-left: 0;
-  left: calc(-2rem - 1.2em) !important;
-  padding: 1em 0 1em 2em !important;
+  left: calc(-1.5rem - 1.2em) !important;
+  padding: 1em 0 1em 1.2em !important;
 }
+	
 .ui.ribbon.label .icon {
-  font-size: 3em;
+  font-size: 2em;
   padding-left: 0.2em;
 }
 
@@ -107,6 +108,7 @@ export default {
 .Metric-bad .ui.ribbon.label {
   background-color: #db2828;
   border-color: #841818;
+/*	border-left-width: 1em;*/
 }
 .Metric-bad .icon:before {
   content: "\f2c7"; /* Thermometer full */
