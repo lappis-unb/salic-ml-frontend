@@ -121,7 +121,7 @@ export function getNovosFornecedores(metricas) {
 export function getComprovantesDeTransferencia(metricas) {
   let name = "Transferência com vários comprovantes*";
   let helper = "Quantidade de transferências bancárias que comprovam o pagamento de dois ou mais itens orçamentários";
-  let type = "lista-com-dropdown";
+  let type = "lista-com-dropdown-tabela";
 
   let metric = createBaseMetric(metricas["comprovantes_de_transferencia"], name, helper, type);
 
@@ -146,7 +146,7 @@ export function getComprovantesDeTransferencia(metricas) {
 export function getComprovantesDeSaque(metricas) {
   let name = "Saque com vários comprovantes*";
   let helper = "Quantidade de saques que comprovam o pagamento de dois ou mais itens orçamentários";
-  let type = "lista-com-dropdown";
+  let type = "lista-com-dropdown-tabela";
 
   let metric = createBaseMetric(metricas["comprovantes_de_saque"], name, helper, type);
 
@@ -169,12 +169,11 @@ export function getComprovantesDeSaque(metricas) {
 }
 
 //Trocar isso
-export function getComprovantesDeCheque(metrics) {
+export function getComprovantesDeCheque(metricas) {
   let name = "Cheque com vários comprovantes*";
   let helper = "Quantidade de cheques que comprovam o pagamento de dois ou mais itens orçamentários";
-  let type = "lista-com-dropdown";
+  let type = "lista-com-dropdown-tabela";
 
-  let metricas = {};
   metricas.comprovantes_de_cheque = {
       valor: 0,
       valor_formatado: 0,
