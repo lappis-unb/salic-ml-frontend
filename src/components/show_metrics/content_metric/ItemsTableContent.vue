@@ -1,16 +1,16 @@
 <template>
   <div>
-    <table v-if="metrica.valor!=0" class="ui celled table striped ">
+    <table v-if="metrica.valor!=0" class="ui celled striped collapsing table  ">
       <thead>
         <tr>
             <th>Itens a serem comprovados</th>
-            <th id="value-cell">Valor a ser comprovado(R$)</th>
+            <th id="value-cell">Valor (R$)</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(project, index) in metrica.list" :key="project+index">
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
-          <td data-label="Valor a ser comprovado(R$)" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
+          <td data-label="Valor (R$)" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
         </tr>
       </tbody>
     </table>
@@ -52,11 +52,11 @@ export default {
 
 #value-cell {
     text-align: right;
-    max-width: 7em;
+    min-width: 10em;
 }
 
 #name-cell {
-    max-width: 18em;
+/*    max-width: 18em;*/
 }
 
 #situation-cell {
