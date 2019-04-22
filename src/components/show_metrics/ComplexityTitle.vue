@@ -39,7 +39,7 @@ export default {
     }
   },
   mounted: function() {
-    radialIndicator
+    radialIndicator;
     this.radialObj = $("#indicatorContainer")
       .radialIndicator({
         radius: 70,

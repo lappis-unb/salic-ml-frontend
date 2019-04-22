@@ -1,16 +1,16 @@
 <template>
   <div>
-    <table v-if="metrica.valor!=0" class="ui celled table striped ">
+    <table v-if="metrica.valor!=0" class="ui celled striped collapsing table">
       <thead>
         <tr>
-            <th>Itens a serem comprovados</th>
-            <th id="value-cell">Valor a ser comprovado(R$)</th>
+          <th>Itens a serem comprovados</th>
+          <th id="value-cell">Valor (R$)</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="(project, index) in metrica.list" :key="project+index">
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
-          <td data-label="Valor a ser comprovado(R$)" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
+          <td data-label="Valor (R$)" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
         </tr>
       </tbody>
     </table>
@@ -24,43 +24,48 @@ export default {
   props: {
     metrica: Object
   },
-  data(){
+  data() {
     return {
       code: "",
       text: ""
-    }
+    };
   },
   methods: {
-    setMoneyFormat(value){
-        var sinal = '+ ';
-        if(value<0) sinal = '- ';
-        else if (value==0) sinal = '';
-        return sinal + (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
-    },
-  },
+    setMoneyFormat(value) {
+      var sinal = "+ ";
+      if (value < 0) sinal = "- ";
+      else if (value == 0) sinal = "";
+      return (
+        sinal +
+        value
+          .toFixed(2)
+          .replace(".", ",")
+          .replace(/\d(?=(\d{3})+\,)/g, "$&.")
+      );
+    }
+  }
 };
 </script>
 
 <style>
 #complexity-cell {
-    text-align: center;
+  text-align: center;
 }
 
 #period-cell {
-    text-align: center;
+  text-align: center;
 }
 
 #value-cell {
-    text-align: right;
-    max-width: 7em;
+  text-align: right;
+  min-width: 10em;
 }
 
 #name-cell {
-    max-width: 18em;
+  /*    max-width: 18em;*/
 }
 
 #situation-cell {
-    text-align: center;
+  text-align: center;
 }
-
 </style>

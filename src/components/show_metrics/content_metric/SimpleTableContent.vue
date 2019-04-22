@@ -1,14 +1,14 @@
 <template>
   <div>
-    <table v-if="metrica.valor!=0" class="ui celled table striped ">
+    <table v-if="metrica.valor!=0" class="ui celled table striped">
       <thead>
         <tr>
-            <th id="complexity-cell">Comp.</th>
-            <th>Nome</th>
-            <th id="value-cell">Valor Comprovado (R$)</th>
-            <th id="value-cell">Valor Captado (R$)</th>
-            <th id="complexity-cell">Sit.</th>
-            <th>Período de execução</th>
+          <th id="complexity-cell">Comp.</th>
+          <th>Nome</th>
+          <th id="value-cell">Valor Comprovado (R$)</th>
+          <th id="value-cell">Valor Captado (R$)</th>
+          <th id="complexity-cell">Sit.</th>
+          <th>Período de execução</th>
         </tr>
       </thead>
       <tbody>
@@ -16,10 +16,19 @@
           <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade) }}</td>
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
           <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
-          <td data-label="Valor Comprovado" id="value-cell">{{setMoneyFormat(project.valor_comprovado)}}</td>
-          <!-- FIX CONSOLE BUG -->
-          <td data-label="Sit." id="situation-cell" :data-tooltip="text">{{getStatus(project.situacao)}}</td>
-          <td data-label="Período de execução" id="period-cell">{{formateDate(project.data_inicio, project.data_fim)}}</td>
+          <td
+            data-label="Valor Comprovado"
+            id="value-cell"
+          >{{setMoneyFormat(project.valor_comprovado)}}</td>
+          <td
+            data-label="Sit."
+            id="situation-cell"
+            :data-tooltip="text"
+          >{{getStatus(project.situacao)}}</td>
+          <td
+            data-label="Período de execução"
+            id="period-cell"
+          >{{formateDate(project.data_inicio, project.data_fim)}}</td>
         </tr>
       </tbody>
     </table>
@@ -33,60 +42,60 @@ export default {
   props: {
     metrica: Object
   },
-  data(){
+  data() {
     return {
       code: "",
       text: ""
-    }
+    };
   },
   methods: {
-    setMoneyFormat(value){
-        if(value)
-            return (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
-        else return "";
+    setMoneyFormat(value) {
+      if (value)
+        return value
+          .toFixed(2)
+          .replace(".", ",")
+          .replace(/\d(?=(\d{3})+\,)/g, "$&.");
+      else return "";
     },
-    formateDate(begin, end){
-        if(begin && end){
-            let start =  begin.slice(5,7) + '/' + begin.slice(0,4);
-            let final =  end.slice(5,7) + '/' + end.slice(0,4);
-            let date = start + " à " + final
+    formateDate(begin, end) {
+      if (begin && end) {
+        let start = begin.slice(5, 7) + "/" + begin.slice(0, 4);
+        let final = end.slice(5, 7) + "/" + end.slice(0, 4);
+        let date = start + " à " + final;
 
-            return (date==="/ à /") ? "-" : date;
-        }
-        else return "";
+        return date === "/ à /" ? "-" : date;
+      } else return "";
     },
-    getStatus(status){
-        if(status){
-            this.code = status.split(" ",1);
-            this.text = status.replace(this.code+" - ", "");
-            return this.code[0];
-        }
-        else return "";
+    getStatus(status) {
+      if (status) {
+        this.code = status.split(" ", 1);
+        this.text = status.replace(this.code + " - ", "");
+        return this.code[0];
+      } else return "";
     }
-  },
+  }
 };
 </script>
 
 <style>
 #complexity-cell {
-    text-align: center;
+  text-align: center;
 }
 
 #period-cell {
-    text-align: center;
+  text-align: center;
 }
 
 #value-cell {
-    text-align: right;
-    max-width: 7em;
+  text-align: right;
+  max-width: 7em;
 }
 
 #name-cell {
-    max-width: 18em;
+  max-width: 18em;
 }
 
 #situation-cell {
-    text-align: center;
+  text-align: center;
 }
-
 </style>

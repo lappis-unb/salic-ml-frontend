@@ -45,7 +45,7 @@ function getColorStyle(isOutlier, valid) {
 
 export function getItensOrcamentarios(metricas) {
   let name = "Itens orçamentários";
-  let helper = "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento";
+  let helper = "Compara a quantidade de itens deste projeto com a quantidade mais comum de itens em projetos do mesmo segmento.";
   let type = "simples";
 
   return createBaseMetric(metricas["itens_orcamentarios"], name, helper, type);
@@ -53,7 +53,7 @@ export function getItensOrcamentarios(metricas) {
 
 export function getComprovantesComExtrapolacaoDe50(metricas) {
   let name = "Comprovantes que extrapolaram mais de 50% do aprovado";
-  let helper = "Quantidade de comprovantes com valor maior que o limite de extrapolação previsto na Lei (valor aprovado + extrapolação de 50%)";
+  let helper = "Quantidade de comprovantes com valor maior que o limite de extrapolação previsto na Lei (valor aprovado + extrapolação de 50%).";
   let type = "lista-simples";
 
   let metric = createBaseMetric(metricas["comprovantes_acima_de_50"], name, helper, type);
@@ -71,7 +71,7 @@ export function getComprovantesComExtrapolacaoDe50(metricas) {
 
 export function getProjetosDoMesmoProponente(metricas) {
   let name = "Projetos do mesmo proponente";
-  let helper = "Indica a complexidade dos projetos que o proponente já executou no passado";
+  let helper = "Indica a complexidade dos projetos que o proponente já executou no passado.";
   let type = "tabela-simples";
 
   let metric = createBaseMetric(metricas["projetos_mesmo_proponente"], name, helper, type);
@@ -105,7 +105,7 @@ export function getValorASerComprovado(metricas) {
 
 export function getNovosFornecedores(metricas) {
   let name = "Novos fornecedores";
-  let helper = "Lista fornecedores que estão participando do incentivo cultural pela primeira vez";
+  let helper = "Lista fornecedores que estão participando do incentivo cultural pela primeira vez.";
   let type = "lista-com-dropdown";
 
   let metric = createBaseMetric(metricas["novos_fornecedores"], name, helper, type);
@@ -121,7 +121,7 @@ export function getNovosFornecedores(metricas) {
 
 export function getComprovantesDeTransferencia(metricas) {
   let name = "Transferência com vários comprovantes*";
-  let helper = "Quantidade de transferências bancárias que comprovam o pagamento de dois ou mais itens orçamentários";
+  let helper = "Quantidade de transferências bancárias que comprovam o pagamento de dois ou mais itens orçamentários.";
   let type = "lista-com-dropdown-tabela";
 
   let metric = createBaseMetric(metricas["comprovantes_de_transferencia"], name, helper, type);
@@ -146,7 +146,7 @@ export function getComprovantesDeTransferencia(metricas) {
 
 export function getComprovantesDeSaque(metricas) {
   let name = "Saque com vários comprovantes*";
-  let helper = "Quantidade de saques que comprovam o pagamento de dois ou mais itens orçamentários";
+  let helper = "Quantidade de saques que comprovam o pagamento de dois ou mais itens orçamentários.";
   let type = "lista-com-dropdown-tabela";
 
   let metric = createBaseMetric(metricas["comprovantes_de_saque"], name, helper, type);
@@ -172,14 +172,14 @@ export function getComprovantesDeSaque(metricas) {
 //Trocar isso
 export function getComprovantesDeCheque(metricas) {
   let name = "Cheque com vários comprovantes*";
-  let helper = "Quantidade de cheques que comprovam o pagamento de dois ou mais itens orçamentários";
+  let helper = "Quantidade de cheques que comprovam o pagamento de dois ou mais itens orçamentários.";
   let type = "lista-com-dropdown-tabela";
 
   metricas.comprovantes_de_cheque = {
       valor: 0,
       valor_formatado: 0,
-      valor_valido: true,
-      is_outlier: true,
+      valor_valido: false,
+      is_outlier: false,
       minimo_esperado: 0,
       maximo_esperado: 0,
   }
