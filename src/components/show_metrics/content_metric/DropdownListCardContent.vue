@@ -2,9 +2,10 @@
   <div>
     <div v-if="metrica.length!=0">
       <div v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
-        <div class="title" id="title">
+        <div class="title">
           <i class="dropdown icon"></i>
-          {{object.nome}} <a href="metrica.link">(Link dos itens)</a>
+          <span id="title">{{object.nome}}</span>
+          <a href="metrica.link"> (Link dos itens)</a>
         </div>
         <div class="content">
           <div class="ui bulleted list">

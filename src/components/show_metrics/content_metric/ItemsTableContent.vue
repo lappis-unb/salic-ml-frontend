@@ -1,10 +1,10 @@
 <template>
   <div>
-    <table v-if="metrica.valor!=0" class="ui celled striped collapsing table  ">
+    <table v-if="metrica.valor!=0" class="ui celled striped collapsing table">
       <thead>
         <tr>
-            <th>Itens a serem comprovados</th>
-            <th id="value-cell">Valor (R$)</th>
+          <th>Itens a serem comprovados</th>
+          <th id="value-cell">Valor (R$)</th>
         </tr>
       </thead>
       <tbody>
@@ -24,43 +24,48 @@ export default {
   props: {
     metrica: Object
   },
-  data(){
+  data() {
     return {
       code: "",
       text: ""
-    }
+    };
   },
   methods: {
-    setMoneyFormat(value){
-        var sinal = '+ ';
-        if(value<0) sinal = '- ';
-        else if (value==0) sinal = '';
-        return sinal + (value).toFixed(2).replace('.',',').replace(/\d(?=(\d{3})+\,)/g, '$&.');
-    },
-  },
+    setMoneyFormat(value) {
+      var sinal = "+ ";
+      if (value < 0) sinal = "- ";
+      else if (value == 0) sinal = "";
+      return (
+        sinal +
+        value
+          .toFixed(2)
+          .replace(".", ",")
+          .replace(/\d(?=(\d{3})+\,)/g, "$&.")
+      );
+    }
+  }
 };
 </script>
 
 <style>
 #complexity-cell {
-    text-align: center;
+  text-align: center;
 }
 
 #period-cell {
-    text-align: center;
+  text-align: center;
 }
 
 #value-cell {
-    text-align: right;
-    min-width: 10em;
+  text-align: right;
+  min-width: 10em;
 }
 
 #name-cell {
-/*    max-width: 18em;*/
+  /*    max-width: 18em;*/
 }
 
 #situation-cell {
-    text-align: center;
+  text-align: center;
 }
-
 </style>

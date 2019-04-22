@@ -62,7 +62,7 @@ export default {
 }
 
 .ui.styled.accordion .content {
-  margin: 0 0 0 5.5em !important;
+  margin: 0 0 0 3em !important;
 }
 
 /*** Nested accordion ***/
