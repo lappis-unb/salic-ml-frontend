@@ -1,7 +1,7 @@
 
 <template>
   <div class="ui container">
-    <filter-bar></filter-bar>
+    <!--<filter-bar></filter-bar>-->
     <div style="cursor: pointer;">
       <vuetable
         ref="vuetable"
@@ -145,10 +145,11 @@ export default {
     onCellClicked(data) {
       // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
       this.$refs.vuetable.toggleDetailRow(data.id);
-      this.$router.push({
+      let routeData = this.$router.resolve({
         name: "indicador_financeiro",
         params: { pronac: data.pronac.toString() }
       });
+      window.open(routeData.href, '_blank');
     },
     onFilterSet(filterText) {
       // console.log(filterText)

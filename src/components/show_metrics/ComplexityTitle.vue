@@ -44,16 +44,19 @@ export default {
       .radialIndicator({
         radius: 70,
         barColor: {
-          0: "#1B5E20",
-          3: "#F2B01C",
-          8: "#DB2828",
-          10: "#DB2828"
+          0: "#1b5e20",
+          2: "#1b5e20",
+          3: "#f2b01c",
+          7: "#f2b01c",
+          8: "#db2828",
+          10: "#db2828"
         },
         maxValue: 10,
         barWidth: 10,
         initValue: 0,
         roundCorner: true,
-        percentage: false
+        percentage: false,
+        interpolate: false,
       })
       .data("radialIndicator");
     this.radialObj.value(this.value);
