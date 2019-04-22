@@ -1,5 +1,6 @@
 {
   "name": "salic-ml-frontend",
+  "homepage": "https://lappis-unb.github.io/salic-ml-frontend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
