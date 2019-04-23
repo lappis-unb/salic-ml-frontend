@@ -16,7 +16,10 @@
       ></vuetable>
     </div>
     <div class="vuetable-pagination ui basic segment grid">
-      <vuetable-pagination-info ref="paginationInfo" info-template="Mostrando {from} a {to} projetos de {total}"></vuetable-pagination-info>
+      <vuetable-pagination-info
+        ref="paginationInfo"
+        info-template="Mostrando {from} a {to} projetos de {total}"
+      ></vuetable-pagination-info>
       <vuetable-pagination ref="pagination" @vuetable-pagination:change-page="onChangePage"></vuetable-pagination>
     </div>
   </div>
@@ -49,30 +52,30 @@ export default {
       fields: [
         {
           name: "pronac",
-					title: "PRONAC",
+          title: "PRONAC",
           // sortField: 'pronac',
           titleClass: "center aligned",
           dataClass: "center aligned",
-					width: "5%",
+          width: "5%",
           callback: "pronacLabel"
         },
         {
           name: "complexidade",
           // sortField: 'complexity',
           titleClass: "center aligned",
-					width: "5%",
+          width: "5%",
           callback: "complexityLabel",
           dataClass: "center aligned"
         },
         {
           name: "nome",
-					width: "70%",
+          width: "70%"
           // sortField: 'project_name'
         },
         {
           name: "responsavel",
-					title: "Responsável",
-					width: "20%",
+          title: "Responsável",
+          width: "20%",
           // sortField: 'analist',
           titleClass: "center aligned",
           dataClass: "center aligned"
@@ -149,7 +152,7 @@ export default {
         name: "indicador_financeiro",
         params: { pronac: data.pronac.toString() }
       });
-      window.open(routeData.href, '_blank');
+      window.open(routeData.href, "_blank");
     },
     onFilterSet(filterText) {
       // console.log(filterText)

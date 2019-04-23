@@ -3,11 +3,14 @@
     <div class="ui dimmer inverted" id="load_background" :class="(loading)? 'active' : 'disabled'">
       <div class="ui large text loader">Carregando...</div>
     </div>
-    <header-show :value="indicadores.FinancialIndicator.valor" :project="project" />
+    <header-show :value="indicadores.FinancialIndicator.valor" :project="project"/>
     <span>
-      <complexity-title :value="indicadores.FinancialIndicator.valor" :project="project" />
-      <metrics-list v-if="metricas!=undefined" :metricas="metricas" />
-      <h1 v-else style="text-align: center;">Error a acessar as métricas. {{indicadores.FinancialIndicator.metricas==undefined}}</h1>
+      <complexity-title :value="indicadores.FinancialIndicator.valor" :project="project"/>
+      <metrics-list v-if="metricas!=undefined" :metricas="metricas"/>
+      <h1
+        v-else
+        style="text-align: center;"
+      >Error a acessar as métricas. {{indicadores.FinancialIndicator.metricas==undefined}}</h1>
     </span>
   </div>
 </template>
@@ -17,7 +20,7 @@ import HeaderShow from "@/components/show_metrics/HeaderShow.vue";
 import ComplexityTitle from "@/components/show_metrics/ComplexityTitle.vue";
 import MetricsList from "@/components/show_metrics/MetricsList.vue";
 import axios from "axios";
-import {API_PATH_PROJECT} from '@/utils/variables.js';
+import { API_PATH_PROJECT } from "@/utils/variables.js";
 import * as metrics_functions from "@/utils/metrics.js";
 
 export default {
@@ -25,7 +28,7 @@ export default {
   components: {
     "header-show": HeaderShow,
     "complexity-title": ComplexityTitle,
-    "metrics-list": MetricsList,
+    "metrics-list": MetricsList
   },
   data: function() {
     return {
@@ -40,12 +43,10 @@ export default {
         pronac: "Pronac não existente",
         name: "Projeto não existente"
       },
-      url: API_PATH_PROJECT + this.$route.params.pronac + '/details/'
+      url: API_PATH_PROJECT + this.$route.params.pronac + "/details/"
     };
   },
-  methods: {
-  }
-  ,
+  methods: {},
   props: {
     pronac: String
   },
@@ -60,8 +61,8 @@ export default {
         metrics_functions.getNovosFornecedores(metricas),
         metrics_functions.getComprovantesDeTransferencia(metricas),
         metrics_functions.getComprovantesDeSaque(metricas),
-        metrics_functions.getComprovantesDeCheque(metricas),
-      ]
+        metrics_functions.getComprovantesDeCheque(metricas)
+      ];
     }
   },
   created: function() {
@@ -88,7 +89,7 @@ export default {
 
 <style>
 #load_background {
-    background: #FFF;
+  background: #fff;
 }
 </style>
 

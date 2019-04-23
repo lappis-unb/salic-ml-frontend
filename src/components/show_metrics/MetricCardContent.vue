@@ -55,7 +55,7 @@ export default {
     "dropdown-list-table": DropdownListTableCardContent,
 
     "item-list": ItemListCardContent,
-    "above-average-list": AboveAveragePricesCardContent,
+    "above-average-list": AboveAveragePricesCardContent
   },
   props: {
     metrica: Object

@@ -1,4 +1,4 @@
-# salic-ml-frontend
+# SalicML Front-end
 
 ## Project setup
 ```

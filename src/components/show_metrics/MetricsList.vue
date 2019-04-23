@@ -32,7 +32,7 @@ import MetricCardContent from "./MetricCardContent.vue";
 export default {
   name: "MetricsList",
   props: {
-    metricas: Array,
+    metricas: Array
   },
   components: {
     "helper-metric": HelperMetric,
@@ -51,14 +51,14 @@ export default {
 
 .ui.styled.accordion > .title {
   font-size: 1.5em !important;
-	line-height: 1;
-	display: flex;
-	align-items: center;
+  line-height: 1;
+  display: flex;
+  align-items: center;
 }
 
 .ui.styled.accordion > .title .dropdown.icon {
   color: #000;
-	margin-left: auto;
+  margin-left: auto;
 }
 
 .ui.styled.accordion .content {
@@ -94,7 +94,7 @@ export default {
   left: calc(-1.5rem - 1.2em) !important;
   padding: 1em 0 1em 1.2em !important;
 }
-	
+
 .ui.ribbon.label .icon {
   font-size: 2em;
   padding-left: 0.2em;
@@ -108,7 +108,7 @@ export default {
 .Metric-bad .ui.ribbon.label {
   background-color: #db2828;
   border-color: #841818;
-/*	border-left-width: 1em;*/
+  /*	border-left-width: 1em;*/
 }
 .Metric-bad .icon:before {
   content: "\f2c7"; /* Thermometer full */

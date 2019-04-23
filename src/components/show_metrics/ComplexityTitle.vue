@@ -56,7 +56,7 @@ export default {
         initValue: 0,
         roundCorner: true,
         percentage: false,
-        interpolate: false,
+        interpolate: false
       })
       .data("radialIndicator");
     this.radialObj.value(this.value);

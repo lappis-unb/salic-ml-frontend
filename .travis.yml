@@ -1,13 +1,14 @@
 language: node_js
 
 node_js:
-  - 'node'
+  - "10.15.3" 
 
 branches:
   only:
   - master
 
 cache:
+  - npm
   directories:
     - node_modules
 
@@ -16,8 +17,8 @@ script:
 
 deploy:
   provider: pages
-  skip_cleanup: true
-  github_token: $GH_TOKEN
   local_dir: dist/
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
   on:
     branch: master

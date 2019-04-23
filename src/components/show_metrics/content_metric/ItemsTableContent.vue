@@ -33,14 +33,15 @@ export default {
   methods: {
     setMoneyFormat(value) {
       var sinal = "+ ";
+
       if (value < 0) sinal = "- ";
       else if (value == 0) sinal = "";
+
       return (
         sinal +
-        value
-          .toFixed(2)
-          .replace(".", ",")
-          .replace(/\d(?=(\d{3})+\,)/g, "$&.")
+        Intl.NumberFormat("en-US", { style: "currency", currency: "BRL" })
+          .format(value)
+          .replace("R$", "")
       );
     }
   }

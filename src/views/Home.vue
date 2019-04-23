@@ -10,18 +10,17 @@
 </template>
 
 <script>
-import Vuetable from '@/components/home_table/Table.vue'
+import Vuetable from "@/components/home_table/Table.vue";
 
 export default {
   components: {
-    Vuetable,
-  },
-}
+    Vuetable
+  }
+};
 </script>
 
 <style>
 .home {
-    margin-top: 55px;
+  margin-top: 55px;
 }
-
 </style>
