@@ -2,7 +2,6 @@
   <div class="ui basic segment" id="DiagnosticArea">
     <div
       v-for="(metrica, index) in metricas"
-      v-if="metrica!=undefined"
       :key="metrica.tipo+index"
       class="ui styled fluid accordion"
       id="DiagnosticMetrics"
