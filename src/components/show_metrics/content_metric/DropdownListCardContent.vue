@@ -1,7 +1,9 @@
 <template>
   <div>
+      <a  class="Link" href="metrica.link" id="fdsa"><strong>Acesse a Planilha</strong></a>
     <div v-if="metrica.length!=0">
-      <a href="metrica.link" id="fdsa"><strong>Link da planilha dos itens orçamentários</strong></a>
+      <pre>
+        </pre>
       <div v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
         <div class="title">
           <i class="dropdown icon"></i>
@@ -38,8 +40,17 @@ export default {
   text-transform: capitalize;
 }
 
-#fdsa{
-    margin-left: 25px;
+.Link {
+  font-weight: bold; 
+  cursor: pointer;
+  color: #0099a8;
 }
+
+.Link:hover {
+  color: #003f70;
+  text-decoration: underline;
+}
+
+
 </style>
 
