@@ -1,9 +1,6 @@
 <template>
   <div>
-      <a  class="Link" href="metrica.link" id="fdsa"><strong>Acesse a Planilha</strong></a>
     <div v-if="metrica.length!=0">
-      <pre>
-        </pre>
       <div v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
         <div class="title">
           <i class="dropdown icon"></i>
@@ -20,6 +17,7 @@
           </div>
         </div>
       </div>
+      <a  :href="metrica.link">Acesse a Planilha</a>
     </div>
     <div v-else>{{text_exception}}</div>
   </div>
@@ -40,15 +38,14 @@ export default {
   text-transform: capitalize;
 }
 
-.Link {
+a {
   font-weight: bold; 
-  cursor: pointer;
-  color: #0099a8;
+  color: #0099a8 !important;
 }
 
-.Link:hover {
-  color: #003f70;
-  text-decoration: underline;
+a:hover {
+  color: #003f70 !important;
+  text-decoration: underline !important;
 }
 
 
