@@ -1,9 +1,6 @@
 <template>
   <div>
     <div v-if="metrica.length!=0">
-      <a href="metrica.link" id="fdsa">
-        <strong>Link da planilha dos itens orçamentários</strong>
-      </a>
       <div v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
         <div class="title">
           <i class="dropdown icon"></i>
@@ -20,6 +17,7 @@
           </div>
         </div>
       </div>
+      <a  :href="metrica.link">Acesse a Planilha</a>
     </div>
     <div v-else>{{text_exception}}</div>
   </div>
@@ -40,8 +38,16 @@ export default {
   text-transform: capitalize;
 }
 
-#fdsa {
-  margin-left: 25px;
+a {
+  font-weight: bold; 
+  color: #0099a8 !important;
 }
+
+a:hover {
+  color: #003f70 !important;
+  text-decoration: underline !important;
+}
+
+
 </style>
 
