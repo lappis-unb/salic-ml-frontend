@@ -51,10 +51,12 @@ export default {
   methods: {
     setMoneyFormat(value) {
       if (value)
-        return value
-          .toFixed(2)
-          .replace(".", ",")
-          .replace(/\d(?=(\d{3})+\,)/g, "$&.");
+        return Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "BRL"
+        })
+          .format(value)
+          .replace("R$", "");
       else return "";
     },
     formateDate(begin, end) {

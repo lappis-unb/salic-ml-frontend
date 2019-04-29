@@ -14,5 +14,4 @@ html {
   max-width: 1500px;
   padding: 45px 50px 50px 50px;
 }
-
 </style>

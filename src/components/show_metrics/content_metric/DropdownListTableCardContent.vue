@@ -1,19 +1,23 @@
 <template>
   <div>
-    <div v-for="(object, index) in metrica.comprovantes" :key="index+object+index" class="accordion">
+    <div
+      v-for="(object, index) in metrica.comprovantes"
+      :key="index+object+index"
+      class="accordion"
+    >
       <div class="title" id="title">
         <i class="dropdown icon"></i>
         {{object.id_comprovante}}
       </div>
       <div class="content">
         <div class="ui bulleted list">
-          <table class="ui celled table striped ">
+          <table class="ui celled table striped">
             <thead>
               <tr>
-                  <th>Nome</th>
-                  <th>Nome do Fornecedor</th>
-                  <th>CPF / CNPJ do Fornecedor</th>
-                  <th>Valor Comprovado</th>
+                <th>Nome</th>
+                <th>Nome do Fornecedor</th>
+                <th>CPF / CNPJ do Fornecedor</th>
+                <th>Valor Comprovado</th>
               </tr>
             </thead>
             <tbody>
@@ -35,10 +39,9 @@
 export default {
   name: "DropdownListCardContent",
   props: {
-    metrica: Object,
+    metrica: Object
   }
 };
-
 </script>
 <style scoped>
 #title {
