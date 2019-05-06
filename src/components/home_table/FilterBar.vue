@@ -1,38 +1,71 @@
 <template>
-  <div class="filter-bar ui basic segment grid">
-    <div class="ui form">
-      <div class="inline field">
-        <label>Pesquisar por PRONAC:</label>
-        <input
-          type="text"
-          v-model="filterText"
-          class="three wide column"
-          @keyup.enter="doFilter"
-          placeholder="PRONAC"
-        >
-        <button class="ui primary button search-button" @click="doFilter">Filtrar</button>
-        <button class="ui button search-button" @click="resetFilter">Limpar</button>
+  <div>
+      <div v-if="message" class="ui message" id="warning-layout">
+          <div class="header">
+            PRONAC não encontrado, tente outro.
+          </div>
       </div>
-    </div>
+      <div class="filter-bar ui basic segment grid">
+        <div class="ui form">
+          <div class="inline field">
+            <label>Pesquisar por PRONAC:</label>
+            <input
+              type="text"
+              v-model="filterText"
+              class="three wide column"
+              @keyup.enter="doFilter"
+              placeholder="Apenas números. Ex: 090105"
+              oninput="this.value = this.value.replace(/[^0-9]/g,'');"
+            >
+            <button class="ui primary button search-button" @click="doFilter">Filtrar</button>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
+import { API_PATH_PROJECT } from "@/utils/variables.js";
+import axios from "axios";
+
 export default {
   data() {
     return {
-      filterText: ""
+      filterText: "",
+      url: API_PATH_PROJECT + this.$route.params.pronac + "/details/",
+      message: false
     };
   },
   methods: {
     doFilter() {
-      this.$events.fire("filter-set", this.filterText);
-      //console.log(this.filterText);
+      //this.$events.fire("filter-set", this.filterText);
+
+      if(this.validatePronac(this.filterText)){
+          let routeData = this.$router.resolve({
+            name: "indicador_financeiro",
+            params: { pronac: this.filterText }
+          });
+          window.open(routeData.href, "_blank");
+        this.message = false;
+      } else { 
+        this.message = true;
+      }
     },
-    resetFilter() {
-      this.filterText = "";
-      this.$events.fire("filter-reset");
-      //console.log(this.filterText);
+    validatePronac(){
+        var valide_pronac = false;
+        axios
+          .get(this.url)
+          .then(function(response) {
+            valide_pronac = true;
+          })
+          .catch(function(/*error*/) {
+            // console.log("Get error", error);
+          })
+          .then(function() {
+            // always executed
+          });
+
+          return valide_pronac;
     }
   }
 };
@@ -42,5 +75,8 @@ export default {
 .search-button {
   margin-left: 10px !important;
 }
-</style>
 
+#warning-layout {
+  margin-bottom: 20px;
+}
+</style>

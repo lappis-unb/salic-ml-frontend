@@ -1,7 +1,7 @@
 
 <template>
   <div class="ui container">
-    <!--<filter-bar></filter-bar>-->
+    <filter-bar></filter-bar>
     <div style="cursor: pointer;">
       <vuetable
         ref="vuetable"
@@ -103,7 +103,7 @@ export default {
         // always executed
       });
 
-    // this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
+    this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
     // this.$events.$on('filter-reset', e => this.onFilterReset())
   },
   // computed:{
@@ -155,9 +155,12 @@ export default {
       window.open(routeData.href, "_blank");
     },
     onFilterSet(filterText) {
-      // console.log(filterText)
-      this.moreParams.filter = filterText;
-      Vue.nextTick(() => this.$refs.vuetable.refresh());
+      /*console.log(filterText)
+      let routeData = this.$router.resolve({
+        name: "indicador_financeiro",
+        params: { pronac: filterText }
+      });
+      window.open(routeData.href, "_blank");*/
     },
     onFilterReset() {
       delete this.moreParams.filter;
