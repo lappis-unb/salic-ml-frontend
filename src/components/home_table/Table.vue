@@ -1,4 +1,3 @@
-
 <template>
   <div class="ui container">
     <filter-bar></filter-bar>
@@ -134,12 +133,10 @@ export default {
       );
     },
     onPaginationData(paginationData) {
-      //console.log("Pagination:", paginationData);
       this.$refs.pagination.setPaginationData(paginationData);
       this.$refs.paginationInfo.setPaginationData(paginationData);
     },
     onChangePage(page) {
-      //console.log("Trocando de pag:", page);
       this.$refs.vuetable.changePage(page);
     },
     // onAction (action, data, index) {

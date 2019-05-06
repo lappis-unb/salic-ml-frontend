@@ -1,26 +1,26 @@
 <template>
-  <div>
-      <div v-if="message" class="ui message" id="warning-layout">
+<div>
+   <div class="ui segment basic right aligned">
+      <div v-if="message" class="ui message compact" id="warning-layout">
           <div class="header">
-            PRONAC não encontrado, tente outro.
+            PRONAC não encontrado
           </div>
       </div>
-      <div class="filter-bar ui basic segment grid">
         <div class="ui form">
           <div class="inline field">
-            <label>Pesquisar por PRONAC:</label>
+            <label>Ir para o projeto:</label>
             <input
               type="text"
               v-model="filterText"
-              class="three wide column"
               @keyup.enter="doFilter"
-              placeholder="Apenas números. Ex: 090105"
+              placeholder="PRONAC"
               oninput="this.value = this.value.replace(/[^0-9]/g,'');"
+              size="8"
             >
-            <button class="ui primary button search-button" @click="doFilter">Filtrar</button>
+            <button class="ui primary button search-button" @click="doFilter">Ir</button>
           </div>
-        </div>
       </div>
+  </div>
   </div>
 </template>
 
