@@ -32,15 +32,26 @@ export default {
   data() {
     return {
       filterText: "",
-      url: API_PATH_PROJECT + this.$route.params.pronac + "/details/",
-      message: false
+      message: false,
     };
   },
   methods: {
-    doFilter() {
-      //this.$events.fire("filter-set", this.filterText);
-
-      if(this.validatePronac(this.filterText)){
+	 isValidPronac(pronac) {
+	  return new Promise(resolve => {
+		let existing_pronac = axios
+          .get(API_PATH_PROJECT + pronac + "/details/")
+          .then((response) => {
+			return true;
+          })
+          .catch((/*error*/) => {
+			return false;
+          })
+		  resolve(existing_pronac);
+	  });
+	},
+    async doFilter() {
+	  var result = await this.isValidPronac(this.filterText);
+      if(result){
           let routeData = this.$router.resolve({
             name: "indicador_financeiro",
             params: { pronac: this.filterText }
@@ -51,22 +62,6 @@ export default {
         this.message = true;
       }
     },
-    validatePronac(){
-        var valide_pronac = false;
-        axios
-          .get(this.url)
-          .then(function(response) {
-            valide_pronac = true;
-          })
-          .catch(function(/*error*/) {
-            // console.log("Get error", error);
-          })
-          .then(function() {
-            // always executed
-          });
-
-          return valide_pronac;
-    }
   }
 };
 </script>

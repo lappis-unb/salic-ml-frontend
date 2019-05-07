@@ -93,7 +93,6 @@ export default {
     axios
       .get(API_PATH_PROJECT_LIST)
       .then(function(response) {
-        // handle success
         var projects = JSON.parse(JSON.stringify(response.data));
         self.projects = projects;
       })
@@ -103,7 +102,6 @@ export default {
       })
       .then(function() {
         self.loading = false;
-        // always executed
       });
   },
   methods: {
@@ -142,6 +140,7 @@ export default {
         name: "indicador_financeiro",
         params: { pronac: data.pronac.toString() }
       });
+
       window.open(routeData.href, "_blank");
     },
   }
