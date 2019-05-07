@@ -1,0 +1,16 @@
+version: '3'
+services:
+  salic-ml-frontend:
+    container_name: salic-ml-frontend
+    hostname: salic-ml-frontend
+    build:
+      context: .
+      dockerfile: dev.dockerfile
+    volumes:
+      - .:/usr/salic-ml-frontend
+      - /usr/salic-ml-frontend/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
