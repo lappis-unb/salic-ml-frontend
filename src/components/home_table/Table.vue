@@ -1,7 +1,6 @@
-
 <template>
   <div class="ui container">
-    <!--<filter-bar></filter-bar>-->
+    <filter-bar></filter-bar>
     <div style="cursor: pointer;">
       <vuetable
         ref="vuetable"
@@ -47,41 +46,45 @@ export default {
   data() {
     return {
       api_path: API_PATH_PROJECT_LIST,
-      pronac: "",
       projects: [],
       fields: [
         {
           name: "pronac",
           title: "PRONAC",
-          // sortField: 'pronac',
+          sortField: "pronac",
           titleClass: "center aligned",
           dataClass: "center aligned",
-          width: "5%",
+          width: "10%",
           callback: "pronacLabel"
         },
         {
           name: "complexidade",
-          // sortField: 'complexity',
+          sortField: "complexidade",
           titleClass: "center aligned",
-          width: "5%",
+          width: "15%",
           callback: "complexityLabel",
           dataClass: "center aligned"
         },
         {
           name: "nome",
-          width: "70%"
-          // sortField: 'project_name'
+          width: "55%",
+          sortField: "project_name"
         },
         {
           name: "responsavel",
           title: "Responsável",
           width: "20%",
-          // sortField: 'analist',
+          sortField: "responsavel",
           titleClass: "center aligned",
-          dataClass: "center aligned"
+          callback: "responsavelLabel"
         }
       ],
-      sortOrder: [],
+      sortOrder: [
+        {
+          field: "complexidade",
+          direction: "desc"
+        }
+      ],
       moreParams: {}
     };
   },
@@ -90,7 +93,6 @@ export default {
     axios
       .get(API_PATH_PROJECT_LIST)
       .then(function(response) {
-        // handle success
         var projects = JSON.parse(JSON.stringify(response.data));
         self.projects = projects;
       })
@@ -100,24 +102,14 @@ export default {
       })
       .then(function() {
         self.loading = false;
-        // always executed
       });
-
-    // this.$events.$on('filter-set', eventData => this.onFilterSet(eventData))
-    // this.$events.$on('filter-reset', e => this.onFilterReset())
   },
-  // computed:{
-  //   projects_list: function(){
-  //       let data = this.projects;
-  //       var transformed = {}
-  //       console.log("Projects_list: ", data);
-  //       return data;
-  //   }
-  // },
   methods: {
     pronacLabel(value) {
-      this.pronac = value;
       return '<p class="ui teal label">' + value + "</p>";
+    },
+    responsavelLabel(value) {
+      return value != " " ? value : "Não há responsável";
     },
     complexityLabel(value) {
       this.complexity = value;
@@ -134,34 +126,22 @@ export default {
       );
     },
     onPaginationData(paginationData) {
-      //console.log("Pagination:", paginationData);
       this.$refs.pagination.setPaginationData(paginationData);
       this.$refs.paginationInfo.setPaginationData(paginationData);
     },
     onChangePage(page) {
-      //console.log("Trocando de pag:", page);
       this.$refs.vuetable.changePage(page);
     },
-    // onAction (action, data, index) {
-    //  console.log('slot action: ' + action, data.project_name, index)
-    // },
     onCellClicked(data) {
       // window.location.href = "http://salic.cultura.gov.br/consultardadosprojeto/index?idPronac=" + (data.pronac).toString()
+
       this.$refs.vuetable.toggleDetailRow(data.id);
       let routeData = this.$router.resolve({
         name: "indicador_financeiro",
         params: { pronac: data.pronac.toString() }
       });
+
       window.open(routeData.href, "_blank");
-    },
-    onFilterSet(filterText) {
-      // console.log(filterText)
-      this.moreParams.filter = filterText;
-      Vue.nextTick(() => this.$refs.vuetable.refresh());
-    },
-    onFilterReset() {
-      delete this.moreParams.filter;
-      Vue.nextTick(() => this.$refs.vuetable.refresh());
     }
   }
 };
