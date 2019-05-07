@@ -1,38 +1,64 @@
 <template>
-  <div class="filter-bar ui basic segment grid">
-    <div class="ui form">
-      <div class="inline field">
-        <label>Pesquisar por PRONAC:</label>
-        <input
-          type="text"
-          v-model="filterText"
-          class="three wide column"
-          @keyup.enter="doFilter"
-          placeholder="PRONAC"
-        >
-        <button class="ui primary button search-button" @click="doFilter">Filtrar</button>
-        <button class="ui button search-button" @click="resetFilter">Limpar</button>
+  <div>
+    <div class="ui segment basic right aligned">
+      <div v-if="message" class="ui message compact" id="warning-layout">
+        <div class="header">PRONAC não encontrado</div>
+      </div>
+      <div class="ui form">
+        <div class="inline field">
+          <label>Ir para o projeto:</label>
+          <input
+            type="text"
+            v-model="filterText"
+            @keyup.enter="doFilter"
+            placeholder="PRONAC"
+            oninput="this.value = this.value.replace(/[^0-9]/g,'');"
+            size="8"
+          >
+          <button class="ui primary button search-button" @click="doFilter">Ir</button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { API_PATH_PROJECT } from "@/utils/variables.js";
+import axios from "axios";
+
 export default {
   data() {
     return {
-      filterText: ""
+      filterText: "",
+      message: false
     };
   },
   methods: {
-    doFilter() {
-      this.$events.fire("filter-set", this.filterText);
-      //console.log(this.filterText);
+    isValidPronac(pronac) {
+      return new Promise(resolve => {
+        let existing_pronac = axios
+          .get(API_PATH_PROJECT + pronac + "/details/")
+          .then(() => {
+            return true;
+          })
+          .catch((/*error*/) => {
+            return false;
+          });
+        resolve(existing_pronac);
+      });
     },
-    resetFilter() {
-      this.filterText = "";
-      this.$events.fire("filter-reset");
-      //console.log(this.filterText);
+    async doFilter() {
+      var result = await this.isValidPronac(this.filterText);
+      if (result) {
+        let routeData = this.$router.resolve({
+          name: "indicador_financeiro",
+          params: { pronac: this.filterText }
+        });
+        window.open(routeData.href, "_blank");
+        this.message = false;
+      } else {
+        this.message = true;
+      }
     }
   }
 };
@@ -42,5 +68,8 @@ export default {
 .search-button {
   margin-left: 10px !important;
 }
-</style>
 
+#warning-layout {
+  margin-bottom: 20px;
+}
+</style>
