@@ -45,8 +45,8 @@ export default {
         radius: 70,
         barColor: {
           0: "#1b5e20",
-          2: "#1b5e20",
-          3: "#f2b01c",
+          4: "#1b5e20",
+          5: "#f2b01c",
           7: "#f2b01c",
           8: "#db2828",
           10: "#db2828"
