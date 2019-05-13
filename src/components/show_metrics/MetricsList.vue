@@ -2,7 +2,7 @@
   <div class="ui basic segment" id="DiagnosticArea">
     <div
       v-for="(metrica, index) in metricas"
-      :key="metrica.tipo+index"
+      :key="metrica.tipo + index"
       class="ui styled fluid accordion"
       id="DiagnosticMetrics"
     >
@@ -11,14 +11,14 @@
           <i class="icon"></i>
         </div>
         <span>
-          <span v-html="metrica.nome">{{metrica.nome}}</span>
-          : {{(metrica.valor_valido) ? metrica.valor_formatado : "não disp."}}
+          <span v-html="metrica.nome">{{ metrica.nome }}</span>
+          : {{ metrica.valor_valido ? metrica.valor_formatado : "não disp." }}
         </span>
-        <helper-metric :helper_text="metrica.explicacao"/>
+        <helper-metric :helper_text="metrica.explicacao" />
         <i class="dropdown icon"></i>
       </div>
       <div class="content">
-        <metric-content :metrica="metrica"/>
+        <metric-content :metrica="metrica" />
       </div>
     </div>
   </div>

@@ -2,7 +2,7 @@
   <div class="helper">
     <i class="question circle outline icon"></i>
     <div class="ui floating message">
-      <p>{{helper_text}}</p>
+      <p>{{ helper_text }}</p>
     </div>
   </div>
 </template>

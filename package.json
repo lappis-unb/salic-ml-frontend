@@ -8,7 +8,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "autofix": "npx prettier --write src/*"
   },
   "dependencies": {
     "accounting": "^0.4.1",
@@ -31,7 +32,10 @@
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "husky": "^2.2.0",
     "node-sass": "^4.12.0",
+    "prettier": "1.17.1",
+    "pretty-quick": "^1.10.0",
     "push-dir": "^0.4.1",
     "sass-loader": "^7.0.1",
     "semantic-ui-css": "^2.4.1",
@@ -85,6 +89,7 @@
     "testMatch": [
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
     ],
-    "testURL": "http://localhost/"
+    "testURL": "http://localhost/",
+	"husky": { "hooks": { "pre-commit": "pretty-quick --staged" } }
   }
 }

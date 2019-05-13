@@ -1,11 +1,15 @@
 <template>
-  <div class="ui fixed inverted menu" :class="getBackgroundClass" id="ProjectID">
+  <div
+    class="ui fixed inverted menu"
+    :class="getBackgroundClass"
+    id="ProjectID"
+  >
     <router-link to="/" class="ui icon inverted button" id="btBack">
       <i class="left arrow icon"></i>
     </router-link>
     <div class="ui small inverted statistic">
-      <div class="value">{{value|rounded}}</div>
-      <div class="label">{{getSubtitle}}</div>
+      <div class="value">{{ value | rounded }}</div>
+      <div class="label">{{ getSubtitle }}</div>
     </div>
     <p>{{ project.nome }} ({{ project.pronac }})</p>
   </div>

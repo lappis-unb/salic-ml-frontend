@@ -4,10 +4,10 @@
       <i class="left arrow icon"></i>
     </router-link>
     <div class="ui sticky grid" id="Summary">
-      <div hidden>{{value}}</div>
+      <div hidden>{{ value }}</div>
       <div class="four wide center aligned column" id="score">
         <div id="indicatorContainer"></div>
-        <h3>{{getSubtitle}}</h3>
+        <h3>{{ getSubtitle }}</h3>
       </div>
       <div class="twelve wide column">
         <h3>Complexidade da análise de resultado para:</h3>
