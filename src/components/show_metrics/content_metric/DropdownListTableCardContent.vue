@@ -6,9 +6,9 @@
       :key="index+object+index"
       class="accordion"
     >
-      <div class="title" id="title">
+      <div class="title">
         <i class="dropdown icon"></i>
-        {{object.id_comprovante}}
+        Código do comprovante: {{object.id_comprovante}}
       </div>
       <div class="content">
         <div class="ui bulleted list">
