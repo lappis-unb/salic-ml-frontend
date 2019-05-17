@@ -70,6 +70,11 @@ export default {
   justify-content: center;
 }
 
+#btBack:hover {
+    color: #1b5e20 !important;
+    text-decoration: none !important;
+}
+
 .ui.fixed.inverted.menu.complex {
   background-color: #f2b01c;
 }
@@ -81,6 +86,7 @@ export default {
 .ui.fixed.inverted.menu .ui.inverted.button {
   font-size: 1.2em;
   left: 1em;
+  color: #fff !important;
   box-shadow: none !important;
   position: absolute;
 }

@@ -152,128 +152,66 @@ export function getNovosFornecedores(metricas) {
 }
 
 export function getComprovantesDeTransferencia(metricas) {
-  let name = "Transferência com vários comprovantes*";
+  let name = "Transferência com vários comprovantes";
   let helper =
     "Quantidade de transferências bancárias que comprovam o pagamento de dois ou mais itens orçamentários.";
   let type = "lista-com-dropdown-tabela";
 
   let metric = createBaseMetric(
-    metricas["comprovantes_de_transferencia"],
-    name,
-    helper,
-    type
-  );
-
-  metric.list = [
-    {
-      cnpj_cpf: 99714833000,
-      nome: "Alexsandro da Silva Maciel",
-      itens: [
-        { id: 842881, nome: "Instrutor", link: "#" },
-        {
-          id: 842896,
-          nome: "Contribui\u00e7\u00e3o Patronal",
-          link: "#"
-        }
-      ]
-    }
-  ];
-
-  return metric;
-}
-
-export function getComprovantesDeSaque(metricas) {
-  let name = "Saque com vários comprovantes*";
-  let helper =
-    "Quantidade de saques que comprovam o pagamento de dois ou mais itens orçamentários.";
-  let type = "lista-com-dropdown-tabela";
-
-  let metric = createBaseMetric(
-    metricas["comprovantes_de_saque"],
-    name,
-    helper,
-    type
-  );
-
-  metric.list = [
-    {
-      cnpj_cpf: 99714833000,
-      nome: "Alexsandro da Silva Maciel",
-      itens: [
-        { id: 842881, nome: "Instrutor", link: "#" },
-        {
-          id: 842896,
-          nome: "Contribui\u00e7\u00e3o Patronal",
-          link: "#"
-        }
-      ]
-    }
-  ];
-
-  return metric;
-}
-
-//Trocar isso
-export function getComprovantesDeCheque(metricas) {
-  let name = "Cheque com vários comprovantes*";
-  let helper =
-    "Quantidade de cheques que comprovam o pagamento de dois ou mais itens orçamentários.";
-  let type = "lista-com-dropdown-tabela";
-
-  metricas.comprovantes_de_cheque = {
-    valor: 0,
-    valor_formatado: 0,
-    valor_valido: false,
-    is_outlier: false,
-    minimo_esperado: 0,
-    maximo_esperado: 0
-  };
-
-  let metric = createBaseMetric(
-    metricas["comprovantes_de_cheque"],
+    metricas["comprovante_transferencia"],
     name,
     helper,
     type
   );
 
   try {
-    metric.comprovantes = metricas.comprovantes_de_cheque.data.comprovantes;
+    metric.comprovantes = metricas.comprovante_transferencia.data.comprovantes;
   } catch {
-    metric.comprovantes = [
-      {
-        id_comprovante: 5413,
-        itens: [
-          {
-            nome: "Coordenação editorial",
-            nome_fornecedor: "QUEM DIRIA EDIÇÃO DE LIVROS LTDA",
-            cpf_cnpj_fornecedor: "xxxxxxxx",
-            valor_comprovado: "3000.00"
-          }
-        ]
-      },
-      {
-        id_comprovante: 5413,
-        itens: [
-          {
-            nome: "Coordenação editorial",
-            nome_fornecedor: "QUEM DIRIA EDIÇÃO DE LIVROS LTDA",
-            cpf_cnpj_fornecedor: "xxxxxxxx",
-            valor_comprovado: "3000.00"
-          }
-        ]
-      },
-      {
-        id_comprovante: 5413,
-        itens: [
-          {
-            nome: "Coordenação editorial",
-            nome_fornecedor: "QUEM DIRIA EDIÇÃO DE LIVROS LTDA",
-            cpf_cnpj_fornecedor: "xxxxxxxx",
-            valor_comprovado: "3000.00"
-          }
-        ]
-      }
-    ];
+    metric.comprovantes = [];
+  }
+
+  return metric;
+}
+
+export function getComprovantesDeSaque(metricas) {
+  let name = "Saque com vários comprovantes";
+  let helper =
+    "Quantidade de saques que comprovam o pagamento de dois ou mais itens orçamentários.";
+  let type = "lista-com-dropdown-tabela";
+
+  let metric = createBaseMetric(
+    metricas["comprovante_saque"],
+    name,
+    helper,
+    type
+  );
+
+  try {
+    metric.comprovantes = metricas.comprovante_saque.data.comprovantes;
+  } catch {
+    metric.comprovantes = [];
+  }
+
+  return metric;
+}
+
+export function getComprovantesDeCheque(metricas) {
+  let name = "Cheque com vários comprovantes";
+  let helper =
+    "Quantidade de cheques que comprovam o pagamento de dois ou mais itens orçamentários.";
+  let type = "lista-com-dropdown-tabela";
+
+  let metric = createBaseMetric(
+    metricas["comprovante_cheque"],
+    name,
+    helper,
+    type
+  );
+
+  try {
+    metric.comprovantes = metricas.comprovante_cheque.data.comprovantes;
+  } catch {
+    metric.comprovantes = [];
   }
 
   return metric;
