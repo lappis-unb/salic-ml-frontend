@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="metrica.length!=0">
+    <div v-if="metrica.valor!=0">
       <div v-for="(object, index) in metrica.list" :key="index+object+index" class="accordion">
         <div class="title">
           <i class="dropdown icon"></i>
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <a  :href="metrica.link">Acesse a Planilha</a>
+      <a :href="metrica.link">Acesse a Planilha</a>
     </div>
     <div v-else>{{text_exception}}</div>
   </div>
@@ -47,7 +47,6 @@ a:hover {
   color: #003f70 !important;
   text-decoration: underline !important;
 }
-
 
 </style>
 

@@ -25,7 +25,7 @@
               <tr v-for="(item, index) in object.itens" :key="index+index+item" class="item">
                 <td data-label="Nome" id="name-cell">{{item.item}}</td>
                 <td data-label="Nome do Fornecedor" id="value-cell">{{item.nome_fornecedor}}</td>
-                <td data-label="CPF / CNPJ" id="value-cell">{{item.cpf_cnpj_fornecedor}}</td>
+                <td data-label="CPF / CNPJ" id="value-cell">{{applyCPFCNPJmask(item.cpf_cnpj_fornecedor)}}</td>
                 <td data-label="Valor Comprovado" id="value-cell">{{setMoneyFormat(item.valor_comprovado)}}</td>
               </tr>
             </tbody>
@@ -52,6 +52,12 @@ export default {
         style: "currency",
         currency: "BRL"
       }).format(value);
+    },
+    applyCPFCNPJmask(value){
+        var cnpj = /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2}).*/;
+        var cpf = /^(\d{3})(\d{3})(\d{3})(\d{2}).*/;
+
+        return (value.length > 11) ? value.replace(cnpj, '$1.$2.$3/$4-$5') : value.replace(cpf, '$1.$2.$3-$4');
     }
   }
 };
