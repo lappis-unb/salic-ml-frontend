@@ -17,7 +17,8 @@
             :key="item+index+index"
             class="item"
           >
-            <a :href="item.link">{{item.nome}}</a>
+            <!--<a :href="item.link">{{item.nome}}</a>-->
+            <p>{{item.nome}}</p>
           </div>
         </div>
       </div>

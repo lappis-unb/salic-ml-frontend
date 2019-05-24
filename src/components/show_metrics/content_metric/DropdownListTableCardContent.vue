@@ -24,7 +24,7 @@
             <tbody>
               <tr v-for="(item, index) in object.itens" :key="index+index+item" class="item">
                 <td data-label="Nome" id="name-cell">{{item.item}}</td>
-                <td data-label="Nome do Fornecedor" id="value-cell">{{item.nome_fornecedor}}</td>
+                <td data-label="Nome do Fornecedor" id="name-provider-cell">{{item.nome_fornecedor}}</td>
                 <td data-label="CPF / CNPJ" id="value-cell">{{applyCPFCNPJmask(item.cpf_cnpj_fornecedor)}}</td>
                 <td data-label="Valor Comprovado" id="value-cell">{{setMoneyFormat(item.valor_comprovado)}}</td>
               </tr>
@@ -65,6 +65,9 @@ export default {
 <style scoped>
 #title {
   text-transform: capitalize;
+}
+#name-provider-cell {
+  max-width: 15em;
 }
 </style>
 

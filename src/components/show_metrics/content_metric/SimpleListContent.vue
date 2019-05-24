@@ -7,14 +7,13 @@
           <strong>{{(item.porcentagem).toFixed(0)}}%</strong></li>
       </ul>
       </div>
-        <a :href="metrica.link_da_planilha">Acesse a Planilha</a>
+        <!--<a :href="metrica.link_da_planilha">Acesse a Planilha</a>-->
     </div>
     <div v-else>Não há comprovantes com preços acima de 50%.</div>
     </div>
 </template>
 
 <style>
-
   a {
     font-weight: bold; 
     color: #0099a8 !important;
@@ -24,7 +23,6 @@
     color: #003f70 !important;
     text-decoration: underline !important;
   }
-
 </style>
 
 <script>

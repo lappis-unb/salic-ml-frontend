@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <a :href="metrica.link">Acesse a Planilha</a>
+      <!--<a :href="metrica.link">Acesse a Planilha</a>-->
     </div>
     <div v-else>{{text_exception}}</div>
   </div>

@@ -105,10 +105,10 @@ export function getProjetosDoMesmoProponente(metricas) {
 }
 
 export function getValorASerComprovado(metricas) {
-  let name = "Valor a ser comprovado*";
+  let name = "Valor a ser comprovado";
   let helper =
     "Valor total de itens orçamentários que não tem comprovantes de pagamento associados. Valores negativos indicam comprovação maior do que o valor executado.";
-  let type = "tabela-de-itens";
+  let type = "simples";
   let sinais = "";
 
   let metric = createBaseMetric(
@@ -119,13 +119,13 @@ export function getValorASerComprovado(metricas) {
   );
   metric.valor_formatado =
     "R$ " + sinais + setMoneyFormat(metric.valor).replace("R$", "");
-  metric.maximo_esperado = "R$ " + setMoneyFormat(metric.maximo_esperado);
 
   try {
-    metric.list = [{ nome: "Item", pronac: 1234, valor_captado: 30123.13 }];
+    // metric.maximo_esperado = "R$ " + setMoneyFormat(metricas.maximo_esperado);
   } catch {
-    metric.list = [];
+    metric.maximo_esperado = "R$ " + 0;
   }
+
   return metric;
 }
 
