@@ -64,7 +64,7 @@ export function getComprovantesComExtrapolacaoDe50(metricas) {
   let type = "lista-simples";
 
   let metric = createBaseMetric(
-    metricas["comprovantes_acima_de_50"],
+    metricas["comprovantes_acima_50"],
     name,
     helper,
     type
@@ -72,9 +72,9 @@ export function getComprovantesComExtrapolacaoDe50(metricas) {
 
   try {
     metric.lista_de_comprovantes =
-      metricas.comprovantes_acima_de_50.data.lista_de_comprovantes;
+      metricas.comprovantes_acima_50.data.lista_de_comprovantes;
     metric.link_da_planilha =
-      metricas.comprovantes_acima_de_50.data.link_da_planilha;
+      metricas.comprovantes_acima_50.data.link_da_planilha;
   } catch {
     metric.lista_de_comprovantes = [];
   }
