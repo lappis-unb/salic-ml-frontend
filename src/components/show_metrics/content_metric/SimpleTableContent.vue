@@ -23,8 +23,8 @@
           <td
             data-label="Sit."
             id="situation-cell"
-            :data-tooltip="text"
-          >{{getStatus(project.situacao)}}</td>
+            :data-tooltip="(project.situacao).replace((project.situacao).split(' ', 1)[0] + ' - ', '')"
+          >{{(project.situacao).split(" ", 1)[0]}}</td>
           <td
             data-label="Período de execução"
             id="period-cell"
@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  name: "ProponentsListCardContent",
+  name: "SimpleTableContent",
   props: {
     metrica: Object
   },
@@ -68,13 +68,6 @@ export default {
         return date === "/ à /" ? "-" : date;
       } else return "";
     },
-    getStatus(status) {
-      if (status) {
-        this.code = status.split(" ", 1);
-        this.text = status.replace(this.code + " - ", "");
-        return this.code[0];
-      } else return "";
-    }
   }
 };
 </script>

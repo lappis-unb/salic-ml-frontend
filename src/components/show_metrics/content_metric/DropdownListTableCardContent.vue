@@ -57,7 +57,9 @@ export default {
         var cnpj = /^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2}).*/;
         var cpf = /^(\d{3})(\d{3})(\d{3})(\d{2}).*/;
 
-        return (value.length > 11) ? value.replace(cnpj, '$1.$2.$3/$4-$5') : value.replace(cpf, '$1.$2.$3-$4');
+        if(value)
+            return (value.length > 11) ? value.toString().replace(cnpj, '$1.$2.$3/$4-$5') : value.toString().replace(cpf, '$1.$2.$3-$4');
+        return "";
     }
   }
 };
