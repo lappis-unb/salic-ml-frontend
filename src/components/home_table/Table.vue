@@ -100,7 +100,7 @@ export default {
           this.complexity = value;
           var color = "#1B5E20";
           if (value >= 7) color = "#DB2828";
-          else value >= 4 ? (color = "#F2B01C") : (color = "#1B5E20");
+          else if (value >= 4) (color = "#F2B01C");
 
           return (
               '<strong style="color: ' +

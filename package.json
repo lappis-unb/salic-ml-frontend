@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "accounting": "^0.4.1",
-    "axios": "^0.18.0",
-    "jquery": "^3.4.0",
+    "axios": "^0.19.0",
+    "jquery": "^3.4.1",
     "moment": "^2.24.0",
-    "save": "^2.3.3",
+    "save": "^2.4.0",
     "semantic-ui-icon": "^2.3.3",
     "semantic-ui-modal": "^2.4.1",
     "semantic-ui-rating": "^2.3.1",
@@ -26,16 +26,16 @@
     "vuetable-2": "^1.7.5"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.6.0",
-    "@vue/cli-plugin-eslint": "^3.6.0",
-    "@vue/cli-service": "^3.6.0",
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
     "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
-    "husky": "^2.2.0",
+    "husky": "^2.3.0",
     "node-sass": "^4.12.0",
     "prettier": "1.17.1",
-    "pretty-quick": "^1.10.0",
+    "pretty-quick": "^1.11.0",
     "push-dir": "^0.4.1",
     "sass-loader": "^7.0.1",
     "semantic-ui-css": "^2.4.1",
@@ -90,6 +90,10 @@
       "**/tests/unit/**/*.spec.(js|jsx|ts|tsx)|**/__tests__/*.(js|jsx|ts|tsx)"
     ],
     "testURL": "http://localhost/",
-	"husky": { "hooks": { "pre-commit": "pretty-quick --staged" } }
+    "husky": {
+      "hooks": {
+        "pre-commit": "pretty-quick --staged"
+      }
+    }
   }
 }

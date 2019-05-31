@@ -33,9 +33,10 @@ export default {
   },
   computed: {
     getSubtitle: function() {
-      if (this.value >= 7) return "Muito Complexo";
-      else if (this.value >= 4) return "Complexo";
-      else return "Normal";
+      let complexidade = "Normal";
+      if (this.value >= 7) complexidade = "Muito Complexo";
+      else if (this.value >= 4) complexidade = "Complexo";
+      return complexidade;
     }
   },
   mounted: function() {
@@ -45,10 +46,10 @@ export default {
         radius: 70,
         barColor: {
           0: "#1b5e20",
-          4: "#1b5e20",
-          5: "#f2b01c",
-          7: "#f2b01c",
-          8: "#db2828",
+          3: "#1b5e20",
+          4: "#f2b01c",
+          6: "#f2b01c",
+          7: "#db2828",
           10: "#db2828"
         },
         maxValue: 10,
