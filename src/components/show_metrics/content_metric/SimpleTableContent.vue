@@ -1,6 +1,7 @@
 <template>
   <div>
-    <table v-if="metrica.valor!=0" class="ui celled table striped">
+    <div v-if="metrica.valor!=0">
+    <table class="ui celled table striped">
       <thead>
         <tr>
           <th id="complexity-cell">Comp.</th>
@@ -15,11 +16,11 @@
         <tr v-for="(project, index) in metrica.proponent_projects" :key="project+index">
           <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade) }}</td>
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
-          <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
           <td
             data-label="Valor Comprovado"
             id="value-cell"
           >{{setMoneyFormat(project.valor_comprovado)}}</td>
+          <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
           <td
             data-label="Sit."
             id="situation-cell"
@@ -28,17 +29,18 @@
           <td
             data-label="Período de execução"
             id="period-cell"
-          >{{formateDate(project.data_inicio, project.data_fim)}}</td>
+          >{{formateDate(project.data_inicio, project.data_final)}}</td>
         </tr>
       </tbody>
     </table>
+    </div>
     <div v-else>Não há projetos do mesmo proponente.</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ProponentsListCardContent",
+  name: "SimpleTableContent",
   props: {
     metrica: Object
   },
@@ -50,30 +52,30 @@ export default {
   },
   methods: {
     setMoneyFormat(value) {
-      if (value)
-        return Intl.NumberFormat("en-US", {
+        return Intl.NumberFormat("pt-BR", {
           style: "currency",
           currency: "BRL"
         })
           .format(value)
           .replace("R$", "");
-      else return "";
     },
     formateDate(begin, end) {
       if (begin && end) {
-        let start = begin.slice(5, 7) + "/" + begin.slice(0, 4);
-        let final = end.slice(5, 7) + "/" + end.slice(0, 4);
-        let date = start + " à " + final;
+        let start = begin.slice(8, 10) + '/' + begin.slice(5, 7) + '/' + begin.slice(0, 4);
+        let final = end.slice(8, 10) + '/' + end.slice(5, 7) + '/' + end.slice(0, 4);
+        let date =  start + " à " + final;
 
         return date === "/ à /" ? "-" : date;
-      } else return "";
+      }
+      return "";
     },
     getStatus(status) {
       if (status) {
         this.code = status.split(" ", 1);
         this.text = status.replace(this.code + " - ", "");
         return this.code[0];
-      } else return "";
+      }
+      return "";
     }
   }
 };

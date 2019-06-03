@@ -2,18 +2,18 @@
   <div>
     <div class="ui grid">
       <div class="eight wide column">
-        <div class="list header" v-if="metric.uncommon_items">Itens inesperados</div>
+        <div class="list header" v-if="metric.items_incomuns">Itens inesperados</div>
         <div class="ui bulleted list">
-          <div v-for="(item, index) in metric.uncommon_items" :key="item+index" class="item">
+          <div v-for="(item, index) in metric.items_incomuns" :key="item+index" class="item">
             <a :href="item.link">{{item.nome}}</a>
           </div>
         </div>
       </div>
       <div class="eight wide column">
-        <div class="list header" v-if="metric.common_items_not_in_project">Itens ausentes</div>
+        <div class="list header" v-if="metric.items_comuns_que_o_projeto_nao_possui">Itens ausentes</div>
         <div class="ui bulleted list">
           <div
-            v-for="(item, index) in metric.common_items_not_in_project"
+            v-for="(item, index) in metric.items_comuns_que_o_projeto_nao_possui"
             :key="item+index+index"
             class="item"
           >

@@ -164,6 +164,7 @@ export function getComprovantesDeTransferencia(metricas) {
     type
   );
 
+  metric.tipo_operacao = "transferência";
   try {
     metric.comprovantes = metricas.comprovante_transferencia.data.comprovantes;
   } catch {
@@ -185,6 +186,7 @@ export function getComprovantesDeSaque(metricas) {
     helper,
     type
   );
+  metric.tipo_operacao = "saque";
 
   try {
     metric.comprovantes = metricas.comprovante_saque.data.comprovantes;
@@ -207,6 +209,7 @@ export function getComprovantesDeCheque(metricas) {
     helper,
     type
   );
+  metric.tipo_operacao = "cheque";
 
   try {
     metric.comprovantes = metricas.comprovante_cheque.data.comprovantes;

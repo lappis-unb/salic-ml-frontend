@@ -8,7 +8,7 @@
     >
       <div class="title">
         <i class="dropdown icon"></i>
-        Código do comprovante: {{object.id_comprovante}}
+        Código de {{metrica.tipo_operacao}}: {{object.id_comprovante}}
       </div>
       <div class="content">
         <div class="ui bulleted list">
