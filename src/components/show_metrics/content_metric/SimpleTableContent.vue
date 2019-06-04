@@ -24,8 +24,8 @@
           <td
             data-label="Sit."
             id="situation-cell"
-            :data-tooltip="text"
-          >{{getStatus(project.situacao)}}</td>
+            :data-tooltip="project.situacao"
+            >{{project.situacao ? project.situacao.split(' ', 1)[0] : ''}}</td>
           <td
             data-label="Período de execução"
             id="period-cell"
@@ -66,14 +66,6 @@ export default {
         let date =  start + " à " + final;
 
         return date === "/ à /" ? "-" : date;
-      }
-      return "";
-    },
-    getStatus(status) {
-      if (status) {
-        this.code = status.split(" ", 1);
-        this.text = status.replace(this.code + " - ", "");
-        return this.code[0];
       }
       return "";
     }
