@@ -12,7 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(project, index) in metrica.proponent_projects" :key="project+index">
+        <tr v-for="(project, index) in proponent_list" :key="project+index">
           <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade) }}</td>
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
           <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
@@ -28,7 +28,7 @@
           <td
             data-label="Período de execução"
             id="period-cell"
-          >{{formateDate(project.data_inicio, project.data_fim)}}</td>
+          >{{formateDate(project.data_inicio, project.data_final)}}</td>
         </tr>
       </tbody>
     </table>
@@ -45,7 +45,8 @@ export default {
   data() {
     return {
       code: "",
-      text: ""
+      text: "",
+      proponent_list: ((this.metrica.proponent_projects).sort((a, b) => ((new Date(a.data_inicio)) > (new Date(b.data_inicio))) ? 1 : -1))
     };
   },
   methods: {
