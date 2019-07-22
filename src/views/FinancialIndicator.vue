@@ -56,9 +56,35 @@ export default {
       url: API_PATH_PROJECT + this.$route.params.pronac + '/details/',
     };
   },
-  methods: {},
+  methods: {
+    getData: function(){
+        var self = this;
+        axios
+          .get(this.url)
+          .then(function(response) {
+            // handle success
+            var project = JSON.parse(JSON.stringify(response.data));
+            self.project = project;
+            self.indicadores = project.indicadores;
+          })
+          .catch(function(/*error*/) {
+            // handle error
+            // console.log("Get error", error);
+          })
+          .then(function() {
+            self.loading = false;
+            // always executed
+          });
+    } 
+  },
   props: {
     pronac: String,
+  },
+  watch: {
+    '$route.params.pronac': function () {
+        this.getData();
+        window.location.reload(true);
+    }
   },
   computed: {
     metricas: function() {
@@ -76,24 +102,9 @@ export default {
     },
   },
   created: function() {
-    var self = this;
-    axios
-      .get(this.url)
-      .then(function(response) {
-        // handle success
-        var project = JSON.parse(JSON.stringify(response.data));
-        self.project = project;
-        self.indicadores = project.indicadores;
-      })
-      .catch(function(/*error*/) {
-        // handle error
-        // console.log("Get error", error);
-      })
-      .then(function() {
-        self.loading = false;
-        // always executed
-      });
-  },
+    this.getData();
+  }
+
 };
 </script>
 

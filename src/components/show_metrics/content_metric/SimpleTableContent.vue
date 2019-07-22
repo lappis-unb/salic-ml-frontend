@@ -5,24 +5,24 @@
         <tr>
           <th id="complexity-cell">Comp.</th>
           <th>Nome</th>
-          <th id="value-cell">Valor Comprovado (R$)</th>
+          <th id="center-cell">Valor Comprovado (R$)</th>
           <th id="value-cell">Valor Captado (R$)</th>
           <th id="complexity-cell">Sit.</th>
           <th>Período de execução</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(project, index) in proponent_list" :key="project+index">
-          <td data-label="Complexidade" id="complexity-cell">{{ (project.complexidade) }}</td>
+        <tr v-for="(project, index) in proponent_list" style="cursor: pointer;" :key="project+index" v-on:click="changePage(project)">
+          <td data-label="Complexidade" id="complexity-cell">{{ project.complexidade }}</td>
           <td data-label="Nome" id="name-cell">{{project.nome}} ({{project.pronac}})</td>
-          <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
           <td
             data-label="Valor Comprovado"
             id="value-cell"
           >{{setMoneyFormat(project.valor_comprovado)}}</td>
+          <td data-label="Valor Captado" id="value-cell">{{setMoneyFormat(project.valor_captado)}}</td>
           <td
             data-label="Sit."
-            id="situation-cell"
+            id="center-cell"
             :data-tooltip="(project.situacao).replace((project.situacao).split(' ', 1)[0] + ' - ', '')"
           >{{(project.situacao).split(" ", 1)[0]}}</td>
           <td
@@ -37,6 +37,7 @@
 </template>
 
 <script>
+
 export default {
   name: "SimpleTableContent",
   props: {
@@ -46,10 +47,14 @@ export default {
     return {
       code: "",
       text: "",
-      proponent_list: ((this.metrica.proponent_projects).sort((a, b) => ((new Date(a.data_inicio)) > (new Date(b.data_inicio))) ? 1 : -1))
+      proponent_list: ((this.metrica.proponent_projects).sort((a, b) => ((new Date(a.data_final)) > (new Date(b.data_final))) ? 1 : -1))
     };
   },
   methods: {
+    changePage(project){ 
+        this.$router.push(project.pronac);
+        window.location.reload(true);
+    },
     setMoneyFormat(value) {
       if (value)
         return Intl.NumberFormat("en-US", {
@@ -58,7 +63,7 @@ export default {
         })
           .format(value)
           .replace("R$", "");
-      else return "";
+      else return "-";
     },
     formateDate(begin, end) {
       if (begin && end) {
@@ -67,7 +72,7 @@ export default {
         let date = start + " à " + final;
 
         return date === "/ à /" ? "-" : date;
-      } else return "";
+      } else return "-";
     },
   }
 };
@@ -91,7 +96,7 @@ export default {
   max-width: 18em;
 }
 
-#situation-cell {
+#center-cell {
   text-align: center;
 }
 </style>
